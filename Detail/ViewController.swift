@@ -34,6 +34,19 @@ class ViewController: UIViewController {
         return label
     }()
 
+    lazy var messageButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Send melding", for: .normal)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        button.backgroundColor = UIColor(red: 0/255, green: 99/255, blue: 251/255, alpha: 1)    // primaryBlue
+        button.layer.cornerRadius = 4.0
+        button.addTarget(self, action: #selector(messageButtonTapped), for: .touchUpInside)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +59,7 @@ class ViewController: UIViewController {
         view.addSubview(galleryImageView)
         view.addSubview(titleLabel)
         view.addSubview(priceLabel)
+        view.addSubview(messageButton)
 
         NSLayoutConstraint.activate([
             galleryImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
@@ -60,8 +74,15 @@ class ViewController: UIViewController {
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             priceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             priceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+
+            messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: margin),
+            messageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            messageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
         ])
     }
+
+    @objc func messageButtonTapped() {
+        print("Message sent!")
     }
 }
 
