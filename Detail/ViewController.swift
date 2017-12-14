@@ -59,6 +59,18 @@ class ViewController: UIViewController {
         return label
     }()
 
+    lazy var showNumberButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("Vis telefonnummer", for: .normal)
+        button.addTarget(self, action: #selector(showNumberButtonTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
