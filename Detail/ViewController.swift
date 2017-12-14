@@ -47,6 +47,16 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var answerTimeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor(red: 118/255, green: 118/255, blue: 118/255, alpha: 1)        // stone
+        label.text = "Svarer vanligvis innen 4 timer"
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,6 +70,7 @@ class ViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(priceLabel)
         view.addSubview(messageButton)
+        view.addSubview(answerTimeLabel)
 
         NSLayoutConstraint.activate([
             galleryImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
@@ -78,6 +89,10 @@ class ViewController: UIViewController {
             messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: margin),
             messageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             messageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+
+            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: 8),
+            answerTimeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            answerTimeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
         ])
     }
 
