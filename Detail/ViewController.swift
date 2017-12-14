@@ -4,6 +4,8 @@ class ViewController: UIViewController {
 
     let margin: CGFloat = 16
     let fontSize: CGFloat = 26
+    let primaryBlue = UIColor(red: 0/255, green: 99/255, blue: 251/255, alpha: 1)
+    let stone = UIColor(red: 118/255, green: 118/255, blue: 118/255, alpha: 1)
 
     lazy var galleryImageView: UIImageView = {
         let imageView = UIImageView()
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Send melding", for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        button.backgroundColor = UIColor(red: 0/255, green: 99/255, blue: 251/255, alpha: 1)    // primaryBlue
+        button.backgroundColor = primaryBlue
         button.layer.cornerRadius = 4.0
         button.addTarget(self, action: #selector(messageButtonTapped), for: .touchUpInside)
         return button
@@ -52,7 +54,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(red: 118/255, green: 118/255, blue: 118/255, alpha: 1)        // stone
+        label.textColor = stone
         label.text = "Svarer vanligvis innen 4 timer"
         return label
     }()
