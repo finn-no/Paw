@@ -7,6 +7,18 @@ class ViewController: UIViewController {
     let primaryBlue = UIColor(red: 0/255, green: 99/255, blue: 251/255, alpha: 1)
     let stone = UIColor(red: 118/255, green: 118/255, blue: 118/255, alpha: 1)
 
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    lazy var contentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     lazy var galleryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,38 +91,60 @@ class ViewController: UIViewController {
 
     func setup() {
         view.backgroundColor = .white
+
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
-        view.addSubview(galleryImageView)
-        view.addSubview(titleLabel)
-        view.addSubview(priceLabel)
-        view.addSubview(messageButton)
-        view.addSubview(answerTimeLabel)
+        contentView.addSubview(galleryImageView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(messageButton)
+        contentView.addSubview(answerTimeLabel)
+        contentView.addSubview(showNumberButton)
 
         NSLayoutConstraint.activate([
-            galleryImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin),
-            galleryImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            galleryImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            galleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin),
+            galleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            galleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
             galleryImageView.heightAnchor.constraint(equalToConstant: 200),
 
             titleLabel.topAnchor.constraint(equalTo: galleryImageView.bottomAnchor, constant: margin),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
 
             priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            priceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            priceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
 
             messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: margin),
-            messageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            messageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            messageButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            messageButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
 
             answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: 8),
-            answerTimeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            answerTimeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            answerTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            answerTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+
+            showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: 4),
+            showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+//            showNumberButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
         ])
     }
 
     @objc func messageButtonTapped() {
+        print("Message sent!")
+    }
+    @objc func showNumberButtonTapped() {
         print("Message sent!")
     }
 }
