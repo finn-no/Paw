@@ -2,10 +2,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let margin: CGFloat = 16
+    let mediumLargeSpacing: CGFloat = 16
+    let mediumSpacing: CGFloat = 8
+    let smallSpacing: CGFloat = 4
     let fontSize: CGFloat = 26
     let primaryBlue = UIColor(red: 0/255, green: 99/255, blue: 251/255, alpha: 1)
     let stone = UIColor(red: 118/255, green: 118/255, blue: 118/255, alpha: 1)
+    let licorice = UIColor(red: 71/255, green: 68/255, blue: 69/255, alpha: 1)
 
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
@@ -32,6 +35,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
         label.font = UIFont.systemFont(ofSize: fontSize)
+        label.textColor = licorice
         label.numberOfLines = 0
         label.text = "Ny lekker sofa fra Ygg og Lybg selges til halv pris!!!"
         label.accessibilityLabel = label.text
@@ -43,6 +47,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
         label.font = UIFont.boldSystemFont(ofSize: fontSize)
+        label.textColor = licorice
         label.text = "500,-"
         label.accessibilityLabel = "Pris: 500kroner"
         return label
