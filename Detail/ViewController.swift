@@ -119,30 +119,33 @@ class ViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            galleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin),
-            galleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-            galleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            galleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: mediumLargeSpacing),
+            galleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            galleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
             galleryImageView.heightAnchor.constraint(equalToConstant: 200),
 
-            titleLabel.topAnchor.constraint(equalTo: galleryImageView.bottomAnchor, constant: margin),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            titleLabel.topAnchor.constraint(equalTo: galleryImageView.bottomAnchor, constant: mediumLargeSpacing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
 
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: mediumSpacing),
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
 
-            messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: margin),
-            messageButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-            messageButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: mediumLargeSpacing),
+            messageButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            messageButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
 
-            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: 8),
-            answerTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-            answerTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: mediumSpacing),
+            answerTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            answerTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
 
-            showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: 4),
-            showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
-//            showNumberButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: smallSpacing),
+            showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+
+
+
+
         ])
     }
 
