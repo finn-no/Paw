@@ -219,6 +219,7 @@ class ViewController: UIViewController {
         print("Opening map")
     }
     @objc func showWholeDescriptionAction(sender: UIButton) {
+        print("Vis hele beskrivelsen!")
         descriptionLabel.numberOfLines = 0
         descriptionLabel.sizeToFit()
     }
