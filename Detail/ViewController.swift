@@ -96,6 +96,20 @@ class ViewController: UIViewController {
         return imageView
     }()
 
+    lazy var adressButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("Hans Nordahls gate 64, 0841 Oslo", for: .normal)
+        button.addTarget(self, action: #selector(openMapAction), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        let image = UIImage(imageLiteralResourceName: "pin").withRenderingMode(.alwaysTemplate)
+        button.imageView?.tintColor = primaryBlue
+        button.setImage(image, for: .normal)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -115,6 +129,7 @@ class ViewController: UIViewController {
         contentView.addSubview(answerTimeLabel)
         contentView.addSubview(showNumberButton)
         contentView.addSubview(profileCellImageView)
+        contentView.addSubview(adressButton)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -157,6 +172,8 @@ class ViewController: UIViewController {
             profileCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
             profileCellImageView.heightAnchor.constraint(equalToConstant: 125),
 
+            adressButton.topAnchor.constraint(equalTo: profileCellImageView.bottomAnchor, constant: mediumSpacing),
+            adressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
 
 
         ])
