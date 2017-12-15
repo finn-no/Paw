@@ -88,6 +88,14 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var profileCellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "profileCell")
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -106,6 +114,7 @@ class ViewController: UIViewController {
         contentView.addSubview(messageButton)
         contentView.addSubview(answerTimeLabel)
         contentView.addSubview(showNumberButton)
+        contentView.addSubview(profileCellImageView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -143,6 +152,10 @@ class ViewController: UIViewController {
             showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: smallSpacing),
             showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
 
+            profileCellImageView.topAnchor.constraint(equalTo: showNumberButton.bottomAnchor, constant: smallSpacing),
+            profileCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            profileCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            profileCellImageView.heightAnchor.constraint(equalToConstant: 125),
 
 
 
