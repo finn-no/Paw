@@ -110,6 +110,28 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 5
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = stone
+        label.text = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :)"
+        return label
+    }()
+
+    lazy var showWholeDescriptionButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("+ Vis hele beskrivelsen", for: .normal)
+        button.addTarget(self, action: #selector(showWholeDescriptionAction), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -130,6 +152,8 @@ class ViewController: UIViewController {
         contentView.addSubview(showNumberButton)
         contentView.addSubview(profileCellImageView)
         contentView.addSubview(adressButton)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(showWholeDescriptionButton)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -175,7 +199,12 @@ class ViewController: UIViewController {
             adressButton.topAnchor.constraint(equalTo: profileCellImageView.bottomAnchor, constant: mediumSpacing),
             adressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
 
+            descriptionLabel.topAnchor.constraint(equalTo: adressButton.bottomAnchor, constant: mediumLargeSpacing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
 
+            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: mediumSpacing),
+            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
         ])
     }
 
