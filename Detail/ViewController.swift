@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.backgroundColor = primaryBlue
         button.layer.cornerRadius = 4.0
-        button.addTarget(self, action: #selector(messageButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(messageTapped), for: .touchUpInside)
         return button
     }()
 
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         button.isAccessibilityElement = true
         button.setTitleColor(primaryBlue, for: .normal)
         button.setTitle("Vis telefonnummer", for: .normal)
-        button.addTarget(self, action: #selector(showNumberButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showNumberTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         return button
@@ -146,11 +146,17 @@ class ViewController: UIViewController {
         ])
     }
 
-    @objc func messageButtonTapped() {
+    @objc func messageTapped(sender: UIButton) {
         print("Message sent!")
     }
-    @objc func showNumberButtonTapped() {
-        print("Message sent!")
+    @objc func showNumberTapped(sender: UIButton) {
+        print("Show number!")
+    }
+    @objc func openMapAction(sender: UIButton) {
+        print("Opening map")
+    }
+    @objc func showWholeDescriptionAction(sender: UIButton) {
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.sizeToFit()
     }
 }
-
