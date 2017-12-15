@@ -205,6 +205,7 @@ class ViewController: UIViewController {
 
             showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: mediumSpacing),
             showWholeDescriptionButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
 
