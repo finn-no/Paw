@@ -175,6 +175,14 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var deliveryHelpImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "deliveryHelp")
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -201,6 +209,7 @@ class ViewController: UIViewController {
         contentView.addSubview(adCellImageView)
         contentView.addSubview(safePayButton)
         contentView.addSubview(loanPriceButton)
+        contentView.addSubview(deliveryHelpImageView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -263,10 +272,14 @@ class ViewController: UIViewController {
 
             safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: mediumSpacing),
             safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            safePayButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
 
             loanPriceButton.topAnchor.constraint(equalTo: safePayButton.topAnchor),
             loanPriceButton.leadingAnchor.constraint(equalTo: safePayButton.trailingAnchor, constant: mediumLargeSpacing),
+
+            deliveryHelpImageView.topAnchor.constraint(equalTo: safePayButton.bottomAnchor, constant: mediumSpacing),
+            deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            deliveryHelpImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            deliveryHelpImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
         ])
     }
 
