@@ -16,18 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.font = UIFont.systemFont(ofSize: title1FontSize)
-        label.textColor = .licorice
-        label.numberOfLines = 0
-        label.text = "Ny lekker sofa fra Ygg og Lybg selges til halv pris!!!"
-        label.accessibilityLabel = label.text
-        return label
-    }()
-
     lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -262,9 +250,12 @@ class ViewController: UIViewController {
 
         let galleryView = GalleryView(frame: .zero)
         galleryView.translatesAutoresizingMaskIntoConstraints = false
+
+        let titleView = TitleView(frame: .zero)
+        titleView.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(galleryView)
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(titleView)
         contentView.addSubview(priceLabel)
         contentView.addSubview(messageButton)
         contentView.addSubview(answerTimeLabel)
@@ -299,11 +290,11 @@ class ViewController: UIViewController {
             galleryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             galleryView.heightAnchor.constraint(equalToConstant: 330),
 
-            titleLabel.topAnchor.constraint(equalTo: galleryView.bottomAnchor, constant: .mediumLargeSpacing),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            titleView.topAnchor.constraint(equalTo: galleryView.bottomAnchor, constant: .mediumLargeSpacing),
+            titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            titleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .mediumSpacing),
+            priceLabel.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: .mediumSpacing),
             priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 

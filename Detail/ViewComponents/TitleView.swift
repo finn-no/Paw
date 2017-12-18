@@ -9,7 +9,7 @@ public class TitleView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
-        label.font = UIFont.systemFont(ofSize: title1FontSize)
+        label.font = .title1
         label.textColor = .licorice
         label.numberOfLines = 0
         label.text = "Ny lekker sofa fra Ygg og Lybg selges til halv pris!!!"
