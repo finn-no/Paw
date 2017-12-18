@@ -151,6 +151,30 @@ class ViewController: UIViewController {
         return imageView
     }()
 
+    lazy var safePayButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("FINN Trygg betaling", for: .normal)
+        button.addTarget(self, action: #selector(safePayTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
+    lazy var loanPriceButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("Pris på lån", for: .normal)
+        button.addTarget(self, action: #selector(loanPriceTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -175,6 +199,8 @@ class ViewController: UIViewController {
         contentView.addSubview(showWholeDescriptionButton)
         contentView.addSubview(categoryLabel)
         contentView.addSubview(adCellImageView)
+        contentView.addSubview(safePayButton)
+        contentView.addSubview(loanPriceButton)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -234,6 +260,13 @@ class ViewController: UIViewController {
             adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: mediumSpacing),
             adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: mediumSpacing),
+            safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            safePayButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
+
+            loanPriceButton.topAnchor.constraint(equalTo: safePayButton.topAnchor),
+            loanPriceButton.leadingAnchor.constraint(equalTo: safePayButton.trailingAnchor, constant: mediumLargeSpacing),
         ])
     }
 
@@ -262,5 +295,11 @@ class ViewController: UIViewController {
                 self.descriptionLabel.sizeToFit()
             }, completion: nil)
         }
+    }
+    @objc func safePayTapped(sender: UIButton) {
+        print("Safe Pay")
+    }
+    @objc func loanPriceTapped(sender: UIButton) {
+        print("Loan price")
     }
 }
