@@ -195,6 +195,38 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var finnCodeInfoLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "FINN-kode"
+        return label
+    }()
+
+    lazy var lastEditedInfoLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "Sist endret"
+        return label
+    }()
+
+    lazy var finnCodeContentLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "145789632"
+        return label
+    }()
+
+    lazy var lastEditedContentLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "24. nov 2017 14:04"
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
