@@ -132,6 +132,17 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.textColor = primaryBlue
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.text = "Møbler oginteriør / Sofaer og lenestoler / Sofagrupper"
+        label.numberOfLines = 2
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -154,6 +165,7 @@ class ViewController: UIViewController {
         contentView.addSubview(adressButton)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(showWholeDescriptionButton)
+        contentView.addSubview(categoryLabel)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -205,7 +217,11 @@ class ViewController: UIViewController {
 
             showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: mediumSpacing),
             showWholeDescriptionButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+
+            categoryLabel.topAnchor.constraint(equalTo: showWholeDescriptionButton.bottomAnchor, constant: mediumSpacing),
+            categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            categoryLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
         ])
     }
 
