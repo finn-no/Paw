@@ -254,6 +254,14 @@ class ViewController: UIViewController {
         return stackView
     }()
 
+    lazy var relevantAdsFeedImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "relevantAdsFeed")
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -283,6 +291,7 @@ class ViewController: UIViewController {
         contentView.addSubview(deliveryHelpImageView)
         contentView.addSubview(adReporterButton)
         contentView.addSubview(adInfoStackView)
+        contentView.addSubview(relevantAdsFeedImageView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -299,7 +308,7 @@ class ViewController: UIViewController {
             galleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: mediumLargeSpacing),
             galleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
             galleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
-            galleryImageView.heightAnchor.constraint(equalToConstant: 200),
+            galleryImageView.heightAnchor.constraint(equalToConstant: 330),
 
             titleLabel.topAnchor.constraint(equalTo: galleryImageView.bottomAnchor, constant: mediumLargeSpacing),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
@@ -342,6 +351,7 @@ class ViewController: UIViewController {
             adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: mediumSpacing),
             adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            adCellImageView.heightAnchor.constraint(equalToConstant: 400),
 
             safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: mediumSpacing),
             safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
@@ -358,7 +368,12 @@ class ViewController: UIViewController {
 
             adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: mediumLargeSpacing),
             adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            adInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
+
+            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoStackView.bottomAnchor, constant: mediumSpacing),
+            relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 650),
+            relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
     }
 
