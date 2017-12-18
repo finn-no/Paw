@@ -16,14 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var profileCellImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "profileCell")
-        return imageView
-    }()
-
     lazy var adressButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -222,7 +214,10 @@ class ViewController: UIViewController {
         showNumberButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(showNumberButton)
 
-        contentView.addSubview(profileCellImageView)
+        let profileView = ProfileView()
+        profileView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(profileView)
+
         contentView.addSubview(adressButton)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(showWholeDescriptionButton)
@@ -267,12 +262,12 @@ class ViewController: UIViewController {
             showNumberButton.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: .smallSpacing),
             showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            profileCellImageView.topAnchor.constraint(equalTo: showNumberButton.bottomAnchor, constant: .smallSpacing),
-            profileCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            profileCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            profileCellImageView.heightAnchor.constraint(equalToConstant: 125),
+            profileView.topAnchor.constraint(equalTo: showNumberButton.bottomAnchor, constant: .smallSpacing),
+            profileView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            profileView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            profileView.heightAnchor.constraint(equalToConstant: 125),
 
-            adressButton.topAnchor.constraint(equalTo: profileCellImageView.bottomAnchor, constant: .mediumSpacing),
+            adressButton.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: .mediumSpacing),
             adressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             descriptionLabel.topAnchor.constraint(equalTo: adressButton.bottomAnchor, constant: .mediumLargeSpacing),
