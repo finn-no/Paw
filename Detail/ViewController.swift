@@ -183,6 +183,18 @@ class ViewController: UIViewController {
         return imageView
     }()
 
+    lazy var adReporterButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("Rapporter svindel/regelbrudd", for: .normal)
+        button.addTarget(self, action: #selector(adReporterTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -210,6 +222,7 @@ class ViewController: UIViewController {
         contentView.addSubview(safePayButton)
         contentView.addSubview(loanPriceButton)
         contentView.addSubview(deliveryHelpImageView)
+        contentView.addSubview(adReporterButton)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -279,7 +292,9 @@ class ViewController: UIViewController {
             deliveryHelpImageView.topAnchor.constraint(equalTo: safePayButton.bottomAnchor, constant: mediumSpacing),
             deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
             deliveryHelpImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
-            deliveryHelpImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
+
+            adReporterButton.topAnchor.constraint(equalTo: deliveryHelpImageView.bottomAnchor, constant: mediumSpacing),
+            adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
         ])
     }
 
@@ -314,5 +329,8 @@ class ViewController: UIViewController {
     }
     @objc func loanPriceTapped(sender: UIButton) {
         print("Loan price")
+    }
+    @objc func adReporterTapped(sender: UIButton) {
+        print("Reporting ad")
     }
 }
