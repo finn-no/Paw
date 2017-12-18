@@ -143,6 +143,125 @@ class ViewController: UIViewController {
         return label
     }()
 
+    lazy var adCellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "adCell")
+        return imageView
+    }()
+
+    lazy var safePayButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("FINN Trygg betaling", for: .normal)
+        button.addTarget(self, action: #selector(safePayTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
+    lazy var loanPriceButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("Pris på lån", for: .normal)
+        button.addTarget(self, action: #selector(loanPriceTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
+    lazy var deliveryHelpImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "deliveryHelp")
+        return imageView
+    }()
+
+    lazy var adReporterButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isAccessibilityElement = true
+        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitle("Rapporter svindel/regelbrudd", for: .normal)
+        button.addTarget(self, action: #selector(adReporterTapped), for: .touchUpInside)
+        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return button
+    }()
+
+    lazy var finnCodeInfoLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "FINN-kode"
+        return label
+    }()
+
+    lazy var lastEditedInfoLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "Sist endret"
+        return label
+    }()
+
+    lazy var finnCodeContentLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "145789632"
+        return label
+    }()
+
+    lazy var lastEditedContentLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = stone
+        label.text = "24. nov 2017 14:04"
+        return label
+    }()
+
+    lazy var leftAdInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [finnCodeInfoLabel, lastEditedInfoLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        stackView.spacing = smallSpacing
+        return stackView
+    }()
+
+    lazy var rightAdInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [finnCodeContentLabel, lastEditedContentLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        stackView.spacing = smallSpacing
+        return stackView
+    }()
+
+    lazy var adInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [leftAdInfoStackView, rightAdInfoStackView])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.spacing = mediumSpacing
+        return stackView
+    }()
+
+    lazy var relevantAdsFeedImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "relevantAdsFeed")
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -166,6 +285,13 @@ class ViewController: UIViewController {
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(showWholeDescriptionButton)
         contentView.addSubview(categoryLabel)
+        contentView.addSubview(adCellImageView)
+        contentView.addSubview(safePayButton)
+        contentView.addSubview(loanPriceButton)
+        contentView.addSubview(deliveryHelpImageView)
+        contentView.addSubview(adReporterButton)
+        contentView.addSubview(adInfoStackView)
+        contentView.addSubview(relevantAdsFeedImageView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -182,7 +308,7 @@ class ViewController: UIViewController {
             galleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: mediumLargeSpacing),
             galleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
             galleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
-            galleryImageView.heightAnchor.constraint(equalToConstant: 200),
+            galleryImageView.heightAnchor.constraint(equalToConstant: 330),
 
             titleLabel.topAnchor.constraint(equalTo: galleryImageView.bottomAnchor, constant: mediumLargeSpacing),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
@@ -221,7 +347,33 @@ class ViewController: UIViewController {
             categoryLabel.topAnchor.constraint(equalTo: showWholeDescriptionButton.bottomAnchor, constant: mediumSpacing),
             categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
             categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
-            categoryLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
+
+            adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: mediumSpacing),
+            adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            adCellImageView.heightAnchor.constraint(equalToConstant: 400),
+
+            safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: mediumSpacing),
+            safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+
+            loanPriceButton.topAnchor.constraint(equalTo: safePayButton.topAnchor),
+            loanPriceButton.leadingAnchor.constraint(equalTo: safePayButton.trailingAnchor, constant: mediumLargeSpacing),
+
+            deliveryHelpImageView.topAnchor.constraint(equalTo: safePayButton.bottomAnchor, constant: mediumSpacing),
+            deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            deliveryHelpImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+
+            adReporterButton.topAnchor.constraint(equalTo: deliveryHelpImageView.bottomAnchor, constant: mediumSpacing),
+            adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+
+            adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: mediumLargeSpacing),
+            adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+
+            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoStackView.bottomAnchor, constant: mediumSpacing),
+            relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 650),
+            relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
     }
 
@@ -235,20 +387,29 @@ class ViewController: UIViewController {
         print("Opening map")
     }
     @objc func showWholeDescriptionAction(sender: UIButton) {
-        print("Vis hele beskrivelsen!")
-
         if descriptionLabel.numberOfLines >= 5 {
+            print("Vis hele beskrivelsen!")
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.showWholeDescriptionButton.setTitle("- Vis mindre", for: .normal)
                 self.descriptionLabel.numberOfLines = 0
                 self.descriptionLabel.sizeToFit()
             }, completion: nil)
         } else {
+            print("Vis mindre av beskrivelsen!")
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
                 self.showWholeDescriptionButton.setTitle("+ Vis hele beskrivelsen", for: .normal)
                 self.descriptionLabel.numberOfLines = 5
                 self.descriptionLabel.sizeToFit()
             }, completion: nil)
         }
+    }
+    @objc func safePayTapped(sender: UIButton) {
+        print("Safe Pay")
+    }
+    @objc func loanPriceTapped(sender: UIButton) {
+        print("Loan price")
+    }
+    @objc func adReporterTapped(sender: UIButton) {
+        print("Reporting ad")
     }
 }
