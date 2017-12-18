@@ -2,13 +2,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let mediumLargeSpacing: CGFloat = 16
-    let mediumSpacing: CGFloat = 8
-    let smallSpacing: CGFloat = 4
-    let fontSize: CGFloat = 26
-    let primaryBlue = UIColor(red: 0/255, green: 99/255, blue: 251/255, alpha: 1)
-    let stone = UIColor(red: 118/255, green: 118/255, blue: 118/255, alpha: 1)
-    let licorice = UIColor(red: 71/255, green: 68/255, blue: 69/255, alpha: 1)
+    public let title1FontSize: CGFloat = 28
 
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
@@ -22,20 +16,12 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var galleryImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "sofa2")
-        return imageView
-    }()
-
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
-        label.font = UIFont.systemFont(ofSize: fontSize)
-        label.textColor = licorice
+        label.font = UIFont.systemFont(ofSize: title1FontSize)
+        label.textColor = .licorice
         label.numberOfLines = 0
         label.text = "Ny lekker sofa fra Ygg og Lybg selges til halv pris!!!"
         label.accessibilityLabel = label.text
@@ -46,8 +32,8 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
-        label.font = UIFont.boldSystemFont(ofSize: fontSize)
-        label.textColor = licorice
+        label.font = UIFont.boldSystemFont(ofSize: title1FontSize)
+        label.textColor = .licorice
         label.text = "500,-"
         label.accessibilityLabel = "Pris: 500kroner"
         return label
@@ -60,7 +46,7 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Send melding", for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        button.backgroundColor = primaryBlue
+        button.backgroundColor = .primaryBlue
         button.layer.cornerRadius = 4.0
         button.addTarget(self, action: #selector(messageTapped), for: .touchUpInside)
         return button
@@ -71,7 +57,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = stone
+        label.textColor = .stone
         label.text = "Svarer vanligvis innen 4 timer"
         return label
     }()
@@ -80,7 +66,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
-        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitleColor(.primaryBlue, for: .normal)
         button.setTitle("Vis telefonnummer", for: .normal)
         button.addTarget(self, action: #selector(showNumberTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -100,12 +86,12 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
-        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitleColor(.primaryBlue, for: .normal)
         button.setTitle("Hans Nordahls gate 64, 0841 Oslo", for: .normal)
         button.addTarget(self, action: #selector(openMapAction), for: .touchUpInside)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         let image = UIImage(imageLiteralResourceName: "pin").withRenderingMode(.alwaysTemplate)
-        button.imageView?.tintColor = primaryBlue
+        button.imageView?.tintColor = .primaryBlue
         button.setImage(image, for: .normal)
         return button
     }()
@@ -115,7 +101,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 5
         label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = stone
+        label.textColor = .stone
         label.text = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det."
         return label
     }()
@@ -124,7 +110,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
-        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitleColor(.primaryBlue, for: .normal)
         button.setTitle("+ Vis hele beskrivelsen", for: .normal)
         button.addTarget(self, action: #selector(showWholeDescriptionAction), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -136,7 +122,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
-        label.textColor = primaryBlue
+        label.textColor = .primaryBlue
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = "Møbler oginteriør / Sofaer og lenestoler / Sofagrupper"
         label.numberOfLines = 2
@@ -155,7 +141,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
-        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitleColor(.primaryBlue, for: .normal)
         button.setTitle("FINN Trygg betaling", for: .normal)
         button.addTarget(self, action: #selector(safePayTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -167,7 +153,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
-        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitleColor(.primaryBlue, for: .normal)
         button.setTitle("Pris på lån", for: .normal)
         button.addTarget(self, action: #selector(loanPriceTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -187,7 +173,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
-        button.setTitleColor(primaryBlue, for: .normal)
+        button.setTitleColor(.primaryBlue, for: .normal)
         button.setTitle("Rapporter svindel/regelbrudd", for: .normal)
         button.addTarget(self, action: #selector(adReporterTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -198,7 +184,7 @@ class ViewController: UIViewController {
     lazy var finnCodeInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = stone
+        label.textColor = .stone
         label.text = "FINN-kode"
         return label
     }()
@@ -206,7 +192,7 @@ class ViewController: UIViewController {
     lazy var lastEditedInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = stone
+        label.textColor = .stone
         label.text = "Sist endret"
         return label
     }()
@@ -214,7 +200,7 @@ class ViewController: UIViewController {
     lazy var finnCodeContentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = stone
+        label.textColor = .stone
         label.text = "145789632"
         return label
     }()
@@ -222,7 +208,7 @@ class ViewController: UIViewController {
     lazy var lastEditedContentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = stone
+        label.textColor = .stone
         label.text = "24. nov 2017 14:04"
         return label
     }()
@@ -232,7 +218,7 @@ class ViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.spacing = smallSpacing
+        stackView.spacing = .smallSpacing
         return stackView
     }()
 
@@ -241,7 +227,7 @@ class ViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.spacing = smallSpacing
+        stackView.spacing = .smallSpacing
         return stackView
     }()
 
@@ -250,7 +236,7 @@ class ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
-        stackView.spacing = mediumSpacing
+        stackView.spacing = .mediumSpacing
         return stackView
     }()
 
@@ -273,8 +259,11 @@ class ViewController: UIViewController {
 
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+
+        let galleryView = GalleryView(frame: .zero)
+        galleryView.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(galleryImageView)
+        contentView.addSubview(galleryView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(messageButton)
@@ -305,73 +294,73 @@ class ViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            galleryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: mediumLargeSpacing),
-            galleryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            galleryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
-            galleryImageView.heightAnchor.constraint(equalToConstant: 330),
+            galleryView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
+            galleryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            galleryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            galleryView.heightAnchor.constraint(equalToConstant: 330),
 
-            titleLabel.topAnchor.constraint(equalTo: galleryImageView.bottomAnchor, constant: mediumLargeSpacing),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            titleLabel.topAnchor.constraint(equalTo: galleryView.bottomAnchor, constant: .mediumLargeSpacing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: mediumSpacing),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            priceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .mediumSpacing),
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: mediumLargeSpacing),
-            messageButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            messageButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: .mediumLargeSpacing),
+            messageButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            messageButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: mediumSpacing),
-            answerTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            answerTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: .mediumSpacing),
+            answerTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            answerTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: smallSpacing),
-            showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: .smallSpacing),
+            showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            profileCellImageView.topAnchor.constraint(equalTo: showNumberButton.bottomAnchor, constant: smallSpacing),
-            profileCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            profileCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            profileCellImageView.topAnchor.constraint(equalTo: showNumberButton.bottomAnchor, constant: .smallSpacing),
+            profileCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            profileCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             profileCellImageView.heightAnchor.constraint(equalToConstant: 125),
 
-            adressButton.topAnchor.constraint(equalTo: profileCellImageView.bottomAnchor, constant: mediumSpacing),
-            adressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            adressButton.topAnchor.constraint(equalTo: profileCellImageView.bottomAnchor, constant: .mediumSpacing),
+            adressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            descriptionLabel.topAnchor.constraint(equalTo: adressButton.bottomAnchor, constant: mediumLargeSpacing),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            descriptionLabel.topAnchor.constraint(equalTo: adressButton.bottomAnchor, constant: .mediumLargeSpacing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: mediumSpacing),
-            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .mediumSpacing),
+            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            categoryLabel.topAnchor.constraint(equalTo: showWholeDescriptionButton.bottomAnchor, constant: mediumSpacing),
-            categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            categoryLabel.topAnchor.constraint(equalTo: showWholeDescriptionButton.bottomAnchor, constant: .mediumSpacing),
+            categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: mediumSpacing),
+            adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: .mediumSpacing),
             adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             adCellImageView.heightAnchor.constraint(equalToConstant: 400),
 
-            safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: mediumSpacing),
-            safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: .mediumSpacing),
+            safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             loanPriceButton.topAnchor.constraint(equalTo: safePayButton.topAnchor),
-            loanPriceButton.leadingAnchor.constraint(equalTo: safePayButton.trailingAnchor, constant: mediumLargeSpacing),
+            loanPriceButton.leadingAnchor.constraint(equalTo: safePayButton.trailingAnchor, constant: .mediumLargeSpacing),
 
-            deliveryHelpImageView.topAnchor.constraint(equalTo: safePayButton.bottomAnchor, constant: mediumSpacing),
-            deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            deliveryHelpImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            deliveryHelpImageView.topAnchor.constraint(equalTo: safePayButton.bottomAnchor, constant: .mediumSpacing),
+            deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            deliveryHelpImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adReporterButton.topAnchor.constraint(equalTo: deliveryHelpImageView.bottomAnchor, constant: mediumSpacing),
-            adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            adReporterButton.topAnchor.constraint(equalTo: deliveryHelpImageView.bottomAnchor, constant: .mediumSpacing),
+            adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: mediumLargeSpacing),
-            adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: .mediumLargeSpacing),
+            adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoStackView.bottomAnchor, constant: mediumSpacing),
-            relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
-            relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
+            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoStackView.bottomAnchor, constant: .mediumSpacing),
+            relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 650),
             relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
