@@ -15,6 +15,9 @@
 		4541AF951FE80646002488ED /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF941FE80646002488ED /* TitleView.swift */; };
 		4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF971FE80799002488ED /* UIColor+Detail.swift */; };
 		4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF991FE80824002488ED /* CGFloat+Detail.swift */; };
+		4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */; };
+		4541AFA11FE8110E002488ED /* FINNTypeWebStrippet-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */; };
+		4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		4541AF941FE80646002488ED /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		4541AF971FE80799002488ED /* UIColor+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Detail.swift"; sourceTree = "<group>"; };
 		4541AF991FE80824002488ED /* CGFloat+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Detail.swift"; sourceTree = "<group>"; };
+		4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FINNTypeWebStrippet-Medium.ttf"; sourceTree = "<group>"; };
+		4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FINNTypeWebStrippet-Light.ttf"; sourceTree = "<group>"; };
+		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +70,7 @@
 				44CAE2D71FE26C9F00F8AA9B /* ViewController.swift */,
 				4541AF961FE80786002488ED /* Extensions */,
 				4541AF911FE8038F002488ED /* ViewComponents */,
-				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
+				4541AF9B1FE80EAA002488ED /* Resources */,
 				44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */,
 				44CAE2E11FE26C9F00F8AA9B /* Info.plist */,
 			);
@@ -85,8 +91,27 @@
 			children = (
 				4541AF971FE80799002488ED /* UIColor+Detail.swift */,
 				4541AF991FE80824002488ED /* CGFloat+Detail.swift */,
+				4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4541AF9B1FE80EAA002488ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4541AF9C1FE80F6A002488ED /* Fonts */,
+				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4541AF9C1FE80F6A002488ED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */,
+				4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */,
+				4541AFA11FE8110E002488ED /* FINNTypeWebStrippet-Light.ttf in Resources */,
+				4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */,
 				44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ViewController.swift in Sources */,
 				4541AF931FE803EC002488ED /* GalleryView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
