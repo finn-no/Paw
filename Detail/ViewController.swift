@@ -16,40 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.font = UIFont.boldSystemFont(ofSize: title1FontSize)
-        label.textColor = .licorice
-        label.text = "500,-"
-        label.accessibilityLabel = "Pris: 500kroner"
-        return label
-    }()
-
-    lazy var messageButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Send melding", for: .normal)
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        button.backgroundColor = .primaryBlue
-        button.layer.cornerRadius = 4.0
-        button.addTarget(self, action: #selector(messageTapped), for: .touchUpInside)
-        return button
-    }()
-
-    lazy var answerTimeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .stone
-        label.text = "Svarer vanligvis innen 4 timer"
-        return label
-    }()
-
     lazy var showNumberButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -248,17 +214,22 @@ class ViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
 
-        let galleryView = GalleryView(frame: .zero)
+        let galleryView = GalleryView()
         galleryView.translatesAutoresizingMaskIntoConstraints = false
 
-        let titleView = TitleView(frame: .zero)
+        let titleView = TitleView()
         titleView.translatesAutoresizingMaskIntoConstraints = false
+
+        let priceView = PriceView()
+        priceView.translatesAutoresizingMaskIntoConstraints = false
+
+        let messageButton = MessageButtonView()
+        messageButton.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(galleryView)
         contentView.addSubview(titleView)
-        contentView.addSubview(priceLabel)
+        contentView.addSubview(priceView)
         contentView.addSubview(messageButton)
-        contentView.addSubview(answerTimeLabel)
         contentView.addSubview(showNumberButton)
         contentView.addSubview(profileCellImageView)
         contentView.addSubview(adressButton)
@@ -294,19 +265,15 @@ class ViewController: UIViewController {
             titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             titleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            priceLabel.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: .mediumSpacing),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            priceView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: .mediumSpacing),
+            priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            priceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            messageButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: .mediumLargeSpacing),
+            messageButton.topAnchor.constraint(equalTo: priceView.bottomAnchor, constant: .mediumLargeSpacing),
             messageButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             messageButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: .mediumSpacing),
-            answerTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            answerTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-
-            showNumberButton.topAnchor.constraint(equalTo: answerTimeLabel.bottomAnchor, constant: .smallSpacing),
+            showNumberButton.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: .smallSpacing),
             showNumberButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             profileCellImageView.topAnchor.constraint(equalTo: showNumberButton.bottomAnchor, constant: .smallSpacing),
@@ -357,9 +324,6 @@ class ViewController: UIViewController {
         ])
     }
 
-    @objc func messageTapped(sender: UIButton) {
-        print("Message sent!")
-    }
     @objc func showNumberTapped(sender: UIButton) {
         print("Show number!")
     }
