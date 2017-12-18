@@ -16,20 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var adressButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("Hans Nordahls gate 64, 0841 Oslo", for: .normal)
-        button.addTarget(self, action: #selector(openMapAction), for: .touchUpInside)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        let image = UIImage(imageLiteralResourceName: "pin").withRenderingMode(.alwaysTemplate)
-        button.imageView?.tintColor = .primaryBlue
-        button.setImage(image, for: .normal)
-        return button
-    }()
-
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -218,7 +204,10 @@ class ViewController: UIViewController {
         profileView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(profileView)
 
-        contentView.addSubview(adressButton)
+        let adressView = AdressView()
+        adressView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(adressView)
+
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(showWholeDescriptionButton)
         contentView.addSubview(categoryLabel)
@@ -267,10 +256,10 @@ class ViewController: UIViewController {
             profileView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             profileView.heightAnchor.constraint(equalToConstant: 125),
 
-            adressButton.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: .mediumSpacing),
-            adressButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            adressView.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: .mediumSpacing),
+            adressView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            descriptionLabel.topAnchor.constraint(equalTo: adressButton.bottomAnchor, constant: .mediumLargeSpacing),
+            descriptionLabel.topAnchor.constraint(equalTo: adressView.bottomAnchor, constant: .mediumLargeSpacing),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
@@ -310,9 +299,6 @@ class ViewController: UIViewController {
         ])
     }
 
-    @objc func openMapAction(sender: UIButton) {
-        print("Opening map")
-    }
     @objc func showWholeDescriptionAction(sender: UIButton) {
         if descriptionLabel.numberOfLines >= 5 {
             print("Vis hele beskrivelsen!")

@@ -22,6 +22,7 @@
 		4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonView.swift */; };
 		4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */; };
 		4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileView.swift */; };
+		45655F641FE81BC70088A22C /* AdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4541AFA51FE81470002488ED /* MessageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonView.swift; sourceTree = "<group>"; };
 		4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonView.swift; sourceTree = "<group>"; };
 		4541AFA91FE819A9002488ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		45655F631FE81BC70088A22C /* AdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				4541AFA31FE81367002488ED /* PriceView.swift */,
 				4541AFA51FE81470002488ED /* MessageButtonView.swift */,
 				4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */,
+				45655F631FE81BC70088A22C /* AdressView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				4541AF931FE803EC002488ED /* GalleryView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */,
+				45655F641FE81BC70088A22C /* AdressView.swift in Sources */,
 				4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */,
 				4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */,
 				4541AF951FE80646002488ED /* TitleView.swift in Sources */,
