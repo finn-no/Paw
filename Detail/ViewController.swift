@@ -143,6 +143,14 @@ class ViewController: UIViewController {
         return label
     }()
 
+    lazy var adCellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "adCell")
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -166,6 +174,7 @@ class ViewController: UIViewController {
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(showWholeDescriptionButton)
         contentView.addSubview(categoryLabel)
+        contentView.addSubview(adCellImageView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -221,7 +230,10 @@ class ViewController: UIViewController {
             categoryLabel.topAnchor.constraint(equalTo: showWholeDescriptionButton.bottomAnchor, constant: mediumSpacing),
             categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
             categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -mediumLargeSpacing),
-            categoryLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
+
+            adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: mediumSpacing),
+            adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
 
