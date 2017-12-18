@@ -16,18 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var showNumberButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("Vis telefonnummer", for: .normal)
-        button.addTarget(self, action: #selector(showNumberTapped), for: .touchUpInside)
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        return button
-    }()
-
     lazy var profileCellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -216,21 +204,24 @@ class ViewController: UIViewController {
 
         let galleryView = GalleryView()
         galleryView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(galleryView)
 
         let titleView = TitleView()
         titleView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(titleView)
 
         let priceView = PriceView()
         priceView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(priceView)
 
         let messageButton = MessageButtonView()
         messageButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(galleryView)
-        contentView.addSubview(titleView)
-        contentView.addSubview(priceView)
         contentView.addSubview(messageButton)
+
+        let showNumberButton = ShowNumberButtonView()
+        showNumberButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(showNumberButton)
+
         contentView.addSubview(profileCellImageView)
         contentView.addSubview(adressButton)
         contentView.addSubview(descriptionLabel)
@@ -324,9 +315,6 @@ class ViewController: UIViewController {
         ])
     }
 
-    @objc func showNumberTapped(sender: UIButton) {
-        print("Show number!")
-    }
     @objc func openMapAction(sender: UIButton) {
         print("Opening map")
     }

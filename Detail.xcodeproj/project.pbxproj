@@ -20,6 +20,7 @@
 		4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */; };
 		4541AFA41FE81367002488ED /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceView.swift */; };
 		4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonView.swift */; };
+		4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
 		4541AFA31FE81367002488ED /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		4541AFA51FE81470002488ED /* MessageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonView.swift; sourceTree = "<group>"; };
+		4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				4541AF941FE80646002488ED /* TitleView.swift */,
 				4541AFA31FE81367002488ED /* PriceView.swift */,
 				4541AFA51FE81470002488ED /* MessageButtonView.swift */,
+				4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */,
+				4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */,
 				4541AF931FE803EC002488ED /* GalleryView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */,
