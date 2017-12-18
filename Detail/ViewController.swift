@@ -220,7 +220,19 @@ class ViewController: UIViewController {
     }
     @objc func showWholeDescriptionAction(sender: UIButton) {
         print("Vis hele beskrivelsen!")
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.sizeToFit()
+
+        if descriptionLabel.numberOfLines >= 5 {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.showWholeDescriptionButton.setTitle("- Vis mindre", for: .normal)
+                self.descriptionLabel.numberOfLines = 0
+                self.descriptionLabel.sizeToFit()
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.showWholeDescriptionButton.setTitle("+ Vis hele beskrivelsen", for: .normal)
+                self.descriptionLabel.numberOfLines = 5
+                self.descriptionLabel.sizeToFit()
+            }, completion: nil)
+        }
     }
 }
