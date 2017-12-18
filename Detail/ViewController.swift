@@ -227,6 +227,33 @@ class ViewController: UIViewController {
         return label
     }()
 
+    lazy var leftAdInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [finnCodeInfoLabel, lastEditedInfoLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        stackView.spacing = smallSpacing
+        return stackView
+    }()
+
+    lazy var rightAdInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [finnCodeContentLabel, lastEditedContentLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        stackView.spacing = smallSpacing
+        return stackView
+    }()
+
+    lazy var adInfoStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [leftAdInfoStackView, rightAdInfoStackView])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.spacing = mediumSpacing
+        return stackView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -255,6 +282,7 @@ class ViewController: UIViewController {
         contentView.addSubview(loanPriceButton)
         contentView.addSubview(deliveryHelpImageView)
         contentView.addSubview(adReporterButton)
+        contentView.addSubview(adInfoStackView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -327,6 +355,10 @@ class ViewController: UIViewController {
 
             adReporterButton.topAnchor.constraint(equalTo: deliveryHelpImageView.bottomAnchor, constant: mediumSpacing),
             adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+
+            adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: mediumLargeSpacing),
+            adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: mediumLargeSpacing),
+            adInfoStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -mediumSpacing),
         ])
     }
 
