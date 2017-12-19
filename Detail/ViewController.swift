@@ -16,17 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.textColor = .primaryBlue
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.text = "Møbler oginteriør / Sofaer og lenestoler / Sofagrupper"
-        label.numberOfLines = 2
-        return label
-    }()
-
     lazy var adCellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -190,7 +179,10 @@ class ViewController: UIViewController {
         descriptionView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(descriptionView)
 
-        contentView.addSubview(categoryLabel)
+        let categoryView = CategoryView()
+        categoryView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(categoryView)
+
         contentView.addSubview(adCellImageView)
         contentView.addSubview(safePayButton)
         contentView.addSubview(loanPriceButton)
@@ -243,11 +235,11 @@ class ViewController: UIViewController {
             descriptionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             descriptionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            categoryLabel.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: .mediumSpacing),
-            categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            categoryView.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: .mediumSpacing),
+            categoryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            categoryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adCellImageView.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: .mediumSpacing),
+            adCellImageView.topAnchor.constraint(equalTo: categoryView.bottomAnchor, constant: .mediumSpacing),
             adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             adCellImageView.heightAnchor.constraint(equalToConstant: 400),
