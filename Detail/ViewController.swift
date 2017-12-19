@@ -16,18 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var adReporterButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("Rapporter svindel/regelbrudd", for: .normal)
-        button.addTarget(self, action: #selector(adReporterTapped), for: .touchUpInside)
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        return button
-    }()
-
     lazy var finnCodeInfoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
@@ -159,7 +147,10 @@ class ViewController: UIViewController {
         deliveryView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(deliveryView)
 
-        contentView.addSubview(adReporterButton)
+        let adReporterView = AdReporterView()
+        adReporterView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(adReporterView)
+
         contentView.addSubview(adInfoStackView)
         contentView.addSubview(relevantAdsFeedImageView)
 
@@ -227,10 +218,11 @@ class ViewController: UIViewController {
             deliveryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             deliveryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adReporterButton.topAnchor.constraint(equalTo: deliveryView.bottomAnchor, constant: .mediumSpacing),
-            adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            adReporterView.topAnchor.constraint(equalTo: deliveryView.bottomAnchor, constant: .mediumSpacing),
+            adReporterView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            adReporterView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: .mediumLargeSpacing),
+            adInfoStackView.topAnchor.constraint(equalTo: adReporterView.bottomAnchor, constant: .mediumLargeSpacing),
             adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoStackView.bottomAnchor, constant: .mediumSpacing),
@@ -239,9 +231,5 @@ class ViewController: UIViewController {
             relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 650),
             relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
-    }
-
-    @objc func adReporterTapped(sender: UIButton) {
-        print("Reporting ad")
     }
 }

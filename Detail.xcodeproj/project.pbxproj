@@ -29,6 +29,7 @@
 		45655F6C1FE947180088A22C /* SafePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayView.swift */; };
 		45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6D1FE948340088A22C /* LoanPriceView.swift */; };
 		45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */; };
+		45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F711FE9510B0088A22C /* AdReporterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		45655F6B1FE947180088A22C /* SafePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayView.swift; sourceTree = "<group>"; };
 		45655F6D1FE948340088A22C /* LoanPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPriceView.swift; sourceTree = "<group>"; };
 		45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHelpView.swift; sourceTree = "<group>"; };
+		45655F711FE9510B0088A22C /* AdReporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdReporterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				45655F6B1FE947180088A22C /* SafePayView.swift */,
 				45655F6D1FE948340088A22C /* LoanPriceView.swift */,
 				45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */,
+				45655F711FE9510B0088A22C /* AdReporterView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */,
 				4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */,
 				4541AF951FE80646002488ED /* TitleView.swift in Sources */,
+				45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
