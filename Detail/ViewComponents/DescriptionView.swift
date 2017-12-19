@@ -5,6 +5,7 @@ public class DescriptionView: UIView {
     // MARK: - Internal properties
 
     private let maximumNumberOfLines = 5
+    private let descriptionText = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til!"
 
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -12,7 +13,7 @@ public class DescriptionView: UIView {
         label.numberOfLines = 5
         label.font = .body
         label.textColor = .stone
-        label.text = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til!"
+        label.text = descriptionText
         return label
     }()
 
@@ -42,27 +43,18 @@ public class DescriptionView: UIView {
 
     private func setup() {
         addSubview(descriptionLabel)
+        addSubview(showWholeDescriptionButton)
 
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+
+            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .mediumSpacing),
+            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
-
-        if descriptionLabel.numberOfLines < maximumNumberOfLines {
-            showWholeDescriptionButton.isHidden = true
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        } else {
-            addSubview(showWholeDescriptionButton)
-            showWholeDescriptionButton.isHidden = false
-
-            NSLayoutConstraint.activate([
-                showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .mediumSpacing),
-                showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-                showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-                showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            ])
-        }
     }
 
     // MARK: - Actions
