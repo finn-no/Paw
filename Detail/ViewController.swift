@@ -16,14 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var adCellImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "adCell")
-        return imageView
-    }()
-
     lazy var safePayButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -183,7 +175,10 @@ class ViewController: UIViewController {
         categoryView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(categoryView)
 
-        contentView.addSubview(adCellImageView)
+        let bannerView = BannerView()
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(bannerView)
+
         contentView.addSubview(safePayButton)
         contentView.addSubview(loanPriceButton)
         contentView.addSubview(deliveryHelpImageView)
@@ -239,12 +234,12 @@ class ViewController: UIViewController {
             categoryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             categoryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adCellImageView.topAnchor.constraint(equalTo: categoryView.bottomAnchor, constant: .mediumSpacing),
-            adCellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            adCellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            adCellImageView.heightAnchor.constraint(equalToConstant: 400),
+            bannerView.topAnchor.constraint(equalTo: categoryView.bottomAnchor, constant: .mediumSpacing),
+            bannerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            bannerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            bannerView.heightAnchor.constraint(equalToConstant: 400),
 
-            safePayButton.topAnchor.constraint(equalTo: adCellImageView.bottomAnchor, constant: .mediumSpacing),
+            safePayButton.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: .mediumSpacing),
             safePayButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             loanPriceButton.topAnchor.constraint(equalTo: safePayButton.topAnchor),
