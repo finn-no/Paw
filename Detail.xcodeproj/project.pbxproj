@@ -27,6 +27,7 @@
 		45655F681FE9427D0088A22C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryView.swift */; };
 		45655F6A1FE944200088A22C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerView.swift */; };
 		45655F6C1FE947180088A22C /* SafePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayView.swift */; };
+		45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6D1FE948340088A22C /* LoanPriceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		45655F671FE9427D0088A22C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		45655F691FE944200088A22C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		45655F6B1FE947180088A22C /* SafePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayView.swift; sourceTree = "<group>"; };
+		45655F6D1FE948340088A22C /* LoanPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPriceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				45655F671FE9427D0088A22C /* CategoryView.swift */,
 				45655F691FE944200088A22C /* BannerView.swift */,
 				45655F6B1FE947180088A22C /* SafePayView.swift */,
+				45655F6D1FE948340088A22C /* LoanPriceView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45655F6C1FE947180088A22C /* SafePayView.swift in Sources */,
+				45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */,
 				4541AFA41FE81367002488ED /* PriceView.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
 				45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */,

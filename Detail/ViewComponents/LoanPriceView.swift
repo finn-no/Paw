@@ -1,16 +1,16 @@
 import UIKit
 
-public class SafePayView: UIView {
+public class LoanPriceView: UIView {
 
     // MARK: - Internal properties
 
-    private lazy var safePayButton: UIButton = {
+    private lazy var loanPriceButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
         button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("FINN Trygg betaling", for: .normal)
-        button.addTarget(self, action: #selector(safePayTapped), for: .touchUpInside)
+        button.setTitle("Pris på lån", for: .normal)
+        button.addTarget(self, action: #selector(loanPriceTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         button.titleLabel?.font = .detail
         return button
@@ -29,19 +29,19 @@ public class SafePayView: UIView {
     }
 
     private func setup() {
-        addSubview(safePayButton)
+        addSubview(loanPriceButton)
 
         NSLayoutConstraint.activate([
-            safePayButton.topAnchor.constraint(equalTo: topAnchor),
-            safePayButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            safePayButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            safePayButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            loanPriceButton.topAnchor.constraint(equalTo: topAnchor),
+            loanPriceButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            loanPriceButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            loanPriceButton.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 
     // MARK: - Actions
 
-    @objc func safePayTapped(sender: UIButton) {
-        print("Safe Pay")
+    @objc func loanPriceTapped(sender: UIButton) {
+        print("Loan price")
     }
 }

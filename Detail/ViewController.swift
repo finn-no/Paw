@@ -16,18 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var loanPriceButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("Pris på lån", for: .normal)
-        button.addTarget(self, action: #selector(loanPriceTapped), for: .touchUpInside)
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        return button
-    }()
-
     lazy var deliveryHelpImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,7 +159,10 @@ class ViewController: UIViewController {
         safePayView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(safePayView)
 
-        contentView.addSubview(loanPriceButton)
+        let loanPriceView = LoanPriceView()
+        loanPriceView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(loanPriceView)
+
         contentView.addSubview(deliveryHelpImageView)
         contentView.addSubview(adReporterButton)
         contentView.addSubview(adInfoStackView)
@@ -233,8 +224,9 @@ class ViewController: UIViewController {
             safePayView.topAnchor.constraint(equalTo: bannerView.bottomAnchor, constant: .mediumSpacing),
             safePayView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            loanPriceButton.topAnchor.constraint(equalTo: safePayView.topAnchor),
-            loanPriceButton.leadingAnchor.constraint(equalTo: safePayView.trailingAnchor, constant: .mediumLargeSpacing),
+            loanPriceView.topAnchor.constraint(equalTo: safePayView.topAnchor),
+            loanPriceView.leadingAnchor.constraint(equalTo: safePayView.trailingAnchor, constant: .mediumLargeSpacing),
+            loanPriceView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
             deliveryHelpImageView.topAnchor.constraint(equalTo: safePayView.bottomAnchor, constant: .mediumSpacing),
             deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
@@ -254,9 +246,6 @@ class ViewController: UIViewController {
         ])
     }
 
-    @objc func loanPriceTapped(sender: UIButton) {
-        print("Loan price")
-    }
     @objc func adReporterTapped(sender: UIButton) {
         print("Reporting ad")
     }
