@@ -31,6 +31,7 @@
 		45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */; };
 		45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F711FE9510B0088A22C /* AdReporterView.swift */; };
 		45655F741FE952C20088A22C /* AdInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoView.swift */; };
+		45655F761FE954930088A22C /* RelevantAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHelpView.swift; sourceTree = "<group>"; };
 		45655F711FE9510B0088A22C /* AdReporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdReporterView.swift; sourceTree = "<group>"; };
 		45655F731FE952C20088A22C /* AdInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoView.swift; sourceTree = "<group>"; };
+		45655F751FE954930088A22C /* RelevantAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */,
 				45655F711FE9510B0088A22C /* AdReporterView.swift */,
 				45655F731FE952C20088A22C /* AdInfoView.swift */,
+				45655F751FE954930088A22C /* RelevantAdsView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				44CAE2D81FE26C9F00F8AA9B /* ViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */,
 				45655F6A1FE944200088A22C /* BannerView.swift in Sources */,
+				45655F761FE954930088A22C /* RelevantAdsView.swift in Sources */,
 				4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */,
 				4541AF931FE803EC002488ED /* GalleryView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,

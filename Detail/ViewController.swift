@@ -16,14 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var relevantAdsFeedImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "relevantAdsFeed")
-        return imageView
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -96,7 +88,9 @@ class ViewController: UIViewController {
         adInfoView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(adInfoView)
 
-        contentView.addSubview(relevantAdsFeedImageView)
+        let relevantAdsView = RelevantAdsView()
+        relevantAdsView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(relevantAdsView)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -169,11 +163,11 @@ class ViewController: UIViewController {
             adInfoView.topAnchor.constraint(equalTo: adReporterView.bottomAnchor, constant: .mediumLargeSpacing),
             adInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoView.bottomAnchor, constant: .mediumSpacing),
-            relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 650),
-            relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            relevantAdsView.topAnchor.constraint(equalTo: adInfoView.bottomAnchor, constant: .mediumSpacing),
+            relevantAdsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            relevantAdsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            relevantAdsView.heightAnchor.constraint(equalToConstant: 650),
+            relevantAdsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
     }
 }
