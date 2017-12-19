@@ -16,28 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 5
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = .stone
-        label.text = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det."
-        return label
-    }()
-
-    lazy var showWholeDescriptionButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("+ Vis hele beskrivelsen", for: .normal)
-        button.addTarget(self, action: #selector(showWholeDescriptionAction), for: .touchUpInside)
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        return button
-    }()
-
     lazy var categoryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -208,8 +186,10 @@ class ViewController: UIViewController {
         adressView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(adressView)
 
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(showWholeDescriptionButton)
+        let descriptionView = DescriptionView()
+        descriptionView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(descriptionView)
+
         contentView.addSubview(categoryLabel)
         contentView.addSubview(adCellImageView)
         contentView.addSubview(safePayButton)
@@ -259,14 +239,11 @@ class ViewController: UIViewController {
             adressView.topAnchor.constraint(equalTo: profileView.bottomAnchor, constant: .mediumSpacing),
             adressView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            descriptionLabel.topAnchor.constraint(equalTo: adressView.bottomAnchor, constant: .mediumLargeSpacing),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            descriptionView.topAnchor.constraint(equalTo: adressView.bottomAnchor, constant: .mediumLargeSpacing),
+            descriptionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .mediumSpacing),
-            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-
-            categoryLabel.topAnchor.constraint(equalTo: showWholeDescriptionButton.bottomAnchor, constant: .mediumSpacing),
+            categoryLabel.topAnchor.constraint(equalTo: descriptionView.bottomAnchor, constant: .mediumSpacing),
             categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             categoryLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
@@ -299,23 +276,6 @@ class ViewController: UIViewController {
         ])
     }
 
-    @objc func showWholeDescriptionAction(sender: UIButton) {
-        if descriptionLabel.numberOfLines >= 5 {
-            print("Vis hele beskrivelsen!")
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.showWholeDescriptionButton.setTitle("- Vis mindre", for: .normal)
-                self.descriptionLabel.numberOfLines = 0
-                self.descriptionLabel.sizeToFit()
-            }, completion: nil)
-        } else {
-            print("Vis mindre av beskrivelsen!")
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.showWholeDescriptionButton.setTitle("+ Vis hele beskrivelsen", for: .normal)
-                self.descriptionLabel.numberOfLines = 5
-                self.descriptionLabel.sizeToFit()
-            }, completion: nil)
-        }
-    }
     @objc func safePayTapped(sender: UIButton) {
         print("Safe Pay")
     }

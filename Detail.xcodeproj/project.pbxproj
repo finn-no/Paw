@@ -23,6 +23,7 @@
 		4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */; };
 		4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileView.swift */; };
 		45655F641FE81BC70088A22C /* AdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressView.swift */; };
+		45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonView.swift; sourceTree = "<group>"; };
 		4541AFA91FE819A9002488ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		45655F631FE81BC70088A22C /* AdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressView.swift; sourceTree = "<group>"; };
+		45655F651FE8F3080088A22C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				4541AFA51FE81470002488ED /* MessageButtonView.swift */,
 				4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */,
 				45655F631FE81BC70088A22C /* AdressView.swift */,
+				45655F651FE8F3080088A22C /* DescriptionView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				4541AFA41FE81367002488ED /* PriceView.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
+				45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */,
 				4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */,
