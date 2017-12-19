@@ -9,6 +9,8 @@ public class DeliveryHelpView: UIView {
     private lazy var deliveryHelpImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Knapp: Få hjelp til frakt."
         imageView.contentMode = .scaleAspectFit
         imageView.image = deliveryHelpImage
         return imageView

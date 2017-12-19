@@ -9,6 +9,8 @@ public class RelevantAdsView: UIView {
     private lazy var relevantAdsFeedImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Relevante ting på torget."
         imageView.contentMode = .scaleAspectFit
         imageView.image = relevantAdsImage
         return imageView

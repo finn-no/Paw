@@ -9,6 +9,8 @@ public class GalleryView: UIView {
     private lazy var galleryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Bilde: rosa sofa. Mørkt tregulv. Bilde 1 av 23."
         imageView.contentMode = .scaleAspectFit
         imageView.image = sofaImage
         return imageView

@@ -9,6 +9,8 @@ public class ProfileView: UIView {
     private lazy var profileCellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Selger: Navn: Svend Hansen. Vurdering: 4stjerner. 16vurderinger."
         imageView.contentMode = .scaleAspectFit
         imageView.image = profileImage
         return imageView

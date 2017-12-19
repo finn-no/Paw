@@ -9,6 +9,8 @@ public class BannerView: UIView {
     private lazy var adCellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityLabel = "Reklame"
         imageView.contentMode = .scaleAspectFit
         imageView.image = bannerImage
         return imageView
