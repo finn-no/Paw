@@ -16,14 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var deliveryHelpImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "deliveryHelp")
-        return imageView
-    }()
-
     lazy var adReporterButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -163,7 +155,10 @@ class ViewController: UIViewController {
         loanPriceView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(loanPriceView)
 
-        contentView.addSubview(deliveryHelpImageView)
+        let deliveryView = DeliveryHelpView()
+        deliveryView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(deliveryView)
+
         contentView.addSubview(adReporterButton)
         contentView.addSubview(adInfoStackView)
         contentView.addSubview(relevantAdsFeedImageView)
@@ -228,11 +223,11 @@ class ViewController: UIViewController {
             loanPriceView.leadingAnchor.constraint(equalTo: safePayView.trailingAnchor, constant: .mediumLargeSpacing),
             loanPriceView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            deliveryHelpImageView.topAnchor.constraint(equalTo: safePayView.bottomAnchor, constant: .mediumSpacing),
-            deliveryHelpImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            deliveryHelpImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            deliveryView.topAnchor.constraint(equalTo: safePayView.bottomAnchor, constant: .mediumSpacing),
+            deliveryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            deliveryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adReporterButton.topAnchor.constraint(equalTo: deliveryHelpImageView.bottomAnchor, constant: .mediumSpacing),
+            adReporterButton.topAnchor.constraint(equalTo: deliveryView.bottomAnchor, constant: .mediumSpacing),
             adReporterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             adInfoStackView.topAnchor.constraint(equalTo: adReporterButton.bottomAnchor, constant: .mediumLargeSpacing),

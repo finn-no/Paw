@@ -28,6 +28,7 @@
 		45655F6A1FE944200088A22C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerView.swift */; };
 		45655F6C1FE947180088A22C /* SafePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayView.swift */; };
 		45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6D1FE948340088A22C /* LoanPriceView.swift */; };
+		45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		45655F691FE944200088A22C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		45655F6B1FE947180088A22C /* SafePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayView.swift; sourceTree = "<group>"; };
 		45655F6D1FE948340088A22C /* LoanPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPriceView.swift; sourceTree = "<group>"; };
+		45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHelpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				45655F691FE944200088A22C /* BannerView.swift */,
 				45655F6B1FE947180088A22C /* SafePayView.swift */,
 				45655F6D1FE948340088A22C /* LoanPriceView.swift */,
+				45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				45655F681FE9427D0088A22C /* CategoryView.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */,
+				45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */,
 				45655F641FE81BC70088A22C /* AdressView.swift in Sources */,
 				4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */,
 				4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */,
