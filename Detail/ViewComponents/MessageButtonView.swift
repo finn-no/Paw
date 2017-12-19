@@ -10,7 +10,7 @@ public class MessageButtonView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .body
+        button.titleLabel?.font = .title4
         button.setTitle("Send melding", for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.backgroundColor = .primaryBlue
