@@ -16,65 +16,6 @@ class ViewController: UIViewController {
         return view
     }()
 
-    lazy var finnCodeInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = .stone
-        label.text = "FINN-kode"
-        return label
-    }()
-
-    lazy var lastEditedInfoLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = .stone
-        label.text = "Sist endret"
-        return label
-    }()
-
-    lazy var finnCodeContentLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .stone
-        label.text = "145789632"
-        return label
-    }()
-
-    lazy var lastEditedContentLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .stone
-        label.text = "24. nov 2017 14:04"
-        return label
-    }()
-
-    lazy var leftAdInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [finnCodeInfoLabel, lastEditedInfoLabel])
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .leading
-        stackView.spacing = .smallSpacing
-        return stackView
-    }()
-
-    lazy var rightAdInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [finnCodeContentLabel, lastEditedContentLabel])
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .leading
-        stackView.spacing = .smallSpacing
-        return stackView
-    }()
-
-    lazy var adInfoStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [leftAdInfoStackView, rightAdInfoStackView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.spacing = .mediumSpacing
-        return stackView
-    }()
-
     lazy var relevantAdsFeedImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -151,7 +92,10 @@ class ViewController: UIViewController {
         adReporterView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(adReporterView)
 
-        contentView.addSubview(adInfoStackView)
+        let adInfoView = AdInfoView()
+        adInfoView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(adInfoView)
+
         contentView.addSubview(relevantAdsFeedImageView)
 
         NSLayoutConstraint.activate([
@@ -222,10 +166,10 @@ class ViewController: UIViewController {
             adReporterView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             adReporterView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            adInfoStackView.topAnchor.constraint(equalTo: adReporterView.bottomAnchor, constant: .mediumLargeSpacing),
-            adInfoStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            adInfoView.topAnchor.constraint(equalTo: adReporterView.bottomAnchor, constant: .mediumLargeSpacing),
+            adInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
-            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoStackView.bottomAnchor, constant: .mediumSpacing),
+            relevantAdsFeedImageView.topAnchor.constraint(equalTo: adInfoView.bottomAnchor, constant: .mediumSpacing),
             relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 650),
