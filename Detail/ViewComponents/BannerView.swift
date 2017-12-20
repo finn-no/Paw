@@ -4,7 +4,7 @@ public class BannerView: UIView {
 
     // MARK: - Internal properties
 
-    private let bannerImage = #imageLiteral(resourceName: "adCell")
+    private let bannerImage = UIImage(named: "adCell")
 
     private lazy var adCellImageView: UIImageView = {
         let imageView = UIImageView()

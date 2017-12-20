@@ -4,10 +4,7 @@ public class AdressView: UIView {
 
     // MARK: - Internal properties
 
-    private lazy var pinImage: UIImage = {
-        let image = UIImage(imageLiteralResourceName: "pin").withRenderingMode(.alwaysTemplate)
-        return image
-    }()
+    private let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
 
     private lazy var adressButton: UIButton = {
         let button = UIButton()

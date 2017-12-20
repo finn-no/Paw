@@ -4,7 +4,7 @@ public class GalleryView: UIView {
     
     // MARK: - Internal properties
 
-    private let sofaImage = #imageLiteral(resourceName: "sofa2")
+    private let sofaImage = UIImage(named: "sofa2")
 
     private lazy var galleryImageView: UIImageView = {
         let imageView = UIImageView()

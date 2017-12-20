@@ -4,7 +4,7 @@ public class ProfileView: UIView {
 
     // MARK: - Internal properties
 
-    private let profileImage = #imageLiteral(resourceName: "profileCell")
+    private let profileImage = UIImage(named: "profileCell")
 
     private lazy var profileCellImageView: UIImageView = {
         let imageView = UIImageView()

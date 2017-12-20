@@ -4,7 +4,7 @@ public class RelevantAdsView: UIView {
 
     // MARK: - Internal properties
 
-    private let relevantAdsImage = #imageLiteral(resourceName: "relevantAdsFeed")
+    private let relevantAdsImage = UIImage(named: "relevantAdsFeed")
 
     private lazy var relevantAdsFeedImageView: UIImageView = {
         let imageView = UIImageView()

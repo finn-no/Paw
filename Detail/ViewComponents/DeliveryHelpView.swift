@@ -4,7 +4,7 @@ public class DeliveryHelpView: UIView {
 
     // MARK: - Internal properties
 
-    private let deliveryHelpImage = #imageLiteral(resourceName: "deliveryHelp")
+    private let deliveryHelpImage = UIImage(named: "deliveryHelp")
 
     private lazy var deliveryHelpImageView: UIImageView = {
         let imageView = UIImageView()
