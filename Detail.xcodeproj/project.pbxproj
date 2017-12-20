@@ -11,6 +11,27 @@
 		44CAE2D81FE26C9F00F8AA9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CAE2D71FE26C9F00F8AA9B /* ViewController.swift */; };
 		44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */; };
 		44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */; };
+		4541AF931FE803EC002488ED /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF921FE803EC002488ED /* GalleryView.swift */; };
+		4541AF951FE80646002488ED /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF941FE80646002488ED /* TitleView.swift */; };
+		4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF971FE80799002488ED /* UIColor+Detail.swift */; };
+		4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF991FE80824002488ED /* CGFloat+Detail.swift */; };
+		4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */; };
+		4541AFA11FE8110E002488ED /* FINNTypeWebStrippet-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */; };
+		4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */; };
+		4541AFA41FE81367002488ED /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceView.swift */; };
+		4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonView.swift */; };
+		4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */; };
+		4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileView.swift */; };
+		45655F641FE81BC70088A22C /* AdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressView.swift */; };
+		45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionView.swift */; };
+		45655F681FE9427D0088A22C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryView.swift */; };
+		45655F6A1FE944200088A22C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerView.swift */; };
+		45655F6C1FE947180088A22C /* SafePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayView.swift */; };
+		45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6D1FE948340088A22C /* LoanPriceView.swift */; };
+		45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */; };
+		45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F711FE9510B0088A22C /* AdReporterView.swift */; };
+		45655F741FE952C20088A22C /* AdInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoView.swift */; };
+		45655F761FE954930088A22C /* RelevantAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +41,27 @@
 		44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44CAE2DF1FE26C9F00F8AA9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44CAE2E11FE26C9F00F8AA9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4541AF921FE803EC002488ED /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		4541AF941FE80646002488ED /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		4541AF971FE80799002488ED /* UIColor+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Detail.swift"; sourceTree = "<group>"; };
+		4541AF991FE80824002488ED /* CGFloat+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Detail.swift"; sourceTree = "<group>"; };
+		4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FINNTypeWebStrippet-Medium.ttf"; sourceTree = "<group>"; };
+		4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FINNTypeWebStrippet-Light.ttf"; sourceTree = "<group>"; };
+		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
+		4541AFA31FE81367002488ED /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		4541AFA51FE81470002488ED /* MessageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonView.swift; sourceTree = "<group>"; };
+		4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonView.swift; sourceTree = "<group>"; };
+		4541AFA91FE819A9002488ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		45655F631FE81BC70088A22C /* AdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressView.swift; sourceTree = "<group>"; };
+		45655F651FE8F3080088A22C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		45655F671FE9427D0088A22C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		45655F691FE944200088A22C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		45655F6B1FE947180088A22C /* SafePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayView.swift; sourceTree = "<group>"; };
+		45655F6D1FE948340088A22C /* LoanPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPriceView.swift; sourceTree = "<group>"; };
+		45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHelpView.swift; sourceTree = "<group>"; };
+		45655F711FE9510B0088A22C /* AdReporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdReporterView.swift; sourceTree = "<group>"; };
+		45655F731FE952C20088A22C /* AdInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoView.swift; sourceTree = "<group>"; };
+		45655F751FE954930088A22C /* RelevantAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +96,64 @@
 			children = (
 				44CAE2D51FE26C9F00F8AA9B /* AppDelegate.swift */,
 				44CAE2D71FE26C9F00F8AA9B /* ViewController.swift */,
-				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
+				4541AF961FE80786002488ED /* Extensions */,
+				4541AF911FE8038F002488ED /* ViewComponents */,
+				4541AF9B1FE80EAA002488ED /* Resources */,
 				44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */,
 				44CAE2E11FE26C9F00F8AA9B /* Info.plist */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		4541AF911FE8038F002488ED /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				4541AF921FE803EC002488ED /* GalleryView.swift */,
+				4541AFA91FE819A9002488ED /* ProfileView.swift */,
+				4541AF941FE80646002488ED /* TitleView.swift */,
+				4541AFA31FE81367002488ED /* PriceView.swift */,
+				4541AFA51FE81470002488ED /* MessageButtonView.swift */,
+				4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */,
+				45655F631FE81BC70088A22C /* AdressView.swift */,
+				45655F651FE8F3080088A22C /* DescriptionView.swift */,
+				45655F671FE9427D0088A22C /* CategoryView.swift */,
+				45655F691FE944200088A22C /* BannerView.swift */,
+				45655F6B1FE947180088A22C /* SafePayView.swift */,
+				45655F6D1FE948340088A22C /* LoanPriceView.swift */,
+				45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */,
+				45655F711FE9510B0088A22C /* AdReporterView.swift */,
+				45655F731FE952C20088A22C /* AdInfoView.swift */,
+				45655F751FE954930088A22C /* RelevantAdsView.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
+		4541AF961FE80786002488ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4541AF971FE80799002488ED /* UIColor+Detail.swift */,
+				4541AF991FE80824002488ED /* CGFloat+Detail.swift */,
+				4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4541AF9B1FE80EAA002488ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4541AF9C1FE80F6A002488ED /* Fonts */,
+				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4541AF9C1FE80F6A002488ED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */,
+				4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */,
+				4541AFA11FE8110E002488ED /* FINNTypeWebStrippet-Light.ttf in Resources */,
+				4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */,
 				44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,8 +229,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45655F6C1FE947180088A22C /* SafePayView.swift in Sources */,
+				45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */,
+				4541AFA41FE81367002488ED /* PriceView.swift in Sources */,
+				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
+				45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ViewController.swift in Sources */,
+				4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */,
+				45655F6A1FE944200088A22C /* BannerView.swift in Sources */,
+				45655F761FE954930088A22C /* RelevantAdsView.swift in Sources */,
+				4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */,
+				4541AF931FE803EC002488ED /* GalleryView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
+				45655F681FE9427D0088A22C /* CategoryView.swift in Sources */,
+				4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */,
+				45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */,
+				45655F641FE81BC70088A22C /* AdressView.swift in Sources */,
+				4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */,
+				4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */,
+				4541AF951FE80646002488ED /* TitleView.swift in Sources */,
+				45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */,
+				45655F741FE952C20088A22C /* AdInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
