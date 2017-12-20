@@ -4,7 +4,6 @@ public class PriceView: UIView {
 
     // MARK: - Internal properties
 
-
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

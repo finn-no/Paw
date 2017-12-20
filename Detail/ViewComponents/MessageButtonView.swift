@@ -4,7 +4,6 @@ public class MessageButtonView: UIView {
 
     // MARK: - Internal properties
 
-
     private lazy var messageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

@@ -4,7 +4,6 @@ public class TitleView: UIView {
 
     // MARK: - Internal properties
 
-
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
