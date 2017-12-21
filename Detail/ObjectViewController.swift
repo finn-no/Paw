@@ -20,7 +20,7 @@ class ObjectViewController: UIViewController {
         let view = ObjectView()
 
         return view
-    }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
