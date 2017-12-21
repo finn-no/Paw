@@ -1,7 +1,7 @@
 import UIKit
 
 class ObjectViewController: UIViewController {
-    var component: [Component] {
+    var components: [Component] {
         return [
             Component(id: "c1", type: "link"),
             Component(id: "c2", type: "link"),
@@ -25,15 +25,23 @@ class ObjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.addSubview(objectView)
+        // lay out to fill constraints
+
         objectView.dataSource = self
         objectView.delegate = self
+        objectView.reloadData()
     }
 }
 
 extension ObjectViewController: ObjectViewDataSource {
-
+    func componentsInObjectView(_ objectView: ObjectView) -> [Component] {
+        return components
+    }
 }
 
 extension ObjectViewController: ObjectViewDelegate {
-    
+    func objectView(_ objectView: ObjectView, didSelectComponent component: Component) {
+        print("selected component: \(component.id)")
+    }
 }
