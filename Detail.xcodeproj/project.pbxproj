@@ -16,8 +16,6 @@
 		4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF971FE80799002488ED /* UIColor+Detail.swift */; };
 		4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF991FE80824002488ED /* CGFloat+Detail.swift */; };
 		4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */; };
-		4541AFA11FE8110E002488ED /* FINNTypeWebStrippet-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */; };
-		4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */; };
 		4541AFA41FE81367002488ED /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceView.swift */; };
 		4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonView.swift */; };
 		4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */; };
@@ -45,8 +43,6 @@
 		4541AF941FE80646002488ED /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		4541AF971FE80799002488ED /* UIColor+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Detail.swift"; sourceTree = "<group>"; };
 		4541AF991FE80824002488ED /* CGFloat+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Detail.swift"; sourceTree = "<group>"; };
-		4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FINNTypeWebStrippet-Medium.ttf"; sourceTree = "<group>"; };
-		4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FINNTypeWebStrippet-Light.ttf"; sourceTree = "<group>"; };
 		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
 		4541AFA31FE81367002488ED /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		4541AFA51FE81470002488ED /* MessageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonView.swift; sourceTree = "<group>"; };
@@ -141,19 +137,9 @@
 		4541AF9B1FE80EAA002488ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4541AF9C1FE80F6A002488ED /* Fonts */,
 				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		4541AF9C1FE80F6A002488ED /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				4541AF9E1FE80F86002488ED /* FINNTypeWebStrippet-Light.ttf */,
-				4541AF9D1FE80F86002488ED /* FINNTypeWebStrippet-Medium.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */,
-				4541AFA11FE8110E002488ED /* FINNTypeWebStrippet-Light.ttf in Resources */,
-				4541AFA21FE81111002488ED /* FINNTypeWebStrippet-Medium.ttf in Resources */,
 				44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
