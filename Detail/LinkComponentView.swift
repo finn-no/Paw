@@ -6,5 +6,30 @@ protocol LinkComponentViewDelegate: class {
 
 class LinkComponentView: UIView {
     weak var delegate: LinkComponentViewDelegate?
-    var component: Component?
+
+    lazy var linkLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .title4
+        label.textColor = .licorice
+        return label
+    }()
+
+    var component: Component? {
+        didSet {
+            linkLabel.text = component?.id
+        }
+    }
+
+    func setupLayout() {
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(linkLabel)
+
+        NSLayoutConstraint.activate([
+            linkLabel.topAnchor.constraint(equalTo: topAnchor),
+            linkLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            linkLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            linkLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
 }
