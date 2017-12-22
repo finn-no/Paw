@@ -12,7 +12,17 @@ class ObjectViewController: UIViewController {
             Component(id: "c7", type: "link"),
             Component(id: "c8", type: "link"),
             Component(id: "c9", type: "link"),
-            Component(id: "c10", type: "link")
+            Component(id: "c10", type: "link"),
+            Component(id: "c11", type: "link"),
+            Component(id: "c12", type: "link"),
+            Component(id: "c13", type: "link"),
+            Component(id: "c14", type: "link"),
+            Component(id: "c15", type: "link"),
+            Component(id: "c16", type: "link"),
+            Component(id: "c17", type: "link"),
+            Component(id: "c18", type: "link"),
+            Component(id: "c19", type: "link"),
+            Component(id: "c20", type: "link"),
         ]
     }
 
