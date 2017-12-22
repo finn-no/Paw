@@ -28,7 +28,8 @@ class ObjectViewController: UIViewController {
 
     lazy var objectView: ObjectView = {
         let view = ObjectView()
-
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         return view
     }()
 
@@ -37,6 +38,13 @@ class ObjectViewController: UIViewController {
 
         view.addSubview(objectView)
         // lay out to fill constraints
+
+        NSLayoutConstraint.activate([
+            objectView.topAnchor.constraint(equalTo: view.topAnchor),
+            objectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            objectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            objectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
 
         objectView.dataSource = self
         objectView.delegate = self
