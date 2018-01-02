@@ -22,6 +22,9 @@ class LinkComponentView: UIView {
     }
 
     func setupLayout() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        gestureRecognizers = [tapGesture]
+
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(linkLabel)
 
@@ -31,5 +34,12 @@ class LinkComponentView: UIView {
             linkLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             linkLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
+    }
+
+    @objc private func tapAction() {
+        guard let component = component else {
+            return
+        }
+        delegate?.linkComponentView(self, didSelectComponent: component)
     }
 }
