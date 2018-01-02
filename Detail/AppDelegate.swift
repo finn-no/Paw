@@ -7,7 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let viewController = ViewController()
+        let viewController = ObjectViewController()
         viewController.tabBarItem = UITabBarItem(title: "Object Page", image: nil, tag: 0)
 
         let tabbarController = UITabBarController()
