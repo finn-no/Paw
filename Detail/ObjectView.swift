@@ -82,10 +82,14 @@ class ObjectView: UIView {
                 contentView.addSubview(listComponentView)
                 componentView = listComponentView
             case .custom:
-                let listComponentView = dataSource.customComponentView(for: component, in: self)
-                listComponentView.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(listComponentView)
-                componentView = listComponentView
+                if let listComponentView = dataSource.customComponentView(for: component, in: self) {
+                    listComponentView.translatesAutoresizingMaskIntoConstraints = false
+                    contentView.addSubview(listComponentView)
+                    componentView = listComponentView
+                } else {
+                    print("Custom component type at index \(index) ignored")
+                    continue
+                }
             }
 
             NSLayoutConstraint.activate([
