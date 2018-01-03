@@ -57,10 +57,10 @@ extension ObjectViewController: ObjectViewDataSource {
         return components
     }
 
-    func customComponentView(for component: Component,in objectView: ObjectView) -> UIView {
+    func customComponentView(for component: Component,in objectView: ObjectView) -> UIView? {
         switch component.id {
         case "custom1": return CustomView()
-        default: return AdInfoView()
+        default: return nil
         }
     }
 }
