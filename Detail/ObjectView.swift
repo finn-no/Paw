@@ -1,7 +1,8 @@
 import UIKit
 
 protocol ObjectViewDataSource: class {
-    func componentsInObjectView(_ objectView: ObjectView) -> [Component]
+    func components(in objectView: ObjectView) -> [Component]
+    func customComponentView(for component: Component, in objectView: ObjectView) -> UIView
 }
 
 protocol ObjectViewDelegate: class {
@@ -57,7 +58,11 @@ class ObjectView: UIView {
             subview.removeFromSuperview()
         }
 
-        let components = dataSource?.componentsInObjectView(self) ?? [Component]()
+        guard let dataSource = dataSource else {
+            return
+        }
+
+        let components = dataSource.components(in: self)
         var previousComponentView: UIView?
         for (index, component) in components.enumerated() {
             let componentView: UIView
@@ -73,6 +78,11 @@ class ObjectView: UIView {
                 componentView = listComponentView
             case .title:
                 let listComponentView = TitleView()
+                listComponentView.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(listComponentView)
+                componentView = listComponentView
+            case .custom:
+                let listComponentView = dataSource.customComponentView(for: component, in: self)
                 listComponentView.translatesAutoresizingMaskIntoConstraints = false
                 contentView.addSubview(listComponentView)
                 componentView = listComponentView
