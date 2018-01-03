@@ -21,7 +21,7 @@ class ObjectViewController: UIViewController {
             Component(id: "c16", type: .link),
             Component(id: "c17", type: .link),
             Component(id: "c18", type: .link),
-            Component(id: "c19", type: .link),
+            Component(id: "custom1", type: .custom),
             Component(id: "c20", type: .link),
         ]
     }
@@ -53,8 +53,15 @@ class ObjectViewController: UIViewController {
 }
 
 extension ObjectViewController: ObjectViewDataSource {
-    func componentsInObjectView(_ objectView: ObjectView) -> [Component] {
+    func components(in objectView: ObjectView) -> [Component] {
         return components
+    }
+
+    func customComponentView(for component: Component,in objectView: ObjectView) -> UIView {
+        switch component.id {
+        case "custom1": return CustomView()
+        default: return AdInfoView()
+        }
     }
 }
 
