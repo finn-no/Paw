@@ -87,7 +87,6 @@ class ObjectView: UIView {
                     contentView.addSubview(listComponentView)
                     componentView = listComponentView
                 } else {
-                    print("Custom component type at index \(index) ignored")
                     continue
                 }
             }
