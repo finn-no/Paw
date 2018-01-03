@@ -64,60 +64,65 @@ class ObjectView: UIView {
 
         let components = dataSource.components(in: self)
         var previousComponentView: UIView?
+
         for (index, component) in components.enumerated() {
-            let componentView: UIView
+            let componentView = getViewComponent(from: component, in: self)
 
-            switch component.type {
-            case .link:
-                let listComponentView = LinkComponentView()
-                listComponentView.translatesAutoresizingMaskIntoConstraints = false
-                listComponentView.delegate = self
-                listComponentView.component = component
-                contentView.addSubview(listComponentView)
-                listComponentView.setupLayout()
-                componentView = listComponentView
-            case .title:
-                let listComponentView = TitleView()
-                listComponentView.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(listComponentView)
-                componentView = listComponentView
-            case .custom:
-                if let listComponentView = dataSource.customComponentView(for: component, in: self) {
-                    listComponentView.translatesAutoresizingMaskIntoConstraints = false
-                    contentView.addSubview(listComponentView)
-                    componentView = listComponentView
-                } else {
-                    continue
+            if let componentView = componentView {
+                NSLayoutConstraint.activate([
+                    componentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+                    componentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+                ])
+
+                switch index {
+                case 0:
+                    NSLayoutConstraint.activate([
+                        componentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
+                    ])
+                case components.count-1:
+                    guard let previousComponentView = previousComponentView else {
+                        fatalError()
+                    }
+                    NSLayoutConstraint.activate([
+                        componentView.topAnchor.constraint(equalTo: previousComponentView.bottomAnchor, constant: .mediumLargeSpacing),
+                        componentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
+                    ])
+                default:
+                    guard let previousComponentView = previousComponentView else {
+                        fatalError()
+                    }
+                    NSLayoutConstraint.activate([
+                        componentView.topAnchor.constraint(equalTo: previousComponentView.bottomAnchor, constant: .mediumLargeSpacing),
+                    ])
                 }
+                previousComponentView = componentView
             }
+        }
+    }
 
-            NSLayoutConstraint.activate([
-                componentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-                componentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            ])
-
-            switch index {
-            case 0:
-                NSLayoutConstraint.activate([
-                    componentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
-                ])
-            case components.count-1:
-                guard let previousComponentView = previousComponentView else {
-                    fatalError()
-                }
-                NSLayoutConstraint.activate([
-                    componentView.topAnchor.constraint(equalTo: previousComponentView.bottomAnchor, constant: .mediumLargeSpacing),
-                    componentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
-                ])
-            default:
-                guard let previousComponentView = previousComponentView else {
-                    fatalError()
-                }
-                NSLayoutConstraint.activate([
-                    componentView.topAnchor.constraint(equalTo: previousComponentView.bottomAnchor, constant: .mediumLargeSpacing),
-                ])
+    func getViewComponent(from component: Component, in objectView: ObjectView) -> UIView? {
+        switch component.type {
+        case .link:
+            let listComponentView = LinkComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            contentView.addSubview(listComponentView)
+            listComponentView.setupLayout()
+            return listComponentView
+        case .title:
+            let listComponentView = TitleView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview(listComponentView)
+            return listComponentView
+        case .custom:
+            if let listComponentView = dataSource?.customComponentView(for: component, in: objectView) {
+                listComponentView.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(listComponentView)
+                return listComponentView
+            } else {
+                return nil
             }
-            previousComponentView = componentView
         }
     }
 }
