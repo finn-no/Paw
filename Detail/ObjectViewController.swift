@@ -21,7 +21,7 @@ class ObjectViewController: UIViewController {
             [Component(id: "c16", type: .custom)],
             [Component(id: "c17", type: .link)],
             [Component(id: "c18", type: .link)],
-            [Component(id: "custom1", type: .custom)],
+            [Component(id: "custom1", type: .custom), Component(id: "custom1", type: .custom)],
             [Component(id: "c20", type: .link)],
         ]
     }
