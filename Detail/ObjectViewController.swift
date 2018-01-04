@@ -1,28 +1,28 @@
 import UIKit
 
 class ObjectViewController: UIViewController {
-    var components: [Component] {
+    var components: [[Component]] {
         return [
-            Component(id: "c1", type: .title),
-            Component(id: "c2", type: .link),
-            Component(id: "c3", type: .link),
-            Component(id: "c4", type: .link),
-            Component(id: "c5", type: .link),
-            Component(id: "c6", type: .link),
-            Component(id: "c7", type: .link),
-            Component(id: "c8", type: .link),
-            Component(id: "c9", type: .link),
-            Component(id: "c10", type: .link),
-            Component(id: "c11", type: .link),
-            Component(id: "c12", type: .link),
-            Component(id: "c13", type: .link),
-            Component(id: "c14", type: .link),
-            Component(id: "c15", type: .link),
-            Component(id: "c16", type: .custom),
-            Component(id: "c17", type: .link),
-            Component(id: "c18", type: .link),
-            Component(id: "custom1", type: .custom),
-            Component(id: "c20", type: .link),
+            [Component(id: "c1", type: .title)],
+            [Component(id: "c2", type: .link)],
+            [Component(id: "c3a", type: .link), Component(id: "c3b", type: .link)],
+            [Component(id: "c4", type: .link)],
+            [Component(id: "c5", type: .link)],
+            [Component(id: "c6", type: .link)],
+            [Component(id: "c7", type: .link)],
+            [Component(id: "c8", type: .link)],
+            [Component(id: "c9a", type: .link), Component(id: "c9b", type: .link), Component(id: "c9c", type: .link)],
+            [Component(id: "c10", type: .link)],
+            [Component(id: "c11", type: .link)],
+            [Component(id: "c12", type: .link)],
+            [Component(id: "c13", type: .link)],
+            [Component(id: "c14", type: .link)],
+            [Component(id: "c15", type: .link)],
+            [Component(id: "c16", type: .custom)],
+            [Component(id: "c17", type: .link)],
+            [Component(id: "c18", type: .link)],
+            [Component(id: "custom1", type: .custom)],
+            [Component(id: "c20", type: .link)],
         ]
     }
 
@@ -53,7 +53,7 @@ class ObjectViewController: UIViewController {
 }
 
 extension ObjectViewController: ObjectViewDataSource {
-    func components(in objectView: ObjectView) -> [Component] {
+    func components(in objectView: ObjectView) -> [[Component]] {
         return components
     }
 

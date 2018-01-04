@@ -1,7 +1,7 @@
 import UIKit
 
 protocol ObjectViewDataSource: class {
-    func components(in objectView: ObjectView) -> [Component]
+    func components(in objectView: ObjectView) -> [[Component]]
     func customComponentView(for component: Component, in objectView: ObjectView) -> UIView?
 }
 
