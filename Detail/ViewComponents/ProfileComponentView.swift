@@ -1,6 +1,6 @@
 import UIKit
 
-public class ProfileView: UIView {
+public class ProfileComponentView: UIView {
 
     // MARK: - Internal properties
 
@@ -36,6 +36,7 @@ public class ProfileView: UIView {
             profileCellImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             profileCellImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             profileCellImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileCellImageView.heightAnchor.constraint(equalToConstant: 120),
         ])
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-public class DeliveryHelpView: UIView {
+public class DeliveryHelpComponentView: UIView {
 
     // MARK: - Internal properties
 
@@ -36,6 +36,7 @@ public class DeliveryHelpView: UIView {
             deliveryHelpImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             deliveryHelpImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             deliveryHelpImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            deliveryHelpImageView.heightAnchor.constraint(equalToConstant: 90),
         ])
     }
 }

@@ -1,8 +1,14 @@
 import UIKit
 
-public class AdReporterView: UIView {
+protocol AdReporterComponentViewDelegate: class {
+    func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component)
+}
+
+public class AdReporterComponentView: UIView {
 
     // MARK: - Internal properties
+
+    weak var delegate: AdReporterComponentViewDelegate?
 
     private lazy var adReporterButton: UIButton = {
         let button = UIButton()
@@ -15,6 +21,14 @@ public class AdReporterView: UIView {
         button.titleLabel?.font = .detail
         return button
     }()
+
+    // MARK: - External properties
+
+    var component: Component? {
+        didSet {
+            //            linkLabel.text = component?.id
+        }
+    }
 
     // MARK: - Setup
 
@@ -42,6 +56,9 @@ public class AdReporterView: UIView {
     // MARK: - Actions
 
     @objc func adReporterTapped(sender: UIButton) {
-        print("Reporting ad")
+        guard let component = component else {
+            return
+        }
+        delegate?.adReporterComponentView(self, didSelectComponent: component)
     }
 }

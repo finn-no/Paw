@@ -1,6 +1,6 @@
 import UIKit
 
-public class CategoryView: UIView {
+public class CategoryComponentView: UIView {
 
     // MARK: - Internal properties
 

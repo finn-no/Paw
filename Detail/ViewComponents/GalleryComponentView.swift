@@ -1,6 +1,6 @@
 import UIKit
 
-public class GalleryView: UIView {
+public class GalleryComponentView: UIView {
     
     // MARK: - Internal properties
 
@@ -36,6 +36,7 @@ public class GalleryView: UIView {
             galleryImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             galleryImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             galleryImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            galleryImageView.heightAnchor.constraint(equalToConstant: 260),
         ])
     }
 }

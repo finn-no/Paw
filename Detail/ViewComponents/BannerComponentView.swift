@@ -1,6 +1,6 @@
 import UIKit
 
-public class BannerView: UIView {
+public class BannerComponentView: UIView {
 
     // MARK: - Internal properties
 
@@ -36,6 +36,7 @@ public class BannerView: UIView {
             adCellImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             adCellImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             adCellImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            adCellImageView.heightAnchor.constraint(equalToConstant: 300),
         ])
     }
 }

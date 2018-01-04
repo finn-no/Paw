@@ -1,6 +1,6 @@
 import UIKit
 
-public class RelevantAdsView: UIView {
+public class RelevantAdsComponentView: UIView {
 
     // MARK: - Internal properties
 
@@ -36,6 +36,7 @@ public class RelevantAdsView: UIView {
             relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 600),
         ])
     }
 }

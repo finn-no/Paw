@@ -1,8 +1,14 @@
 import UIKit
 
-public class MessageButtonView: UIView {
+protocol MessageComponentViewDelegate: class {
+    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didSelectComponent component: Component)
+}
+
+public class MessageButtonComponentView: UIView {
 
     // MARK: - Internal properties
+
+    weak var delegate: MessageComponentViewDelegate?
 
     private lazy var messageButton: UIButton = {
         let button = UIButton()
@@ -27,6 +33,14 @@ public class MessageButtonView: UIView {
         label.text = "Svarer vanligvis innen 4 timer"
         return label
     }()
+
+    // MARK: - External properties
+    
+    var component: Component? {
+        didSet {
+//            linkLabel.text = component?.id
+        }
+    }
 
     // MARK: - Setup
 
@@ -59,7 +73,10 @@ public class MessageButtonView: UIView {
     // MARK: - Actions
 
     @objc func messageTapped(sender: UIButton) {
-        print("Message sent!")
+        guard let component = component else {
+            return
+        }
+        delegate?.messageComponentView(self, didSelectComponent: component)
     }
 }
 

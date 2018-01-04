@@ -80,28 +80,28 @@ class ObjectView: UIView {
                 NSLayoutConstraint.activate([
                     componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
                     componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-                    ])
+                ])
 
                 switch rowIndex {
                 case 0:
                     NSLayoutConstraint.activate([
-                        componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
-                        ])
+                        componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                    ])
                 case components.count-1:
                     guard let previousStackView = previousStackView else {
                         fatalError()
                     }
                     NSLayoutConstraint.activate([
                         componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
-                        ])
+                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
+                    ])
                 default:
                     guard let previousStackView = previousStackView else {
                         fatalError()
                     }
                     NSLayoutConstraint.activate([
                         componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                        ])
+                    ])
                 }
                 previousStackView = componentStackView
             }
@@ -118,7 +118,79 @@ class ObjectView: UIView {
             listComponentView.setupLayout()
             return listComponentView
         case .title:
-            let listComponentView = TitleView()
+            let listComponentView = TitleComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .gallery:
+            let listComponentView = GalleryComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .profile:
+            let listComponentView = ProfileComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .price:
+            let listComponentView = PriceComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .messageButton:
+            let listComponentView = MessageButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            return listComponentView
+        case .showNumberButton:
+            let listComponentView = ShowNumberButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            return listComponentView
+        case .adress:
+            let listComponentView = AdressComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            return listComponentView
+        case .description:
+            let listComponentView = DescriptionComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .category:
+            let listComponentView = CategoryComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .banner:
+            let listComponentView = BannerComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .safePay:
+            let listComponentView = SafePayComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            return listComponentView
+        case .loanPrice:
+            let listComponentView = LoanPriceComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            return listComponentView
+        case .deliveryHelp:
+            let listComponentView = DeliveryHelpComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .adReporter:
+            let listComponentView = AdReporterComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
+            return listComponentView
+        case .adInfo:
+            let listComponentView = AdInfoComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .relevantAds:
+            let listComponentView = RelevantAdsComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             return listComponentView
         case .custom:
@@ -146,6 +218,36 @@ class ObjectView: UIView {
 
 extension ObjectView: LinkComponentViewDelegate {
     func linkComponentView(_ linkComponentView: LinkComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: MessageComponentViewDelegate {
+    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: ShowNumberComponentViewDelegate {
+    func showNumberComponentView(_ showNumberComponentView: ShowNumberButtonComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: AdressComponentViewDelegate {
+    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: SafePayComponentViewDelegate {
+    func safePayComponentView(_ safePayComponentView: SafePayComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: LoanPriceComponentViewDelegate {
+    func loanPriceComponentView(_ loanPriceComponentView: LoanPriceComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: AdReporterComponentViewDelegate {
+    func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component) {
         delegate?.objectView(self, didSelectComponent: component)
     }
 }

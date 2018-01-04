@@ -1,6 +1,6 @@
 import UIKit
 
-public class PriceView: UIView {
+public class PriceComponentView: UIView {
 
     // MARK: - Internal properties
 

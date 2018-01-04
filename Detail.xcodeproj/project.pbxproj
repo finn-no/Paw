@@ -14,25 +14,25 @@
 		44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CAE2D71FE26C9F00F8AA9B /* ObjectViewController.swift */; };
 		44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */; };
 		44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */; };
-		4541AF931FE803EC002488ED /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF921FE803EC002488ED /* GalleryView.swift */; };
-		4541AF951FE80646002488ED /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF941FE80646002488ED /* TitleView.swift */; };
+		4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF921FE803EC002488ED /* GalleryComponentView.swift */; };
+		4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF941FE80646002488ED /* TitleComponentView.swift */; };
 		4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF971FE80799002488ED /* UIColor+Detail.swift */; };
 		4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF991FE80824002488ED /* CGFloat+Detail.swift */; };
 		4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */; };
-		4541AFA41FE81367002488ED /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceView.swift */; };
-		4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonView.swift */; };
-		4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */; };
-		4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileView.swift */; };
-		45655F641FE81BC70088A22C /* AdressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressView.swift */; };
-		45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionView.swift */; };
-		45655F681FE9427D0088A22C /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryView.swift */; };
-		45655F6A1FE944200088A22C /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerView.swift */; };
-		45655F6C1FE947180088A22C /* SafePayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayView.swift */; };
-		45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6D1FE948340088A22C /* LoanPriceView.swift */; };
-		45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */; };
-		45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F711FE9510B0088A22C /* AdReporterView.swift */; };
-		45655F741FE952C20088A22C /* AdInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoView.swift */; };
-		45655F761FE954930088A22C /* RelevantAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsView.swift */; };
+		4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceComponentView.swift */; };
+		4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */; };
+		4541AFA81FE817FB002488ED /* ShowNumberButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */; };
+		4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileComponentView.swift */; };
+		45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressComponentView.swift */; };
+		45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionComponentView.swift */; };
+		45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryComponentView.swift */; };
+		45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerComponentView.swift */; };
+		45655F6C1FE947180088A22C /* SafePayComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayComponentView.swift */; };
+		45655F6E1FE948340088A22C /* LoanPriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6D1FE948340088A22C /* LoanPriceComponentView.swift */; };
+		45655F701FE94F680088A22C /* DeliveryHelpComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6F1FE94F680088A22C /* DeliveryHelpComponentView.swift */; };
+		45655F721FE9510B0088A22C /* AdReporterComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F711FE9510B0088A22C /* AdReporterComponentView.swift */; };
+		45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoComponentView.swift */; };
+		45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsComponentView.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,25 +46,25 @@
 		44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44CAE2DF1FE26C9F00F8AA9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44CAE2E11FE26C9F00F8AA9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4541AF921FE803EC002488ED /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
-		4541AF941FE80646002488ED /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		4541AF921FE803EC002488ED /* GalleryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryComponentView.swift; sourceTree = "<group>"; };
+		4541AF941FE80646002488ED /* TitleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleComponentView.swift; sourceTree = "<group>"; };
 		4541AF971FE80799002488ED /* UIColor+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Detail.swift"; sourceTree = "<group>"; };
 		4541AF991FE80824002488ED /* CGFloat+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Detail.swift"; sourceTree = "<group>"; };
 		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
-		4541AFA31FE81367002488ED /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
-		4541AFA51FE81470002488ED /* MessageButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonView.swift; sourceTree = "<group>"; };
-		4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonView.swift; sourceTree = "<group>"; };
-		4541AFA91FE819A9002488ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		45655F631FE81BC70088A22C /* AdressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressView.swift; sourceTree = "<group>"; };
-		45655F651FE8F3080088A22C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		45655F671FE9427D0088A22C /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		45655F691FE944200088A22C /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
-		45655F6B1FE947180088A22C /* SafePayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayView.swift; sourceTree = "<group>"; };
-		45655F6D1FE948340088A22C /* LoanPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPriceView.swift; sourceTree = "<group>"; };
-		45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHelpView.swift; sourceTree = "<group>"; };
-		45655F711FE9510B0088A22C /* AdReporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdReporterView.swift; sourceTree = "<group>"; };
-		45655F731FE952C20088A22C /* AdInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoView.swift; sourceTree = "<group>"; };
-		45655F751FE954930088A22C /* RelevantAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsView.swift; sourceTree = "<group>"; };
+		4541AFA31FE81367002488ED /* PriceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceComponentView.swift; sourceTree = "<group>"; };
+		4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponentView.swift; sourceTree = "<group>"; };
+		4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonComponentView.swift; sourceTree = "<group>"; };
+		4541AFA91FE819A9002488ED /* ProfileComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponentView.swift; sourceTree = "<group>"; };
+		45655F631FE81BC70088A22C /* AdressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressComponentView.swift; sourceTree = "<group>"; };
+		45655F651FE8F3080088A22C /* DescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponentView.swift; sourceTree = "<group>"; };
+		45655F671FE9427D0088A22C /* CategoryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponentView.swift; sourceTree = "<group>"; };
+		45655F691FE944200088A22C /* BannerComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerComponentView.swift; sourceTree = "<group>"; };
+		45655F6B1FE947180088A22C /* SafePayComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayComponentView.swift; sourceTree = "<group>"; };
+		45655F6D1FE948340088A22C /* LoanPriceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPriceComponentView.swift; sourceTree = "<group>"; };
+		45655F6F1FE94F680088A22C /* DeliveryHelpComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryHelpComponentView.swift; sourceTree = "<group>"; };
+		45655F711FE9510B0088A22C /* AdReporterComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdReporterComponentView.swift; sourceTree = "<group>"; };
+		45655F731FE952C20088A22C /* AdInfoComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoComponentView.swift; sourceTree = "<group>"; };
+		45655F751FE954930088A22C /* RelevantAdsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsComponentView.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,22 +116,22 @@
 		4541AF911FE8038F002488ED /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				4541AF921FE803EC002488ED /* GalleryView.swift */,
-				4541AFA91FE819A9002488ED /* ProfileView.swift */,
-				4541AF941FE80646002488ED /* TitleView.swift */,
-				4541AFA31FE81367002488ED /* PriceView.swift */,
-				4541AFA51FE81470002488ED /* MessageButtonView.swift */,
-				4541AFA71FE817FB002488ED /* ShowNumberButtonView.swift */,
-				45655F631FE81BC70088A22C /* AdressView.swift */,
-				45655F651FE8F3080088A22C /* DescriptionView.swift */,
-				45655F671FE9427D0088A22C /* CategoryView.swift */,
-				45655F691FE944200088A22C /* BannerView.swift */,
-				45655F6B1FE947180088A22C /* SafePayView.swift */,
-				45655F6D1FE948340088A22C /* LoanPriceView.swift */,
-				45655F6F1FE94F680088A22C /* DeliveryHelpView.swift */,
-				45655F711FE9510B0088A22C /* AdReporterView.swift */,
-				45655F731FE952C20088A22C /* AdInfoView.swift */,
-				45655F751FE954930088A22C /* RelevantAdsView.swift */,
+				4541AF921FE803EC002488ED /* GalleryComponentView.swift */,
+				4541AFA91FE819A9002488ED /* ProfileComponentView.swift */,
+				4541AF941FE80646002488ED /* TitleComponentView.swift */,
+				4541AFA31FE81367002488ED /* PriceComponentView.swift */,
+				4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */,
+				4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */,
+				45655F631FE81BC70088A22C /* AdressComponentView.swift */,
+				45655F651FE8F3080088A22C /* DescriptionComponentView.swift */,
+				45655F671FE9427D0088A22C /* CategoryComponentView.swift */,
+				45655F691FE944200088A22C /* BannerComponentView.swift */,
+				45655F6B1FE947180088A22C /* SafePayComponentView.swift */,
+				45655F6D1FE948340088A22C /* LoanPriceComponentView.swift */,
+				45655F6F1FE94F680088A22C /* DeliveryHelpComponentView.swift */,
+				45655F711FE9510B0088A22C /* AdReporterComponentView.swift */,
+				45655F731FE952C20088A22C /* AdInfoComponentView.swift */,
+				45655F751FE954930088A22C /* RelevantAdsComponentView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -225,31 +225,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45655F6C1FE947180088A22C /* SafePayView.swift in Sources */,
-				45655F6E1FE948340088A22C /* LoanPriceView.swift in Sources */,
-				4541AFA41FE81367002488ED /* PriceView.swift in Sources */,
+				45655F6C1FE947180088A22C /* SafePayComponentView.swift in Sources */,
+				45655F6E1FE948340088A22C /* LoanPriceComponentView.swift in Sources */,
+				4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
-				45655F661FE8F3080088A22C /* DescriptionView.swift in Sources */,
+				45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
-				4541AFA61FE81470002488ED /* MessageButtonView.swift in Sources */,
-				45655F6A1FE944200088A22C /* BannerView.swift in Sources */,
-				45655F761FE954930088A22C /* RelevantAdsView.swift in Sources */,
-				4541AFA81FE817FB002488ED /* ShowNumberButtonView.swift in Sources */,
-				4541AF931FE803EC002488ED /* GalleryView.swift in Sources */,
+				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
+				45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */,
+				45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */,
+				4541AFA81FE817FB002488ED /* ShowNumberButtonComponentView.swift in Sources */,
+				4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				4400FA621FEBEF5000AC7325 /* ObjectView.swift in Sources */,
-				45655F681FE9427D0088A22C /* CategoryView.swift in Sources */,
+				45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Detail.swift in Sources */,
-				45655F701FE94F680088A22C /* DeliveryHelpView.swift in Sources */,
+				45655F701FE94F680088A22C /* DeliveryHelpComponentView.swift in Sources */,
 				4400FA601FEBEF1900AC7325 /* Component.swift in Sources */,
-				45655F641FE81BC70088A22C /* AdressView.swift in Sources */,
+				45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */,
 				4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */,
-				4541AFAA1FE819A9002488ED /* ProfileView.swift in Sources */,
+				4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */,
 				45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */,
-				4541AF951FE80646002488ED /* TitleView.swift in Sources */,
-				45655F721FE9510B0088A22C /* AdReporterView.swift in Sources */,
+				4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */,
+				45655F721FE9510B0088A22C /* AdReporterComponentView.swift in Sources */,
 				4400FA641FEBF17400AC7325 /* LinkComponentView.swift in Sources */,
-				45655F741FE952C20088A22C /* AdInfoView.swift in Sources */,
+				45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
