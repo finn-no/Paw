@@ -36,7 +36,7 @@ public class GalleryComponentView: UIView {
             galleryImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             galleryImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             galleryImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            galleryImageView.heightAnchor.constraint(equalToConstant: 300),
+            galleryImageView.heightAnchor.constraint(equalToConstant: 260),
         ])
     }
 }
