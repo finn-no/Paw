@@ -1,8 +1,14 @@
 import UIKit
 
+protocol LoanPriceComponentViewDelegate: class {
+    func loanPriceComponentView(_ loanPriceComponentView: LoanPriceComponentView, didSelectComponent component: Component)
+}
+
 public class LoanPriceComponentView: UIView {
 
     // MARK: - Internal properties
+
+    weak var delegate: LoanPriceComponentViewDelegate?
 
     private lazy var loanPriceButton: UIButton = {
         let button = UIButton()
@@ -15,6 +21,14 @@ public class LoanPriceComponentView: UIView {
         button.titleLabel?.font = .detail
         return button
     }()
+
+    // MARK: - External properties
+
+    var component: Component? {
+        didSet {
+            //            linkLabel.text = component?.id
+        }
+    }
 
     // MARK: - Setup
 
@@ -42,6 +56,9 @@ public class LoanPriceComponentView: UIView {
     // MARK: - Actions
 
     @objc func loanPriceTapped(sender: UIButton) {
-        print("Loan price")
+        guard let component = component else {
+            return
+        }
+        delegate?.loanPriceComponentView(self, didSelectComponent: component)
     }
 }

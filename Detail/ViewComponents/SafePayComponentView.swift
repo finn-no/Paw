@@ -1,8 +1,14 @@
 import UIKit
 
+protocol SafePayComponentViewDelegate: class {
+    func safePayComponentView(_ safePayComponentView: SafePayComponentView, didSelectComponent component: Component)
+}
+
 public class SafePayComponentView: UIView {
 
     // MARK: - Internal properties
+
+    weak var delegate: SafePayComponentViewDelegate?
 
     private lazy var safePayButton: UIButton = {
         let button = UIButton()
@@ -15,6 +21,14 @@ public class SafePayComponentView: UIView {
         button.titleLabel?.font = .detail
         return button
     }()
+
+    // MARK: - External properties
+
+    var component: Component? {
+        didSet {
+            //            linkLabel.text = component?.id
+        }
+    }
 
     // MARK: - Setup
 
@@ -42,6 +56,9 @@ public class SafePayComponentView: UIView {
     // MARK: - Actions
 
     @objc func safePayTapped(sender: UIButton) {
-        print("Safe Pay")
+        guard let component = component else {
+            return
+        }
+        delegate?.safePayComponentView(self, didSelectComponent: component)
     }
 }

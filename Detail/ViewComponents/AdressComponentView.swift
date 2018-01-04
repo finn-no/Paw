@@ -1,8 +1,14 @@
 import UIKit
 
+protocol AdressComponentViewDelegate: class {
+    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component)
+}
+
 public class AdressComponentView: UIView {
 
     // MARK: - Internal properties
+
+    weak var delegate: AdressComponentViewDelegate?
 
     private let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
 
@@ -18,6 +24,14 @@ public class AdressComponentView: UIView {
         button.setImage(pinImage, for: .normal)
         return button
     }()
+
+    // MARK: - External properties
+
+    var component: Component? {
+        didSet {
+            //            linkLabel.text = component?.id
+        }
+    }
 
     // MARK: - Setup
 
@@ -45,6 +59,9 @@ public class AdressComponentView: UIView {
     // MARK: - Actions
 
     @objc func openMapAction(sender: UIButton) {
-        print("Opening map")
+        guard let component = component else {
+            return
+        }
+        delegate?.adressComponentView(self, didSelectComponent: component)
     }
 }

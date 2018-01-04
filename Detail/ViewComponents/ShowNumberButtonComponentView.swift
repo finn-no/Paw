@@ -1,8 +1,14 @@
 import UIKit
 
+protocol ShowNumberComponentViewDelegate: class {
+    func showNumberComponentView(_ showNumberComponentView: ShowNumberButtonComponentView, didSelectComponent component: Component)
+}
+
 public class ShowNumberButtonComponentView: UIView {
 
     // MARK: - Internal properties
+
+    weak var delegate: ShowNumberComponentViewDelegate?
 
     private lazy var showNumberButton: UIButton = {
         let button = UIButton()
@@ -15,6 +21,14 @@ public class ShowNumberButtonComponentView: UIView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         return button
     }()
+
+    // MARK: - External properties
+
+    var component: Component? {
+        didSet {
+            //            linkLabel.text = component?.id
+        }
+    }
 
     // MARK: - Setup
 
@@ -42,8 +56,12 @@ public class ShowNumberButtonComponentView: UIView {
     // MARK: - Actions
 
     @objc func showNumberTapped(sender: UIButton) {
-        print("Show number!")
         showNumberButton.setTitle("123 45 678", for: .normal)
+        
+        guard let component = component else {
+            return
+        }
+        delegate?.showNumberComponentView(self, didSelectComponent: component)
     }
 }
 
