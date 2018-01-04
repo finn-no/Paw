@@ -3,21 +3,21 @@ import UIKit
 class ObjectViewController: UIViewController {
     var components: [[Component]] {
         return [
-            [Component(id: "c1", type: .gallery)],
-            [Component(id: "c2", type: .title)],
-            [Component(id: "c3a", type: .price)],
-            [Component(id: "c4", type: .messageButton)],
-            [Component(id: "c5", type: .showNumberButton)],
-            [Component(id: "c6", type: .profile)],
-            [Component(id: "c7", type: .adress)],
-            [Component(id: "c8", type: .description)],
-            [Component(id: "c9a", type: .category)],
-            [Component(id: "c10", type: .banner)],
-            [Component(id: "c11", type: .safePay), Component(id: "c11", type: .loanPrice)],
-            [Component(id: "c12", type: .deliveryHelp)],
-            [Component(id: "c13", type: .adReporter)],
-            [Component(id: "c14", type: .adInfo)],
-            [Component(id: "c15", type: .relevantAds)],
+            [Component(id: "gallery", type: .gallery)],
+            [Component(id: "title", type: .title)],
+            [Component(id: "price", type: .price)],
+            [Component(id: "message", type: .messageButton)],
+            [Component(id: "show", type: .showNumberButton)],
+            [Component(id: "proflie", type: .profile)],
+            [Component(id: "adress", type: .adress)],
+            [Component(id: "description", type: .description)],
+            [Component(id: "category", type: .category)],
+            [Component(id: "banner", type: .banner)],
+            [Component(id: "safe", type: .safePay), Component(id: "loan", type: .loanPrice)],
+            [Component(id: "delivery", type: .deliveryHelp)],
+            [Component(id: "adRep", type: .adReporter)],
+            [Component(id: "adInf", type: .adInfo)],
+            [Component(id: "relevant", type: .relevantAds)],
         ]
     }
 
