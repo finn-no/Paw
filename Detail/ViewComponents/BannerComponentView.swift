@@ -1,6 +1,6 @@
 import UIKit
 
-public class BannerView: UIView {
+public class BannerComponentView: UIView {
 
     // MARK: - Internal properties
 

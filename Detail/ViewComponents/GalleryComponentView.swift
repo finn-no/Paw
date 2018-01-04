@@ -1,6 +1,6 @@
 import UIKit
 
-public class GalleryView: UIView {
+public class GalleryComponentView: UIView {
     
     // MARK: - Internal properties
 

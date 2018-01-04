@@ -1,6 +1,6 @@
 import UIKit
 
-public class RelevantAdsView: UIView {
+public class RelevantAdsComponentView: UIView {
 
     // MARK: - Internal properties
 

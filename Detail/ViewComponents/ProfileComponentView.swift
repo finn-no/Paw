@@ -1,6 +1,6 @@
 import UIKit
 
-public class ProfileView: UIView {
+public class ProfileComponentView: UIView {
 
     // MARK: - Internal properties
 

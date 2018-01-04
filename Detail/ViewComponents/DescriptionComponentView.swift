@@ -1,6 +1,6 @@
 import UIKit
 
-public class DescriptionView: UIView {
+public class DescriptionComponentView: UIView {
 
     // MARK: - Internal properties
 

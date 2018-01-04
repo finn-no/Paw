@@ -1,6 +1,6 @@
 import UIKit
 
-public class TitleView: UIView {
+public class TitleComponentView: UIView {
 
     // MARK: - Internal properties
 

@@ -1,6 +1,6 @@
 import UIKit
 
-public class AdressView: UIView {
+public class AdressComponentView: UIView {
 
     // MARK: - Internal properties
 

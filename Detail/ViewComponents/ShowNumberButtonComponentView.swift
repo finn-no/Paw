@@ -1,6 +1,6 @@
 import UIKit
 
-public class ShowNumberButtonView: UIView {
+public class ShowNumberButtonComponentView: UIView {
 
     // MARK: - Internal properties
 

@@ -1,6 +1,6 @@
 import UIKit
 
-public class DeliveryHelpView: UIView {
+public class DeliveryHelpComponentView: UIView {
 
     // MARK: - Internal properties
 

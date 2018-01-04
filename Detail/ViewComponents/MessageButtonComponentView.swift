@@ -1,6 +1,6 @@
 import UIKit
 
-public class MessageButtonView: UIView {
+public class MessageButtonComponentView: UIView {
 
     // MARK: - Internal properties
 
