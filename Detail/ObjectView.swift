@@ -66,7 +66,7 @@ class ObjectView: UIView {
         var previousComponentView: UIView?
 
         for (index, component) in components.enumerated() {
-            let componentView = getViewComponent(from: component, in: self)
+            let componentView = viewComponent(for: component, in: self)
 
             if let componentView = componentView {
                 NSLayoutConstraint.activate([
@@ -100,7 +100,7 @@ class ObjectView: UIView {
         }
     }
 
-    func getViewComponent(from component: Component, in objectView: ObjectView) -> UIView? {
+    func viewComponent(for component: Component, in objectView: ObjectView) -> UIView? {
         switch component.type {
         case .link:
             let listComponentView = LinkComponentView()
