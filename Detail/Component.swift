@@ -5,6 +5,7 @@ class Component {
     enum ComponentType {
         case link
         case title
+        case custom
     }
 
     var id: String
