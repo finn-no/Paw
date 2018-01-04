@@ -36,6 +36,7 @@ public class BannerComponentView: UIView {
             adCellImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             adCellImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             adCellImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            adCellImageView.heightAnchor.constraint(equalToConstant: 300),
         ])
     }
 }

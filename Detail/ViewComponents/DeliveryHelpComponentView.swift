@@ -36,6 +36,7 @@ public class DeliveryHelpComponentView: UIView {
             deliveryHelpImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             deliveryHelpImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             deliveryHelpImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            deliveryHelpImageView.heightAnchor.constraint(equalToConstant: 90),
         ])
     }
 }

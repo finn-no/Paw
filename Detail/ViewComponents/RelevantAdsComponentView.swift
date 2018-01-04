@@ -36,6 +36,7 @@ public class RelevantAdsComponentView: UIView {
             relevantAdsFeedImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             relevantAdsFeedImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             relevantAdsFeedImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            relevantAdsFeedImageView.heightAnchor.constraint(equalToConstant: 600),
         ])
     }
 }
