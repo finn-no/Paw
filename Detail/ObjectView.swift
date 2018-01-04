@@ -136,7 +136,7 @@ class ObjectView: UIView {
             let view = UIStackView()
             view.translatesAutoresizingMaskIntoConstraints = false
             view.axis = .horizontal
-            view.distribution = .fillEqually
+            view.distribution = .fillProportionally
             view.spacing = .mediumSpacing
             return view
         }()
