@@ -6,6 +6,21 @@ class Component {
         case link
         case title
         case custom
+        case gallery
+        case profile
+        case price
+        case messageButton
+        case showNumberButton
+        case adress
+        case description
+        case category
+        case banner
+        case safePay
+        case loanPrice
+        case deliveryHelp
+        case adReporter
+        case adInfo
+        case relevantAds
     }
 
     var id: String

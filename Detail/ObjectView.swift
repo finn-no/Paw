@@ -118,7 +118,67 @@ class ObjectView: UIView {
             listComponentView.setupLayout()
             return listComponentView
         case .title:
-            let listComponentView = TitleView()
+            let listComponentView = TitleComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .gallery:
+            let listComponentView = GalleryComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .profile:
+            let listComponentView = ProfileComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .price:
+            let listComponentView = PriceComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .messageButton:
+            let listComponentView = MessageButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .showNumberButton:
+            let listComponentView = ShowNumberButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .adress:
+            let listComponentView = AdressComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .description:
+            let listComponentView = DescriptionComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .category:
+            let listComponentView = CategoryComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .banner:
+            let listComponentView = BannerComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .safePay:
+            let listComponentView = SafePayComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .loanPrice:
+            let listComponentView = LoanPriceComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .deliveryHelp:
+            let listComponentView = DeliveryHelpComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .adReporter:
+            let listComponentView = AdReporterComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .adInfo:
+            let listComponentView = AdInfoComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            return listComponentView
+        case .relevantAds:
+            let listComponentView = RelevantAdsComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             return listComponentView
         case .custom:
