@@ -1,7 +1,7 @@
 import UIKit
 
 protocol ObjectViewDataSource: class {
-    func components(in objectView: ObjectView) -> [Component]
+    func components(in objectView: ObjectView) -> [[Component]]
     func customComponentView(for component: Component, in objectView: ObjectView) -> UIView?
 }
 
@@ -63,39 +63,47 @@ class ObjectView: UIView {
         }
 
         let components = dataSource.components(in: self)
-        var previousComponentView: UIView?
+        var previousStackView: UIStackView?
 
-        for (index, component) in components.enumerated() {
-            let componentView = viewComponent(for: component, in: self)
+        for (rowIndex, componentRow) in components.enumerated() {
+            let componentStackView = setupStackView()
 
-            if let componentView = componentView {
+            for component in componentRow {
+                if let componentView = viewComponent(for: component, in: self) {
+                    componentStackView.addArrangedSubview(componentView)
+                }
+            }
+
+            if componentStackView.arrangedSubviews.count > 0 {
+                contentView.addSubview(componentStackView)
+
                 NSLayoutConstraint.activate([
-                    componentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-                    componentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-                ])
+                    componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+                    componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+                    ])
 
-                switch index {
+                switch rowIndex {
                 case 0:
                     NSLayoutConstraint.activate([
-                        componentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
-                    ])
+                        componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
+                        ])
                 case components.count-1:
-                    guard let previousComponentView = previousComponentView else {
+                    guard let previousStackView = previousStackView else {
                         fatalError()
                     }
                     NSLayoutConstraint.activate([
-                        componentView.topAnchor.constraint(equalTo: previousComponentView.bottomAnchor, constant: .mediumLargeSpacing),
-                        componentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
-                    ])
+                        componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
+                        ])
                 default:
-                    guard let previousComponentView = previousComponentView else {
+                    guard let previousStackView = previousStackView else {
                         fatalError()
                     }
                     NSLayoutConstraint.activate([
-                        componentView.topAnchor.constraint(equalTo: previousComponentView.bottomAnchor, constant: .mediumLargeSpacing),
-                    ])
+                        componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                        ])
                 }
-                previousComponentView = componentView
+                previousStackView = componentStackView
             }
         }
     }
@@ -107,23 +115,32 @@ class ObjectView: UIView {
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = objectView
             listComponentView.component = component
-            contentView.addSubview(listComponentView)
             listComponentView.setupLayout()
             return listComponentView
         case .title:
             let listComponentView = TitleView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(listComponentView)
             return listComponentView
         case .custom:
             if let listComponentView = dataSource?.customComponentView(for: component, in: objectView) {
                 listComponentView.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(listComponentView)
                 return listComponentView
             } else {
                 return nil
             }
         }
+    }
+
+    func setupStackView() -> UIStackView {
+        let stackView: UIStackView = {
+            let view = UIStackView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.axis = .horizontal
+            view.distribution = .fillProportionally
+            view.spacing = .mediumSpacing
+            return view
+        }()
+        return stackView
     }
 }
 
