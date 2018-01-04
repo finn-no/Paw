@@ -136,14 +136,20 @@ class ObjectView: UIView {
         case .messageButton:
             let listComponentView = MessageButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
             return listComponentView
         case .showNumberButton:
             let listComponentView = ShowNumberButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
             return listComponentView
         case .adress:
             let listComponentView = AdressComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
             return listComponentView
         case .description:
             let listComponentView = DescriptionComponentView()
@@ -160,10 +166,14 @@ class ObjectView: UIView {
         case .safePay:
             let listComponentView = SafePayComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
             return listComponentView
         case .loanPrice:
             let listComponentView = LoanPriceComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
             return listComponentView
         case .deliveryHelp:
             let listComponentView = DeliveryHelpComponentView()
@@ -172,6 +182,8 @@ class ObjectView: UIView {
         case .adReporter:
             let listComponentView = AdReporterComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component
             return listComponentView
         case .adInfo:
             let listComponentView = AdInfoComponentView()
@@ -206,6 +218,36 @@ class ObjectView: UIView {
 
 extension ObjectView: LinkComponentViewDelegate {
     func linkComponentView(_ linkComponentView: LinkComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: MessageComponentViewDelegate {
+    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: ShowNumberComponentViewDelegate {
+    func showNumberComponentView(_ showNumberComponentView: ShowNumberButtonComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: AdressComponentViewDelegate {
+    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: SafePayComponentViewDelegate {
+    func safePayComponentView(_ safePayComponentView: SafePayComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: LoanPriceComponentViewDelegate {
+    func loanPriceComponentView(_ loanPriceComponentView: LoanPriceComponentView, didSelectComponent component: Component) {
+        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+extension ObjectView: AdReporterComponentViewDelegate {
+    func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component) {
         delegate?.objectView(self, didSelectComponent: component)
     }
 }
