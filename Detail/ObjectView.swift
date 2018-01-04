@@ -74,35 +74,37 @@ class ObjectView: UIView {
                 }
             }
 
-            contentView.addSubview(componentStackView)
+            if componentStackView.arrangedSubviews.count > 0 {
+                contentView.addSubview(componentStackView)
 
-            NSLayoutConstraint.activate([
-                componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-                componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            ])
+                NSLayoutConstraint.activate([
+                    componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+                    componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+                    ])
 
-            switch rowIndex {
-            case 0:
-                NSLayoutConstraint.activate([
-                    componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
-                ])
-            case components.count-1:
-                guard let previousStackView = previousStackView else {
-                    fatalError()
+                switch rowIndex {
+                case 0:
+                    NSLayoutConstraint.activate([
+                        componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
+                        ])
+                case components.count-1:
+                    guard let previousStackView = previousStackView else {
+                        fatalError()
+                    }
+                    NSLayoutConstraint.activate([
+                        componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
+                        ])
+                default:
+                    guard let previousStackView = previousStackView else {
+                        fatalError()
+                    }
+                    NSLayoutConstraint.activate([
+                        componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                        ])
                 }
-                NSLayoutConstraint.activate([
-                    componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                    componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing),
-                ])
-            default:
-                guard let previousStackView = previousStackView else {
-                    fatalError()
-                }
-                NSLayoutConstraint.activate([
-                    componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                ])
+                previousStackView = componentStackView
             }
-            previousStackView = componentStackView
         }
     }
 
