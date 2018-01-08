@@ -49,7 +49,7 @@ public class AdReporterComponentView: UIView {
             adReporterButton.topAnchor.constraint(equalTo: topAnchor),
             adReporterButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             adReporterButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            adReporterButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            adReporterButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 

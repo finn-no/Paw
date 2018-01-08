@@ -34,7 +34,7 @@ public class CategoryComponentView: UIView {
             categoryLabel.topAnchor.constraint(equalTo: topAnchor),
             categoryLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             categoryLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            categoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            categoryLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 }

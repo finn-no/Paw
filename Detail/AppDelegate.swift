@@ -8,15 +8,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         let viewController = ObjectViewController()
-        viewController.tabBarItem = UITabBarItem(title: "Object Page", image: nil, tag: 0)
+
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.tabBarItem = UITabBarItem(title: "Object Page", image: nil, tag: 0)
+
+        let navigationBarApperance = UINavigationBar.appearance()
+        navigationBarApperance.tintColor = .primaryBlue
 
         let tabbarController = UITabBarController()
-        tabbarController.viewControllers = [viewController]
-
-        let navigationController = UINavigationController(rootViewController: tabbarController)
+        tabbarController.viewControllers = [navigationController]
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
 
         return true

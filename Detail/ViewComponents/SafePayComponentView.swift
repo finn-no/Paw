@@ -49,7 +49,7 @@ public class SafePayComponentView: UIView {
             safePayButton.topAnchor.constraint(equalTo: topAnchor),
             safePayButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             safePayButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            safePayButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            safePayButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 

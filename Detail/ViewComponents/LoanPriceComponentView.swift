@@ -49,7 +49,7 @@ public class LoanPriceComponentView: UIView {
             loanPriceButton.topAnchor.constraint(equalTo: topAnchor),
             loanPriceButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             loanPriceButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            loanPriceButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            loanPriceButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 

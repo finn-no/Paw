@@ -48,7 +48,7 @@ public class ShowNumberButtonComponentView: UIView {
         NSLayoutConstraint.activate([
             showNumberButton.topAnchor.constraint(equalTo: topAnchor),
             showNumberButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            showNumberButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            showNumberButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
             showNumberButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
