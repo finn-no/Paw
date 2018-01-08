@@ -52,7 +52,7 @@ public class AdressComponentView: UIView {
             adressButton.topAnchor.constraint(equalTo: topAnchor),
             adressButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             adressButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            adressButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            adressButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 
