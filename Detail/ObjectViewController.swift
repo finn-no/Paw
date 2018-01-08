@@ -21,6 +21,21 @@ class ObjectViewController: UIViewController {
         ]
     }
 
+    let favoriteImage = UIImage(named: "favouriteAdd")?.withRenderingMode(.alwaysTemplate)
+    let shareImage = UIImage(named: "share")?.withRenderingMode(.alwaysTemplate)
+
+    lazy var shareBarButtonItem: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: shareImage, style: .plain, target: self, action: #selector(shareAd))
+        item.tintColor = .primaryBlue
+        return item
+    }()
+    
+    lazy var favoriteBarButtonItem: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favorite))
+        item.tintColor = .primaryBlue
+        return item
+    }()
+
     lazy var objectView: ObjectView = {
         let view = ObjectView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +45,8 @@ class ObjectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.setRightBarButtonItems([favoriteBarButtonItem, shareBarButtonItem], animated: false)
 
         view.addSubview(objectView)
         // lay out to fill constraints
@@ -44,6 +61,13 @@ class ObjectViewController: UIViewController {
         objectView.dataSource = self
         objectView.delegate = self
         objectView.reloadData()
+    }
+
+    @objc func favorite(sender: UIButton) {
+        print("Favorite added!")
+    }
+    @objc func shareAd(sender: UIButton) {
+        print("Share ad!")
     }
 }
 
