@@ -21,7 +21,7 @@
 		4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */; };
 		4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceComponentView.swift */; };
 		4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */; };
-		4541AFA81FE817FB002488ED /* ShowNumberButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */; };
+		4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */; };
 		4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileComponentView.swift */; };
 		45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressComponentView.swift */; };
 		45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionComponentView.swift */; };
@@ -53,7 +53,7 @@
 		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
 		4541AFA31FE81367002488ED /* PriceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceComponentView.swift; sourceTree = "<group>"; };
 		4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponentView.swift; sourceTree = "<group>"; };
-		4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonComponentView.swift; sourceTree = "<group>"; };
+		4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentView.swift; sourceTree = "<group>"; };
 		4541AFA91FE819A9002488ED /* ProfileComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponentView.swift; sourceTree = "<group>"; };
 		45655F631FE81BC70088A22C /* AdressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressComponentView.swift; sourceTree = "<group>"; };
 		45655F651FE8F3080088A22C /* DescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponentView.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 				4541AF941FE80646002488ED /* TitleComponentView.swift */,
 				4541AFA31FE81367002488ED /* PriceComponentView.swift */,
 				4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */,
-				4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */,
+				4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */,
 				45655F631FE81BC70088A22C /* AdressComponentView.swift */,
 				45655F651FE8F3080088A22C /* DescriptionComponentView.swift */,
 				45655F671FE9427D0088A22C /* CategoryComponentView.swift */,
@@ -234,7 +234,7 @@
 				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
 				45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */,
 				45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */,
-				4541AFA81FE817FB002488ED /* ShowNumberButtonComponentView.swift in Sources */,
+				4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */,
 				4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				4400FA621FEBEF5000AC7325 /* ObjectView.swift in Sources */,

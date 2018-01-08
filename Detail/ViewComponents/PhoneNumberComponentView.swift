@@ -1,14 +1,14 @@
 import UIKit
 
-protocol ShowNumberComponentViewDelegate: class {
-    func showNumberComponentView(_ showNumberComponentView: ShowNumberButtonComponentView, didSelectComponent component: Component)
+protocol PhoneNumberComponentViewDelegate: class {
+    func showNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component)
 }
 
-public class ShowNumberButtonComponentView: UIView {
+public class PhoneNumberComponentView: UIView {
 
     // MARK: - Internal properties
 
-    weak var delegate: ShowNumberComponentViewDelegate?
+    weak var delegate: PhoneNumberComponentViewDelegate?
 
     private lazy var showNumberButton: UIButton = {
         let button = UIButton()
