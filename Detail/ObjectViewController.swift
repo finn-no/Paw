@@ -7,7 +7,7 @@ class ObjectViewController: UIViewController {
             [Component(id: "title", type: .title)],
             [Component(id: "price", type: .price)],
             [Component(id: "message", type: .messageButton)],
-            [Component(id: "show", type: .showNumberButton)],
+            [Component(id: "12345678", type: .showNumberButton)],
             [Component(id: "proflie", type: .profile)],
             [Component(id: "adress", type: .adress)],
             [Component(id: "description", type: .description)],

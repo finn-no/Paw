@@ -8,6 +8,7 @@ public class PhoneNumberComponentView: UIView {
 
     // MARK: - Internal properties
 
+    private var isNumberShowing: Bool = false
 
     private lazy var numberButton: UIButton = {
         let button = UIButton()
@@ -71,12 +72,28 @@ public class PhoneNumberComponentView: UIView {
     // MARK: - Actions
 
     @objc func showNumberTapped(sender: UIButton) {
-        showNumberButton.setTitle("123 45 678", for: .normal)
+        guard let phoneNumber = component?.id else {
+            return
+        }
+        numberButton.setTitle(numberFormat(phoneNumber), for: .normal)
+        numberButton.accessibilityLabel = "Telefonnummer: " + phoneNumber
         
         guard let component = component else {
             return
         }
         delegate?.showNumberComponentView(self, didSelectComponent: component)
+
+        if isNumberShowing {
+            if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+        isNumberShowing = true
+    }
 
     func numberFormat(_ number: String) -> String {
         if number.count > 8 {
