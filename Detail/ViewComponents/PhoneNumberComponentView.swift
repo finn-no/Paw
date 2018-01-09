@@ -34,12 +34,8 @@ public class PhoneNumberComponentView: UIView {
 
     // MARK: - External properties
 
-    var component: Component? {
-        didSet {
-            //            linkLabel.text = component?.id
-        }
-    }
     weak var delegate: PhoneNumberComponentViewDelegate?
+    var component: Component?
 
     // MARK: - Setup
 
