@@ -139,7 +139,7 @@ class ObjectView: UIView {
             listComponentView.delegate = objectView
             listComponentView.component = component
             return listComponentView
-        case .showNumberButton:
+        case .phoneNumber:
             let listComponentView = PhoneNumberComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = objectView
@@ -227,6 +227,10 @@ extension ObjectView: MessageComponentViewDelegate {
     }
 }
 extension ObjectView: PhoneNumberComponentViewDelegate {
+    func didSelectNumber(in phoneNumberComponentView: PhoneNumberComponentView, with component: PhoneNumberComponent) {
+        <#code#>
+    }
+    
     func showNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component) {
         delegate?.objectView(self, didSelectComponent: component)
     }
