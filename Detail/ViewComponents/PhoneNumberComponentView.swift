@@ -10,7 +10,7 @@ public class PhoneNumberComponentView: UIView {
 
     weak var delegate: PhoneNumberComponentViewDelegate?
 
-    private lazy var showNumberButton: UIButton = {
+    private lazy var numberButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
@@ -20,6 +20,15 @@ public class PhoneNumberComponentView: UIView {
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         return button
+    }()
+
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.font = .body
+        label.text = "Mobil"
+        return label
     }()
 
     // MARK: - External properties
@@ -43,13 +52,18 @@ public class PhoneNumberComponentView: UIView {
     }
 
     private func setup() {
-        addSubview(showNumberButton)
+        addSubview(numberButton)
+        addSubview(descriptionLabel)
 
         NSLayoutConstraint.activate([
-            showNumberButton.topAnchor.constraint(equalTo: topAnchor),
-            showNumberButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            showNumberButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-            showNumberButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: topAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: numberButton.leadingAnchor, constant: -.mediumLargeSpacing),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            numberButton.topAnchor.constraint(equalTo: topAnchor),
+            numberButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            numberButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
