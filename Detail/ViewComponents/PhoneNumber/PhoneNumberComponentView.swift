@@ -2,24 +2,23 @@ import UIKit
 
 protocol PhoneNumberComponentViewDelegate: class {
     func showNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component)
+    func didSelectNumber(in phoneNumberComponentView: PhoneNumberComponentView, with component: PhoneNumberComponent)
 }
 
 public class PhoneNumberComponentView: UIView {
 
     // MARK: - Internal properties
 
-    private var isNumberShowing: Bool = false
+    private var isPhoneNumberShowing: Bool = false
 
     private lazy var numberButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
         button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("Vis telefonnummer", for: .normal)
         button.addTarget(self, action: #selector(showNumberTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: .mediumSpacing, left: 0, bottom: .mediumSpacing, right: 0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.accessibilityLabel = "Vis telefonnummer"
         return button
     }()
 
@@ -28,14 +27,19 @@ public class PhoneNumberComponentView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
         label.font = .body
-        label.text = "Mobil"
         return label
     }()
 
     // MARK: - External properties
 
     weak var delegate: PhoneNumberComponentViewDelegate?
-    var component: Component?
+    var component: PhoneNumberComponent? {
+        didSet {
+            numberButton.setTitle(component?.showNumberText, for: .normal)  // "Vis telefonnummer"
+            numberButton.accessibilityLabel = component?.showNumberText
+            descriptionLabel.text = component?.descriptionText              // "Mobil"
+        }
+    }
 
     // MARK: - Setup
 
@@ -68,27 +72,25 @@ public class PhoneNumberComponentView: UIView {
     // MARK: - Actions
 
     @objc func showNumberTapped(sender: UIButton) {
-        guard let phoneNumber = component?.id else {
-            return
-        }
-        numberButton.setTitle(numberFormat(phoneNumber), for: .normal)
-        numberButton.accessibilityLabel = "Telefonnummer: " + phoneNumber
-        
         guard let component = component else {
             return
         }
-        delegate?.showNumberComponentView(self, didSelectComponent: component)
+        numberButton.setTitle(numberFormat(component.phoneNumber), for: .normal)
+        numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber      // accessibilityLabelPrefix = "Telefonnummer: "
 
-        if isNumberShowing {
-            if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
+        if isPhoneNumberShowing {
+            delegate?.didSelectNumber(in: self, with: component)
+//            if let url = URL(string: "sms://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+//                if #available(iOS 10, *) {
+//                    UIApplication.shared.open(url)
+//                } else {
+//                    UIApplication.shared.openURL(url)
+//                }
+//            }
+        } else {
+            delegate?.showNumberComponentView(self, didSelectComponent: component)
         }
-        isNumberShowing = true
+        isPhoneNumberShowing = true
     }
 
     func numberFormat(_ number: String) -> String {
