@@ -77,6 +77,34 @@ public class PhoneNumberComponentView: UIView {
             return
         }
         delegate?.showNumberComponentView(self, didSelectComponent: component)
+
+    func numberFormat(_ number: String) -> String {
+        if number.count > 8 {
+            let landCodeIndex = number.index(number.startIndex, offsetBy: 3)
+            let firstIndex = number.index(landCodeIndex, offsetBy: 3)
+            let middleIndex = number.index(firstIndex, offsetBy: 2)
+
+            let landCodeString = number.prefix(upTo: landCodeIndex)
+            let landCodeAndFirstString = number.prefix(upTo: firstIndex)
+            let firstString = landCodeAndFirstString.suffix(from: landCodeIndex)
+            let firstAndMiddleString = number.prefix(upTo: middleIndex)
+            let middleString = firstAndMiddleString.suffix(from: firstIndex)
+            let lastString = number.suffix(from: middleIndex)
+
+            let firstHalfOfString = landCodeString + " " + firstString + " "
+
+            return firstHalfOfString + middleString + " " + lastString
+        } else {
+            let firstIndex = number.index(number.startIndex, offsetBy: 3)
+            let middleIndex = number.index(firstIndex, offsetBy: 2)
+
+            let firstString = number.prefix(upTo: firstIndex)
+            let firstAndMiddleString = number.prefix(upTo: middleIndex)
+            let middleString = firstAndMiddleString.suffix(from: firstIndex)
+            let lastString = number.suffix(from: middleIndex)
+
+            return firstString + " " + middleString + " " + lastString
+        }
     }
 }
 
