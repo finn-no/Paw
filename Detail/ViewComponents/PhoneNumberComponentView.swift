@@ -18,6 +18,7 @@ public class PhoneNumberComponentView: UIView {
         button.addTarget(self, action: #selector(showNumberTapped), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: .mediumSpacing, left: 0, bottom: .mediumSpacing, right: 0)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.accessibilityLabel = "Vis telefonnummer"
         return button
     }()
 
