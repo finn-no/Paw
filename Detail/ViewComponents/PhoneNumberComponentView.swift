@@ -8,7 +8,6 @@ public class PhoneNumberComponentView: UIView {
 
     // MARK: - Internal properties
 
-    weak var delegate: PhoneNumberComponentViewDelegate?
 
     private lazy var numberButton: UIButton = {
         let button = UIButton()
@@ -38,6 +37,7 @@ public class PhoneNumberComponentView: UIView {
             //            linkLabel.text = component?.id
         }
     }
+    weak var delegate: PhoneNumberComponentViewDelegate?
 
     // MARK: - Setup
 
