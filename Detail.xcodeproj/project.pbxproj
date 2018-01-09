@@ -34,6 +34,7 @@
 		45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoComponentView.swift */; };
 		45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsComponentView.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
+		45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		45655F731FE952C20088A22C /* AdInfoComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoComponentView.swift; sourceTree = "<group>"; };
 		45655F751FE954930088A22C /* RelevantAdsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsComponentView.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +123,7 @@
 				4541AF941FE80646002488ED /* TitleComponentView.swift */,
 				4541AFA31FE81367002488ED /* PriceComponentView.swift */,
 				4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */,
-				4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */,
+				45BFEFB92004F9BE00EAFD94 /* PhoneNumber */,
 				45655F631FE81BC70088A22C /* AdressComponentView.swift */,
 				45655F651FE8F3080088A22C /* DescriptionComponentView.swift */,
 				45655F671FE9427D0088A22C /* CategoryComponentView.swift */,
@@ -152,6 +154,15 @@
 				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		45BFEFB92004F9BE00EAFD94 /* PhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */,
+				45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */,
+			);
+			path = PhoneNumber;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				45655F6C1FE947180088A22C /* SafePayComponentView.swift in Sources */,
 				45655F6E1FE948340088A22C /* LoanPriceComponentView.swift in Sources */,
 				4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */,
+				45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
 				45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
