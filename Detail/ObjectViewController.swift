@@ -3,21 +3,21 @@ import UIKit
 class ObjectViewController: UIViewController {
     var components: [[Component]] {
         return [
-            [Component(id: "gallery", type: .gallery)],
-            [Component(id: "title", type: .title)],
-            [Component(id: "price", type: .price)],
-            [Component(id: "message", type: .messageButton)],
-            [Component(id: "12345678", type: .showNumberButton)],
-            [Component(id: "proflie", type: .profile)],
-            [Component(id: "adress", type: .adress)],
-            [Component(id: "description", type: .description)],
-            [Component(id: "category", type: .category)],
-            [Component(id: "banner", type: .banner)],
-            [Component(id: "safe", type: .safePay), Component(id: "loan", type: .loanPrice)],
-            [Component(id: "delivery", type: .deliveryHelp)],
-            [Component(id: "adRep", type: .adReporter)],
-            [Component(id: "adInf", type: .adInfo)],
-            [Component(id: "relevant", type: .relevantAds)],
+//            [Component(id: "gallery", type: .gallery)],
+//            [Component(id: "title", type: .title)],
+//            [Component(id: "price", type: .price)],
+//            [Component(id: "message", type: .messageButton)],
+            [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Hei", showNumberText: "Hei 2", accessibilityLabelPrefix: "Hei 3")]
+//            [Component(id: "proflie", type: .profile)],
+//            [Component(id: "adress", type: .adress)],
+//            [Component(id: "description", type: .description)],
+//            [Component(id: "category", type: .category)],
+//            [Component(id: "banner", type: .banner)],
+//            [Component(id: "safe", type: .safePay), Component(id: "loan", type: .loanPrice)],
+//            [Component(id: "delivery", type: .deliveryHelp)],
+//            [Component(id: "adRep", type: .adReporter)],
+//            [Component(id: "adInf", type: .adInfo)],
+//            [Component(id: "relevant", type: .relevantAds)],
         ]
     }
 
