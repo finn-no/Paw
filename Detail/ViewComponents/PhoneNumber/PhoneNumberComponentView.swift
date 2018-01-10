@@ -3,6 +3,7 @@ import UIKit
 protocol PhoneNumberComponentViewDelegate: class {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component)
     func didSelectNumber(in phoneNumberComponentView: PhoneNumberComponentView, with component: PhoneNumberComponent)
+    func shouldShowphoneNumber(_ phoneNumberComponentView: PhoneNumberComponentView, component: PhoneNumberComponent) -> Bool
 }
 
 public class PhoneNumberComponentView: UIView {
@@ -75,20 +76,18 @@ public class PhoneNumberComponentView: UIView {
         guard let component = component else {
             return
         }
-        numberButton.setTitle(numberFormat(component.phoneNumber), for: .normal)
-        numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber      // accessibilityLabelPrefix = "Telefonnummer: "
+        guard let shouldShowNumber = delegate?.shouldShowphoneNumber(self, component: component) else {
+            return
+        }
 
         if isNumberShowing {
             delegate?.didSelectNumber(in: self, with: component)
-//            if let url = URL(string: "sms://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-//                if #available(iOS 10, *) {
-//                    UIApplication.shared.open(url)
-//                } else {
-//                    UIApplication.shared.openURL(url)
-//                }
-//            }
         } else {
-            delegate?.phoneNumberComponentView(self, didSelectComponent: component)
+            if shouldShowNumber {
+                numberButton.setTitle(numberFormat(component.phoneNumber), for: .normal)
+                numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber      // accessibilityLabelPrefix = "Telefonnummer: "
+                delegate?.phoneNumberComponentView(self, didSelectComponent: component)
+            }
             isNumberShowing = true
         }
     }
