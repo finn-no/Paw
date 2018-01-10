@@ -82,28 +82,35 @@ class ObjectView: UIView {
                     componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
                 ])
 
-                switch rowIndex {
-                case 0:
+                if components.count == 1 {
                     NSLayoutConstraint.activate([
                         componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                     ])
-                case components.count-1:
-                    guard let previousStackView = previousStackView else {
-                        fatalError()
+                } else {
+                    switch rowIndex {
+                    case 0:
+                        NSLayoutConstraint.activate([
+                            componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                            ])
+                    case components.count-1:
+                        guard let previousStackView = previousStackView else {
+                            fatalError()
+                        }
+                        NSLayoutConstraint.activate([
+                            componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                            componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
+                            ])
+                    default:
+                        guard let previousStackView = previousStackView else {
+                            fatalError()
+                        }
+                        NSLayoutConstraint.activate([
+                            componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                            ])
                     }
-                    NSLayoutConstraint.activate([
-                        componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
-                    ])
-                default:
-                    guard let previousStackView = previousStackView else {
-                        fatalError()
-                    }
-                    NSLayoutConstraint.activate([
-                        componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                    ])
+                    previousStackView = componentStackView
                 }
-                previousStackView = componentStackView
             }
         }
     }
