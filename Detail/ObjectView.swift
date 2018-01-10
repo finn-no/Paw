@@ -7,6 +7,7 @@ protocol ObjectViewDataSource: class {
 
 protocol ObjectViewDelegate: class {
     func objectView(_ objectView: ObjectView, didSelectComponent component: Component)
+    func objectView(_ objectView: ObjectView, allowsActionFor component: Component) -> Bool
 }
 
 class ObjectView: UIView {
@@ -234,8 +235,15 @@ extension ObjectView: MessageComponentViewDelegate {
     }
 }
 extension ObjectView: PhoneNumberComponentViewDelegate {
+    func shouldShowphoneNumber(_ phoneNumberComponentView: PhoneNumberComponentView, component: PhoneNumberComponent) -> Bool {
+        guard let delegate = delegate else {
+            return false
+        }
+        return delegate.objectView(self, allowsActionFor: component)
+    }
+
     func didSelectNumber(in phoneNumberComponentView: PhoneNumberComponentView, with component: PhoneNumberComponent) {
-        
+        delegate?.objectView(self, didSelectComponent: component)
     }
     
     func phoneNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component) {
