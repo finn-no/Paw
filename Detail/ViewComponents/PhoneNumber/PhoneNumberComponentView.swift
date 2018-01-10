@@ -9,7 +9,7 @@ public class PhoneNumberComponentView: UIView {
 
     // MARK: - Internal properties
 
-    private var isPhoneNumberShowing: Bool = false
+    private var isNumberShowing: Bool = false
 
     private lazy var numberButton: UIButton = {
         let button = UIButton()
@@ -78,7 +78,7 @@ public class PhoneNumberComponentView: UIView {
         numberButton.setTitle(numberFormat(component.phoneNumber), for: .normal)
         numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber      // accessibilityLabelPrefix = "Telefonnummer: "
 
-        if isPhoneNumberShowing {
+        if isNumberShowing {
             delegate?.didSelectNumber(in: self, with: component)
 //            if let url = URL(string: "sms://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
 //                if #available(iOS 10, *) {
@@ -89,8 +89,8 @@ public class PhoneNumberComponentView: UIView {
 //            }
         } else {
             delegate?.phoneNumberComponentView(self, didSelectComponent: component)
+            isNumberShowing = true
         }
-        isPhoneNumberShowing = true
     }
 
     func numberFormat(_ number: String) -> String {
