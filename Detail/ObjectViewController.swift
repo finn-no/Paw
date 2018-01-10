@@ -87,7 +87,34 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
+    func objectView(_ objectView: ObjectView, allowsActionFor component: Component) -> Bool {
+
+        if component.type == .phoneNumber {
+            guard let component = component as? PhoneNumberComponent else {
+                return false
+            }
+            // Logic for allowing to show number
+            return true
+        } else {
+            return true
+        }
+    }
+
     func objectView(_ objectView: ObjectView, didSelectComponent component: Component) {
         print("selected component: \(component.id)")
+
+        if component.type == .phoneNumber {
+            guard let component = component as? PhoneNumberComponent else {
+                return
+            }
+
+            if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
     }
 }
