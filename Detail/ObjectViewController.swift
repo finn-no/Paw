@@ -27,12 +27,14 @@ class ObjectViewController: UIViewController {
     lazy var shareBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(image: shareImage, style: .plain, target: self, action: #selector(shareAd))
         item.tintColor = .primaryBlue
+        item.accessibilityLabel = "Del annonse"
         return item
     }()
     
     lazy var favoriteBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favorite))
         item.tintColor = .primaryBlue
+        item.accessibilityLabel = "Favoriser annonse"
         return item
     }()
 
