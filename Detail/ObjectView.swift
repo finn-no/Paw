@@ -238,7 +238,7 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
         
     }
     
-    func showNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component) {
+    func phoneNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component) {
         delegate?.objectView(self, didSelectComponent: component)
     }
 }

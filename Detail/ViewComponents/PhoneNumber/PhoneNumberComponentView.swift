@@ -1,7 +1,7 @@
 import UIKit
 
 protocol PhoneNumberComponentViewDelegate: class {
-    func showNumberComponentView(_ showNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component)
+    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component)
     func didSelectNumber(in phoneNumberComponentView: PhoneNumberComponentView, with component: PhoneNumberComponent)
 }
 
@@ -88,7 +88,7 @@ public class PhoneNumberComponentView: UIView {
 //                }
 //            }
         } else {
-            delegate?.showNumberComponentView(self, didSelectComponent: component)
+            delegate?.phoneNumberComponentView(self, didSelectComponent: component)
         }
         isPhoneNumberShowing = true
     }
