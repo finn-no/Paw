@@ -1,6 +1,6 @@
 import UIKit
 
-public class DescriptionComponentView: UIView {
+public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - Internal properties
 
