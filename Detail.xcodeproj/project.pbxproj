@@ -15,6 +15,7 @@
 		44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */; };
 		44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */; };
 		44DCB457200522E0001A3FD9 /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCB456200522E0001A3FD9 /* UnitTests.swift */; };
+		4513FDF920076AA300975941 /* MessageButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513FDF820076AA300975941 /* MessageButtonComponent.swift */; };
 		4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF921FE803EC002488ED /* GalleryComponentView.swift */; };
 		4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF941FE80646002488ED /* TitleComponentView.swift */; };
 		4541AF981FE80799002488ED /* UIColor+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF971FE80799002488ED /* UIColor+Detail.swift */; };
@@ -22,7 +23,7 @@
 		4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */; };
 		4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA31FE81367002488ED /* PriceComponentView.swift */; };
 		4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */; };
-		4541AFA81FE817FB002488ED /* ShowNumberButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */; };
+		4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */; };
 		4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileComponentView.swift */; };
 		45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressComponentView.swift */; };
 		45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionComponentView.swift */; };
@@ -35,6 +36,7 @@
 		45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoComponentView.swift */; };
 		45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsComponentView.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
+		45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,7 @@
 		44DCB454200522E0001A3FD9 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DCB456200522E0001A3FD9 /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		44DCB458200522E0001A3FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4513FDF820076AA300975941 /* MessageButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponent.swift; sourceTree = "<group>"; };
 		4541AF921FE803EC002488ED /* GalleryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryComponentView.swift; sourceTree = "<group>"; };
 		4541AF941FE80646002488ED /* TitleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleComponentView.swift; sourceTree = "<group>"; };
 		4541AF971FE80799002488ED /* UIColor+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Detail.swift"; sourceTree = "<group>"; };
@@ -67,7 +70,7 @@
 		4541AF9F1FE80FBC002488ED /* UIFont+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Detail.swift"; sourceTree = "<group>"; };
 		4541AFA31FE81367002488ED /* PriceComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceComponentView.swift; sourceTree = "<group>"; };
 		4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponentView.swift; sourceTree = "<group>"; };
-		4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNumberButtonComponentView.swift; sourceTree = "<group>"; };
+		4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentView.swift; sourceTree = "<group>"; };
 		4541AFA91FE819A9002488ED /* ProfileComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponentView.swift; sourceTree = "<group>"; };
 		45655F631FE81BC70088A22C /* AdressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressComponentView.swift; sourceTree = "<group>"; };
 		45655F651FE8F3080088A22C /* DescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponentView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		45655F731FE952C20088A22C /* AdInfoComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoComponentView.swift; sourceTree = "<group>"; };
 		45655F751FE954930088A22C /* RelevantAdsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsComponentView.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,15 @@
 			path = UnitTests;
 			sourceTree = "<group>";
 		};
+		4513FDF720076A7400975941 /* MessageButton */ = {
+			isa = PBXGroup;
+			children = (
+				4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */,
+				4513FDF820076AA300975941 /* MessageButtonComponent.swift */,
+			);
+			path = MessageButton;
+			sourceTree = "<group>";
+		};
 		4541AF911FE8038F002488ED /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,8 +165,8 @@
 				4541AFA91FE819A9002488ED /* ProfileComponentView.swift */,
 				4541AF941FE80646002488ED /* TitleComponentView.swift */,
 				4541AFA31FE81367002488ED /* PriceComponentView.swift */,
-				4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */,
-				4541AFA71FE817FB002488ED /* ShowNumberButtonComponentView.swift */,
+				4513FDF720076A7400975941 /* MessageButton */,
+				45BFEFB92004F9BE00EAFD94 /* PhoneNumber */,
 				45655F631FE81BC70088A22C /* AdressComponentView.swift */,
 				45655F651FE8F3080088A22C /* DescriptionComponentView.swift */,
 				45655F671FE9427D0088A22C /* CategoryComponentView.swift */,
@@ -184,6 +197,15 @@
 				44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		45BFEFB92004F9BE00EAFD94 /* PhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */,
+				45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */,
+			);
+			path = PhoneNumber;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,13 +313,14 @@
 				45655F6C1FE947180088A22C /* SafePayComponentView.swift in Sources */,
 				45655F6E1FE948340088A22C /* LoanPriceComponentView.swift in Sources */,
 				4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */,
+				45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Detail.swift in Sources */,
 				45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
 				45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */,
 				45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */,
-				4541AFA81FE817FB002488ED /* ShowNumberButtonComponentView.swift in Sources */,
+				4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */,
 				4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */,
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				4400FA621FEBEF5000AC7325 /* ObjectView.swift in Sources */,
@@ -311,6 +334,7 @@
 				45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */,
 				4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */,
 				45655F721FE9510B0088A22C /* AdReporterComponentView.swift in Sources */,
+				4513FDF920076AA300975941 /* MessageButtonComponent.swift in Sources */,
 				4400FA641FEBF17400AC7325 /* LinkComponentView.swift in Sources */,
 				45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */,
 			);

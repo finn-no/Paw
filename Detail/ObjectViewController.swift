@@ -3,21 +3,22 @@ import UIKit
 class ObjectViewController: UIViewController {
     var components: [[Component]] {
         return [
-            [Component(id: "gallery", type: .gallery)],
-            [Component(id: "title", type: .title)],
-            [Component(id: "price", type: .price)],
-            [Component(id: "message", type: .messageButton)],
-            [Component(id: "show", type: .showNumberButton)],
-            [Component(id: "proflie", type: .profile)],
-            [Component(id: "adress", type: .adress)],
-            [Component(id: "description", type: .description)],
-            [Component(id: "category", type: .category)],
-            [Component(id: "banner", type: .banner)],
-            [Component(id: "safe", type: .safePay), Component(id: "loan", type: .loanPrice)],
-            [Component(id: "delivery", type: .deliveryHelp)],
-            [Component(id: "adRep", type: .adReporter)],
-            [Component(id: "adInf", type: .adInfo)],
-            [Component(id: "relevant", type: .relevantAds)],
+//            [Component(id: "gallery", type: .gallery)],
+//            [Component(id: "title", type: .title)],
+//            [Component(id: "price", type: .price)],
+//            [Component(id: "message", type: .messageButton)],
+            [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
+            [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
+//            [Component(id: "proflie", type: .profile)],
+//            [Component(id: "adress", type: .adress)],
+//            [Component(id: "description", type: .description)],
+//            [Component(id: "category", type: .category)],
+//            [Component(id: "banner", type: .banner)],
+//            [Component(id: "safe", type: .safePay), Component(id: "loan", type: .loanPrice)],
+//            [Component(id: "delivery", type: .deliveryHelp)],
+//            [Component(id: "adRep", type: .adReporter)],
+//            [Component(id: "adInf", type: .adInfo)],
+//            [Component(id: "relevant", type: .relevantAds)],
         ]
     }
 
@@ -27,12 +28,14 @@ class ObjectViewController: UIViewController {
     lazy var shareBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(image: shareImage, style: .plain, target: self, action: #selector(shareAd))
         item.tintColor = .primaryBlue
+        item.accessibilityLabel = "Del annonse"
         return item
     }()
     
     lazy var favoriteBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favorite))
         item.tintColor = .primaryBlue
+        item.accessibilityLabel = "Favoriser annonse"
         return item
     }()
 
@@ -85,7 +88,35 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
-    func objectView(_ objectView: ObjectView, didSelectComponent component: Component) {
-        print("selected component: \(component.id)")
+    func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent) {
+        print("Send message!")
+    }
+
+    func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
+        // Add tracking stuff?
+        print("Show phone number for component: \(component.id)")
+    }
+
+    func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+        if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+            print("Calling: \(component.phoneNumber)")
+        } else {
+            print("Not able to call")
+        }
+    }
+
+    func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+        let isUserLoggedIn = true
+
+        if isUserLoggedIn {
+            return true
+        } else {
+            return false
+        }
     }
 }

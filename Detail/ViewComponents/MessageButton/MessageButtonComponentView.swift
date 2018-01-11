@@ -1,7 +1,7 @@
 import UIKit
 
 protocol MessageComponentViewDelegate: class {
-    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didSelectComponent component: Component)
+    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent)
 }
 
 public class MessageButtonComponentView: UIView {
@@ -16,7 +16,6 @@ public class MessageButtonComponentView: UIView {
         button.isAccessibilityElement = true
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .title4
-        button.setTitle("Send melding", for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.backgroundColor = .primaryBlue
         button.layer.cornerRadius = 4.0
@@ -30,15 +29,15 @@ public class MessageButtonComponentView: UIView {
         label.isAccessibilityElement = true
         label.font = .detail
         label.textColor = .stone
-        label.text = "Svarer vanligvis innen 4 timer"
         return label
     }()
 
     // MARK: - External properties
     
-    var component: Component? {
+    var component: MessageButtonComponent? {
         didSet {
-//            linkLabel.text = component?.id
+            messageButton.setTitle(component?.title, for: .normal)
+            answerTimeLabel.text = component?.answerTime
         }
     }
 
@@ -76,7 +75,7 @@ public class MessageButtonComponentView: UIView {
         guard let component = component else {
             return
         }
-        delegate?.messageComponentView(self, didSelectComponent: component)
+        delegate?.messageComponentView(self, didTapSendMessageFor: component)
     }
 }
 
