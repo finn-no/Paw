@@ -1,9 +1,8 @@
 import UIKit
 
 protocol PhoneNumberComponentViewDelegate: class {
-    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didSelectComponent component: Component)
-    func didSelectNumber(in phoneNumberComponentView: PhoneNumberComponentView, with component: PhoneNumberComponent)
-    func shouldShowphoneNumber(_ phoneNumberComponentView: PhoneNumberComponentView, component: PhoneNumberComponent) -> Bool
+    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didSelect action: ComponentAction, for component: PhoneNumberComponent)
+    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, shouldAllow action: ComponentAction, for component: PhoneNumberComponent) -> Bool
 }
 
 public class PhoneNumberComponentView: UIView {
@@ -73,20 +72,23 @@ public class PhoneNumberComponentView: UIView {
     // MARK: - Actions
 
     @objc func showNumberTapped(sender: UIButton) {
-        guard let component = component else {
-            return
-        }
-        guard let shouldShowNumber = delegate?.shouldShowphoneNumber(self, component: component) else {
+        guard let component = component, let delegate = delegate else {
             return
         }
 
         if isNumberShowing {
-            delegate?.didSelectNumber(in: self, with: component)
+            let shouldPerformCallAction = delegate.phoneNumberComponentView(self, shouldAllow: .call, for: component)
+            if shouldPerformCallAction {
+                delegate.phoneNumberComponentView(self, didSelect: .call, for: component)
+            } else {
+                // Handle not allowed to call? (need else?)
+            }
         } else {
-            if shouldShowNumber {
+            let shouldPerformShowAction = delegate.phoneNumberComponentView(self, shouldAllow: .show, for: component)
+            if shouldPerformShowAction {
+                delegate.phoneNumberComponentView(self, didSelect: .show, for: component)
                 numberButton.setTitle(numberFormat(component.phoneNumber), for: .normal)
                 numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber      // accessibilityLabelPrefix = "Telefonnummer: "
-                delegate?.phoneNumberComponentView(self, didSelectComponent: component)
             }
             isNumberShowing = true
         }
