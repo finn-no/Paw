@@ -7,6 +7,7 @@ class ObjectViewController: UIViewController {
 //            [Component(id: "title", type: .title)],
 //            [Component(id: "price", type: .price)],
 //            [Component(id: "message", type: .messageButton)],
+            [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
 //            [Component(id: "proflie", type: .profile)],
 //            [Component(id: "adress", type: .adress)],
@@ -87,6 +88,10 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
+    func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent) {
+        print("Send message!")
+    }
+
     func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
         // Add tracking stuff?
         print("Show phone number for component: \(component.id)")
