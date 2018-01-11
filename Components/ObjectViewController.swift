@@ -1,6 +1,8 @@
 import UIKit
 
 class ObjectViewController: UIViewController {
+    let descriptionText = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til!"
+
     var components: [[Component]] {
         return [
 //            [Component(id: "gallery", type: .gallery)],
@@ -9,6 +11,7 @@ class ObjectViewController: UIViewController {
 //            [Component(id: "message", type: .messageButton)],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
+            [CollapsableDescriptionComponent(text: descriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
 //            [Component(id: "proflie", type: .profile)],
 //            [Component(id: "adress", type: .adress)],
 //            [Component(id: "description", type: .description)],
