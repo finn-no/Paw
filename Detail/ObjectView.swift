@@ -6,12 +6,12 @@ protocol ObjectViewDataSource: class {
 }
 
 protocol ObjectViewDelegate: class {
-    // MARK: - PhoneNumberComponentViewDelegate
+    // PhoneNumberComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
     func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent)
     func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 
-    // MARK: - MessageButtonComponentViewDelegate
+    // MessageButtonComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
 }
 
@@ -235,11 +235,17 @@ extension ObjectView: LinkComponentViewDelegate {
 //        delegate?.objectView(self, didSelectComponent: component)
     }
 }
+
+// MARK: - MessageButtonComponentViewDelegate
+
 extension ObjectView: MessageComponentViewDelegate {
     func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
         delegate?.objectView(self, didTapSendMessageFor: component)
     }
 }
+
+// MARK: - PhoneNumberComponentViewDelegate
+
 extension ObjectView: PhoneNumberComponentViewDelegate {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
         delegate?.objectView(self, didTapShowPhoneNumberFor: component)
