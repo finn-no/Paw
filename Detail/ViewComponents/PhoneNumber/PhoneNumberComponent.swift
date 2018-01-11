@@ -1,8 +1,10 @@
 import Foundation
 
 struct PhoneNumberComponent: Component {
+
     let id: String
     let type: ComponentType = .phoneNumber
+    let actions: [ComponentAction]
 
     let phoneNumber: String
     let descriptionText: String
@@ -15,5 +17,6 @@ struct PhoneNumberComponent: Component {
         self.descriptionText = descriptionText
         self.showNumberText = showNumberText
         self.accessibilityLabelPrefix = accessibilityLabelPrefix
+        self.actions = [.show, .call]
     }
 }
