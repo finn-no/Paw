@@ -122,97 +122,98 @@ class ObjectView: UIView {
     }
 
     func viewComponent(for component: Component, in objectView: ObjectView) -> UIView? {
-        switch component.type {
-        case .link:
-            let listComponentView = LinkComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
-            listComponentView.component = component
-            listComponentView.setupLayout()
-            return listComponentView
-        case .title:
-            let listComponentView = TitleComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .gallery:
-            let listComponentView = GalleryComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .profile:
-            let listComponentView = ProfileComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .price:
-            let listComponentView = PriceComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .messageButton:
+        switch component.self {
+//        case .link:
+//            let listComponentView = LinkComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            listComponentView.delegate = objectView
+//            listComponentView.component = component
+//            listComponentView.setupLayout()
+//            return listComponentView
+//        case .title:
+//            let listComponentView = TitleComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .gallery:
+//            let listComponentView = GalleryComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .profile:
+//            let listComponentView = ProfileComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .price:
+//            let listComponentView = PriceComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+        case is MessageButtonComponent:
             let listComponentView = MessageButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = objectView
-            listComponentView.component = component
+            listComponentView.component = component as? MessageButtonComponent
             return listComponentView
-        case .phoneNumber:
+        case is PhoneNumberComponent:
             let listComponentView = PhoneNumberComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = objectView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
-        case .adress:
-            let listComponentView = AdressComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
-            listComponentView.component = component
-            return listComponentView
-        case .description:
-            let listComponentView = DescriptionComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .category:
-            let listComponentView = CategoryComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .banner:
-            let listComponentView = BannerComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .safePay:
-            let listComponentView = SafePayComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
-            listComponentView.component = component
-            return listComponentView
-        case .loanPrice:
-            let listComponentView = LoanPriceComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
-            listComponentView.component = component
-            return listComponentView
-        case .deliveryHelp:
-            let listComponentView = DeliveryHelpComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .adReporter:
-            let listComponentView = AdReporterComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
-            listComponentView.component = component
-            return listComponentView
-        case .adInfo:
-            let listComponentView = AdInfoComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .relevantAds:
-            let listComponentView = RelevantAdsComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            return listComponentView
-        case .custom:
-            if let listComponentView = dataSource?.customComponentView(for: component, in: objectView) {
-                listComponentView.translatesAutoresizingMaskIntoConstraints = false
-                return listComponentView
-            } else {
-                return nil
-            }
+//        case .adress:
+//            let listComponentView = AdressComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            listComponentView.delegate = objectView
+//            listComponentView.component = component
+//            return listComponentView
+//        case .description:
+//            let listComponentView = DescriptionComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .category:
+//            let listComponentView = CategoryComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .banner:
+//            let listComponentView = BannerComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .safePay:
+//            let listComponentView = SafePayComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            listComponentView.delegate = objectView
+//            listComponentView.component = component
+//            return listComponentView
+//        case .loanPrice:
+//            let listComponentView = LoanPriceComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            listComponentView.delegate = objectView
+//            listComponentView.component = component
+//            return listComponentView
+//        case .deliveryHelp:
+//            let listComponentView = DeliveryHelpComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .adReporter:
+//            let listComponentView = AdReporterComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            listComponentView.delegate = objectView
+//            listComponentView.component = component
+//            return listComponentView
+//        case .adInfo:
+//            let listComponentView = AdInfoComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .relevantAds:
+//            let listComponentView = RelevantAdsComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            return listComponentView
+//        case .custom:
+//            if let listComponentView = dataSource?.customComponentView(for: component, in: objectView) {
+//                listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//                return listComponentView
+//            } else {
+//                return nil
+//            }
+        default: return nil
         }
     }
 
