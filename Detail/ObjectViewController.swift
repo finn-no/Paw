@@ -87,34 +87,48 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
-    func objectView(_ objectView: ObjectView, allowsActionFor component: Component) -> Bool {
+    func objectView(_ objectView: ObjectView, didSelect action: ComponentAction, for component: Component) {
 
-        if component.type == .phoneNumber {
-            guard let component = component as? PhoneNumberComponent else {
-                return false
+        if let component = component as? PhoneNumberComponent {
+
+            switch action {
+            case .call:
+                if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                    print("Calling: \(component.phoneNumber)")
+                } else {
+                    print("Not able to call")
+                }
+            case .show:
+                print("Show number!")
             }
-            // Logic for allowing to show number
-            return true
-        } else {
-            return true
         }
     }
 
-    func objectView(_ objectView: ObjectView, didSelectComponent component: Component) {
-        print("selected component: \(component.id)")
+    func objectView(_ objectView: ObjectView, shouldAllow action: ComponentAction, for component: Component) -> Bool {
+
+        if let component = component as? PhoneNumberComponent {
+            // Should perform a check if the phone number should/can be showed
+            return true
+        } else {
+            return false
+        }
+    }
+
+    func objectView(_ objectView: ObjectView, allowsActionFor component: Component) -> Bool {
+        let userIsLoggedIn: Bool = true
 
         if component.type == .phoneNumber {
-            guard let component = component as? PhoneNumberComponent else {
-                return
-            }
-
-            if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
+//            guard let component = component as? PhoneNumberComponent else {
+//                return false
+//            }
+            return userIsLoggedIn
+        } else {
+            return false
         }
     }
 }
