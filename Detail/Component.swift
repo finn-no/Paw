@@ -24,4 +24,10 @@ enum ComponentType {
 protocol Component {
     var id: String { get }
     var type: ComponentType { get }
+    var actions: [ComponentAction] { get }
+}
+
+enum ComponentAction {
+    case show
+    case call
 }
