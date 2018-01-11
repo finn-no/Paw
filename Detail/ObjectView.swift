@@ -226,12 +226,12 @@ class ObjectView: UIView {
 
 extension ObjectView: LinkComponentViewDelegate {
     func linkComponentView(_ linkComponentView: LinkComponentView, didSelectComponent component: Component) {
-        delegate?.objectView(self, didSelectComponent: component)
+//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
 extension ObjectView: MessageComponentViewDelegate {
     func messageComponentView(_ messageComponentView: MessageButtonComponentView, didSelectComponent component: Component) {
-        delegate?.objectView(self, didSelectComponent: component)
+//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
 extension ObjectView: PhoneNumberComponentViewDelegate {
@@ -245,21 +245,21 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
 }
 extension ObjectView: AdressComponentViewDelegate {
     func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component) {
-        delegate?.objectView(self, didSelectComponent: component)
+//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
 extension ObjectView: SafePayComponentViewDelegate {
     func safePayComponentView(_ safePayComponentView: SafePayComponentView, didSelectComponent component: Component) {
-        delegate?.objectView(self, didSelectComponent: component)
+//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
 extension ObjectView: LoanPriceComponentViewDelegate {
     func loanPriceComponentView(_ loanPriceComponentView: LoanPriceComponentView, didSelectComponent component: Component) {
-        delegate?.objectView(self, didSelectComponent: component)
+//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
 extension ObjectView: AdReporterComponentViewDelegate {
     func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component) {
-        delegate?.objectView(self, didSelectComponent: component)
+//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
