@@ -164,10 +164,11 @@ class ObjectView: UIView {
 //            listComponentView.delegate = objectView
 //            listComponentView.component = component
 //            return listComponentView
-//        case .description:
-//            let listComponentView = DescriptionComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
+        case is CollapsableDescriptionComponent:
+            let listComponentView = CollapsableDescriptionComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.component = component as? CollapsableDescriptionComponent
+            return listComponentView
 //        case .category:
 //            let listComponentView = CategoryComponentView()
 //            listComponentView.translatesAutoresizingMaskIntoConstraints = false
