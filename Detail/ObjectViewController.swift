@@ -87,32 +87,28 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
-    func objectView(_ objectView: ObjectView, didSelect action: ComponentAction, for component: Component) {
+    func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
+        // Add tracking stuff?
+        print("Show phone number for component: \(component.id)")
+    }
 
-        if let component = component as? PhoneNumberComponent {
-
-            switch action {
-            case .call:
-                if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-                    if #available(iOS 10, *) {
-                        UIApplication.shared.open(url)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
-                    print("Calling: \(component.phoneNumber)")
-                } else {
-                    print("Not able to call")
-                }
-            case .show:
-                print("Show number!")
+    func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+        if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
             }
+            print("Calling: \(component.phoneNumber)")
+        } else {
+            print("Not able to call")
         }
     }
 
-    func objectView(_ objectView: ObjectView, shouldAllow action: ComponentAction, for component: Component) -> Bool {
+    func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+        let isUserLoggedIn = true
 
-        if let component = component as? PhoneNumberComponent {
-            // Should perform a check if the phone number should/can be showed
+        if isUserLoggedIn {
             return true
         } else {
             return false
