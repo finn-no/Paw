@@ -5,15 +5,14 @@ public class CollapsableDescriptionComponentView: UIView {
     // MARK: - Internal properties
 
     private let maximumNumberOfLines = 5
-    private let descriptionText = "Selger min bestemors gamle sykkel. Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til!"
 
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
         label.numberOfLines = 5
         label.font = .body
         label.textColor = .stone
-        label.text = descriptionText
         return label
     }()
 
@@ -22,12 +21,21 @@ public class CollapsableDescriptionComponentView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
         button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("+ Vis hele beskrivelsen", for: .normal)
         button.addTarget(self, action: #selector(showWholeDescriptionAction), for: .touchUpInside)
         button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         button.titleLabel?.font = .title4
         return button
     }()
+
+    // MARK: - External properties
+
+    var component: CollapsableDescriptionComponent? {
+        didSet {
+            descriptionLabel.text = component?.text
+            showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal) // "+ Vis hele beskrivelsen"
+            descriptionLabel.accessibilityLabel = component?.text
+        }
+    }
 
     // MARK: - Setup
 
@@ -63,14 +71,14 @@ public class CollapsableDescriptionComponentView: UIView {
         if descriptionLabel.numberOfLines >= maximumNumberOfLines {
             print("Vis hele beskrivelsen!")
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.showWholeDescriptionButton.setTitle("- Vis mindre", for: .normal)
+                self.showWholeDescriptionButton.setTitle(self.component?.titleHide, for: .normal)    // "- Vis mindre"
                 self.descriptionLabel.numberOfLines = 0
                 self.descriptionLabel.sizeToFit()
             }, completion: nil)
         } else {
             print("Vis mindre av beskrivelsen!")
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.showWholeDescriptionButton.setTitle("+ Vis hele beskrivelsen", for: .normal)
+                self.showWholeDescriptionButton.setTitle(self.component?.titleShow, for: .normal)    // "+ Vis hele beskrivelsen"
                 self.descriptionLabel.numberOfLines = self.maximumNumberOfLines
                 self.descriptionLabel.sizeToFit()
             }, completion: nil)
