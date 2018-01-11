@@ -118,17 +118,4 @@ extension ObjectViewController: ObjectViewDelegate {
             return false
         }
     }
-
-    func objectView(_ objectView: ObjectView, allowsActionFor component: Component) -> Bool {
-        let userIsLoggedIn: Bool = true
-
-        if component.type == .phoneNumber {
-//            guard let component = component as? PhoneNumberComponent else {
-//                return false
-//            }
-            return userIsLoggedIn
-        } else {
-            return false
-        }
-    }
 }
