@@ -6,8 +6,13 @@ protocol ObjectViewDataSource: class {
 }
 
 protocol ObjectViewDelegate: class {
-    func objectView(_ objectView: ObjectView, didSelect action: ComponentAction, for component: Component)
-    func objectView(_ objectView: ObjectView, shouldAllow action: ComponentAction, for component: Component) -> Bool
+    // MARK: - PhoneNumberComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
+    func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent)
+    func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
+
+    // MARK: - MessageButtonComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
 }
 
 class ObjectView: UIView {
@@ -230,17 +235,21 @@ extension ObjectView: LinkComponentViewDelegate {
     }
 }
 extension ObjectView: MessageComponentViewDelegate {
-    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
+    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
+        delegate?.objectView(self, didTapSendMessageFor: component)
     }
 }
 extension ObjectView: PhoneNumberComponentViewDelegate {
-    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didSelect action: ComponentAction, for component: PhoneNumberComponent) {
-        delegate?.objectView(self, didSelect: action, for: component)
+    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
+        delegate?.objectView(self, didTapShowPhoneNumberFor: component)
     }
 
-    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, shouldAllow action: ComponentAction, for component: PhoneNumberComponent) -> Bool {
-        return delegate?.objectView(self, shouldAllow: action, for: component) ?? false
+    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+        delegate?.objectView(self, didTapPhoneNumberFor: component)
+    }
+
+    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+        return delegate?.objectView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
 extension ObjectView: AdressComponentViewDelegate {
