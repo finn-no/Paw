@@ -8,19 +8,23 @@ public class IconButtonComponentView: UIView {
 
     // MARK: - Internal properties
 
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isAccessibilityElement = true
-        button.setTitleColor(.primaryBlue, for: .normal)
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        button.titleLabel?.font = .detail
-        button.imageView?.tintColor = .primaryBlue
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -.verySmallSpacing, bottom: 0, right: .verySmallSpacing)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: .verySmallSpacing, bottom: 0, right: -.verySmallSpacing)
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: .verySmallSpacing, bottom: 0, right: .verySmallSpacing)
-        return button
+    private let imageHeight: CGFloat = 20
+    private let imageWidth: CGFloat = 20
+
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isAccessibilityElement = true
+        label.textColor = .primaryBlue
+        label.font = .detail
+        return label
+    }()
+
+    private lazy var iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
 
     // MARK: - External properties
@@ -29,8 +33,8 @@ public class IconButtonComponentView: UIView {
 
     var component: IconButtonComponent? {
         didSet {
-            button.setTitle(component?.buttonTitle, for: .normal)        // "Hans Nordahls gate 64, 0841 Oslo" / "Få hjelp til frakt"
-            button.setImage(component?.iconImage, for: .normal)          // pinImage or little van
+            titleLabel.text = component?.buttonTitle
+            iconImageView.image = component?.iconImage
         }
     }
 
@@ -47,19 +51,29 @@ public class IconButtonComponentView: UIView {
     }
 
     private func setup() {
-        addSubview(button)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(buttonAction))
+        addGestureRecognizer(tapGesture)
+
+        addSubview(iconImageView)
+        addSubview(titleLabel)
 
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: topAnchor),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor),
-            button.leadingAnchor.constraint(equalTo: leadingAnchor),
-            button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            iconImageView.topAnchor.constraint(equalTo: topAnchor),
+            iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            iconImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -.mediumSpacing),
+            iconImageView.heightAnchor.constraint(equalToConstant: imageHeight),
+            iconImageView.widthAnchor.constraint(equalToConstant: imageWidth),
+
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 
     // MARK: - Actions
 
-    @objc func buttonAction(sender: UIButton) {
+    @objc func buttonAction() {
         guard let component = component, let delegate = delegate else {
             return
         }
