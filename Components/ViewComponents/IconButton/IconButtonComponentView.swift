@@ -1,35 +1,32 @@
 import UIKit
 
-protocol AdressComponentViewDelegate: class {
-    func adressComponentView(_ adressComponentView: IconButtonComponentView, didSelectComponent component: Component)
+protocol IconButtonComponentViewDelegate: class {
+    func iconButtonComponentView(_ iconButtonComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent)
 }
 
 public class IconButtonComponentView: UIView {
 
     // MARK: - Internal properties
 
-    weak var delegate: AdressComponentViewDelegate?
-
-    private let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
-
-    private lazy var adressButton: UIButton = {
+    private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
         button.setTitleColor(.primaryBlue, for: .normal)
-        button.setTitle("Hans Nordahls gate 64, 0841 Oslo", for: .normal)
-        button.addTarget(self, action: #selector(openMapAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.titleLabel?.font = .detail
         button.imageView?.tintColor = .primaryBlue
-        button.setImage(pinImage, for: .normal)
         return button
     }()
 
     // MARK: - External properties
 
-    var component: Component? {
+    weak var delegate: IconButtonComponentViewDelegate?
+
+    var component: IconButtonComponent? {
         didSet {
-            //            linkLabel.text = component?.id
+            button.setTitle(component?.buttonTitle, for: .normal)        // "Hans Nordahls gate 64, 0841 Oslo" / "Få hjelp til frakt"
+            button.setImage(component?.iconImage, for: .normal)          // pinImage or little van
         }
     }
 
@@ -46,22 +43,22 @@ public class IconButtonComponentView: UIView {
     }
 
     private func setup() {
-        addSubview(adressButton)
+        addSubview(button)
 
         NSLayoutConstraint.activate([
-            adressButton.topAnchor.constraint(equalTo: topAnchor),
-            adressButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            adressButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            adressButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            button.topAnchor.constraint(equalTo: topAnchor),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor),
+            button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 
     // MARK: - Actions
 
-    @objc func openMapAction(sender: UIButton) {
+    @objc func buttonAction(sender: UIButton) {
         guard let component = component else {
             return
         }
-        delegate?.adressComponentView(self, didSelectComponent: component)
+        delegate?.iconButtonComponentView(self, didTapButtonFor: component)
     }
 }
