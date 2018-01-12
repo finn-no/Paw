@@ -56,9 +56,9 @@ public class IconButtonComponentView: UIView {
     // MARK: - Actions
 
     @objc func buttonAction(sender: UIButton) {
-        guard let component = component else {
+        guard let component = component, let delegate = delegate else {
             return
         }
-        delegate?.iconButtonComponentView(self, didTapButtonFor: component)
+        delegate.iconButtonComponentView(self, didTapButtonFor: component)
     }
 }
