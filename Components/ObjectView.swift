@@ -13,6 +13,9 @@ protocol ObjectViewDelegate: class {
 
     // MessageButtonComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
+
+    // IconButtonComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent)
 }
 
 class ObjectView: UIView {
@@ -158,12 +161,12 @@ class ObjectView: UIView {
             listComponentView.delegate = objectView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
-//        case .adress:
-//            let listComponentView = AdressComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            listComponentView.delegate = objectView
-//            listComponentView.component = component
-//            return listComponentView
+        case is IconButtonComponent:
+            let listComponentView = IconButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component as? IconButtonComponent
+            return listComponentView
 //        case .description:
 //            let listComponentView = DescriptionComponentView()
 //            listComponentView.translatesAutoresizingMaskIntoConstraints = false
@@ -259,9 +262,9 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
         return delegate?.objectView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
-extension ObjectView: AdressComponentViewDelegate {
-    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
+extension ObjectView: IconButtonComponentViewDelegate {
+    func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
+        delegate?.objectView(self, didTapButtonFor: component)
     }
 }
 extension ObjectView: SafePayComponentViewDelegate {
