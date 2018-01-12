@@ -1,6 +1,9 @@
 import UIKit
 
 class ObjectViewController: UIViewController {
+
+    let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
+
     var components: [[Component]] {
         return [
 //            [Component(id: "gallery", type: .gallery)],
@@ -9,6 +12,7 @@ class ObjectViewController: UIViewController {
 //            [Component(id: "message", type: .messageButton)],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
+            [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
 //            [Component(id: "proflie", type: .profile)],
 //            [Component(id: "adress", type: .adress)],
 //            [Component(id: "description", type: .description)],
@@ -88,6 +92,10 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
+    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent) {
+        print("\(component.buttonTitle) with id: \(component.id)")
+    }
+
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent) {
         print("Send message!")
     }
