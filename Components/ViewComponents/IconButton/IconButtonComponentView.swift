@@ -17,9 +17,9 @@ public class IconButtonComponentView: UIView {
         button.titleLabel?.font = .detail
         button.imageView?.tintColor = .primaryBlue
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -.smallSpacing, bottom: 0, right: .smallSpacing)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: .smallSpacing, bottom: 0, right: -.smallSpacing)
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: .smallSpacing, bottom: 0, right: .smallSpacing)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -.verySmallSpacing, bottom: 0, right: .verySmallSpacing)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: .verySmallSpacing, bottom: 0, right: -.verySmallSpacing)
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: .verySmallSpacing, bottom: 0, right: .verySmallSpacing)
         return button
     }()
 
