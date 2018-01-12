@@ -1,10 +1,10 @@
 import UIKit
 
 protocol AdressComponentViewDelegate: class {
-    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component)
+    func adressComponentView(_ adressComponentView: IconButtonComponentView, didSelectComponent component: Component)
 }
 
-public class AdressComponentView: UIView {
+public class IconButtonComponentView: UIView {
 
     // MARK: - Internal properties
 
