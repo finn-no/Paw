@@ -16,6 +16,8 @@ public class IconButtonComponentView: UIView {
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.titleLabel?.font = .detail
         button.imageView?.tintColor = .primaryBlue
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -.smallSpacing, bottom: 0, right: .smallSpacing)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: .smallSpacing, bottom: 0, right: -.smallSpacing)
         return button
     }()
 
