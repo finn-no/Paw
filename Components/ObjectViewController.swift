@@ -91,6 +91,14 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
+    func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+        print("Vis mer!")
+    }
+    
+    func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+        print("Vis mindre!")
+    }
+    
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent) {
         print("Send message!")
     }

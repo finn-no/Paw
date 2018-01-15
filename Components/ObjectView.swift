@@ -13,6 +13,10 @@ protocol ObjectViewDelegate: class {
 
     // MessageButtonComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
+
+    // CollapsableDescriptionComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
+    func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
 }
 
 class ObjectView: UIView {
@@ -167,6 +171,7 @@ class ObjectView: UIView {
         case is CollapsableDescriptionComponent:
             let listComponentView = CollapsableDescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
             listComponentView.component = component as? CollapsableDescriptionComponent
             return listComponentView
 //        case .category:
@@ -278,5 +283,15 @@ extension ObjectView: LoanPriceComponentViewDelegate {
 extension ObjectView: AdReporterComponentViewDelegate {
     func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component) {
 //        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+
+extension ObjectView: CollapsableDescriptionComponentViewDelegate {
+    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+        delegate?.objectView(self, didTapExpandDescriptionFor: component)
+    }
+
+    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+        delegate?.objectView(self, didTapHideDescriptionFor: component)
     }
 }

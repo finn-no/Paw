@@ -1,5 +1,10 @@
 import UIKit
 
+protocol CollapsableDescriptionComponentViewDelegate: class {
+    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
+    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
+}
+
 public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - Internal properties
@@ -29,6 +34,7 @@ public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - External properties
 
+    weak var delegate: CollapsableDescriptionComponentViewDelegate?
     var component: CollapsableDescriptionComponent? {
         didSet {
             descriptionLabel.text = component?.text
