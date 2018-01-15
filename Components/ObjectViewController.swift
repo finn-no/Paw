@@ -5,23 +5,9 @@ class ObjectViewController: UIViewController {
 
     var components: [[Component]] {
         return [
-//            [Component(id: "gallery", type: .gallery)],
-//            [Component(id: "title", type: .title)],
-//            [Component(id: "price", type: .price)],
-//            [Component(id: "message", type: .messageButton)],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [CollapsableDescriptionComponent(text: descriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
-//            [Component(id: "proflie", type: .profile)],
-//            [Component(id: "adress", type: .adress)],
-//            [Component(id: "description", type: .description)],
-//            [Component(id: "category", type: .category)],
-//            [Component(id: "banner", type: .banner)],
-//            [Component(id: "safe", type: .safePay), Component(id: "loan", type: .loanPrice)],
-//            [Component(id: "delivery", type: .deliveryHelp)],
-//            [Component(id: "adRep", type: .adReporter)],
-//            [Component(id: "adInf", type: .adInfo)],
-//            [Component(id: "relevant", type: .relevantAds)],
         ]
     }
 
