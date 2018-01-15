@@ -12,6 +12,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private var textViewHeightConstraint: NSLayoutConstraint?
     private var isWholeTextShowing: Bool = false
     private let animationDuration = 0.4
+    private let collapsedDescriptionHeight: CGFloat = 86
 
     private lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
@@ -65,7 +66,7 @@ public class CollapsableDescriptionComponentView: UIView {
         addSubview(descriptionTextView)
         addSubview(showWholeDescriptionButton)
 
-        textViewHeightConstraint = descriptionTextView.heightAnchor.constraint(equalToConstant: 100)
+        textViewHeightConstraint = descriptionTextView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
 
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: topAnchor),
