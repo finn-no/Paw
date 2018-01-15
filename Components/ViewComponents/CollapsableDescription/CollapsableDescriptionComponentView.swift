@@ -9,16 +9,23 @@ public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - Internal properties
 
-    private let maximumNumberOfLines = 5
+    private var textViewHeightConstraint: NSLayoutConstraint?
+    private var isWholeTextShowing: Bool = false
+    private let animationDuration = 0.4
 
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.numberOfLines = 5
-        label.font = .body
-        label.textColor = .stone
-        return label
+    private lazy var descriptionTextView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isAccessibilityElement = true
+        textView.isEditable = false
+        textView.isSelectable = true
+        textView.isScrollEnabled = false
+        textView.textContainer.lineFragmentPadding = 0
+        textView.textContainerInset = .zero
+        textView.font = .body
+        textView.textColor = .stone
+        textView.dataDetectorTypes = .all
+        return textView
     }()
 
     private lazy var showWholeDescriptionButton: UIButton = {
@@ -37,9 +44,8 @@ public class CollapsableDescriptionComponentView: UIView {
     weak var delegate: CollapsableDescriptionComponentViewDelegate?
     var component: CollapsableDescriptionComponent? {
         didSet {
-            descriptionLabel.text = component?.text
+            descriptionTextView.text = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal) // "+ Vis hele beskrivelsen"
-            descriptionLabel.accessibilityLabel = component?.text
         }
     }
 
@@ -56,15 +62,18 @@ public class CollapsableDescriptionComponentView: UIView {
     }
 
     private func setup() {
-        addSubview(descriptionLabel)
+        addSubview(descriptionTextView)
         addSubview(showWholeDescriptionButton)
 
-        NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: topAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+        textViewHeightConstraint = descriptionTextView.heightAnchor.constraint(equalToConstant: 100)
 
-            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .mediumSpacing),
+        NSLayoutConstraint.activate([
+            descriptionTextView.topAnchor.constraint(equalTo: topAnchor),
+            descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textViewHeightConstraint!,
+
+            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
             showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
             showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -74,20 +83,32 @@ public class CollapsableDescriptionComponentView: UIView {
     // MARK: - Actions
 
     @objc private func showWholeDescriptionAction(sender: UIButton) {
-        if descriptionLabel.numberOfLines >= maximumNumberOfLines {
-            print("Vis hele beskrivelsen!")
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.showWholeDescriptionButton.setTitle(self.component?.titleHide, for: .normal)    // "- Vis mindre"
-                self.descriptionLabel.numberOfLines = 0
-                self.descriptionLabel.sizeToFit()
+        guard let component = component, let delegate = delegate else {
+            return
+        }
+
+        if isWholeTextShowing {
+            delegate.collapsableDescriptionComponentView(self, didTapHideDescriptionFor: component)
+
+            showWholeDescriptionButton.setTitle(self.component?.titleShow, for: .normal)    // "+ Vis hele beskrivelsen"
+            textViewHeightConstraint?.isActive = true
+
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.layoutIfNeeded()
             }, completion: nil)
+
+            isWholeTextShowing = false
         } else {
-            print("Vis mindre av beskrivelsen!")
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.showWholeDescriptionButton.setTitle(self.component?.titleShow, for: .normal)    // "+ Vis hele beskrivelsen"
-                self.descriptionLabel.numberOfLines = self.maximumNumberOfLines
-                self.descriptionLabel.sizeToFit()
+            delegate.collapsableDescriptionComponentView(self, didTapExpandDescriptionFor: component)
+
+            showWholeDescriptionButton.setTitle(self.component?.titleHide, for: .normal)    // "- Vis mindre"
+            textViewHeightConstraint?.isActive = false
+
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseInOut, animations: {
+                self.layoutIfNeeded()
             }, completion: nil)
+
+            isWholeTextShowing = true
         }
     }
 }
