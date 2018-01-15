@@ -27,7 +27,7 @@ public class CollapsableDescriptionComponentView: UIView {
         button.isAccessibilityElement = true
         button.setTitleColor(.primaryBlue, for: .normal)
         button.addTarget(self, action: #selector(showWholeDescriptionAction), for: .touchUpInside)
-        button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        button.contentEdgeInsets = UIEdgeInsets(top: .mediumSpacing, left: 0, bottom: .mediumSpacing, right: 0)
         button.titleLabel?.font = .title4
         return button
     }()
