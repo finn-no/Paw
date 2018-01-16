@@ -23,6 +23,8 @@ class ObjectView: UIView {
     weak var dataSource: ObjectViewDataSource?
     weak var delegate: ObjectViewDelegate?
 
+    private let animationDuration = 0.4
+
     lazy var scrollView: UIScrollView = {
         let view =  UIScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -288,10 +290,32 @@ extension ObjectView: AdReporterComponentViewDelegate {
 
 extension ObjectView: CollapsableDescriptionComponentViewDelegate {
     func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
-        delegate?.objectView(self, didTapExpandDescriptionFor: component)
+        UIView.animate(withDuration: animationDuration, animations: {
+            collapsableDescriptionComponentView.layoutIfNeeded()
+            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            self.layoutIfNeeded()
+        }) { (finished) in
+            self.delegate?.objectView(self, didTapExpandDescriptionFor: component)
+            collapsableDescriptionComponentView.updateButtonTitle()
+
+            UIView.animate(withDuration: self.animationDuration, animations: {
+                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+            })
+        }
     }
 
     func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
-        delegate?.objectView(self, didTapHideDescriptionFor: component)
+        UIView.animate(withDuration: animationDuration, animations: {
+            collapsableDescriptionComponentView.layoutIfNeeded()
+            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            self.layoutIfNeeded()
+        }) { (finished) in
+            self.delegate?.objectView(self, didTapHideDescriptionFor: component)
+            collapsableDescriptionComponentView.updateButtonTitle()
+
+            UIView.animate(withDuration: self.animationDuration, animations: {
+                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+            })
+        }
     }
 }
