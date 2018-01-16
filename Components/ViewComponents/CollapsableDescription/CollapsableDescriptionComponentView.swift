@@ -9,9 +9,8 @@ public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - Internal properties
 
-    private var textViewHeightConstraint: NSLayoutConstraint?
+    private var textHeightConstraint: NSLayoutConstraint?
     private var isWholeTextShowing: Bool = false
-    private let animationDuration = 0.4
     private let collapsedDescriptionHeight: CGFloat = 86
 
     private lazy var descriptionTextView: UITextView = {
@@ -46,7 +45,7 @@ public class CollapsableDescriptionComponentView: UIView {
     var component: CollapsableDescriptionComponent? {
         didSet {
             descriptionTextView.text = component?.text
-            showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal) // "+ Vis hele beskrivelsen"
+            showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
         }
     }
 
@@ -66,18 +65,18 @@ public class CollapsableDescriptionComponentView: UIView {
         addSubview(descriptionTextView)
         addSubview(showWholeDescriptionButton)
 
-        textViewHeightConstraint = descriptionTextView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
+        textHeightConstraint = descriptionTextView.heightAnchor.constraint(lessThanOrEqualToConstant: collapsedDescriptionHeight)
 
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: topAnchor),
             descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textViewHeightConstraint!,
+            textHeightConstraint!,
 
             showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
+            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
@@ -89,27 +88,31 @@ public class CollapsableDescriptionComponentView: UIView {
         }
 
         if isWholeTextShowing {
+            textHeightConstraint?.isActive = true
+
             delegate.collapsableDescriptionComponentView(self, didTapHideDescriptionFor: component)
-
-            showWholeDescriptionButton.setTitle(self.component?.titleShow, for: .normal)    // "+ Vis hele beskrivelsen"
-            textViewHeightConstraint?.isActive = true
-
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.layoutIfNeeded()
-            }, completion: nil)
-
             isWholeTextShowing = false
         } else {
+            textHeightConstraint?.isActive = false
+
             delegate.collapsableDescriptionComponentView(self, didTapExpandDescriptionFor: component)
-
-            showWholeDescriptionButton.setTitle(self.component?.titleHide, for: .normal)    // "- Vis mindre"
-            textViewHeightConstraint?.isActive = false
-
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseInOut, animations: {
-                self.layoutIfNeeded()
-            }, completion: nil)
-
             isWholeTextShowing = true
+        }
+    }
+
+    func updateButtonTitle() {
+        if isWholeTextShowing {
+            showWholeDescriptionButton.setTitle(self.component?.titleHide, for: .normal)
+        } else {
+            showWholeDescriptionButton.setTitle(self.component?.titleShow, for: .normal)
+        }
+    }
+
+    func setButtonShowing(showing: Bool) {
+        if showing {
+            showWholeDescriptionButton.alpha = 1
+        } else {
+            showWholeDescriptionButton.alpha = 0
         }
     }
 }
