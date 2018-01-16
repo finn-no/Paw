@@ -24,7 +24,7 @@ public class CollapsableDescriptionComponentView: UIView {
         textView.textContainerInset = .zero
         textView.font = .body
         textView.textColor = .stone
-        textView.dataDetectorTypes = .all
+        textView.contentMode = .topLeft
         return textView
     }()
 
