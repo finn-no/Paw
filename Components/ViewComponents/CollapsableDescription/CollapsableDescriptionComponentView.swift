@@ -14,6 +14,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private var gradient: CAGradientLayer!
 
     private var isWholeTextShowing: Bool = false
+    private let isHidingCollapseButton: Bool = false
     private let collapsedDescriptionHeight: CGFloat = 200
 
     private lazy var descriptionTextView: UITextView = {
@@ -122,6 +123,7 @@ public class CollapsableDescriptionComponentView: UIView {
         } else {
             textHeightConstraint?.isActive = false
             gradientHeightConstraint?.isActive = false
+            showWholeDescriptionButton.heightAnchor.constraint(equalToConstant: 0).isActive = isHidingCollapseButton
 
             delegate.collapsableDescriptionComponentView(self, didTapExpandDescriptionFor: component)
             isWholeTextShowing = true
@@ -141,6 +143,7 @@ public class CollapsableDescriptionComponentView: UIView {
             showWholeDescriptionButton.alpha = 1
         } else {
             showWholeDescriptionButton.alpha = 0
+            showWholeDescriptionButton.isHidden = isHidingCollapseButton
         }
     }
 }
