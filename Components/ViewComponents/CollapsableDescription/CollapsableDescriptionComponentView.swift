@@ -11,7 +11,6 @@ public class CollapsableDescriptionComponentView: UIView {
 
     private var textHeightConstraint: NSLayoutConstraint?
     private var gradientHeightConstraint: NSLayoutConstraint?
-    private var gradient: CAGradientLayer!
 
     private var isWholeTextShowing: Bool = false
     private let isHidingCollapseButton: Bool = false        // Toggle switch for hiding collapse button after expaning
@@ -38,7 +37,7 @@ public class CollapsableDescriptionComponentView: UIView {
         let startColor = UIColor(white: 1, alpha: 0).cgColor
         let endColor = UIColor(white: 1, alpha: 1).cgColor
 
-        gradient = CAGradientLayer()
+        let gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [startColor, endColor]
         gradient.locations = [0.7, 1]
