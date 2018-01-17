@@ -14,7 +14,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private var gradient: CAGradientLayer!
 
     private var isWholeTextShowing: Bool = false
-    private let isHidingCollapseButton: Bool = false
+    private let isHidingCollapseButton: Bool = false        // Toggle switch for hiding collapse button after expaning
     private let collapsedDescriptionHeight: CGFloat = 200
 
     private lazy var descriptionTextView: UITextView = {
