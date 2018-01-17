@@ -10,8 +10,11 @@ public class CollapsableDescriptionComponentView: UIView {
     // MARK: - Internal properties
 
     private var textHeightConstraint: NSLayoutConstraint?
+    private var gradientHeightConstraint: NSLayoutConstraint?
+    private var gradient: CAGradientLayer!
+
     private var isWholeTextShowing: Bool = false
-    private let collapsedDescriptionHeight: CGFloat = 86
+    private let collapsedDescriptionHeight: CGFloat = 200
 
     private lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
@@ -26,6 +29,22 @@ public class CollapsableDescriptionComponentView: UIView {
         textView.textColor = .stone
         textView.contentMode = .topLeft
         return textView
+    }()
+
+    private lazy var gradientView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - .mediumLargeSpacing*2, height: collapsedDescriptionHeight))
+
+        let startColor = UIColor(white: 1, alpha: 0).cgColor
+        let endColor = UIColor(white: 1, alpha: 1).cgColor
+
+        gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [startColor, endColor]
+        gradient.locations = [0.7, 1]
+
+        view.layer.insertSublayer(gradient, at: 0)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     private lazy var showWholeDescriptionButton: UIButton = {
@@ -64,8 +83,10 @@ public class CollapsableDescriptionComponentView: UIView {
     private func setup() {
         addSubview(descriptionTextView)
         addSubview(showWholeDescriptionButton)
+        addSubview(gradientView)
 
         textHeightConstraint = descriptionTextView.heightAnchor.constraint(lessThanOrEqualToConstant: collapsedDescriptionHeight)
+        gradientHeightConstraint = gradientView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
 
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: topAnchor),
@@ -77,6 +98,11 @@ public class CollapsableDescriptionComponentView: UIView {
             showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
             showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+
+            gradientView.bottomAnchor.constraint(equalTo: showWholeDescriptionButton.topAnchor),
+            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            gradientHeightConstraint!,
         ])
     }
 
@@ -89,11 +115,13 @@ public class CollapsableDescriptionComponentView: UIView {
 
         if isWholeTextShowing {
             textHeightConstraint?.isActive = true
+            gradientHeightConstraint?.isActive = true
 
             delegate.collapsableDescriptionComponentView(self, didTapHideDescriptionFor: component)
             isWholeTextShowing = false
         } else {
             textHeightConstraint?.isActive = false
+            gradientHeightConstraint?.isActive = false
 
             delegate.collapsableDescriptionComponentView(self, didTapExpandDescriptionFor: component)
             isWholeTextShowing = true
