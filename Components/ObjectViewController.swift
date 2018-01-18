@@ -8,6 +8,7 @@ class ObjectViewController: UIViewController {
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [CollapsableDescriptionComponent(text: descriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
+            [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
         ]
     }
 
