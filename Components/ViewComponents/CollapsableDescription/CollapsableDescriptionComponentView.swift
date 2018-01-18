@@ -128,7 +128,6 @@ public class CollapsableDescriptionComponentView: UIView {
             showWholeDescriptionButton.isHidden = isHidingCollapseButton
         }
     }
-}
 
     func setupButton() {
         addSubview(showWholeDescriptionButton)
@@ -164,3 +163,4 @@ public class CollapsableDescriptionComponentView: UIView {
         view.layer.insertSublayer(gradient, at: 0)
         gradientLayer = gradient
     }
+}
