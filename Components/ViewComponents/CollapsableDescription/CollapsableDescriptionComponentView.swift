@@ -17,7 +17,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private let isHidingCollapseButton: Bool = false        // Toggle switch for hiding collapse button after expaning
     private let collapsedDescriptionHeight: CGFloat = 200
 
-    private lazy var descriptionTextView: UITextView = {
+    @objc dynamic private lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isAccessibilityElement = true
@@ -133,6 +133,8 @@ public class CollapsableDescriptionComponentView: UIView {
         addSubview(showWholeDescriptionButton)
         addSubview(gradientView)
 
+        addObserver(self, forKeyPath: "descriptionTextView.bounds", options: .new, context: nil)
+
         textHeightConstraint = descriptionTextView.heightAnchor.constraint(lessThanOrEqualToConstant: collapsedDescriptionHeight)
         gradientHeightConstraint = gradientView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
 
@@ -151,6 +153,10 @@ public class CollapsableDescriptionComponentView: UIView {
         ])
     }
 
+    deinit {
+        removeObserver(self, forKeyPath: "descriptionTextView.bounds")
+    }
+
     func fadeBottom(of view: UIView) {
         let startColor = UIColor(white: 1, alpha: 0).cgColor
         let endColor = UIColor(white: 1, alpha: 1).cgColor
@@ -162,5 +168,20 @@ public class CollapsableDescriptionComponentView: UIView {
 
         view.layer.insertSublayer(gradient, at: 0)
         gradientLayer = gradient
+    }
+
+    func updategradientLayerFrame(of view: UIView) {
+        gradientLayer?.removeFromSuperlayer()
+        fadeBottom(of: view)
+    }
+
+    // MARK: - Override methods
+
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (keyPath == "descriptionTextView.bounds") {
+            updategradientLayerFrame(of: gradientView)
+            return
+        }
+        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
     }
 }
