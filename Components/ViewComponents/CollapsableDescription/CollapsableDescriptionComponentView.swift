@@ -16,6 +16,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private var isWholeTextShowing: Bool = false
     private let isHidingCollapseButton: Bool = false        // Toggle switch for hiding collapse button after expaning
     private let collapsedDescriptionHeight: CGFloat = 200
+    private let observerKeyPath = "descriptionTextView.bounds"
 
     @objc dynamic private lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
@@ -133,7 +134,7 @@ public class CollapsableDescriptionComponentView: UIView {
         addSubview(showWholeDescriptionButton)
         addSubview(gradientView)
 
-        addObserver(self, forKeyPath: "descriptionTextView.bounds", options: .new, context: nil)
+        addObserver(self, forKeyPath: observerKeyPath, options: .new, context: nil)
 
         textHeightConstraint = descriptionTextView.heightAnchor.constraint(lessThanOrEqualToConstant: collapsedDescriptionHeight)
         gradientHeightConstraint = gradientView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
@@ -154,7 +155,7 @@ public class CollapsableDescriptionComponentView: UIView {
     }
 
     deinit {
-        removeObserver(self, forKeyPath: "descriptionTextView.bounds")
+        removeObserver(self, forKeyPath: observerKeyPath)
     }
 
     func fadeBottom(of view: UIView) {
@@ -178,7 +179,7 @@ public class CollapsableDescriptionComponentView: UIView {
     // MARK: - Override methods
 
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if (keyPath == "descriptionTextView.bounds") {
+        if (keyPath == observerKeyPath) {
             updategradientLayerFrame(of: gradientView)
             return
         }
