@@ -16,6 +16,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private var isWholeTextShowing: Bool = false
     private let isHidingCollapseButton: Bool = false        // Toggle switch for hiding collapse button after expaning
     private let collapsedDescriptionHeight: CGFloat = 200
+    private let showButtonHeightLimit: CGFloat = 300
     private let observerKeyPath = "descriptionTextView.bounds"
 
     @objc dynamic private lazy var descriptionTextView: UITextView = {
@@ -60,7 +61,7 @@ public class CollapsableDescriptionComponentView: UIView {
             descriptionTextView.text = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
             
-            if descriptionTextView.sizeOfString.height <= collapsedDescriptionHeight {
+            if descriptionTextView.sizeOfString.height <= showButtonHeightLimit {
                 descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             } else {
                 setupButton()
