@@ -35,7 +35,7 @@ public class CollapsableDescriptionComponentView: UIView {
 
     private lazy var gradientView: UIView = {
         let widthOfComponent = UIScreen.main.bounds.width - .mediumLargeSpacing*2
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: widthOfComponent, height: collapsedDescriptionHeight)) // Not dynamic (will not work for landscape mode)
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: widthOfComponent, height: collapsedDescriptionHeight))
         fadeBottom(of: view)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
