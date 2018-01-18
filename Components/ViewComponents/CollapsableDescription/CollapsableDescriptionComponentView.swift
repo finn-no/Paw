@@ -58,6 +58,12 @@ public class CollapsableDescriptionComponentView: UIView {
         didSet {
             descriptionTextView.text = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
+            
+            if descriptionTextView.sizeOfString.height <= collapsedDescriptionHeight {
+                descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            } else {
+                setupButton()
+            }
         }
     }
 
@@ -75,27 +81,11 @@ public class CollapsableDescriptionComponentView: UIView {
 
     private func setup() {
         addSubview(descriptionTextView)
-        addSubview(showWholeDescriptionButton)
-        addSubview(gradientView)
-
-        textHeightConstraint = descriptionTextView.heightAnchor.constraint(lessThanOrEqualToConstant: collapsedDescriptionHeight)
-        gradientHeightConstraint = gradientView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
 
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: topAnchor),
             descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor),
             descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            textHeightConstraint!,
-
-            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
-            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
-
-            gradientView.bottomAnchor.constraint(equalTo: showWholeDescriptionButton.topAnchor),
-            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gradientHeightConstraint!,
         ])
     }
 
@@ -139,6 +129,28 @@ public class CollapsableDescriptionComponentView: UIView {
         }
     }
 }
+
+    func setupButton() {
+        addSubview(showWholeDescriptionButton)
+        addSubview(gradientView)
+
+        textHeightConstraint = descriptionTextView.heightAnchor.constraint(lessThanOrEqualToConstant: collapsedDescriptionHeight)
+        gradientHeightConstraint = gradientView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
+
+        NSLayoutConstraint.activate([
+            textHeightConstraint!,
+
+            showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
+            showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+
+            gradientView.bottomAnchor.constraint(equalTo: showWholeDescriptionButton.topAnchor),
+            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            gradientHeightConstraint!,
+        ])
+    }
 
     func fadeBottom(of view: UIView) {
         let startColor = UIColor(white: 1, alpha: 0).cgColor
