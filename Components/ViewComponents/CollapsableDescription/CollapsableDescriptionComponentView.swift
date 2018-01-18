@@ -18,6 +18,7 @@ public class CollapsableDescriptionComponentView: UIView {
     private let collapsedDescriptionHeight: CGFloat = 200
     private let showButtonHeightLimit: CGFloat = 300
     private let observerKeyPath = "descriptionTextView.bounds"
+    private let widthOfComponent = UIScreen.main.bounds.width - .mediumLargeSpacing*2
 
     @objc dynamic private lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
@@ -35,7 +36,6 @@ public class CollapsableDescriptionComponentView: UIView {
     }()
 
     private lazy var gradientView: UIView = {
-        let widthOfComponent = UIScreen.main.bounds.width - .mediumLargeSpacing*2
         let view = UIView(frame: CGRect(x: 0, y: 0, width: widthOfComponent, height: collapsedDescriptionHeight))
         fadeBottom(of: view)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +61,7 @@ public class CollapsableDescriptionComponentView: UIView {
             descriptionTextView.text = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
             
-            if descriptionTextView.sizeOfString.height <= showButtonHeightLimit {
+            if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
                 descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             } else {
                 setupButton()
