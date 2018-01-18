@@ -26,6 +26,7 @@
 		4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */; };
 		4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */; };
 		4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileComponentView.swift */; };
+		45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45477CEE201089C700B5FA6D /* UITextView+Components.swift */; };
 		45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressComponentView.swift */; };
 		45655F661FE8F3080088A22C /* CollapsableDescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */; };
 		45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryComponentView.swift */; };
@@ -74,6 +75,7 @@
 		4541AFA51FE81470002488ED /* MessageButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponentView.swift; sourceTree = "<group>"; };
 		4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentView.swift; sourceTree = "<group>"; };
 		4541AFA91FE819A9002488ED /* ProfileComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponentView.swift; sourceTree = "<group>"; };
+		45477CEE201089C700B5FA6D /* UITextView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Components.swift"; sourceTree = "<group>"; };
 		45655F631FE81BC70088A22C /* AdressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressComponentView.swift; sourceTree = "<group>"; };
 		45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponentView.swift; sourceTree = "<group>"; };
 		45655F671FE9427D0088A22C /* CategoryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				4541AF971FE80799002488ED /* UIColor+Components.swift */,
 				4541AF991FE80824002488ED /* CGFloat+Components.swift */,
 				4541AF9F1FE80FBC002488ED /* UIFont+Components.swift */,
+				45477CEE201089C700B5FA6D /* UITextView+Components.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Components.swift in Sources */,
 				45655F701FE94F680088A22C /* DeliveryHelpComponentView.swift in Sources */,
+				45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */,
 				4513FDFF2007A7B600975941 /* CollapsableDescriptionComponent.swift in Sources */,
 				4400FA601FEBEF1900AC7325 /* Component.swift in Sources */,
 				45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */,
