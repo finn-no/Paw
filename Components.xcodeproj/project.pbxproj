@@ -16,6 +16,7 @@
 		44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */; };
 		44DCB457200522E0001A3FD9 /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCB456200522E0001A3FD9 /* UnitTests.swift */; };
 		4513FDF920076AA300975941 /* MessageButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513FDF820076AA300975941 /* MessageButtonComponent.swift */; };
+		4513FDFF2007A7B600975941 /* CollapsableDescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513FDFE2007A7B600975941 /* CollapsableDescriptionComponent.swift */; };
 		4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF921FE803EC002488ED /* GalleryComponentView.swift */; };
 		4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF941FE80646002488ED /* TitleComponentView.swift */; };
 		4541AF981FE80799002488ED /* UIColor+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF971FE80799002488ED /* UIColor+Components.swift */; };
@@ -27,7 +28,9 @@
 		4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileComponentView.swift */; };
 		45477CED2008984100B5FA6D /* IconButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45477CEC2008984100B5FA6D /* IconButtonComponent.swift */; };
 		45655F641FE81BC70088A22C /* IconButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* IconButtonComponentView.swift */; };
-		45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* DescriptionComponentView.swift */; };
+		45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45477CEE201089C700B5FA6D /* UITextView+Components.swift */; };
+		45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressComponentView.swift */; };
+		45655F661FE8F3080088A22C /* CollapsableDescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */; };
 		45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryComponentView.swift */; };
 		45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerComponentView.swift */; };
 		45655F6C1FE947180088A22C /* SafePayComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F6B1FE947180088A22C /* SafePayComponentView.swift */; };
@@ -64,6 +67,7 @@
 		44DCB456200522E0001A3FD9 /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		44DCB458200522E0001A3FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4513FDF820076AA300975941 /* MessageButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponent.swift; sourceTree = "<group>"; };
+		4513FDFE2007A7B600975941 /* CollapsableDescriptionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponent.swift; sourceTree = "<group>"; };
 		4541AF921FE803EC002488ED /* GalleryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryComponentView.swift; sourceTree = "<group>"; };
 		4541AF941FE80646002488ED /* TitleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleComponentView.swift; sourceTree = "<group>"; };
 		4541AF971FE80799002488ED /* UIColor+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Components.swift"; sourceTree = "<group>"; };
@@ -75,7 +79,9 @@
 		4541AFA91FE819A9002488ED /* ProfileComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponentView.swift; sourceTree = "<group>"; };
 		45477CEC2008984100B5FA6D /* IconButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonComponent.swift; sourceTree = "<group>"; };
 		45655F631FE81BC70088A22C /* IconButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonComponentView.swift; sourceTree = "<group>"; };
-		45655F651FE8F3080088A22C /* DescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionComponentView.swift; sourceTree = "<group>"; };
+		45477CEE201089C700B5FA6D /* UITextView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Components.swift"; sourceTree = "<group>"; };
+		45655F631FE81BC70088A22C /* AdressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressComponentView.swift; sourceTree = "<group>"; };
+		45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponentView.swift; sourceTree = "<group>"; };
 		45655F671FE9427D0088A22C /* CategoryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponentView.swift; sourceTree = "<group>"; };
 		45655F691FE944200088A22C /* BannerComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerComponentView.swift; sourceTree = "<group>"; };
 		45655F6B1FE947180088A22C /* SafePayComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafePayComponentView.swift; sourceTree = "<group>"; };
@@ -160,6 +166,15 @@
 			path = MessageButton;
 			sourceTree = "<group>";
 		};
+		4513FDFD2007A73300975941 /* CollapsableDescription */ = {
+			isa = PBXGroup;
+			children = (
+				45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */,
+				4513FDFE2007A7B600975941 /* CollapsableDescriptionComponent.swift */,
+			);
+			path = CollapsableDescription;
+			sourceTree = "<group>";
+		};
 		4541AF911FE8038F002488ED /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +185,8 @@
 				4513FDF720076A7400975941 /* MessageButton */,
 				45BFEFB92004F9BE00EAFD94 /* PhoneNumber */,
 				45477CEB200897C900B5FA6D /* IconButton */,
-				45655F651FE8F3080088A22C /* DescriptionComponentView.swift */,
+				45655F631FE81BC70088A22C /* AdressComponentView.swift */,
+				4513FDFD2007A73300975941 /* CollapsableDescription */,
 				45655F671FE9427D0088A22C /* CategoryComponentView.swift */,
 				45655F691FE944200088A22C /* BannerComponentView.swift */,
 				45655F6B1FE947180088A22C /* SafePayComponentView.swift */,
@@ -189,6 +205,7 @@
 				4541AF971FE80799002488ED /* UIColor+Components.swift */,
 				4541AF991FE80824002488ED /* CGFloat+Components.swift */,
 				4541AF9F1FE80FBC002488ED /* UIFont+Components.swift */,
+				45477CEE201089C700B5FA6D /* UITextView+Components.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,7 +343,7 @@
 				4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */,
 				45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Components.swift in Sources */,
-				45655F661FE8F3080088A22C /* DescriptionComponentView.swift in Sources */,
+				45655F661FE8F3080088A22C /* CollapsableDescriptionComponentView.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
 				45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */,
@@ -338,6 +355,8 @@
 				45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Components.swift in Sources */,
 				45655F701FE94F680088A22C /* DeliveryHelpComponentView.swift in Sources */,
+				45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */,
+				4513FDFF2007A7B600975941 /* CollapsableDescriptionComponent.swift in Sources */,
 				4400FA601FEBEF1900AC7325 /* Component.swift in Sources */,
 				45655F641FE81BC70088A22C /* IconButtonComponentView.swift in Sources */,
 				4541AF981FE80799002488ED /* UIColor+Components.swift in Sources */,

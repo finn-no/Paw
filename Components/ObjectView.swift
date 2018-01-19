@@ -16,11 +16,17 @@ protocol ObjectViewDelegate: class {
 
     // IconButtonComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent)
+
+    // CollapsableDescriptionComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
+    func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
 }
 
 class ObjectView: UIView {
     weak var dataSource: ObjectViewDataSource?
     weak var delegate: ObjectViewDelegate?
+
+    private let animationDuration = 0.4
 
     lazy var scrollView: UIScrollView = {
         let view =  UIScrollView(frame: .zero)
@@ -171,6 +177,18 @@ class ObjectView: UIView {
 //            let listComponentView = DescriptionComponentView()
 //            listComponentView.translatesAutoresizingMaskIntoConstraints = false
 //            return listComponentView
+//        case .adress:
+//            let listComponentView = AdressComponentView()
+//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+//            listComponentView.delegate = objectView
+//            listComponentView.component = component
+//            return listComponentView
+        case is CollapsableDescriptionComponent:
+            let listComponentView = CollapsableDescriptionComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component as? CollapsableDescriptionComponent
+            return listComponentView
 //        case .category:
 //            let listComponentView = CategoryComponentView()
 //            listComponentView.translatesAutoresizingMaskIntoConstraints = false
@@ -280,5 +298,37 @@ extension ObjectView: LoanPriceComponentViewDelegate {
 extension ObjectView: AdReporterComponentViewDelegate {
     func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component) {
 //        delegate?.objectView(self, didSelectComponent: component)
+    }
+}
+
+extension ObjectView: CollapsableDescriptionComponentViewDelegate {
+    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+        UIView.animate(withDuration: animationDuration, animations: {
+            collapsableDescriptionComponentView.layoutIfNeeded()
+            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            self.layoutIfNeeded()
+        }) { (finished) in
+            self.delegate?.objectView(self, didTapExpandDescriptionFor: component)
+            collapsableDescriptionComponentView.updateButtonTitle()
+
+            UIView.animate(withDuration: self.animationDuration, animations: {
+                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+            })
+        }
+    }
+
+    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+        UIView.animate(withDuration: animationDuration, animations: {
+            collapsableDescriptionComponentView.layoutIfNeeded()
+            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            self.layoutIfNeeded()
+        }) { (finished) in
+            self.delegate?.objectView(self, didTapHideDescriptionFor: component)
+            collapsableDescriptionComponentView.updateButtonTitle()
+
+            UIView.animate(withDuration: self.animationDuration, animations: {
+                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+            })
+        }
     }
 }
