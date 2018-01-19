@@ -27,9 +27,8 @@
 		4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */; };
 		4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AFA91FE819A9002488ED /* ProfileComponentView.swift */; };
 		45477CED2008984100B5FA6D /* IconButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45477CEC2008984100B5FA6D /* IconButtonComponent.swift */; };
-		45655F641FE81BC70088A22C /* IconButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* IconButtonComponentView.swift */; };
 		45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45477CEE201089C700B5FA6D /* UITextView+Components.swift */; };
-		45655F641FE81BC70088A22C /* AdressComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F631FE81BC70088A22C /* AdressComponentView.swift */; };
+		45477CF32012108200B5FA6D /* IconButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45477CF22012108200B5FA6D /* IconButtonComponentView.swift */; };
 		45655F661FE8F3080088A22C /* CollapsableDescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */; };
 		45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F671FE9427D0088A22C /* CategoryComponentView.swift */; };
 		45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F691FE944200088A22C /* BannerComponentView.swift */; };
@@ -78,9 +77,8 @@
 		4541AFA71FE817FB002488ED /* PhoneNumberComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentView.swift; sourceTree = "<group>"; };
 		4541AFA91FE819A9002488ED /* ProfileComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponentView.swift; sourceTree = "<group>"; };
 		45477CEC2008984100B5FA6D /* IconButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonComponent.swift; sourceTree = "<group>"; };
-		45655F631FE81BC70088A22C /* IconButtonComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonComponentView.swift; sourceTree = "<group>"; };
 		45477CEE201089C700B5FA6D /* UITextView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Components.swift"; sourceTree = "<group>"; };
-		45655F631FE81BC70088A22C /* AdressComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressComponentView.swift; sourceTree = "<group>"; };
+		45477CF22012108200B5FA6D /* IconButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconButtonComponentView.swift; sourceTree = "<group>"; };
 		45655F651FE8F3080088A22C /* CollapsableDescriptionComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponentView.swift; sourceTree = "<group>"; };
 		45655F671FE9427D0088A22C /* CategoryComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryComponentView.swift; sourceTree = "<group>"; };
 		45655F691FE944200088A22C /* BannerComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerComponentView.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				4513FDF720076A7400975941 /* MessageButton */,
 				45BFEFB92004F9BE00EAFD94 /* PhoneNumber */,
 				45477CEB200897C900B5FA6D /* IconButton */,
-				45655F631FE81BC70088A22C /* AdressComponentView.swift */,
 				4513FDFD2007A73300975941 /* CollapsableDescription */,
 				45655F671FE9427D0088A22C /* CategoryComponentView.swift */,
 				45655F691FE944200088A22C /* BannerComponentView.swift */,
@@ -221,7 +218,7 @@
 		45477CEB200897C900B5FA6D /* IconButton */ = {
 			isa = PBXGroup;
 			children = (
-				45655F631FE81BC70088A22C /* IconButtonComponentView.swift */,
+				45477CF22012108200B5FA6D /* IconButtonComponentView.swift */,
 				45477CEC2008984100B5FA6D /* IconButtonComponent.swift */,
 			);
 			path = IconButton;
@@ -353,12 +350,12 @@
 				44CAE2D61FE26C9F00F8AA9B /* AppDelegate.swift in Sources */,
 				4400FA621FEBEF5000AC7325 /* ObjectView.swift in Sources */,
 				45655F681FE9427D0088A22C /* CategoryComponentView.swift in Sources */,
+				45477CF32012108200B5FA6D /* IconButtonComponentView.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Components.swift in Sources */,
 				45655F701FE94F680088A22C /* DeliveryHelpComponentView.swift in Sources */,
 				45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */,
 				4513FDFF2007A7B600975941 /* CollapsableDescriptionComponent.swift in Sources */,
 				4400FA601FEBEF1900AC7325 /* Component.swift in Sources */,
-				45655F641FE81BC70088A22C /* IconButtonComponentView.swift in Sources */,
 				4541AF981FE80799002488ED /* UIColor+Components.swift in Sources */,
 				4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */,
 				45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */,
