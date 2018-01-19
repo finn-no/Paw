@@ -82,7 +82,6 @@ public class IconButtonComponentView: UIView {
         }
         if gesture.state == .began {
             titleLabel.textColor = highlightedColor
-            backgroundColor = .gray
         }
         if gesture.state == .ended {
             delegate.iconButtonComponentView(self, didTapButtonFor: component)
