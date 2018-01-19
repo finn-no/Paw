@@ -11,6 +11,8 @@ public class IconButtonComponentView: UIView {
     private let imageHeight: CGFloat = 20
     private let imageWidth: CGFloat = 20
 
+    private let highlightedColor = UIColor(red: 0 / 255, green: 79 / 255, blue: 201 / 255, alpha: 1.0) // #004fc9
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +53,8 @@ public class IconButtonComponentView: UIView {
     }
 
     private func setup() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(buttonAction))
+        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(tapHandler))
+        tapGesture.minimumPressDuration = 0
         addGestureRecognizer(tapGesture)
 
         addSubview(iconImageView)
@@ -73,10 +76,17 @@ public class IconButtonComponentView: UIView {
 
     // MARK: - Actions
 
-    @objc func buttonAction() {
+    @objc func tapHandler(gesture: UITapGestureRecognizer) {
         guard let component = component, let delegate = delegate else {
             return
         }
-        delegate.iconButtonComponentView(self, didTapButtonFor: component)
+        if gesture.state == .began {
+            titleLabel.textColor = highlightedColor
+            backgroundColor = .gray
+        }
+        if gesture.state == .ended {
+            delegate.iconButtonComponentView(self, didTapButtonFor: component)
+            titleLabel.textColor = .primaryBlue
+        }
     }
 }
