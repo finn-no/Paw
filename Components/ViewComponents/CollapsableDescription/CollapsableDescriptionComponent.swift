@@ -4,11 +4,11 @@ struct CollapsableDescriptionComponent: Component {
 
     let id: String
 
-    let text: String
+    let text: NSAttributedString
     let titleShow: String
     let titleHide: String
 
-    init(id: String = UUID().uuidString, text: String, titleShow: String, titleHide: String) {
+    init(id: String = UUID().uuidString, text: NSAttributedString, titleShow: String, titleHide: String) {
         self.id = id
         self.text = text
         self.titleShow = titleShow

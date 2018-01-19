@@ -29,8 +29,6 @@ public class CollapsableDescriptionComponentView: UIView {
         textView.isScrollEnabled = false
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = .zero
-        textView.font = .body
-        textView.textColor = .stone
         textView.contentMode = .topLeft
         return textView
     }()
@@ -58,7 +56,7 @@ public class CollapsableDescriptionComponentView: UIView {
     weak var delegate: CollapsableDescriptionComponentViewDelegate?
     var component: CollapsableDescriptionComponent? {
         didSet {
-            descriptionTextView.text = component?.text
+            descriptionTextView.attributedText = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
             
             if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
