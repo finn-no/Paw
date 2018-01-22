@@ -30,7 +30,7 @@ public class PriceComponentView: UIView {
             guard let component = component else {
                 return
             }
-            priceLabel.text = priceFormatter.string(from: component.price as NSNumber)
+            priceLabel.text = priceFormatter.string(from: component.price as NSNumber)! + ",-"
             priceLabel.accessibilityLabel = component.accessibilityPrefix + String(component.price) + component.currency
         }
     }
