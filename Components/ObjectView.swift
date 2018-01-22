@@ -148,10 +148,11 @@ class ObjectView: UIView {
 //            let listComponentView = ProfileComponentView()
 //            listComponentView.translatesAutoresizingMaskIntoConstraints = false
 //            return listComponentView
-//        case .price:
-//            let listComponentView = PriceComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
+        case is PriceComponent:
+            let listComponentView = PriceComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.component = component as? PriceComponent
+            return listComponentView
         case is MessageButtonComponent:
             let listComponentView = MessageButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
