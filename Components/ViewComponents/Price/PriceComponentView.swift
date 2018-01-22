@@ -10,10 +10,30 @@ public class PriceComponentView: UIView {
         label.isAccessibilityElement = true
         label.font = .title1
         label.textColor = .licorice
-        label.text = "500,-"
-        label.accessibilityLabel = "Pris: 500kroner"
         return label
     }()
+
+    var priceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        formatter.allowsFloats = false
+        formatter.groupingSize = 3
+        formatter.groupingSeparator = " "
+        return formatter
+    }()
+
+    // MARK: - External properties
+
+    var component: PriceComponent? {
+        didSet {
+            guard let component = component else {
+                return
+            }
+            priceLabel.text = priceFormatter.string(from: component.price as NSNumber)
+            priceLabel.accessibilityLabel = component.accessibilityPrefix + String(component.price) + component.currency
+        }
+    }
 
     // MARK: - Setup
 
@@ -38,5 +58,3 @@ public class PriceComponentView: UIView {
         ])
     }
 }
-
-
