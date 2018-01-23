@@ -2,7 +2,6 @@ import UIKit
 
 public class TableComponentView: UIView {
 
-
     // MARK: - Internal properties
 
     private lazy var stackView: UIStackView = {
@@ -15,7 +14,7 @@ public class TableComponentView: UIView {
 
     // MARK: - External properties
 
-    var components: [TableComponent]? {
+    var components: [InfoTableComponent]? {
         didSet {
             guard let components = components else {
                 return
@@ -49,8 +48,7 @@ public class TableComponentView: UIView {
 
     // MARK: - Methods
 
-    func setupTable(components: [TableComponent]) {
-        
+    private func setupTable(components: [InfoTableComponent]) {
         for component in components {
             if let componentView = viewComponent(for: component, in: self) {
                 stackView.addArrangedSubview(componentView)
@@ -58,7 +56,7 @@ public class TableComponentView: UIView {
         }
     }
 
-    func viewComponent(for component: TableComponent, in tableComponentView: TableComponentView) -> UIView? {
+    private func viewComponent(for component: InfoTableComponent, in tableComponentView: TableComponentView) -> UIView? {
         switch component.self {
         case is PriceTableComponent:
             let listComponentView = PriceTableComponentView()
