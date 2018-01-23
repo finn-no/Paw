@@ -8,15 +8,16 @@ public class TableComponentView: UIView {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
+        view.distribution = .fillEqually
         view.spacing = .mediumSpacing
         return view
     }()
 
     // MARK: - External properties
 
-    var components: [InfoTableComponent]? {
+    var component: TableComponent? {
         didSet {
-            guard let components = components else {
+            guard let components = component?.components else {
                 return
             }
             setupTable(components: components)
