@@ -14,6 +14,13 @@ class ObjectViewController: UIViewController {
         return attributedString
     }()
 
+    let tableComponents: [TableRowModel] = {
+        let currency = "kroner"
+        return [
+            PriceTableComponent(title: "Prisantydning", price: 2500000, currency: currency),
+            PriceTableComponent(title: "Formuesverdi", price: 500000, currency: currency),
+        ]
+    }()
 
     var components: [[Component]] {
         return [
@@ -21,6 +28,7 @@ class ObjectViewController: UIViewController {
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
+            [TableComponent(components: tableComponents)],
         ]
     }
 
