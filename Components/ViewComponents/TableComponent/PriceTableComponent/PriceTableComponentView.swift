@@ -49,6 +49,7 @@ public class PriceTableComponentView: UIView {
             }
             titleLabel.text = component.title
             detailLabel.text = priceFormatter.string(from: component.price as NSNumber)! + ",-"
+            accessibilityLabel = component.title + ": " + String(component.price) + component.currency
         }
     }
 
@@ -66,6 +67,8 @@ public class PriceTableComponentView: UIView {
 
     private func setup() {
         addSubview(priceStackView)
+
+        isAccessibilityElement = true
 
         NSLayoutConstraint.activate([
             priceStackView.topAnchor.constraint(equalTo: topAnchor),
