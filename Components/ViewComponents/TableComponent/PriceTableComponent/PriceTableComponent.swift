@@ -1,6 +1,6 @@
 import Foundation
 
-struct PriceTableComponent: InfoTableComponent {
+struct PriceTableComponent: TableRowModel {
 
     let title: String
     let price: Int

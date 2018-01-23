@@ -1,3 +1,3 @@
-protocol InfoTableComponent {
+protocol TableRowModel {
     var title: String { get }
 }

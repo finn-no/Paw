@@ -41,7 +41,7 @@
 		4577F5C420162E55009CBAE8 /* PriceTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C320162E55009CBAE8 /* PriceTableComponent.swift */; };
 		4577F5C620162EC7009CBAE8 /* PriceTableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C520162EC7009CBAE8 /* PriceTableComponentView.swift */; };
 		4577F5C82016319F009CBAE8 /* TableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C72016319F009CBAE8 /* TableComponentView.swift */; };
-		4577F5CA2017568F009CBAE8 /* InfoTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C92017568F009CBAE8 /* InfoTableComponent.swift */; };
+		4577F5CA2017568F009CBAE8 /* TableRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C92017568F009CBAE8 /* TableRowModel.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
 		45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */; };
 /* End PBXBuildFile section */
@@ -95,7 +95,7 @@
 		4577F5C320162E55009CBAE8 /* PriceTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableComponent.swift; sourceTree = "<group>"; };
 		4577F5C520162EC7009CBAE8 /* PriceTableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableComponentView.swift; sourceTree = "<group>"; };
 		4577F5C72016319F009CBAE8 /* TableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentView.swift; sourceTree = "<group>"; };
-		4577F5C92017568F009CBAE8 /* InfoTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableComponent.swift; sourceTree = "<group>"; };
+		4577F5C92017568F009CBAE8 /* TableRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowModel.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,7 +227,7 @@
 		4577F5BF20162D4F009CBAE8 /* TableComponent */ = {
 			isa = PBXGroup;
 			children = (
-				4577F5C92017568F009CBAE8 /* InfoTableComponent.swift */,
+				4577F5C92017568F009CBAE8 /* TableRowModel.swift */,
 				4577F5C72016319F009CBAE8 /* TableComponentView.swift */,
 				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
 				4577F5C220162E2C009CBAE8 /* PriceTableComponent */,
@@ -365,7 +365,7 @@
 				4577F5C420162E55009CBAE8 /* PriceTableComponent.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
-				4577F5CA2017568F009CBAE8 /* InfoTableComponent.swift in Sources */,
+				4577F5CA2017568F009CBAE8 /* TableRowModel.swift in Sources */,
 				45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */,
 				45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */,
 				4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */,

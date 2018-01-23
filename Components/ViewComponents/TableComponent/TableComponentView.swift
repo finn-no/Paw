@@ -48,7 +48,7 @@ public class TableComponentView: UIView {
 
     // MARK: - Methods
 
-    private func setupTable(components: [InfoTableComponent]) {
+    private func setupTable(components: [TableRowModel]) {
         for component in components {
             if let componentView = viewComponent(for: component, in: self) {
                 stackView.addArrangedSubview(componentView)
@@ -56,10 +56,11 @@ public class TableComponentView: UIView {
         }
     }
 
-    private func viewComponent(for component: InfoTableComponent, in tableComponentView: TableComponentView) -> UIView? {
+    private func viewComponent(for component: TableRowModel, in tableComponentView: TableComponentView) -> UIView? {
         switch component.self {
         case is PriceTableComponent:
             let listComponentView = PriceTableComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.component = component as? PriceTableComponent
             return listComponentView
         default: return nil
