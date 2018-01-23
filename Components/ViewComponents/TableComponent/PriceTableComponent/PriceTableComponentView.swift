@@ -6,7 +6,6 @@ public class PriceTableComponentView: UIView {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
         label.font = .detail
         label.textColor = .stone
@@ -15,10 +14,10 @@ public class PriceTableComponentView: UIView {
 
     private lazy var detailLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
-        label.font = .body
+        label.font = .title4
         label.textColor = .stone
+        label.textAlignment = .right
         return label
     }()
 
@@ -34,8 +33,9 @@ public class PriceTableComponentView: UIView {
 
     private lazy var priceStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, detailLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         stackView.spacing = .smallSpacing
         return stackView
     }()
