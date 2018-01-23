@@ -225,8 +225,8 @@
 		4577F5BF20162D4F009CBAE8 /* TableComponent */ = {
 			isa = PBXGroup;
 			children = (
-				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
 				4577F5C72016319F009CBAE8 /* TableComponentView.swift */,
+				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
 				4577F5C220162E2C009CBAE8 /* PriceTableComponent */,
 			);
 			path = TableComponent;
