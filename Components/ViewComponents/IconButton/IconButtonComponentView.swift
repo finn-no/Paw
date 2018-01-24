@@ -13,13 +13,14 @@ public class IconButtonComponentView: UIView {
 
     private let highlightedColor = UIColor(red: 0 / 255, green: 79 / 255, blue: 201 / 255, alpha: 1.0) // #004fc9
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.textColor = .primaryBlue
-        label.font = .detail
-        return label
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = .detail
+        button.setTitleColor(.primaryBlue, for: .normal)
+        button.setTitleColor(highlightedColor, for: .highlighted)
+        button.addTarget(self, action: #selector(tapHandler), for: .touchUpInside)
+        return button
     }()
 
     private lazy var iconImageView: UIImageView = {
@@ -35,8 +36,9 @@ public class IconButtonComponentView: UIView {
 
     var component: IconButtonComponent? {
         didSet {
-            titleLabel.text = component?.buttonTitle
+            button.setTitle(component?.buttonTitle, for: .normal)
             iconImageView.image = component?.iconImage
+            accessibilityLabel = component?.buttonTitle
         }
     }
 
@@ -53,24 +55,23 @@ public class IconButtonComponentView: UIView {
     }
 
     private func setup() {
-        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(tapHandler))
-        tapGesture.minimumPressDuration = 0
-        addGestureRecognizer(tapGesture)
+        isAccessibilityElement = true
+        accessibilityTraits = UIAccessibilityTraitButton
 
         addSubview(iconImageView)
-        addSubview(titleLabel)
+        addSubview(button)
 
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor),
             iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            iconImageView.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -.mediumSpacing),
+            iconImageView.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -.mediumSpacing),
             iconImageView.heightAnchor.constraint(equalToConstant: imageHeight),
             iconImageView.widthAnchor.constraint(equalToConstant: imageWidth),
 
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            button.topAnchor.constraint(equalTo: topAnchor),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor),
+            button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
 
@@ -80,12 +81,6 @@ public class IconButtonComponentView: UIView {
         guard let component = component, let delegate = delegate else {
             return
         }
-        if gesture.state == .began {
-            titleLabel.textColor = highlightedColor
-        }
-        if gesture.state == .ended {
-            delegate.iconButtonComponentView(self, didTapButtonFor: component)
-            titleLabel.textColor = .primaryBlue
-        }
+        delegate.iconButtonComponentView(self, didTapButtonFor: component)
     }
 }
