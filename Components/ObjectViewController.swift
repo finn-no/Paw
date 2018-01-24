@@ -2,6 +2,10 @@ import UIKit
 
 class ObjectViewController: UIViewController {
 
+    let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
+    let vanImage = UIImage(named: "SmallJobs")
+
+
     let attributedDescriptionText: NSAttributedString = {
         let descriptionText = "Selger min bestemors gamle sykkel. 🚲 Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til! 🌐 www.finn.no. 📌 Grensen 5, 0134 Oslo. 🗓 12.1.2018. ✈️ DY1234. 📞 12345678. \nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. \nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt."
 
@@ -19,6 +23,8 @@ class ObjectViewController: UIViewController {
         return [
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
+            [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
+            [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
         ]
@@ -90,6 +96,10 @@ extension ObjectViewController: ObjectViewDataSource {
 }
 
 extension ObjectViewController: ObjectViewDelegate {
+    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent) {
+        print("Button with id: \(component.id)")
+    }
+
     func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
         print("Vis mer!")
     }
