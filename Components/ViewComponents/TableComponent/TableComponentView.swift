@@ -8,8 +8,8 @@ public class TableComponentView: UIView {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
-        view.distribution = .fillEqually
-        view.spacing = .mediumSpacing
+        view.spacing = .smallSpacing
+        view.distribution = .fill
         return view
     }()
 
@@ -51,9 +51,17 @@ public class TableComponentView: UIView {
 
     private func setupTable(components: [TableRowModel]) {
         for component in components {
+            let separatorView = setupSeparatorView()
+
             if let componentView = viewComponent(for: component, in: self) {
                 stackView.addArrangedSubview(componentView)
+                stackView.addArrangedSubview(separatorView)
+                separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+                separatorView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
             }
+        }
+        if let lastView = stackView.arrangedSubviews.last {
+            stackView.removeArrangedSubview(lastView)
         }
     }
 
@@ -71,5 +79,15 @@ public class TableComponentView: UIView {
             return listComponentView
         default: return nil
         }
+    }
+
+    private func setupSeparatorView() -> UIView {
+        let separatorView: UIView = {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .sardine
+            return view
+        }()
+        return separatorView
     }
 }
