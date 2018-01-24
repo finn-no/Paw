@@ -25,7 +25,7 @@ class ObjectViewController: UIViewController {
 
     let textTableComponents: [TableRowModel] = {
         return [
-            TextTableComponent(title: "FINN-kode", detail: "123456789876"),
+            TextTableComponent(title: "FINN-kode", detail: "123456789"),
             TextTableComponent(title: "Sist endret", detail: "25. nov 2017, 08:00"),
         ]
     }()
