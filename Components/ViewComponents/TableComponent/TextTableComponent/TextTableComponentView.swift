@@ -15,7 +15,7 @@ public class TextTableComponentView: UIView {
     private lazy var detailLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
-        label.font = .title4
+        label.font = .title5
         label.textColor = .stone
         label.textAlignment = .right
         return label
@@ -59,6 +59,7 @@ public class TextTableComponentView: UIView {
         addSubview(stackView)
 
         isAccessibilityElement = true
+        backgroundColor = .milk
 
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
