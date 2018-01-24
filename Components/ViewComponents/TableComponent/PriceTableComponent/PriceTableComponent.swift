@@ -3,12 +3,12 @@ import Foundation
 struct PriceTableComponent: TableRowModel {
 
     let title: String
-    let price: Int
-    let currency: String
+    let price: Double
+    let locale: Locale
 
-    init(title: String, price: Int, currency: String) {
+    init(title: String, price: Double, locale: Locale) {
         self.title = title
         self.price = price
-        self.currency = currency
+        self.locale = locale
     }
 }

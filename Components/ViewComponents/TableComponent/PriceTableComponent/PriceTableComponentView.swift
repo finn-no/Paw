@@ -4,6 +4,8 @@ public class PriceTableComponentView: UIView {
 
     // MARK: - Internal properties
 
+    private let currency = "kroner"     // TODO (UUS): Needs to be injected. This is for voice over accessibility
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
@@ -15,7 +17,7 @@ public class PriceTableComponentView: UIView {
     private lazy var detailLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
-        label.font = .title4
+        label.font = .title5
         label.textColor = .stone
         label.textAlignment = .right
         return label
@@ -23,11 +25,17 @@ public class PriceTableComponentView: UIView {
 
     var priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 0
+        formatter.numberStyle = .currency
         formatter.allowsFloats = false
-        formatter.groupingSize = 3
-        formatter.groupingSeparator = " "
+        return formatter
+    }()
+
+    var accessibilityPriceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.allowsFloats = false
+        formatter.maximumFractionDigits = 0
+        formatter.groupingSize = 0
         return formatter
     }()
 
@@ -47,9 +55,13 @@ public class PriceTableComponentView: UIView {
             guard let component = component else {
                 return
             }
+            priceFormatter.locale = component.locale
+            priceFormatter.maximumSignificantDigits = String(component.price).count
+            accessibilityPriceFormatter.locale = component.locale
+            accessibilityPriceFormatter.maximumSignificantDigits = String(component.price).count
             titleLabel.text = component.title
             detailLabel.text = priceFormatter.string(from: component.price as NSNumber)! + ",-"
-            accessibilityLabel = component.title + ": " + String(component.price) + component.currency
+            accessibilityLabel = component.title + ": " + accessibilityPriceFormatter.string(from: component.price as NSNumber)! + currency
         }
     }
 

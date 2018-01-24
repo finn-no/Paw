@@ -15,10 +15,11 @@ class ObjectViewController: UIViewController {
     }()
 
     let priceTableComponents: [TableRowModel] = {
-        let currency = "kroner"
+        let locale = Locale(identifier: "no_NO")
         return [
-            PriceTableComponent(title: "Prisantydning", price: 2500000, currency: currency),
-            PriceTableComponent(title: "Formuesverdi", price: 500000, currency: currency),
+            PriceTableComponent(title: "Prisantydning", price: 2500000, locale: locale),
+            PriceTableComponent(title: "Formuesverdi", price: 500000, locale: locale),
+            PriceTableComponent(title: "Kommunale avgifter", price: 2100, locale: locale),
         ]
     }()
 
