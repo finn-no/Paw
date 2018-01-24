@@ -14,6 +14,9 @@ protocol ObjectViewDelegate: class {
     // MessageButtonComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
 
+    // IconButtonComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent)
+
     // CollapsableDescriptionComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
     func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
@@ -129,30 +132,6 @@ class ObjectView: UIView {
 
     func viewComponent(for component: Component, in objectView: ObjectView) -> UIView? {
         switch component.self {
-//        case .link:
-//            let listComponentView = LinkComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            listComponentView.delegate = objectView
-//            listComponentView.component = component
-//            listComponentView.setupLayout()
-//            return listComponentView
-//        case .title:
-//            let listComponentView = TitleComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .gallery:
-//            let listComponentView = GalleryComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .profile:
-//            let listComponentView = ProfileComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-        case is PriceComponent:
-            let listComponentView = PriceComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? PriceComponent
-            return listComponentView
         case is MessageButtonComponent:
             let listComponentView = MessageButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
@@ -165,63 +144,18 @@ class ObjectView: UIView {
             listComponentView.delegate = objectView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
-//        case .adress:
-//            let listComponentView = AdressComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            listComponentView.delegate = objectView
-//            listComponentView.component = component
-//            return listComponentView
+        case is IconButtonComponent:
+            let listComponentView = IconButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component as? IconButtonComponent
+            return listComponentView
         case is CollapsableDescriptionComponent:
             let listComponentView = CollapsableDescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = objectView
             listComponentView.component = component as? CollapsableDescriptionComponent
             return listComponentView
-//        case .category:
-//            let listComponentView = CategoryComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .banner:
-//            let listComponentView = BannerComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .safePay:
-//            let listComponentView = SafePayComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            listComponentView.delegate = objectView
-//            listComponentView.component = component
-//            return listComponentView
-//        case .loanPrice:
-//            let listComponentView = LoanPriceComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            listComponentView.delegate = objectView
-//            listComponentView.component = component
-//            return listComponentView
-//        case .deliveryHelp:
-//            let listComponentView = DeliveryHelpComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .adReporter:
-//            let listComponentView = AdReporterComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            listComponentView.delegate = objectView
-//            listComponentView.component = component
-//            return listComponentView
-//        case .adInfo:
-//            let listComponentView = AdInfoComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .relevantAds:
-//            let listComponentView = RelevantAdsComponentView()
-//            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//            return listComponentView
-//        case .custom:
-//            if let listComponentView = dataSource?.customComponentView(for: component, in: objectView) {
-//                listComponentView.translatesAutoresizingMaskIntoConstraints = false
-//                return listComponentView
-//            } else {
-//                return nil
-//            }
         default: return nil
         }
     }
@@ -268,9 +202,12 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
         return delegate?.objectView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
-extension ObjectView: AdressComponentViewDelegate {
-    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
+
+// MARK: - IconButtonComponentViewDelegate
+
+extension ObjectView: IconButtonComponentViewDelegate {
+    func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
+        delegate?.objectView(self, didTapButtonFor: component)
     }
 }
 extension ObjectView: SafePayComponentViewDelegate {
@@ -288,6 +225,8 @@ extension ObjectView: AdReporterComponentViewDelegate {
 //        delegate?.objectView(self, didSelectComponent: component)
     }
 }
+
+// MARK: - CollapsableDescriptionComponentViewDelegate
 
 extension ObjectView: CollapsableDescriptionComponentViewDelegate {
     func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
