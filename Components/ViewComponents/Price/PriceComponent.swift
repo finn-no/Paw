@@ -4,13 +4,13 @@ struct PriceComponent: Component {
 
     let id: String
     let price: Int
-    let currency: String
+    let locale: Locale
     let accessibilityPrefix: String
 
-    init(id: String = UUID().uuidString, price: Int, currency: String, accessibilityPrefix: String) {
+    init(id: String = UUID().uuidString, price: Int, locale: Locale, accessibilityPrefix: String) {
         self.id = id
         self.price = price
-        self.currency = currency
+        self.locale = locale
         self.accessibilityPrefix = accessibilityPrefix
     }
 }

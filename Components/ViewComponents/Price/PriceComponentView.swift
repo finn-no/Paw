@@ -4,6 +4,8 @@ public class PriceComponentView: UIView {
 
     // MARK: - Internal properties
 
+    let currencyString = "kroner"
+
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -15,11 +17,8 @@ public class PriceComponentView: UIView {
 
     var priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 0
+        formatter.numberStyle = .currency
         formatter.allowsFloats = false
-        formatter.groupingSize = 3
-        formatter.groupingSeparator = " "
         return formatter
     }()
 
@@ -30,8 +29,10 @@ public class PriceComponentView: UIView {
             guard let component = component else {
                 return
             }
+            priceFormatter.locale = component.locale
+            priceFormatter.maximumSignificantDigits = String(component.price).count
             priceLabel.text = priceFormatter.string(from: component.price as NSNumber)! + ",-"
-            priceLabel.accessibilityLabel = component.accessibilityPrefix + String(component.price) + component.currency
+            priceLabel.accessibilityLabel = component.accessibilityPrefix + String(component.price) + currencyString
         }
     }
 
