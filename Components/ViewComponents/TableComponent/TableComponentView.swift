@@ -64,6 +64,11 @@ public class TableComponentView: UIView {
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.component = component as? PriceTableComponent
             return listComponentView
+        case is TextTableComponent:
+            let listComponentView = TextTableComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.component = component as? TextTableComponent
+            return listComponentView
         default: return nil
         }
     }
