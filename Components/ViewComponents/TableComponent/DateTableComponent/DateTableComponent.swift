@@ -5,7 +5,7 @@ struct DateTableComponent: TableRowModel {
     let title: String
     let locale: Locale
     let date: Date
-    let dateFormat: DateFormat
+    let dateFormat: DateFormat?
 
     enum DateFormat {
         case year
@@ -40,7 +40,7 @@ struct DateTableComponent: TableRowModel {
     }
 
 
-    init(title: String, date: Date, locale: Locale, dateFormat: DateFormat) {
+    init(title: String, date: Date, locale: Locale, dateFormat: DateFormat? = .dateAndTime) {
         self.title = title
         self.date = date
         self.locale = locale

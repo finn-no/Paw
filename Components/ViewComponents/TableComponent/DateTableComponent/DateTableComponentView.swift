@@ -44,8 +44,11 @@ public class DateTableComponentView: UIView {
             if component.dateFormat == .year {
                 dateFormatter.dateFormat = "yyyy"
             } else {
-                dateFormatter.dateStyle = component.dateFormat.dateStyle
-                dateFormatter.timeStyle = component.dateFormat.timeStyle
+                guard let dateStyle = component.dateFormat?.dateStyle, let timeStyle = component.dateFormat?.timeStyle else {
+                    return
+                }
+                dateFormatter.dateStyle = dateStyle
+                dateFormatter.timeStyle = timeStyle
             }
 
             titleLabel.text = component.title
