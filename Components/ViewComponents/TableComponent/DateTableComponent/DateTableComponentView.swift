@@ -1,6 +1,6 @@
 import UIKit
 
-public class TextTableComponentView: UIView {
+public class DateTableComponentView: UIView {
 
     // MARK: - Internal properties
 
@@ -25,21 +25,29 @@ public class TextTableComponentView: UIView {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, detailLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         stackView.spacing = .smallSpacing
         return stackView
     }()
 
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter
+    }()
+
     // MARK: - External properties
 
-    var component: TextTableComponent? {
+    var component: DateTableComponent? {
         didSet {
             guard let component = component else {
                 return
             }
             titleLabel.text = component.title
-            detailLabel.text = component.detail
-            accessibilityLabel = component.title + ": " + component.detail
+            dateFormatter.locale = component.locale
+            detailLabel.text = dateFormatter.string(from: component.date)
+            accessibilityLabel = component.title + ": " + dateFormatter.string(from: component.date)
         }
     }
 

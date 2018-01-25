@@ -27,10 +27,14 @@ class ObjectViewController: UIViewController {
         ]
     }()
 
-    let textTableComponents: [TableRowModel] = {
+    let torgetTableComponents: [TableRowModel] = {
+        let locale = Locale(identifier: "no_NO")
+        let date = Date()
+        let timeInterval = TimeInterval(exactly: 450033400)!
+        let date2 = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableComponent(title: "FINN-kode", detail: "123456789"),
-            TextTableComponent(title: "Sist endret", detail: "25. nov 2017, 08:00"),
+            DateTableComponent(title: "Sist endret", date: date2, locale: locale),
         ]
     }()
 
@@ -43,7 +47,7 @@ class ObjectViewController: UIViewController {
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
             [TableComponent(components: priceTableComponents)],
-            [TableComponent(components: textTableComponents)],
+            [TableComponent(components: torgetTableComponents)],
         ]
     }
 
