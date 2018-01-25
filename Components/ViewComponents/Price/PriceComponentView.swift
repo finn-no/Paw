@@ -40,7 +40,10 @@ public class PriceComponentView: UIView {
             }
             priceFormatter.locale = component.locale
             priceFormatter.maximumSignificantDigits = String(component.price).count
-            priceLabel.text = priceFormatter.string(from: component.price as NSNumber)! + ",-"
+
+            if let priceString = priceFormatter.string(from: component.price as NSNumber) {
+                priceLabel.text = priceString + ",-"
+            }
             accessibilityLabel = component.accessibilityPrefix + String(component.price) + currencyString
 
             if let status = component.status {
