@@ -34,7 +34,7 @@ class ObjectViewController: UIViewController {
         let date2 = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableComponent(title: "FINN-kode", detail: "123456789"),
-            DateTableComponent(title: "Sist endret", date: date2, locale: locale),
+            DateTableComponent(title: "Sist endret", date: date2, locale: locale, dateFormat: .dateAndTime),
         ]
     }()
 

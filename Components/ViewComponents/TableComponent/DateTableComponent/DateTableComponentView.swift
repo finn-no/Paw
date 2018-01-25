@@ -4,6 +4,8 @@ public class DateTableComponentView: UIView {
 
     // MARK: - Internal properties
 
+    private var dateFormatter = DateFormatter()
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
@@ -30,13 +32,6 @@ public class DateTableComponentView: UIView {
         return stackView
     }()
 
-    var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter
-    }()
-
     // MARK: - External properties
 
     var component: DateTableComponent? {
@@ -44,8 +39,16 @@ public class DateTableComponentView: UIView {
             guard let component = component else {
                 return
             }
-            titleLabel.text = component.title
             dateFormatter.locale = component.locale
+
+            if component.dateFormat == .year {
+                dateFormatter.dateFormat = "yyyy"
+            } else {
+                dateFormatter.dateStyle = component.dateFormat.dateStyle
+                dateFormatter.timeStyle = component.dateFormat.timeStyle
+            }
+
+            titleLabel.text = component.title
             detailLabel.text = dateFormatter.string(from: component.date)
             accessibilityLabel = component.title + ": " + dateFormatter.string(from: component.date)
         }
