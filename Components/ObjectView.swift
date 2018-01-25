@@ -14,6 +14,9 @@ protocol ObjectViewDelegate: class {
     // MessageButtonComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
 
+    // IconButtonComponentViewDelegate
+    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent)
+
     // CollapsableDescriptionComponentViewDelegate
     func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
     func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
@@ -141,6 +144,12 @@ class ObjectView: UIView {
             listComponentView.delegate = objectView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
+        case is IconButtonComponent:
+            let listComponentView = IconButtonComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.delegate = objectView
+            listComponentView.component = component as? IconButtonComponent
+            return listComponentView
         case is CollapsableDescriptionComponent:
             let listComponentView = CollapsableDescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
@@ -198,9 +207,12 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
         return delegate?.objectView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
-extension ObjectView: AdressComponentViewDelegate {
-    func adressComponentView(_ adressComponentView: AdressComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
+
+// MARK: - IconButtonComponentViewDelegate
+
+extension ObjectView: IconButtonComponentViewDelegate {
+    func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
+        delegate?.objectView(self, didTapButtonFor: component)
     }
 }
 extension ObjectView: SafePayComponentViewDelegate {
@@ -218,6 +230,8 @@ extension ObjectView: AdReporterComponentViewDelegate {
 //        delegate?.objectView(self, didSelectComponent: component)
     }
 }
+
+// MARK: - CollapsableDescriptionComponentViewDelegate
 
 extension ObjectView: CollapsableDescriptionComponentViewDelegate {
     func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
