@@ -60,8 +60,14 @@ public class PriceTableComponentView: UIView {
             accessibilityPriceFormatter.locale = component.locale
             accessibilityPriceFormatter.maximumSignificantDigits = String(component.price).count
             titleLabel.text = component.title
-            detailLabel.text = priceFormatter.string(from: component.price as NSNumber)! + ",-"
-            accessibilityLabel = component.title + ": " + accessibilityPriceFormatter.string(from: component.price as NSNumber)! + currency
+
+            if let priceString = priceFormatter.string(from: component.price as NSNumber) {
+                detailLabel.text = priceString + ",-"
+            }
+
+            if let accessibilityPriceString = accessibilityPriceFormatter.string(from: component.price as NSNumber) {
+                accessibilityLabel = component.title + ": " + accessibilityPriceString + currency
+            }
         }
     }
 
