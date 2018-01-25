@@ -52,11 +52,11 @@ public class PriceComponentView: UIView {
                 NSLayoutConstraint.activate([
                     statusLabel.topAnchor.constraint(equalTo: topAnchor),
                     statusLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-                    statusLabel.leadingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: .mediumLargeSpacing),
+                    statusLabel.leadingAnchor.constraint(greaterThanOrEqualTo: priceLabel.trailingAnchor, constant: .mediumLargeSpacing),
                     statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
                 ])
             } else {
-                priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+                priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor).isActive = true
             }
         }
     }
