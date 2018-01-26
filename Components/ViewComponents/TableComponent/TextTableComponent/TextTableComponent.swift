@@ -9,4 +9,8 @@ struct TextTableComponent: TableRowModel {
         self.title = title
         self.detail = detail
     }
+
+    var accessibilityLabel: String? {
+        return title + ": " + detail
+    }
 }

@@ -39,7 +39,7 @@ public class TextTableComponentView: UIView {
             }
             titleLabel.text = component.title
             detailLabel.text = component.detail
-            accessibilityLabel = component.title + ": " + component.detail
+            accessibilityLabel = component.accessibilityLabel
         }
     }
 
