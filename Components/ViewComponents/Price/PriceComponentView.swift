@@ -4,8 +4,6 @@ public class PriceComponentView: UIView {
 
     // MARK: - Internal properties
 
-    let currencyString = "kroner"
-
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,13 +22,6 @@ public class PriceComponentView: UIView {
         return label
     }()
 
-    var priceFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.allowsFloats = false
-        return formatter
-    }()
-
     // MARK: - External properties
 
     var component: PriceComponent? {
@@ -38,20 +29,15 @@ public class PriceComponentView: UIView {
             guard let component = component else {
                 return
             }
-            priceFormatter.locale = component.locale
-            priceFormatter.maximumSignificantDigits = String(component.price).count
 
-            if let priceString = priceFormatter.string(from: component.price as NSNumber) {
-                priceLabel.text = priceString + ",-"
+            priceLabel.text = component.priceLabel
+            accessibilityLabel = component.accessibilityLabel
+            statusLabel.text = component.status
+
+            let statusIsEmpty = component.status?.isEmpty ?? false
+            if statusIsEmpty {
+                priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor).isActive = true
             } else {
-                priceLabel.text = String(component.price) + ",-"
-            }
-            accessibilityLabel = component.accessibilityPrefix + String(component.price) + currencyString
-
-            if let status = component.status {
-                statusLabel.text = status
-                accessibilityLabel = component.accessibilityPrefix + String(component.price) + currencyString + ". " + status
-
                 addSubview(statusLabel)
 
                 NSLayoutConstraint.activate([
@@ -59,9 +45,7 @@ public class PriceComponentView: UIView {
                     statusLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
                     statusLabel.leadingAnchor.constraint(greaterThanOrEqualTo: priceLabel.trailingAnchor, constant: .mediumLargeSpacing),
                     statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-                ])
-            } else {
-                priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor).isActive = true
+                    ])
             }
         }
     }
