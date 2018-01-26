@@ -24,6 +24,15 @@ struct PriceComponent: Component {
         return formatter
     }()
 
+    var accessibilityPriceFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.allowsFloats = false
+        formatter.maximumFractionDigits = 0
+        formatter.groupingSize = 0
+        return formatter
+    }()
+
     var priceLabel: String? {
         priceFormatter.locale = locale
         priceFormatter.maximumSignificantDigits = String(price).count
@@ -31,15 +40,19 @@ struct PriceComponent: Component {
         if let priceString = priceFormatter.string(from: price as NSNumber) {
             return priceString + ",-"
         } else {
-            return String(price) + ",-"
+            return nil
         }
     }
 
     var accessibilityLabel: String? {
+        guard let accessibilityPriceString = accessibilityPriceFormatter.string(from: price as NSNumber) else {
+            return nil
+        }
+
         if let status = status {
-            return accessibilityPrefix + String(price) + currencyString + ". " + status
+            return accessibilityPrefix + accessibilityPriceString + currencyString + ". " + status
         } else {
-            return accessibilityPrefix + String(price) + currencyString
+            return accessibilityPrefix + accessibilityPriceString + currencyString
         }
     }
 }

@@ -45,7 +45,7 @@ public class PriceComponentView: UIView {
                     statusLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
                     statusLabel.leadingAnchor.constraint(greaterThanOrEqualTo: priceLabel.trailingAnchor, constant: .mediumLargeSpacing),
                     statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-                    ])
+                ])
             }
         }
     }
