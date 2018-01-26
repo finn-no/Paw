@@ -58,6 +58,7 @@ public class CollapsableDescriptionComponentView: UIView {
         didSet {
             descriptionTextView.attributedText = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
+            descriptionTextView.accessibilityAttributedLabel = component?.text
             
             if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
                 descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
