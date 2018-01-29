@@ -14,7 +14,6 @@
 		44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CAE2D71FE26C9F00F8AA9B /* ObjectViewController.swift */; };
 		44CAE2DD1FE26C9F00F8AA9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DC1FE26C9F00F8AA9B /* Assets.xcassets */; };
 		44CAE2E01FE26C9F00F8AA9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CAE2DE1FE26C9F00F8AA9B /* LaunchScreen.storyboard */; };
-		44DCB457200522E0001A3FD9 /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCB456200522E0001A3FD9 /* UnitTests.swift */; };
 		4513FDF920076AA300975941 /* MessageButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513FDF820076AA300975941 /* MessageButtonComponent.swift */; };
 		4513FDFF2007A7B600975941 /* CollapsableDescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513FDFE2007A7B600975941 /* CollapsableDescriptionComponent.swift */; };
 		4541AF931FE803EC002488ED /* GalleryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4541AF921FE803EC002488ED /* GalleryComponentView.swift */; };
@@ -47,6 +46,7 @@
 		4577F5CF2018BFA0009CBAE8 /* TextTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5CE2018BFA0009CBAE8 /* TextTableComponent.swift */; };
 		4577F5D32019E230009CBAE8 /* DateTableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */; };
 		4577F5D52019E239009CBAE8 /* DateTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D42019E239009CBAE8 /* DateTableComponent.swift */; };
+		4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
 		45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */; };
 /* End PBXBuildFile section */
@@ -72,7 +72,6 @@
 		44CAE2DF1FE26C9F00F8AA9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44CAE2E11FE26C9F00F8AA9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44DCB454200522E0001A3FD9 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44DCB456200522E0001A3FD9 /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
 		44DCB458200522E0001A3FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4513FDF820076AA300975941 /* MessageButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButtonComponent.swift; sourceTree = "<group>"; };
 		4513FDFE2007A7B600975941 /* CollapsableDescriptionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponent.swift; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		4577F5CE2018BFA0009CBAE8 /* TextTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableComponent.swift; sourceTree = "<group>"; };
 		4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponentView.swift; sourceTree = "<group>"; };
 		4577F5D42019E239009CBAE8 /* DateTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponent.swift; sourceTree = "<group>"; };
+		4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableComponentTests.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +167,7 @@
 		44DCB455200522E0001A3FD9 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				44DCB456200522E0001A3FD9 /* UnitTests.swift */,
+				4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */,
 				44DCB458200522E0001A3FD9 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -440,7 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44DCB457200522E0001A3FD9 /* UnitTests.swift in Sources */,
+				4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
