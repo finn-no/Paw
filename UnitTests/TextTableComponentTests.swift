@@ -6,7 +6,7 @@ class TextTableComponentTests: XCTestCase {
     let titleString = "FINN-kode"
     let detailString = "123456789"
 
-    func testPriceLabel() {
+    func testTitleLabel() {
         let textTableComponent = TextTableComponent(title: titleString, detail: detailString)
 
         XCTAssertEqual(textTableComponent.title, titleString)
