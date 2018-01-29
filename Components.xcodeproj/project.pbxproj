@@ -47,6 +47,7 @@
 		4577F5D32019E230009CBAE8 /* DateTableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */; };
 		4577F5D52019E239009CBAE8 /* DateTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D42019E239009CBAE8 /* DateTableComponent.swift */; };
 		4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */; };
+		4577F5E2201F1FB1009CBAE8 /* DateTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
 		45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponentView.swift; sourceTree = "<group>"; };
 		4577F5D42019E239009CBAE8 /* DateTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponent.swift; sourceTree = "<group>"; };
 		4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableComponentTests.swift; sourceTree = "<group>"; };
+		4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponentTests.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 		44DCB455200522E0001A3FD9 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */,
 				4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */,
 				44DCB458200522E0001A3FD9 /* Info.plist */,
 			);
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4577F5E2201F1FB1009CBAE8 /* DateTableComponentTests.swift in Sources */,
 				4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
