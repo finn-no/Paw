@@ -10,7 +10,7 @@ class PriceComponentTests: XCTestCase {
     let americanPriceString = "Price: "
     let status = "Solgt"
 
-    let norwegianLocale = Locale(identifier: "no_NO")
+    let norwegianLocale = Locale(identifier: "nb_NO")
     let americanLocale = Locale(identifier: "en_US")
 
     func testPriceLabel() {

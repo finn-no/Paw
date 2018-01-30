@@ -29,7 +29,7 @@ class ObjectViewController: UIViewController {
     }()
 
     var components: [[Component]] {
-        let locale = Locale(identifier: "no_NO")
+        let locale = Locale(identifier: "nb_NO")
         return [
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
