@@ -10,16 +10,16 @@ class DateTableComponentTests: XCTestCase {
     let americanLocale = Locale(identifier: "us_US")
     let utcTimeZone = TimeZone(abbreviation: "UTC")!
 
-    let norwegianDateAndTimeString = "6. apr. 2015, 17:16"
-    let americanDateAndTimeString = "Apr 6, 2015 at 5:16 PM"
+    let norwegianDateAndTimeString = "30. mar. 2014, 09:13"
+    let americanDateAndTimeString = "Mar 30, 2014 at 9:13 AM"
 
-    let norwegianDateString = "mandag 6. april 2015"
-    let americanDateString = "Monday, April 6, 2015"
+    let norwegianDateString = "søndag 30. mars 2014"
+    let americanDateString = "Sunday, March 30, 2014"
 
-    let norwegianTimeString = "17:16:40 GMT"
-    let americanTimeString = "5:16:40 PM GMT"
+    let norwegianTimeString = "09:13:00 GMT"
+    let americanTimeString = "9:13:00 AM GMT"
 
-    let yearString = "2015"
+    let yearString = "2014"
     let date = Date.dateWithHourAndTimeZoneString("2014-03-30T09:13:00.000Z")
 
     func testTitleLabel() {
