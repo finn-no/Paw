@@ -2,6 +2,8 @@ import Foundation
 
 struct DateTableComponent: TableRowModel {
 
+    var dateFormatter = DateFormatter()
+
     let title: String
     let locale: Locale
     let date: Date
@@ -45,5 +47,27 @@ struct DateTableComponent: TableRowModel {
         self.date = date
         self.locale = locale
         self.dateFormat = dateFormat
+    }
+
+    var dateLabel: String {
+        dateFormatter.locale = locale
+
+        if dateFormat == .year {
+            dateFormatter.dateFormat = "yyyy"
+        } else {
+            guard let dateStyle = dateFormat?.dateStyle, let timeStyle = dateFormat?.timeStyle else {
+                dateFormatter.dateStyle = .medium
+                dateFormatter.timeStyle = .medium
+                return dateFormatter.string(from: date)
+            }
+            dateFormatter.dateStyle = dateStyle
+            dateFormatter.timeStyle = timeStyle
+        }
+
+        return dateFormatter.string(from: date)
+    }
+
+    var accessibilityLabel: String? {
+        return title + ": " + dateLabel
     }
 }
