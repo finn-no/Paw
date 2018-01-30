@@ -19,13 +19,12 @@ class ObjectViewController: UIViewController {
     }()
 
     let torgetTableElements: [TableElement] = {
-        let date = Date()
         let locale = Locale(identifier: "nb_NO")
         let timeInterval = TimeInterval(exactly: 450033400)!
-        let date2 = Date(timeIntervalSinceReferenceDate: timeInterval)
+        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableElement(title: "FINN-kode", detail: "123456789"),
-            DateTableElement(title: "Sist endret", date: date2),
+            DateTableElement(title: "Sist endret", date: date),
         ]
     }()
 
