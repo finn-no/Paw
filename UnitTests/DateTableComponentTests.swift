@@ -8,15 +8,16 @@ class DateTableComponentTests: XCTestCase {
 
     let norwegianLocale = Locale(identifier: "no_NO")
     let americanLocale = Locale(identifier: "us_US")
+    let utcTimeZone = TimeZone(abbreviation: "UTC")!
 
-    let norwegianDateAndTimeString = "6. apr. 2015, 19:16"
-    let americanDateAndTimeString = "Apr 6, 2015 at 7:16 PM"
+    let norwegianDateAndTimeString = "6. apr. 2015, 17:16"
+    let americanDateAndTimeString = "Apr 6, 2015 at 5:16 PM"
 
     let norwegianDateString = "mandag 6. april 2015"
     let americanDateString = "Monday, April 6, 2015"
 
-    let norwegianTimeString = "19:16:40 CEST"
-    let americanTimeString = "7:16:40 PM GMT+2"
+    let norwegianTimeString = "17:16:40 GMT"
+    let americanTimeString = "5:16:40 PM GMT"
 
     let yearString = "2015"
     let timeInterval = TimeInterval(exactly: 450033400)!
@@ -32,16 +33,16 @@ class DateTableComponentTests: XCTestCase {
 
     func testDateLabel() {
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
-        let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .dateAndTime)
-        let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, dateFormat: .dateAndTime)
+        let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
+        let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
 
-        let norwegianDateTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .date)
-        let americanDateTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, dateFormat: .date)
+        let norwegianDateTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .date)
+        let americanDateTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .date)
 
-        let norwegianTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .time)
-        let americanTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, dateFormat: .time)
+        let norwegianTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .time)
+        let americanTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .time)
 
-        let yearTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .year)
+        let yearTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .year)
 
         XCTAssertEqual(norwegianDateAndTimeTableComponent.dateLabel, norwegianDateAndTimeString)
         XCTAssertEqual(americanDateAndTimeTableComponent.dateLabel, americanDateAndTimeString)
@@ -57,16 +58,16 @@ class DateTableComponentTests: XCTestCase {
 
     func testAccessibilityLabel() {
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
-        let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .dateAndTime)
-        let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, dateFormat: .dateAndTime)
+        let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
+        let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
 
-        let norwegianDateTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .date)
-        let americanDateTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, dateFormat: .date)
+        let norwegianDateTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .date)
+        let americanDateTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .date)
 
-        let norwegianTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .time)
-        let americanTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, dateFormat: .time)
+        let norwegianTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .time)
+        let americanTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .time)
 
-        let yearTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, dateFormat: .year)
+        let yearTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .year)
 
         XCTAssertEqual(norwegianDateAndTimeTableComponent.accessibilityLabel, norwegianTitleString + ": " + norwegianDateAndTimeString)
         XCTAssertEqual(americanDateAndTimeTableComponent.accessibilityLabel, americanTitleString + ": " + americanDateAndTimeString)

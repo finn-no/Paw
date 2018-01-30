@@ -6,6 +6,7 @@ struct DateTableComponent: TableRowModel {
 
     let title: String
     let locale: Locale
+    let timeZone: TimeZone
     let date: Date
     let dateFormat: DateFormat?
 
@@ -42,10 +43,11 @@ struct DateTableComponent: TableRowModel {
     }
 
 
-    init(title: String, date: Date, locale: Locale, dateFormat: DateFormat? = .dateAndTime) {
+    init(title: String, date: Date, locale: Locale = .autoupdatingCurrent, timeZone: TimeZone = .autoupdatingCurrent, dateFormat: DateFormat? = .dateAndTime) {
         self.title = title
         self.date = date
         self.locale = locale
+        self.timeZone = timeZone
         self.dateFormat = dateFormat
     }
 
@@ -62,12 +64,13 @@ struct DateTableComponent: TableRowModel {
             }
             dateFormatter.dateStyle = dateStyle
             dateFormatter.timeStyle = timeStyle
+            dateFormatter.timeZone = timeZone
         }
 
         return dateFormatter.string(from: date)
     }
 
-    var accessibilityLabel: String? {
+    var accessibilityLabel: String {
         return title + ": " + dateLabel
     }
 }
