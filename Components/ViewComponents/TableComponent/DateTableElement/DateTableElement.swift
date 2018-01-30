@@ -1,6 +1,6 @@
 import Foundation
 
-struct DateTableComponent: TableElement {
+struct DateTableElement: TableElement {
 
     var dateFormatter = DateFormatter()
 

@@ -72,10 +72,10 @@ public class TableComponentView: UIView {
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.component = component as? TextTableElement
             return listComponentView
-        case is DateTableComponent:
-            let listComponentView = DateTableComponentView()
+        case is DateTableElement:
+            let listComponentView = DateTableElementView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? DateTableComponent
+            listComponentView.component = component as? DateTableElement
             return listComponentView
         default: return nil
         }

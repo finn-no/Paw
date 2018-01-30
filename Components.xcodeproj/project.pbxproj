@@ -42,8 +42,8 @@
 		4577F5CA2017568F009CBAE8 /* TableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C92017568F009CBAE8 /* TableElement.swift */; };
 		4577F5CD2018BF8F009CBAE8 /* TextTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5CC2018BF8F009CBAE8 /* TextTableElementView.swift */; };
 		4577F5CF2018BFA0009CBAE8 /* TextTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5CE2018BFA0009CBAE8 /* TextTableElement.swift */; };
-		4577F5D32019E230009CBAE8 /* DateTableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */; };
-		4577F5D52019E239009CBAE8 /* DateTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D42019E239009CBAE8 /* DateTableComponent.swift */; };
+		4577F5D32019E230009CBAE8 /* DateTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D22019E230009CBAE8 /* DateTableElementView.swift */; };
+		4577F5D52019E239009CBAE8 /* DateTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D42019E239009CBAE8 /* DateTableElement.swift */; };
 		4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */; };
 		4577F5E2201F1FB1009CBAE8 /* DateTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
@@ -100,8 +100,8 @@
 		4577F5C92017568F009CBAE8 /* TableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElement.swift; sourceTree = "<group>"; };
 		4577F5CC2018BF8F009CBAE8 /* TextTableElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableElementView.swift; sourceTree = "<group>"; };
 		4577F5CE2018BFA0009CBAE8 /* TextTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableElement.swift; sourceTree = "<group>"; };
-		4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponentView.swift; sourceTree = "<group>"; };
-		4577F5D42019E239009CBAE8 /* DateTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponent.swift; sourceTree = "<group>"; };
+		4577F5D22019E230009CBAE8 /* DateTableElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableElementView.swift; sourceTree = "<group>"; };
+		4577F5D42019E239009CBAE8 /* DateTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableElement.swift; sourceTree = "<group>"; };
 		4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableComponentTests.swift; sourceTree = "<group>"; };
 		4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponentTests.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				4577F5C72016319F009CBAE8 /* TableComponentView.swift */,
 				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
 				4577F5CB2018B7F4009CBAE8 /* TextTableElement */,
-				4577F5D12019E1C2009CBAE8 /* DateTableComponent */,
+				4577F5D12019E1C2009CBAE8 /* DateTableElement */,
 			);
 			path = TableComponent;
 			sourceTree = "<group>";
@@ -263,13 +263,13 @@
 			path = TextTableElement;
 			sourceTree = "<group>";
 		};
-		4577F5D12019E1C2009CBAE8 /* DateTableComponent */ = {
+		4577F5D12019E1C2009CBAE8 /* DateTableElement */ = {
 			isa = PBXGroup;
 			children = (
-				4577F5D22019E230009CBAE8 /* DateTableComponentView.swift */,
-				4577F5D42019E239009CBAE8 /* DateTableComponent.swift */,
+				4577F5D22019E230009CBAE8 /* DateTableElementView.swift */,
+				4577F5D42019E239009CBAE8 /* DateTableElement.swift */,
 			);
-			path = DateTableComponent;
+			path = DateTableElement;
 			sourceTree = "<group>";
 		};
 		45BFEFB92004F9BE00EAFD94 /* PhoneNumber */ = {
@@ -413,11 +413,11 @@
 				45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */,
 				4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */,
 				45655F721FE9510B0088A22C /* AdReporterComponentView.swift in Sources */,
-				4577F5D52019E239009CBAE8 /* DateTableComponent.swift in Sources */,
+				4577F5D52019E239009CBAE8 /* DateTableElement.swift in Sources */,
 				45477CED2008984100B5FA6D /* IconButtonComponent.swift in Sources */,
 				4513FDF920076AA300975941 /* MessageButtonComponent.swift in Sources */,
 				4400FA641FEBF17400AC7325 /* LinkComponentView.swift in Sources */,
-				4577F5D32019E230009CBAE8 /* DateTableComponentView.swift in Sources */,
+				4577F5D32019E230009CBAE8 /* DateTableElementView.swift in Sources */,
 				45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */,
 				4577F5CF2018BFA0009CBAE8 /* TextTableElement.swift in Sources */,
 			);

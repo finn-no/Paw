@@ -1,6 +1,6 @@
 import UIKit
 
-public class DateTableComponentView: UIView {
+public class DateTableElementView: UIView {
 
     // MARK: - Internal properties
 
@@ -32,7 +32,7 @@ public class DateTableComponentView: UIView {
 
     // MARK: - External properties
 
-    var component: DateTableComponent? {
+    var component: DateTableElement? {
         didSet {
             guard let component = component else {
                 return
