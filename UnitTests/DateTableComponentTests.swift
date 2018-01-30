@@ -7,7 +7,7 @@ class DateTableComponentTests: XCTestCase {
     let americanTitleString = "Last changed"
 
     let norwegianLocale = Locale(identifier: "no_NO")
-    let americanLocale = Locale(identifier: "us_US")
+    let americanLocale = Locale(identifier: "en_US")
     let utcTimeZone = TimeZone(abbreviation: "UTC")!
 
     let norwegianDateAndTimeString = "30. mar. 2014, 09:13"

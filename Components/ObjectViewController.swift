@@ -19,8 +19,8 @@ class ObjectViewController: UIViewController {
     }()
 
     let torgetTableElements: [TableElement] = {
-        let locale = Locale(identifier: "no_NO")
         let date = Date()
+        let locale = Locale(identifier: "nb_NO")
         let timeInterval = TimeInterval(exactly: 450033400)!
         let date2 = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
