@@ -20,10 +20,9 @@ class DateTableComponentTests: XCTestCase {
     let americanTimeString = "5:16:40 PM GMT"
 
     let yearString = "2015"
-    let timeInterval = TimeInterval(exactly: 450033400)!
+    let date = Date.dateWithHourAndTimeZoneString("2014-03-30T09:13:00.000Z")
 
     func testTitleLabel() {
-        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale)
         let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale)
 
@@ -32,7 +31,6 @@ class DateTableComponentTests: XCTestCase {
     }
 
     func testDateLabel() {
-        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
         let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
 
@@ -57,7 +55,6 @@ class DateTableComponentTests: XCTestCase {
     }
 
     func testAccessibilityLabel() {
-        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         let norwegianDateAndTimeTableComponent = DateTableComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
         let americanDateAndTimeTableComponent = DateTableComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
 
@@ -79,5 +76,16 @@ class DateTableComponentTests: XCTestCase {
         XCTAssertEqual(americanTimeTableComponent.accessibilityLabel, americanTitleString + ": " + americanTimeString)
 
         XCTAssertEqual(yearTableComponent.accessibilityLabel, norwegianTitleString + ": " + yearString)
+    }
+}
+
+extension Date {
+    static func dateWithHourAndTimeZoneString(_ dateString: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.timeZone = TimeZone(identifier: "GMT")
+        let date = formatter.date(from: dateString)!
+
+        return date
     }
 }
