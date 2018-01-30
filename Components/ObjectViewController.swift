@@ -30,6 +30,7 @@ class ObjectViewController: UIViewController {
     }()
 
     var components: [[Component]] {
+        let locale = Locale(identifier: "no_NO")
         return [
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
@@ -37,6 +38,8 @@ class ObjectViewController: UIViewController {
             [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
+            [PriceComponent(price: 1500000, locale: locale, accessibilityPrefix: "Pris: ")],
+            [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
             [TableComponent(components: torgetTableElements)],
         ]
     }

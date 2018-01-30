@@ -156,6 +156,11 @@ class ObjectView: UIView {
             listComponentView.delegate = objectView
             listComponentView.component = component as? CollapsableDescriptionComponent
             return listComponentView
+        case is PriceComponent:
+            let listComponentView = PriceComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.component = component as? PriceComponent
+            return listComponentView
         case is TableComponent:
             let listComponentView = TableComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
