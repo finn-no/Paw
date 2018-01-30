@@ -49,7 +49,7 @@ public class TableComponentView: UIView {
 
     // MARK: - Methods
 
-    private func setupTable(components: [TableRowModel]) {
+    private func setupTable(components: [TableElement]) {
         for component in components {
             let separatorView = setupSeparatorView()
 
@@ -65,7 +65,7 @@ public class TableComponentView: UIView {
         }
     }
 
-    private func viewComponent(for component: TableRowModel, in tableComponentView: TableComponentView) -> UIView? {
+    private func viewComponent(for component: TableElement, in tableComponentView: TableComponentView) -> UIView? {
         switch component.self {
         case is TextTableComponent:
             let listComponentView = TextTableComponentView()

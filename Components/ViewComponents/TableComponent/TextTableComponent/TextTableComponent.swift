@@ -1,6 +1,6 @@
 import Foundation
 
-struct TextTableComponent: TableRowModel {
+struct TextTableComponent: TableElement {
 
     let title: String
     let detail: String

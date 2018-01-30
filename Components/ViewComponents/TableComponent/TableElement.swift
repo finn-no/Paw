@@ -1,3 +1,3 @@
-protocol TableRowModel {
+protocol TableElement {
     var title: String { get }
 }

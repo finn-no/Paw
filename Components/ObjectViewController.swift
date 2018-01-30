@@ -18,7 +18,7 @@ class ObjectViewController: UIViewController {
         return attributedString
     }()
 
-    let torgetTableComponents: [TableRowModel] = {
+    let torgetTableComponents: [TableElement] = {
         let locale = Locale(identifier: "no_NO")
         let date = Date()
         let timeInterval = TimeInterval(exactly: 450033400)!
