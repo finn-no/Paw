@@ -18,13 +18,13 @@ class ObjectViewController: UIViewController {
         return attributedString
     }()
 
-    let torgetTableComponents: [TableElement] = {
+    let torgetTableElements: [TableElement] = {
         let locale = Locale(identifier: "no_NO")
         let date = Date()
         let timeInterval = TimeInterval(exactly: 450033400)!
         let date2 = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
-            TextTableComponent(title: "FINN-kode", detail: "123456789"),
+            TextTableElement(title: "FINN-kode", detail: "123456789"),
             DateTableComponent(title: "Sist endret", date: date2),
         ]
     }()
@@ -37,7 +37,7 @@ class ObjectViewController: UIViewController {
             [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
-            [TableComponent(components: torgetTableComponents)],
+            [TableComponent(components: torgetTableElements)],
         ]
     }
 

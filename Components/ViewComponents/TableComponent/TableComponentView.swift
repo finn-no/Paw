@@ -67,10 +67,10 @@ public class TableComponentView: UIView {
 
     private func viewComponent(for component: TableElement, in tableComponentView: TableComponentView) -> UIView? {
         switch component.self {
-        case is TextTableComponent:
-            let listComponentView = TextTableComponentView()
+        case is TextTableElement:
+            let listComponentView = TextTableElementView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? TextTableComponent
+            listComponentView.component = component as? TextTableElement
             return listComponentView
         case is DateTableComponent:
             let listComponentView = DateTableComponentView()

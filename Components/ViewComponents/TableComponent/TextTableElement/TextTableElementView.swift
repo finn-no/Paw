@@ -1,6 +1,6 @@
 import UIKit
 
-public class TextTableComponentView: UIView {
+public class TextTableElementView: UIView {
 
     // MARK: - Internal properties
 
@@ -32,7 +32,7 @@ public class TextTableComponentView: UIView {
 
     // MARK: - External properties
 
-    var component: TextTableComponent? {
+    var component: TextTableElement? {
         didSet {
             guard let component = component else {
                 return
