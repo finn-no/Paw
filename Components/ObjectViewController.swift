@@ -18,15 +18,6 @@ class ObjectViewController: UIViewController {
         return attributedString
     }()
 
-    let priceTableComponents: [TableRowModel] = {
-        let locale = Locale(identifier: "no_NO")
-        return [
-            PriceTableComponent(title: "Prisantydning", price: 2500000, locale: locale),
-            PriceTableComponent(title: "Formuesverdi", price: 500000, locale: locale),
-            PriceTableComponent(title: "Kommunale avgifter", price: 2100, locale: locale),
-        ]
-    }()
-
     let torgetTableComponents: [TableRowModel] = {
         let locale = Locale(identifier: "no_NO")
         let date = Date()
@@ -46,7 +37,6 @@ class ObjectViewController: UIViewController {
             [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
-            [TableComponent(components: priceTableComponents)],
             [TableComponent(components: torgetTableComponents)],
         ]
     }

@@ -67,11 +67,6 @@ public class TableComponentView: UIView {
 
     private func viewComponent(for component: TableRowModel, in tableComponentView: TableComponentView) -> UIView? {
         switch component.self {
-        case is PriceTableComponent:
-            let listComponentView = PriceTableComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? PriceTableComponent
-            return listComponentView
         case is TextTableComponent:
             let listComponentView = TextTableComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
