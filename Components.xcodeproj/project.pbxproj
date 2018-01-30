@@ -38,8 +38,6 @@
 		45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F731FE952C20088A22C /* AdInfoComponentView.swift */; };
 		45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45655F751FE954930088A22C /* RelevantAdsComponentView.swift */; };
 		4577F5C120162D75009CBAE8 /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C020162D75009CBAE8 /* TableComponent.swift */; };
-		4577F5C420162E55009CBAE8 /* PriceTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C320162E55009CBAE8 /* PriceTableComponent.swift */; };
-		4577F5C620162EC7009CBAE8 /* PriceTableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C520162EC7009CBAE8 /* PriceTableComponentView.swift */; };
 		4577F5C82016319F009CBAE8 /* TableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C72016319F009CBAE8 /* TableComponentView.swift */; };
 		4577F5CA2017568F009CBAE8 /* TableRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C92017568F009CBAE8 /* TableRowModel.swift */; };
 		4577F5CD2018BF8F009CBAE8 /* TextTableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5CC2018BF8F009CBAE8 /* TextTableComponentView.swift */; };
@@ -98,8 +96,6 @@
 		45655F731FE952C20088A22C /* AdInfoComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdInfoComponentView.swift; sourceTree = "<group>"; };
 		45655F751FE954930088A22C /* RelevantAdsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsComponentView.swift; sourceTree = "<group>"; };
 		4577F5C020162D75009CBAE8 /* TableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
-		4577F5C320162E55009CBAE8 /* PriceTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableComponent.swift; sourceTree = "<group>"; };
-		4577F5C520162EC7009CBAE8 /* PriceTableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableComponentView.swift; sourceTree = "<group>"; };
 		4577F5C72016319F009CBAE8 /* TableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentView.swift; sourceTree = "<group>"; };
 		4577F5C92017568F009CBAE8 /* TableRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowModel.swift; sourceTree = "<group>"; };
 		4577F5CC2018BF8F009CBAE8 /* TextTableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableComponentView.swift; sourceTree = "<group>"; };
@@ -253,19 +249,9 @@
 				4577F5C72016319F009CBAE8 /* TableComponentView.swift */,
 				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
 				4577F5CB2018B7F4009CBAE8 /* TextTableComponent */,
-				4577F5C220162E2C009CBAE8 /* PriceTableComponent */,
 				4577F5D12019E1C2009CBAE8 /* DateTableComponent */,
 			);
 			path = TableComponent;
-			sourceTree = "<group>";
-		};
-		4577F5C220162E2C009CBAE8 /* PriceTableComponent */ = {
-			isa = PBXGroup;
-			children = (
-				4577F5C520162EC7009CBAE8 /* PriceTableComponentView.swift */,
-				4577F5C320162E55009CBAE8 /* PriceTableComponent.swift */,
-			);
-			path = PriceTableComponent;
 			sourceTree = "<group>";
 		};
 		4577F5CB2018B7F4009CBAE8 /* TextTableComponent */ = {
@@ -398,13 +384,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				45655F6C1FE947180088A22C /* SafePayComponentView.swift in Sources */,
-				4577F5C620162EC7009CBAE8 /* PriceTableComponentView.swift in Sources */,
 				45655F6E1FE948340088A22C /* LoanPriceComponentView.swift in Sources */,
 				4541AFA41FE81367002488ED /* PriceComponentView.swift in Sources */,
 				45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */,
 				4541AFA01FE80FBC002488ED /* UIFont+Components.swift in Sources */,
 				45655F661FE8F3080088A22C /* CollapsableDescriptionComponentView.swift in Sources */,
-				4577F5C420162E55009CBAE8 /* PriceTableComponent.swift in Sources */,
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
 				4577F5CA2017568F009CBAE8 /* TableRowModel.swift in Sources */,
