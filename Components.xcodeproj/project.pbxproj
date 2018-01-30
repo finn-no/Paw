@@ -245,11 +245,9 @@
 		4577F5BF20162D4F009CBAE8 /* TableComponent */ = {
 			isa = PBXGroup;
 			children = (
-				4577F5C92017568F009CBAE8 /* TableElement.swift */,
 				4577F5C72016319F009CBAE8 /* TableComponentView.swift */,
 				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
-				4577F5CB2018B7F4009CBAE8 /* TextTableElement */,
-				4577F5D12019E1C2009CBAE8 /* DateTableElement */,
+				4577F6252020A2D6009CBAE8 /* TableElements */,
 			);
 			path = TableComponent;
 			sourceTree = "<group>";
@@ -270,6 +268,16 @@
 				4577F5D42019E239009CBAE8 /* DateTableElement.swift */,
 			);
 			path = DateTableElement;
+			sourceTree = "<group>";
+		};
+		4577F6252020A2D6009CBAE8 /* TableElements */ = {
+			isa = PBXGroup;
+			children = (
+				4577F5C92017568F009CBAE8 /* TableElement.swift */,
+				4577F5CB2018B7F4009CBAE8 /* TextTableElement */,
+				4577F5D12019E1C2009CBAE8 /* DateTableElement */,
+			);
+			path = TableElements;
 			sourceTree = "<group>";
 		};
 		45BFEFB92004F9BE00EAFD94 /* PhoneNumber */ = {
