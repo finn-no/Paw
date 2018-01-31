@@ -41,6 +41,15 @@
 		4577F5D7201B20AA009CBAE8 /* PriceComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D6201B20AA009CBAE8 /* PriceComponentTests.swift */; };
 		4577F5D8201B2211009CBAE8 /* PriceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5BD2015D2BB009CBAE8 /* PriceComponent.swift */; };
 		4577F5D9201B2219009CBAE8 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4400FA5F1FEBEF1900AC7325 /* Component.swift */; };
+		4577F5C120162D75009CBAE8 /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C020162D75009CBAE8 /* TableComponent.swift */; };
+		4577F5C82016319F009CBAE8 /* TableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C72016319F009CBAE8 /* TableComponentView.swift */; };
+		4577F5CA2017568F009CBAE8 /* TableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5C92017568F009CBAE8 /* TableElement.swift */; };
+		4577F5CD2018BF8F009CBAE8 /* TextTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5CC2018BF8F009CBAE8 /* TextTableElementView.swift */; };
+		4577F5CF2018BFA0009CBAE8 /* TextTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5CE2018BFA0009CBAE8 /* TextTableElement.swift */; };
+		4577F5D32019E230009CBAE8 /* DateTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D22019E230009CBAE8 /* DateTableElementView.swift */; };
+		4577F5D52019E239009CBAE8 /* DateTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5D42019E239009CBAE8 /* DateTableElement.swift */; };
+		4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */; };
+		4577F5E2201F1FB1009CBAE8 /* DateTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */; };
 		45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B5AD421FFCF15500E7788A /* CustomView.swift */; };
 		45BFEFBB2004FB4C00EAFD94 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +101,15 @@
 		45655F751FE954930088A22C /* RelevantAdsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelevantAdsComponentView.swift; sourceTree = "<group>"; };
 		4577F5BD2015D2BB009CBAE8 /* PriceComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceComponent.swift; sourceTree = "<group>"; };
 		4577F5D6201B20AA009CBAE8 /* PriceComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceComponentTests.swift; sourceTree = "<group>"; };
+		4577F5C020162D75009CBAE8 /* TableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
+		4577F5C72016319F009CBAE8 /* TableComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentView.swift; sourceTree = "<group>"; };
+		4577F5C92017568F009CBAE8 /* TableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElement.swift; sourceTree = "<group>"; };
+		4577F5CC2018BF8F009CBAE8 /* TextTableElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableElementView.swift; sourceTree = "<group>"; };
+		4577F5CE2018BFA0009CBAE8 /* TextTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableElement.swift; sourceTree = "<group>"; };
+		4577F5D22019E230009CBAE8 /* DateTableElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableElementView.swift; sourceTree = "<group>"; };
+		4577F5D42019E239009CBAE8 /* DateTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableElement.swift; sourceTree = "<group>"; };
+		4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableComponentTests.swift; sourceTree = "<group>"; };
+		4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableComponentTests.swift; sourceTree = "<group>"; };
 		45B5AD421FFCF15500E7788A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		45BFEFBA2004FB4C00EAFD94 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				4577F5D6201B20AA009CBAE8 /* PriceComponentTests.swift */,
+				4577F5E1201F1FB1009CBAE8 /* DateTableComponentTests.swift */,
+				4577F5DE201B78F4009CBAE8 /* TextTableComponentTests.swift */,
 				44DCB458200522E0001A3FD9 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -195,6 +215,7 @@
 				45655F6F1FE94F680088A22C /* DeliveryHelpComponentView.swift */,
 				45655F711FE9510B0088A22C /* AdReporterComponentView.swift */,
 				45655F731FE952C20088A22C /* AdInfoComponentView.swift */,
+				4577F5BF20162D4F009CBAE8 /* TableComponent */,
 				45655F751FE954930088A22C /* RelevantAdsComponentView.swift */,
 			);
 			path = ViewComponents;
@@ -235,6 +256,44 @@
 				4577F5BD2015D2BB009CBAE8 /* PriceComponent.swift */,
 			);
 			path = Price;
+			sourceTree = "<group>";
+		};
+		4577F5BF20162D4F009CBAE8 /* TableComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4577F5C72016319F009CBAE8 /* TableComponentView.swift */,
+				4577F5C020162D75009CBAE8 /* TableComponent.swift */,
+				4577F6252020A2D6009CBAE8 /* TableElements */,
+			);
+			path = TableComponent;
+			sourceTree = "<group>";
+		};
+		4577F5CB2018B7F4009CBAE8 /* TextTableElement */ = {
+			isa = PBXGroup;
+			children = (
+				4577F5CC2018BF8F009CBAE8 /* TextTableElementView.swift */,
+				4577F5CE2018BFA0009CBAE8 /* TextTableElement.swift */,
+			);
+			path = TextTableElement;
+			sourceTree = "<group>";
+		};
+		4577F5D12019E1C2009CBAE8 /* DateTableElement */ = {
+			isa = PBXGroup;
+			children = (
+				4577F5D22019E230009CBAE8 /* DateTableElementView.swift */,
+				4577F5D42019E239009CBAE8 /* DateTableElement.swift */,
+			);
+			path = DateTableElement;
+			sourceTree = "<group>";
+		};
+		4577F6252020A2D6009CBAE8 /* TableElements */ = {
+			isa = PBXGroup;
+			children = (
+				4577F5C92017568F009CBAE8 /* TableElement.swift */,
+				4577F5CB2018B7F4009CBAE8 /* TextTableElement */,
+				4577F5D12019E1C2009CBAE8 /* DateTableElement */,
+			);
+			path = TableElements;
 			sourceTree = "<group>";
 		};
 		45BFEFB92004F9BE00EAFD94 /* PhoneNumber */ = {
@@ -357,6 +416,7 @@
 				44CAE2D81FE26C9F00F8AA9B /* ObjectViewController.swift in Sources */,
 				4577F5BE2015D2BB009CBAE8 /* PriceComponent.swift in Sources */,
 				4541AFA61FE81470002488ED /* MessageButtonComponentView.swift in Sources */,
+				4577F5CA2017568F009CBAE8 /* TableElement.swift in Sources */,
 				45655F6A1FE944200088A22C /* BannerComponentView.swift in Sources */,
 				45655F761FE954930088A22C /* RelevantAdsComponentView.swift in Sources */,
 				4541AFA81FE817FB002488ED /* PhoneNumberComponentView.swift in Sources */,
@@ -367,18 +427,24 @@
 				45477CF32012108200B5FA6D /* IconButtonComponentView.swift in Sources */,
 				4541AF9A1FE80824002488ED /* CGFloat+Components.swift in Sources */,
 				45655F701FE94F680088A22C /* DeliveryHelpComponentView.swift in Sources */,
+				4577F5C82016319F009CBAE8 /* TableComponentView.swift in Sources */,
 				45477CEF201089C800B5FA6D /* UITextView+Components.swift in Sources */,
+				4577F5C120162D75009CBAE8 /* TableComponent.swift in Sources */,
 				4513FDFF2007A7B600975941 /* CollapsableDescriptionComponent.swift in Sources */,
 				4400FA601FEBEF1900AC7325 /* Component.swift in Sources */,
 				4541AF981FE80799002488ED /* UIColor+Components.swift in Sources */,
+				4577F5CD2018BF8F009CBAE8 /* TextTableElementView.swift in Sources */,
 				4541AFAA1FE819A9002488ED /* ProfileComponentView.swift in Sources */,
 				45B5AD431FFCF15500E7788A /* CustomView.swift in Sources */,
 				4541AF951FE80646002488ED /* TitleComponentView.swift in Sources */,
 				45655F721FE9510B0088A22C /* AdReporterComponentView.swift in Sources */,
+				4577F5D52019E239009CBAE8 /* DateTableElement.swift in Sources */,
 				45477CED2008984100B5FA6D /* IconButtonComponent.swift in Sources */,
 				4513FDF920076AA300975941 /* MessageButtonComponent.swift in Sources */,
 				4400FA641FEBF17400AC7325 /* LinkComponentView.swift in Sources */,
+				4577F5D32019E230009CBAE8 /* DateTableElementView.swift in Sources */,
 				45655F741FE952C20088A22C /* AdInfoComponentView.swift in Sources */,
+				4577F5CF2018BFA0009CBAE8 /* TextTableElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +455,8 @@
 				4577F5D7201B20AA009CBAE8 /* PriceComponentTests.swift in Sources */,
 				4577F5D9201B2219009CBAE8 /* Component.swift in Sources */,
 				4577F5D8201B2211009CBAE8 /* PriceComponent.swift in Sources */,
+				4577F5E2201F1FB1009CBAE8 /* DateTableComponentTests.swift in Sources */,
+				4577F5DF201B78F4009CBAE8 /* TextTableComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -161,6 +161,11 @@ class ObjectView: UIView {
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.component = component as? PriceComponent
             return listComponentView
+        case is TableComponent:
+            let listComponentView = TableComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.component = component as? TableComponent
+            return listComponentView
         default: return nil
         }
     }

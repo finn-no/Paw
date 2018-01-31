@@ -9,8 +9,8 @@ public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - Internal properties
 
-    private var textHeightConstraint: NSLayoutConstraint?
-    private var gradientHeightConstraint: NSLayoutConstraint?
+    private var textHeightConstraint = NSLayoutConstraint()
+    private var gradientHeightConstraint = NSLayoutConstraint()
     private var gradientLayer: CAGradientLayer?
 
     private var isWholeTextShowing: Bool = false
@@ -98,14 +98,14 @@ public class CollapsableDescriptionComponentView: UIView {
         }
 
         if isWholeTextShowing {
-            textHeightConstraint?.isActive = true
-            gradientHeightConstraint?.isActive = true
+            textHeightConstraint.isActive = true
+            gradientHeightConstraint.isActive = true
 
             delegate.collapsableDescriptionComponentView(self, didTapHideDescriptionFor: component)
             isWholeTextShowing = false
         } else {
-            textHeightConstraint?.isActive = false
-            gradientHeightConstraint?.isActive = false
+            textHeightConstraint.isActive = false
+            gradientHeightConstraint.isActive = false
             showWholeDescriptionButton.heightAnchor.constraint(equalToConstant: 0).isActive = isHidingCollapseButton
 
             delegate.collapsableDescriptionComponentView(self, didTapExpandDescriptionFor: component)
@@ -140,7 +140,7 @@ public class CollapsableDescriptionComponentView: UIView {
         gradientHeightConstraint = gradientView.heightAnchor.constraint(equalToConstant: collapsedDescriptionHeight)
 
         NSLayoutConstraint.activate([
-            textHeightConstraint!,
+            textHeightConstraint,
 
             showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
             showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -150,7 +150,7 @@ public class CollapsableDescriptionComponentView: UIView {
             gradientView.bottomAnchor.constraint(equalTo: showWholeDescriptionButton.topAnchor),
             gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
             gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            gradientHeightConstraint!,
+            gradientHeightConstraint,
         ])
     }
 

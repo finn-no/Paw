@@ -10,8 +10,8 @@ class PriceComponentTests: XCTestCase {
     let americanPriceString = "Price: "
     let status = "Solgt"
 
-    let norwegianLocale = Locale(identifier: "no_NO")
-    let americanLocale = Locale(identifier: "us_US")
+    let norwegianLocale = Locale(identifier: "nb_NO")
+    let americanLocale = Locale(identifier: "en_US")
 
     func testPriceLabel() {
         let largeNorwegianComponent = PriceComponent(price: largePrice, locale: norwegianLocale, accessibilityPrefix: norwegianPriceString)
@@ -20,9 +20,9 @@ class PriceComponentTests: XCTestCase {
         let smallAmericanComponent = PriceComponent(price: smallPrice, locale: americanLocale, accessibilityPrefix: americanPriceString)
 
         XCTAssertEqual(largeNorwegianComponent.priceLabel, "kr 1 500 000,-")
-        XCTAssertEqual(largeAmericanComponent.priceLabel, "$ 1500000,-")
+        XCTAssertEqual(largeAmericanComponent.priceLabel, "$1,500,000,-")
         XCTAssertEqual(smallNorwegianComponent.priceLabel, "kr 0,-")
-        XCTAssertEqual(smallAmericanComponent.priceLabel, "$ 0,-")
+        XCTAssertEqual(smallAmericanComponent.priceLabel, "$0,-")
     }
 
     func testAccessibilityLabel() {
