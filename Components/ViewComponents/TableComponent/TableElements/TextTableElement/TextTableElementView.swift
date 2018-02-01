@@ -58,6 +58,9 @@ public class TextTableElementView: UIView {
     private func setup() {
         addSubview(stackView)
 
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        addGestureRecognizer(longPressGesture)
+
         isAccessibilityElement = true
 
         NSLayoutConstraint.activate([
@@ -66,5 +69,35 @@ public class TextTableElementView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
+    }
+
+    @objc func longPressed(gesture: UILongPressGestureRecognizer) {
+        becomeFirstResponder()
+        let menu = UIMenuController.shared
+        if !menu.isMenuVisible {
+            let titleLabelWidth = titleLabel.bounds.width
+            let detailLabelWidth = detailLabel.bounds.width
+            let labelRect = CGRect(x: titleLabelWidth + detailLabelWidth/2, y: 0, width: detailLabelWidth/2, height: bounds.height)
+            menu.setTargetRect(labelRect, in: self)
+            print(labelRect)
+            menu.setMenuVisible(true, animated: true)
+        }
+    }
+
+    // MARK: - Superclass overrides
+
+    override public var canBecomeFirstResponder: Bool {
+        return true
+    }
+
+    override public func copy(_ sender: Any?) {
+        guard let detailString = detailLabel.text else {
+            return
+        }
+
+        let board = UIPasteboard.general
+        board.string = detailString
+        let menu = UIMenuController.shared
+        menu.setMenuVisible(false, animated: true)
     }
 }
