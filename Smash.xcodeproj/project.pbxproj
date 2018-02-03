@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				14A69A1520261D24002D9DC1 /* Component.swift */,
-				14E5C1BF202605270039A9A7 /* TableComponent */,
+				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
 				14E5C1D4202605270039A9A7 /* IconButton */,
@@ -214,24 +214,24 @@
 			path = PhoneNumber;
 			sourceTree = "<group>";
 		};
-		14E5C1BF202605270039A9A7 /* TableComponent */ = {
+		14E5C1BF202605270039A9A7 /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C1C0202605270039A9A7 /* TableComponentView.swift */,
-				14E5C1C1202605270039A9A7 /* TableElements */,
 				14E5C1C9202605270039A9A7 /* TableComponent.swift */,
+				14E5C1C0202605270039A9A7 /* TableComponentView.swift */,
+				14E5C1C1202605270039A9A7 /* Elements */,
 			);
-			path = TableComponent;
+			path = Table;
 			sourceTree = "<group>";
 		};
-		14E5C1C1202605270039A9A7 /* TableElements */ = {
+		14E5C1C1202605270039A9A7 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
+				14E5C1C8202605270039A9A7 /* TableElement.swift */,
 				14E5C1C2202605270039A9A7 /* TextTableElement */,
 				14E5C1C5202605270039A9A7 /* DateTableElement */,
-				14E5C1C8202605270039A9A7 /* TableElement.swift */,
 			);
-			path = TableElements;
+			path = Elements;
 			sourceTree = "<group>";
 		};
 		14E5C1C2202605270039A9A7 /* TextTableElement */ = {
