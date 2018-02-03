@@ -6,5 +6,5 @@ public struct GalleryComponent: Component {
     public init(id: String = UUID().uuidString) {
         self.id = id
     }
-GalleryComponent}
+}
 
