@@ -1,9 +1,6 @@
 import UIKit
 
 public class DateTableElementView: UIView {
-
-    // MARK: - Internal properties
-
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
@@ -30,8 +27,6 @@ public class DateTableElementView: UIView {
         return stackView
     }()
 
-    // MARK: - External properties
-
     var component: DateTableElement? {
         didSet {
             guard let component = component else {
@@ -44,7 +39,6 @@ public class DateTableElementView: UIView {
         }
     }
 
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

@@ -6,9 +6,6 @@ protocol CollapsableDescriptionComponentViewDelegate: class {
 }
 
 public class CollapsableDescriptionComponentView: UIView {
-
-    // MARK: - Internal properties
-
     private var textHeightConstraint = NSLayoutConstraint()
     private var gradientHeightConstraint = NSLayoutConstraint()
     private var gradientLayer: CAGradientLayer?
@@ -51,7 +48,6 @@ public class CollapsableDescriptionComponentView: UIView {
         return button
     }()
 
-    // MARK: - External properties
 
     weak var delegate: CollapsableDescriptionComponentViewDelegate?
     var component: CollapsableDescriptionComponent? {
@@ -67,8 +63,6 @@ public class CollapsableDescriptionComponentView: UIView {
             }
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -89,8 +83,6 @@ public class CollapsableDescriptionComponentView: UIView {
             descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
-
-    // MARK: - Actions
 
     @objc private func showWholeDescriptionAction(sender: UIButton) {
         guard let component = component, let delegate = delegate else {
@@ -176,7 +168,6 @@ public class CollapsableDescriptionComponentView: UIView {
         fadeBottom(of: view)
     }
 
-    // MARK: - Override methods
 
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == observerKeyPath {

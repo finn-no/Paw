@@ -181,15 +181,11 @@ public class SmashView: UIView {
     }
 }
 
-// MARK: - CallToActionButtonComponentViewDelegate
-
 extension SmashView: CallToActionButtonComponentViewDelegate {
     func callToActionButtonComponentView(_ callToActionButtonComponentView: CallToActionButtonComponentView, didTapSendMessageFor component: CallToActionButtonComponent) {
         callToActionButtonDelegate?.smashView(self, didTapSendMessageFor: component)
     }
 }
-
-// MARK: - PhoneNumberComponentViewDelegate
 
 extension SmashView: PhoneNumberComponentViewDelegate {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent) {
@@ -201,15 +197,11 @@ extension SmashView: PhoneNumberComponentViewDelegate {
     }
 }
 
-// MARK: - IconButtonComponentViewDelegate
-
 extension SmashView: IconButtonComponentViewDelegate {
     func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
         iconButtonDelegate?.smashView(self, didTapButtonFor: component)
     }
 }
-
-// MARK: - CollapsableDescriptionComponentViewDelegate
 
 extension SmashView: CollapsableDescriptionComponentViewDelegate {
     func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {

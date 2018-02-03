@@ -1,9 +1,6 @@
 import UIKit
 
 public class PriceComponentView: UIView {
-
-    // MARK: - Internal properties
-
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,8 +18,6 @@ public class PriceComponentView: UIView {
         label.textColor = .licorice
         return label
     }()
-
-    // MARK: - External properties
 
     var component: PriceComponent? {
         didSet {
@@ -49,8 +44,6 @@ public class PriceComponentView: UIView {
             }
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

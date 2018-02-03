@@ -6,9 +6,6 @@ protocol PhoneNumberComponentViewDelegate: class {
 }
 
 public class PhoneNumberComponentView: UIView {
-
-    // MARK: - Internal properties
-
     private var isNumberShowing: Bool = false
 
     private lazy var numberButton: UIButton = {
@@ -30,7 +27,6 @@ public class PhoneNumberComponentView: UIView {
         return label
     }()
 
-    // MARK: - External properties
 
     weak var delegate: PhoneNumberComponentViewDelegate?
     var component: PhoneNumberComponent? {
@@ -40,8 +36,6 @@ public class PhoneNumberComponentView: UIView {
             descriptionLabel.text = component?.descriptionText // "Mobil"
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,8 +62,6 @@ public class PhoneNumberComponentView: UIView {
             numberButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
-
-    // MARK: - Actions
 
     @objc func showNumberTapped(sender: UIButton) {
         guard let component = component, let delegate = delegate else {

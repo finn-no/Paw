@@ -5,9 +5,6 @@ protocol IconButtonComponentViewDelegate: class {
 }
 
 public class IconButtonComponentView: UIView {
-
-    // MARK: - Internal properties
-
     private let imageHeight: CGFloat = 20
     private let imageWidth: CGFloat = 20
 
@@ -30,8 +27,6 @@ public class IconButtonComponentView: UIView {
         return imageView
     }()
 
-    // MARK: - External properties
-
     weak var delegate: IconButtonComponentViewDelegate?
 
     var component: IconButtonComponent? {
@@ -41,8 +36,6 @@ public class IconButtonComponentView: UIView {
             accessibilityLabel = component?.buttonTitle
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,7 +68,6 @@ public class IconButtonComponentView: UIView {
         ])
     }
 
-    // MARK: - Actions
 
     @objc func tapHandler(gesture: UITapGestureRecognizer) {
         guard let component = component, let delegate = delegate else {
