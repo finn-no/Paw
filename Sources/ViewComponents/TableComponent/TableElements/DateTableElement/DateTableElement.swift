@@ -1,7 +1,6 @@
 import Foundation
 
 public struct DateTableElement: TableElement {
-
     var dateFormatter = DateFormatter()
 
     public let title: String
@@ -28,6 +27,7 @@ public struct DateTableElement: TableElement {
                 return .short
             }
         }
+
         var timeStyle: DateFormatter.Style {
             switch self {
             case .dateAndTime:
@@ -41,7 +41,6 @@ public struct DateTableElement: TableElement {
             }
         }
     }
-
 
     public init(title: String, date: Date, locale: Locale = .autoupdatingCurrent, timeZone: TimeZone = .autoupdatingCurrent, dateFormat: DateFormat? = .dateAndTime) {
         self.title = title

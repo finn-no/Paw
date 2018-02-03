@@ -8,4 +8,3 @@ extension UIAlertController {
         return controller
     }
 }
-

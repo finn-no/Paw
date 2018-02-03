@@ -36,9 +36,9 @@ public class PhoneNumberComponentView: UIView {
     weak var delegate: PhoneNumberComponentViewDelegate?
     var component: PhoneNumberComponent? {
         didSet {
-            numberButton.setTitle(component?.showNumberText, for: .normal)  // "Vis telefonnummer"
+            numberButton.setTitle(component?.showNumberText, for: .normal) // "Vis telefonnummer"
             numberButton.accessibilityLabel = component?.showNumberText
-            descriptionLabel.text = component?.descriptionText              // "Mobil"
+            descriptionLabel.text = component?.descriptionText // "Mobil"
         }
     }
 
@@ -85,7 +85,7 @@ public class PhoneNumberComponentView: UIView {
         } else {
             delegate.phoneNumberComponentView(self, didTapShowPhoneNumberFor: component)
             numberButton.setTitle(numberFormat(component.phoneNumber), for: .normal)
-            numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber      // accessibilityLabelPrefix = "Telefonnummer:
+            numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber // accessibilityLabelPrefix = "Telefonnummer:
             isNumberShowing = true
         }
     }
@@ -119,4 +119,3 @@ public class PhoneNumberComponentView: UIView {
         }
     }
 }
-

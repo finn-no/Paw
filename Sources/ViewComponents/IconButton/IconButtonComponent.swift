@@ -1,9 +1,7 @@
 import UIKit
 
 public struct IconButtonComponent: Component {
-
     public let id: String
-
     let buttonTitle: String
     let iconImage: UIImage
 

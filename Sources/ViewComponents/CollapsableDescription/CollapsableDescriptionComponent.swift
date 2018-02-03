@@ -1,9 +1,7 @@
 import Foundation
 
 public struct CollapsableDescriptionComponent: Component {
-
     public let id: String
-
     let text: NSAttributedString
     let titleShow: String
     let titleHide: String

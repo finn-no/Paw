@@ -1,9 +1,7 @@
 import Foundation
 
 public struct MessageButtonComponent: Component {
-
     public let id: String
-
     let title: String
     let answerTime: String
 

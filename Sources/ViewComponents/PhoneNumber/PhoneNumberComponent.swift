@@ -1,9 +1,7 @@
 import Foundation
 
 public struct PhoneNumberComponent: Component {
-
     public let id: String
-
     public let phoneNumber: String
     let descriptionText: String
     let showNumberText: String

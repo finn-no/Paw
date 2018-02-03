@@ -5,7 +5,6 @@
 import UIKit
 
 public extension UIFont {
-
     public static var title1: UIFont {
         let font = UIFont(name: "FINNTypeWebStrippet-Medium", size: 36) ?? UIFont.systemFont(ofSize: 36, weight: .medium)
 

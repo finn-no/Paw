@@ -2,8 +2,7 @@ import Foundation
 import XCTest
 
 class PriceComponentTests: XCTestCase {
-
-    let largePrice: Double = 1500000
+    let largePrice: Double = 1_500_000
     let smallPrice: Double = 0
 
     let norwegianPriceString = "Pris: "
@@ -30,10 +29,10 @@ class PriceComponentTests: XCTestCase {
         let largeAmericanComponent = PriceComponent(price: largePrice, locale: americanLocale, accessibilityPrefix: americanPriceString)
         let smallNorwegianComponent = PriceComponent(price: smallPrice, locale: norwegianLocale, accessibilityPrefix: norwegianPriceString)
         let smallAmericanComponent = PriceComponent(price: smallPrice, locale: americanLocale, accessibilityPrefix: americanPriceString)
-        
+
         XCTAssertEqual(largeNorwegianComponent.accessibilityLabel, norwegianPriceString + "1500000kroner")
         XCTAssertEqual(largeAmericanComponent.accessibilityLabel, americanPriceString + "1500000kroner")
-        XCTAssertEqual(smallNorwegianComponent.accessibilityLabel, norwegianPriceString +  "0kroner")
+        XCTAssertEqual(smallNorwegianComponent.accessibilityLabel, norwegianPriceString + "0kroner")
         XCTAssertEqual(smallAmericanComponent.accessibilityLabel, americanPriceString + "0kroner")
     }
 
@@ -45,7 +44,7 @@ class PriceComponentTests: XCTestCase {
 
         XCTAssertEqual(largeNorwegianComponent.accessibilityLabel, norwegianPriceString + "1500000kroner. " + status)
         XCTAssertEqual(largeAmericanComponent.accessibilityLabel, americanPriceString + "1500000kroner. " + status)
-        XCTAssertEqual(smallNorwegianComponent.accessibilityLabel, norwegianPriceString +  "0kroner. " + status)
+        XCTAssertEqual(smallNorwegianComponent.accessibilityLabel, norwegianPriceString + "0kroner. " + status)
         XCTAssertEqual(smallAmericanComponent.accessibilityLabel, americanPriceString + "0kroner. " + status)
     }
 }

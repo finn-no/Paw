@@ -1,7 +1,6 @@
 import Foundation
 
 public struct TableComponent: Component {
-
     public let id: String
     let components: [TableElement]
 

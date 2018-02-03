@@ -1,6 +1,6 @@
+@testable import Components
 import Foundation
 import XCTest
-@testable import Components
 
 class TextTableComponentTests: XCTestCase {
     let titleString = "FINN-kode"

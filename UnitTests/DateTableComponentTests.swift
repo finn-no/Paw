@@ -1,6 +1,6 @@
+@testable import Components
 import Foundation
 import XCTest
-@testable import Components
 
 class DateTableComponentTests: XCTestCase {
     let norwegianTitleString = "Sist endret"

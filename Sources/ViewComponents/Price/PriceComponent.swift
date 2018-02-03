@@ -1,7 +1,6 @@
 import Foundation
 
 public struct PriceComponent: Component {
-
     public let id: String
     let price: Double
     let locale: Locale

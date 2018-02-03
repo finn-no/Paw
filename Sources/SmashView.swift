@@ -1,35 +1,35 @@
 import UIKit
 
-public protocol ObjectViewDataSource: class {
-    func components(in objectView: ObjectView) -> [[Component]]
-    func customComponentView(for component: Component, in objectView: ObjectView) -> UIView?
+public protocol SmashViewDataSource: class {
+    func components(in objectView: SmashView) -> [[Component]]
+    func customComponentView(for component: Component, in objectView: SmashView) -> UIView?
 }
 
-public protocol ObjectViewDelegate: class {
+public protocol SmashViewDelegate: class {
     // PhoneNumberComponentViewDelegate
-    func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
-    func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent)
-    func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
+    func objectView(_ objectView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
+    func objectView(_ objectView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
+    func objectView(_ objectView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 
     // MessageButtonComponentViewDelegate
-    func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent)
+    func objectView(_ objectView: SmashView, didTapSendMessageFor component: MessageButtonComponent)
 
     // IconButtonComponentViewDelegate
-    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent)
+    func objectView(_ objectView: SmashView, didTapButtonFor component: IconButtonComponent)
 
     // CollapsableDescriptionComponentViewDelegate
-    func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
-    func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
+    func objectView(_ objectView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
+    func objectView(_ objectView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
 }
 
-public class ObjectView: UIView {
-    public weak var dataSource: ObjectViewDataSource?
-    public weak var delegate: ObjectViewDelegate?
+public class SmashView: UIView {
+    public weak var dataSource: SmashViewDataSource?
+    public weak var delegate: SmashViewDelegate?
 
     private let animationDuration = 0.4
 
     lazy var scrollView: UIScrollView = {
-        let view =  UIScrollView(frame: .zero)
+        let view = UIScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -107,22 +107,22 @@ public class ObjectView: UIView {
                     case 0:
                         NSLayoutConstraint.activate([
                             componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                            ])
-                    case components.count-1:
+                        ])
+                    case components.count - 1:
                         guard let previousStackView = previousStackView else {
                             fatalError()
                         }
                         NSLayoutConstraint.activate([
                             componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
                             componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
-                            ])
+                        ])
                     default:
                         guard let previousStackView = previousStackView else {
                             fatalError()
                         }
                         NSLayoutConstraint.activate([
                             componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                            ])
+                        ])
                     }
                     previousStackView = componentStackView
                 }
@@ -130,7 +130,7 @@ public class ObjectView: UIView {
         }
     }
 
-    func viewComponent(for component: Component, in objectView: ObjectView) -> UIView? {
+    func viewComponent(for component: Component, in objectView: SmashView) -> UIView? {
         switch component.self {
         case is MessageButtonComponent:
             let listComponentView = MessageButtonComponentView()
@@ -185,7 +185,7 @@ public class ObjectView: UIView {
 
 // MARK: - MessageButtonComponentViewDelegate
 
-extension ObjectView: MessageComponentViewDelegate {
+extension SmashView: MessageComponentViewDelegate {
     func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
         delegate?.objectView(self, didTapSendMessageFor: component)
     }
@@ -193,7 +193,7 @@ extension ObjectView: MessageComponentViewDelegate {
 
 // MARK: - PhoneNumberComponentViewDelegate
 
-extension ObjectView: PhoneNumberComponentViewDelegate {
+extension SmashView: PhoneNumberComponentViewDelegate {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
         delegate?.objectView(self, didTapShowPhoneNumberFor: component)
     }
@@ -209,7 +209,7 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
 
 // MARK: - IconButtonComponentViewDelegate
 
-extension ObjectView: IconButtonComponentViewDelegate {
+extension SmashView: IconButtonComponentViewDelegate {
     func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
         delegate?.objectView(self, didTapButtonFor: component)
     }
@@ -217,13 +217,13 @@ extension ObjectView: IconButtonComponentViewDelegate {
 
 // MARK: - CollapsableDescriptionComponentViewDelegate
 
-extension ObjectView: CollapsableDescriptionComponentViewDelegate {
+extension SmashView: CollapsableDescriptionComponentViewDelegate {
     func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
             collapsableDescriptionComponentView.layoutIfNeeded()
             collapsableDescriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
-        }) { (finished) in
+        }) { _ in
             self.delegate?.objectView(self, didTapExpandDescriptionFor: component)
             collapsableDescriptionComponentView.updateButtonTitle()
 
@@ -238,7 +238,7 @@ extension ObjectView: CollapsableDescriptionComponentViewDelegate {
             collapsableDescriptionComponentView.layoutIfNeeded()
             collapsableDescriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
-        }) { (finished) in
+        }) { _ in
             self.delegate?.objectView(self, didTapHideDescriptionFor: component)
             collapsableDescriptionComponentView.updateButtonTitle()
 

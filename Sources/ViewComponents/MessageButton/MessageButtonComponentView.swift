@@ -36,7 +36,7 @@ public class MessageButtonComponentView: UIView {
     }()
 
     // MARK: - External properties
-    
+
     var component: MessageButtonComponent? {
         didSet {
             messageButton.setTitle(component?.title, for: .normal)
@@ -76,7 +76,7 @@ public class MessageButtonComponentView: UIView {
 
     @objc func messageTapped(sender: UIButton) {
         sender.backgroundColor = .primaryBlue
-        
+
         guard let component = component else {
             return
         }

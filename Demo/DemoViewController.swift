@@ -1,11 +1,9 @@
-import UIKit
 import Smash
+import UIKit
 
 class DemoViewController: UIViewController {
-
     let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
     let vanImage = UIImage(named: "SmallJobs")
-
 
     let attributedDescriptionText: NSAttributedString = {
         let descriptionText = "Selger min bestemors gamle sykkel. 🚲 Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til! 🌐 www.finn.no. 📌 Grensen 5, 0134 Oslo. 🗓 12.1.2018. ✈️ DY1234. 📞 12345678. \nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. \nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt."
@@ -14,14 +12,14 @@ class DemoViewController: UIViewController {
             NSAttributedStringKey.font: UIFont.body,
             NSAttributedStringKey.foregroundColor: UIColor.stone,
         ]
-        
+
         let attributedString = NSAttributedString(string: descriptionText, attributes: attributes)
         return attributedString
     }()
 
     let torgetTableElements: [TableElement] = {
         let locale = Locale(identifier: "nb_NO")
-        let timeInterval = TimeInterval(exactly: 450033400)!
+        let timeInterval = TimeInterval(exactly: 450_033_400)!
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableElement(title: "FINN-kode", detail: "123456789"),
@@ -38,7 +36,7 @@ class DemoViewController: UIViewController {
             [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
             [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
-            [PriceComponent(price: 1500000, locale: locale, accessibilityPrefix: "Pris: ")],
+            [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
             [TableComponent(components: torgetTableElements)],
         ]
@@ -53,7 +51,7 @@ class DemoViewController: UIViewController {
         item.accessibilityLabel = "Del annonse"
         return item
     }()
-    
+
     lazy var favoriteBarButtonItem: UIBarButtonItem = {
         let item = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favorite))
         item.tintColor = .primaryBlue
@@ -61,8 +59,8 @@ class DemoViewController: UIViewController {
         return item
     }()
 
-    lazy var objectView: ObjectView = {
-        let view = ObjectView()
+    lazy var objectView: SmashView = {
+        let view = SmashView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
@@ -98,12 +96,12 @@ class DemoViewController: UIViewController {
     }
 }
 
-extension DemoViewController: ObjectViewDataSource {
-    func components(in objectView: ObjectView) -> [[Component]] {
+extension DemoViewController: SmashViewDataSource {
+    func components(in objectView: SmashView) -> [[Component]] {
         return components
     }
 
-    func customComponentView(for component: Component,in objectView: ObjectView) -> UIView? {
+    func customComponentView(for component: Component, in objectView: SmashView) -> UIView? {
         switch component.id {
         case "custom1": return CustomView()
         default: return nil
@@ -111,38 +109,38 @@ extension DemoViewController: ObjectViewDataSource {
     }
 }
 
-extension DemoViewController: ObjectViewDelegate {
-    func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent) {
+extension DemoViewController: SmashViewDelegate {
+    func objectView(_ objectView: SmashView, didTapButtonFor component: IconButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
         present(alert, animated: true, completion: nil)
     }
 
-    func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+    func objectView(_ objectView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Vis mer!")
         present(alert, animated: true, completion: nil)
     }
-    
-    func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+
+    func objectView(_ objectView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Vis mindre!")
         present(alert, animated: true, completion: nil)
     }
-    
-    func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent) {
+
+    func objectView(_ objectView: SmashView, didTapSendMessageFor component: MessageButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Send message!")
         present(alert, animated: true, completion: nil)
     }
 
-    func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
+    func objectView(_ objectView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Show phone number for component: \(component.id)")
         present(alert, animated: true, completion: nil)
     }
 
-    func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+    func objectView(_ objectView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
 
-    func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+    func objectView(_ objectView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
         return true
     }
 }

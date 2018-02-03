@@ -14,13 +14,13 @@ public class CollapsableDescriptionComponentView: UIView {
     private var gradientLayer: CAGradientLayer?
 
     private var isWholeTextShowing: Bool = false
-    private let isHidingCollapseButton: Bool = false        // Toggle switch for hiding collapse button after expaning
+    private let isHidingCollapseButton: Bool = false // Toggle switch for hiding collapse button after expaning
     private let collapsedDescriptionHeight: CGFloat = 200
     private let showButtonHeightLimit: CGFloat = 300
     private let observerKeyPath = "descriptionTextView.bounds"
-    private let widthOfComponent = UIScreen.main.bounds.width - .mediumLargeSpacing*2
+    private let widthOfComponent = UIScreen.main.bounds.width - .mediumLargeSpacing * 2
 
-    @objc dynamic private lazy var descriptionTextView: UITextView = {
+    @objc private dynamic lazy var descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isAccessibilityElement = true
@@ -59,7 +59,7 @@ public class CollapsableDescriptionComponentView: UIView {
             descriptionTextView.attributedText = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
             descriptionTextView.accessibilityAttributedLabel = component?.text
-            
+
             if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
                 descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             } else {
@@ -115,9 +115,9 @@ public class CollapsableDescriptionComponentView: UIView {
 
     func updateButtonTitle() {
         if isWholeTextShowing {
-            showWholeDescriptionButton.setTitle(self.component?.titleHide, for: .normal)
+            showWholeDescriptionButton.setTitle(component?.titleHide, for: .normal)
         } else {
-            showWholeDescriptionButton.setTitle(self.component?.titleShow, for: .normal)
+            showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
         }
     }
 
@@ -178,8 +178,8 @@ public class CollapsableDescriptionComponentView: UIView {
 
     // MARK: - Override methods
 
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if (keyPath == observerKeyPath) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == observerKeyPath {
             updategradientLayerFrame(of: gradientView)
             return
         }

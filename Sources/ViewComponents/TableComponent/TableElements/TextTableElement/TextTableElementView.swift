@@ -77,7 +77,7 @@ public class TextTableElementView: UIView {
         if !menu.isMenuVisible {
             let titleLabelWidth = titleLabel.bounds.width
             let detailLabelWidth = detailLabel.bounds.width
-            let labelRect = CGRect(x: titleLabelWidth + detailLabelWidth/2, y: 0, width: detailLabelWidth/2, height: bounds.height)
+            let labelRect = CGRect(x: titleLabelWidth + detailLabelWidth / 2, y: 0, width: detailLabelWidth / 2, height: bounds.height)
             menu.setTargetRect(labelRect, in: self)
             print(labelRect)
             menu.setMenuVisible(true, animated: true)
@@ -86,11 +86,11 @@ public class TextTableElementView: UIView {
 
     // MARK: - Superclass overrides
 
-    override public var canBecomeFirstResponder: Bool {
+    public override var canBecomeFirstResponder: Bool {
         return true
     }
 
-    override public func copy(_ sender: Any?) {
+    public override func copy(_ sender: Any?) {
         guard let detailString = detailLabel.text else {
             return
         }

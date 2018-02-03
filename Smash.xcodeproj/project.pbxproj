@@ -14,7 +14,7 @@
 		14E5C1AA2026050B0039A9A7 /* DateTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A72026050B0039A9A7 /* DateTableComponentTests.swift */; };
 		14E5C1AB2026050B0039A9A7 /* PriceComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */; };
 		14E5C1DB202605270039A9A7 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1AC202605260039A9A7 /* Component.swift */; };
-		14E5C1DC202605270039A9A7 /* ObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1AD202605260039A9A7 /* ObjectView.swift */; };
+		14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1AD202605260039A9A7 /* SmashView.swift */; };
 		14E5C1DE202605270039A9A7 /* CGFloat+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B0202605270039A9A7 /* CGFloat+Components.swift */; };
 		14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B1202605270039A9A7 /* UIFont+Components.swift */; };
 		14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B2202605270039A9A7 /* UITextView+Components.swift */; };
@@ -87,7 +87,7 @@
 		14E5C1A72026050B0039A9A7 /* DateTableComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableComponentTests.swift; sourceTree = "<group>"; };
 		14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponentTests.swift; sourceTree = "<group>"; };
 		14E5C1AC202605260039A9A7 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		14E5C1AD202605260039A9A7 /* ObjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectView.swift; sourceTree = "<group>"; };
+		14E5C1AD202605260039A9A7 /* SmashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmashView.swift; sourceTree = "<group>"; };
 		14E5C1B0202605270039A9A7 /* CGFloat+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Components.swift"; sourceTree = "<group>"; };
 		14E5C1B1202605270039A9A7 /* UIFont+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Components.swift"; sourceTree = "<group>"; };
 		14E5C1B2202605270039A9A7 /* UITextView+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Components.swift"; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				14E5C193202604BB0039A9A7 /* Smash.h */,
 				14E5C194202604BB0039A9A7 /* Info.plist */,
 				14E5C1AC202605260039A9A7 /* Component.swift */,
-				14E5C1AD202605260039A9A7 /* ObjectView.swift */,
+				14E5C1AD202605260039A9A7 /* SmashView.swift */,
 				14E5C1B4202605270039A9A7 /* ViewComponents */,
 			);
 			path = Sources;
@@ -483,7 +483,7 @@
 				14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */,
 				14E5C1DB202605270039A9A7 /* Component.swift in Sources */,
 				14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */,
-				14E5C1DC202605270039A9A7 /* ObjectView.swift in Sources */,
+				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
 				14E5C1E4202605270039A9A7 /* CollapsableDescriptionComponent.swift in Sources */,
 			);
