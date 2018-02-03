@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 public class DateTableElementView: UIView {
@@ -38,7 +42,6 @@ public class DateTableElementView: UIView {
             accessibilityLabel = component.accessibilityLabel
         }
     }
-
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

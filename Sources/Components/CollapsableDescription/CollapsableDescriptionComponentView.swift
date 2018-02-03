@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 protocol CollapsableDescriptionComponentViewDelegate: class {
@@ -47,7 +51,6 @@ public class CollapsableDescriptionComponentView: UIView {
         button.titleLabel?.font = .title4
         return button
     }()
-
 
     weak var delegate: CollapsableDescriptionComponentViewDelegate?
     var component: CollapsableDescriptionComponent? {
@@ -167,7 +170,6 @@ public class CollapsableDescriptionComponentView: UIView {
         gradientLayer?.removeFromSuperlayer()
         fadeBottom(of: view)
     }
-
 
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == observerKeyPath {

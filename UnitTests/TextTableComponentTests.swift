@@ -1,5 +1,9 @@
-@testable import Smash
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import Foundation
+@testable import Smash
 import XCTest
 
 class TextTableComponentTests: XCTestCase {

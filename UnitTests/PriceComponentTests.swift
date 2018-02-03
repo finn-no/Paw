@@ -1,6 +1,10 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import Foundation
-import XCTest
 @testable import Smash
+import XCTest
 
 class PriceComponentTests: XCTestCase {
     let largePrice: Double = 1_500_000

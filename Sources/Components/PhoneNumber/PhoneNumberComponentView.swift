@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 protocol PhoneNumberComponentViewDelegate: class {
@@ -26,7 +30,6 @@ public class PhoneNumberComponentView: UIView {
         label.font = .body
         return label
     }()
-
 
     weak var delegate: PhoneNumberComponentViewDelegate?
     var component: PhoneNumberComponent? {

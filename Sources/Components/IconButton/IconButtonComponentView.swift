@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 protocol IconButtonComponentViewDelegate: class {
@@ -67,7 +71,6 @@ public class IconButtonComponentView: UIView {
             button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
         ])
     }
-
 
     @objc func tapHandler(gesture: UITapGestureRecognizer) {
         guard let component = component, let delegate = delegate else {

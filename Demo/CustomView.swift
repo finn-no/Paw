@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 class CustomView: UIView {
@@ -22,7 +26,6 @@ class CustomView: UIView {
         label.accessibilityLabel = label.text
         return label
     }()
-
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

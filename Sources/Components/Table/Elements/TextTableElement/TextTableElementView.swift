@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 public class TextTableElementView: UIView {
@@ -26,7 +30,6 @@ public class TextTableElementView: UIView {
         stackView.spacing = .smallSpacing
         return stackView
     }()
-
 
     var component: TextTableElement? {
         didSet {
