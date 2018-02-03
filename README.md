@@ -8,16 +8,26 @@ A simple and declarative library to display the details of an element. In FINN w
 import Smash
 
 class DemoViewController: UIViewController {
+    let elements: [TableElement] = {
+        let locale = Locale(identifier: "nb_NO")
+        let timeInterval = TimeInterval(exactly: 450_033_400)!
+        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
+        return [
+            TextTableElement(title: "Item code", detail: "123456789"),
+            DateTableElement(title: "Last updated", date: date),
+        ]
+    }()
+
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
-            [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],        
-            [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
-            [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
-            [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
+            [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
+            [MessageButtonComponent(title: "Send message", answerTime: "Usually replies within the hour")],
+            [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobile", showNumberText: "See phone number", accessibilityLabelPrefix: "Telefonnummer: ")],
             [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
-            [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
-            [TableComponent(components: torgetTableElements)],
+            [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ See more", titleHide: "- See less")],
+            [IconButtonComponent(buttonTitle: "Need help with the delivery?", iconImage: vanImage!)],
+            [TableComponent(components: elements)],
         ]
     }
 
