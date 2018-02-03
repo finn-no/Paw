@@ -30,12 +30,12 @@ class DemoViewController: UIViewController {
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
-            [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer")],
+            [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
             [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
-            [MessageButtonComponent(title: "Send melding", answerTime: "Svarer vanligvis innen 4 timer"), MessageButtonComponent(title: "Ring", answerTime: "Tar aldri telefonen")],
+            [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
             [TableComponent(components: torgetTableElements)],
@@ -83,7 +83,7 @@ class DemoViewController: UIViewController {
         smashView.dataSource = self
 
         smashView.phoneNumberDelegate = self
-        smashView.messageButtonDelegate = self
+        smashView.callToActionButtonDelegate = self
         smashView.iconButtonDelegate = self
 
         smashView.reloadData()
@@ -124,8 +124,8 @@ extension DemoViewController: PhoneNumberSmashViewDelegate {
     }
 }
 
-extension DemoViewController: MessageButtonSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapSendMessageFor component: MessageButtonComponent) {
+extension DemoViewController: CallToActionButtonSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapSendMessageFor component: CallToActionButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Send message!")
         present(alert, animated: true, completion: nil)
     }

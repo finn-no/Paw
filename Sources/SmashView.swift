@@ -10,8 +10,8 @@ public protocol PhoneNumberSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 }
 
-public protocol MessageButtonSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapSendMessageFor component: MessageButtonComponent)
+public protocol CallToActionButtonSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapSendMessageFor component: CallToActionButtonComponent)
 }
 
 public protocol IconButtonSmashViewDelegate: class {
@@ -21,7 +21,7 @@ public protocol IconButtonSmashViewDelegate: class {
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
-    public weak var messageButtonDelegate: MessageButtonSmashViewDelegate?
+    public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
     public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
 
     private let animationDuration = 0.4
@@ -130,11 +130,11 @@ public class SmashView: UIView {
 
     func viewComponent(for component: Component, in smashView: SmashView) -> UIView? {
         switch component.self {
-        case is MessageButtonComponent:
-            let listComponentView = MessageButtonComponentView()
+        case is CallToActionButtonComponent:
+            let listComponentView = CallToActionButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = smashView
-            listComponentView.component = component as? MessageButtonComponent
+            listComponentView.component = component as? CallToActionButtonComponent
             return listComponentView
         case is PhoneNumberComponent:
             let listComponentView = PhoneNumberComponentView()
@@ -181,11 +181,11 @@ public class SmashView: UIView {
     }
 }
 
-// MARK: - MessageButtonComponentViewDelegate
+// MARK: - CallToActionButtonComponentViewDelegate
 
-extension SmashView: MessageButtonComponentViewDelegate {
-    func messageButtonComponentView(_ messageButtonComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
-        messageButtonDelegate?.smashView(self, didTapSendMessageFor: component)
+extension SmashView: CallToActionButtonComponentViewDelegate {
+    func callToActionButtonComponentView(_ callToActionButtonComponentView: CallToActionButtonComponentView, didTapSendMessageFor component: CallToActionButtonComponent) {
+        callToActionButtonDelegate?.smashView(self, didTapSendMessageFor: component)
     }
 }
 
