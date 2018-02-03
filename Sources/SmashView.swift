@@ -6,7 +6,6 @@ public protocol SmashViewDataSource: class {
 }
 
 public protocol PhoneNumberSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
     func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
     func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 }
@@ -19,17 +18,11 @@ public protocol IconButtonSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent)
 }
 
-public protocol CollapsableDescriptionSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
-    func smashView(_ smashView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
-}
-
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var messageButtonDelegate: MessageButtonSmashViewDelegate?
     public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
-    public weak var collapsableDescriptionDelegate: CollapsableDescriptionSmashViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -199,10 +192,6 @@ extension SmashView: MessageButtonComponentViewDelegate {
 // MARK: - PhoneNumberComponentViewDelegate
 
 extension SmashView: PhoneNumberComponentViewDelegate {
-    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
-        phoneNumberDelegate?.smashView(self, didTapShowPhoneNumberFor: component)
-    }
-
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent) {
         phoneNumberDelegate?.smashView(self, didTapPhoneNumberFor: component)
     }
@@ -229,7 +218,6 @@ extension SmashView: CollapsableDescriptionComponentViewDelegate {
             collapsableDescriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            self.collapsableDescriptionDelegate?.smashView(self, didTapExpandDescriptionFor: component)
             collapsableDescriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {
@@ -244,7 +232,6 @@ extension SmashView: CollapsableDescriptionComponentViewDelegate {
             collapsableDescriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            self.collapsableDescriptionDelegate?.smashView(self, didTapHideDescriptionFor: component)
             collapsableDescriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {

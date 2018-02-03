@@ -1,7 +1,6 @@
 import UIKit
 
 protocol PhoneNumberComponentViewDelegate: class {
-    func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent)
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 }
@@ -83,7 +82,6 @@ public class PhoneNumberComponentView: UIView {
         if isNumberShowing {
             delegate.phoneNumberComponentView(self, didTapPhoneNumberFor: component)
         } else {
-            delegate.phoneNumberComponentView(self, didTapShowPhoneNumberFor: component)
             numberButton.setTitle(component.formattedPhoneNumber, for: .normal)
             numberButton.accessibilityLabel = component.accessibilityLabelPrefix + component.phoneNumber
             isNumberShowing = true

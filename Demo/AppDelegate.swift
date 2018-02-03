@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = DemoViewController()
 
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.tabBarItem = UITabBarItem(title: "Object Page", image: nil, tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "Smash", image: nil, tag: 0)
 
         let navigationBarApperance = UINavigationBar.appearance()
         navigationBarApperance.tintColor = .primaryBlue

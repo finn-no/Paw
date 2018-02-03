@@ -85,7 +85,6 @@ class DemoViewController: UIViewController {
         smashView.phoneNumberDelegate = self
         smashView.messageButtonDelegate = self
         smashView.iconButtonDelegate = self
-        smashView.collapsableDescriptionDelegate = self
 
         smashView.reloadData()
     }
@@ -115,11 +114,6 @@ extension DemoViewController: SmashViewDataSource {
 }
 
 extension DemoViewController: PhoneNumberSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Show phone number for component: \(component.id)")
-        present(alert, animated: true, completion: nil)
-    }
-
     func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
@@ -140,18 +134,6 @@ extension DemoViewController: MessageButtonSmashViewDelegate {
 extension DemoViewController: IconButtonSmashViewDelegate {
     func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
-        present(alert, animated: true, completion: nil)
-    }
-}
-
-extension DemoViewController: CollapsableDescriptionSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Vis mer!")
-        present(alert, animated: true, completion: nil)
-    }
-
-    func smashView(_ smashView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Vis mindre!")
         present(alert, animated: true, completion: nil)
     }
 }
