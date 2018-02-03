@@ -69,12 +69,23 @@ extension MyViewController: SmashViewDataSource {
 
 The current available **Components** are:
 
-- Table
-- Price
-- CollapsableDescription
-- IconButton
-- PhoneNumber
-- CallToActionButton
+### Table
+This **Component** consists in a collection of elements.
+
+### Price
+Needs description.
+
+### CollapsableDescription
+Needs description.
+
+### IconButton
+Needs description.
+
+### PhoneNumber
+Needs description.
+
+### CallToActionButton
+Needs description.
 
 ## Installation
 
