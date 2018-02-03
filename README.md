@@ -4,7 +4,7 @@ A simple and declarative library to display the details of an element. In FINN w
 
 ## Getting started
 
-The entry point for the **Smash** library is the `SmashView`. After adding a `SmashView` to your `UIViewController` you'll just need to implement the `dataSource`. **Smash** uses **Components** and **Elements**, you'll find a complete list of all the available **Components** in the **Components** section. After receiving the **Components**, the `SmashView` will create **ComponentViews** for each **Component**. `SmashView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `SmashView` will make sure to reload its data in the smartes possible way so your the user interaction doesn't get affected.
+The entry point for the **Smash** library is the `SmashView`. After adding a `SmashView` to your `UIViewController` you'll just need to implement the `dataSource`. **Smash** uses **Components** and **Elements**, you'll find a complete list of all the available **Components** in the **Components** section. After receiving the **Components**, the `SmashView` will create **ComponentViews** for each **Component**. `SmashView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `SmashView` will make sure to reload its data in the smartest possible way so the user interaction isn't affected.
 
 ### Simple Demo
 
