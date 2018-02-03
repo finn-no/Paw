@@ -54,10 +54,6 @@ extension MyViewController: SmashViewDataSource {
     func components(in smashView: SmashView) -> [[Component]] {
         return components
     }
-
-    func customComponentView(for component: Component, in smashView: SmashView) -> UIView? {
-        return nil
-    }
 }
 ```
 
