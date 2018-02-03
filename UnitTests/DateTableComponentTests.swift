@@ -1,4 +1,4 @@
-@testable import Components
+@testable import Smash
 import Foundation
 import XCTest
 

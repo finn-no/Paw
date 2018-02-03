@@ -1,5 +1,6 @@
 import Foundation
 import XCTest
+@testable import Smash
 
 class PriceComponentTests: XCTestCase {
     let largePrice: Double = 1_500_000

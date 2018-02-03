@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1486CC05202619AF0016E75D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486CC04202619AF0016E75D /* Helpers.swift */; };
 		14A69A1620261D25002D9DC1 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A1520261D24002D9DC1 /* Component.swift */; };
+		14A69A18202629B0002D9DC1 /* PhoneNumberComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */; };
 		14E5C195202604BB0039A9A7 /* Smash.h in Headers */ = {isa = PBXBuildFile; fileRef = 14E5C193202604BB0039A9A7 /* Smash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14E5C1A0202604F60039A9A7 /* Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; };
 		14E5C1A92026050B0039A9A7 /* TextTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A62026050B0039A9A7 /* TextTableComponentTests.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		1486CC04202619AF0016E75D /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		14A69A1520261D24002D9DC1 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentTests.swift; sourceTree = "<group>"; };
 		14E5C18A2026044B0039A9A7 /* Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E5C193202604BB0039A9A7 /* Smash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smash.h; sourceTree = "<group>"; };
 		14E5C194202604BB0039A9A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				14E5C1A72026050B0039A9A7 /* DateTableComponentTests.swift */,
 				14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */,
 				14E5C1A62026050B0039A9A7 /* TextTableComponentTests.swift */,
+				14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */,
 				14E5C19F202604F60039A9A7 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -496,6 +499,7 @@
 				14E5C1AB2026050B0039A9A7 /* PriceComponentTests.swift in Sources */,
 				14E5C1A92026050B0039A9A7 /* TextTableComponentTests.swift in Sources */,
 				14E5C1AA2026050B0039A9A7 /* DateTableComponentTests.swift in Sources */,
+				14A69A18202629B0002D9DC1 /* PhoneNumberComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
