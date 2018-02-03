@@ -2,7 +2,11 @@
 
 A simple and declarative library to display the details of an element. In FINN we use it to display the detail of our ads, but it can be easily repurposed to display book details, recipe details, etc.
 
-## Basic usage
+## Getting started
+
+The entry point for the **Smash** library is the `SmashView`. After adding a `SmashView` to your `UIViewController` you'll just need to implement the `dataSource`. **Smash** uses **Components** and **Elements**, you'll find a complete list of all the available **Components** in the **Components** section. After receiving the **Components**, the `SmashView` will create **ComponentViews** for each **Component**. `SmashView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `SmashView` will make sure to reload its data in the smartes possible way so your the user interaction doesn't get affected.
+
+### Simple Demo
 
 ```swift
 import Smash
@@ -57,7 +61,20 @@ extension MyViewController: SmashViewDataSource {
 }
 ```
 
+### Result
+
 <p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Smash/master/GitHub/demo.png"></p>
+
+## Components
+
+The current available **Components** are:
+
+- TableComponent
+- Price
+- CollapsableDescription
+- IconButton
+- PhoneNumber
+- MessageButton
 
 ## Installation
 
