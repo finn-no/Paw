@@ -1,18 +1,18 @@
 import UIKit
 
-protocol MessageButtonComponentViewDelegate: class {
-    func messageButtonComponentView(_ messageButtonComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent)
+protocol CallToActionButtonComponentViewDelegate: class {
+    func callToActionButtonComponentView(_ callToActionButtonComponentView: CallToActionButtonComponentView, didTapSendMessageFor component: CallToActionButtonComponent)
 }
 
-public class MessageButtonComponentView: UIView {
+public class CallToActionButtonComponentView: UIView {
 
     // MARK: - Internal properties
 
-    weak var delegate: MessageButtonComponentViewDelegate?
+    weak var delegate: CallToActionButtonComponentViewDelegate?
     private let highlightedColor = UIColor(red: 0 / 255, green: 79 / 255, blue: 201 / 255, alpha: 1.0) // #004fc9
     private let cornerRadius: CGFloat = 4.0
 
-    private lazy var messageButton: UIButton = {
+    private lazy var callToActionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isAccessibilityElement = true
@@ -26,7 +26,7 @@ public class MessageButtonComponentView: UIView {
         return button
     }()
 
-    private lazy var answerTimeLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isAccessibilityElement = true
@@ -37,10 +37,10 @@ public class MessageButtonComponentView: UIView {
 
     // MARK: - External properties
 
-    var component: MessageButtonComponent? {
+    var component: CallToActionButtonComponent? {
         didSet {
-            messageButton.setTitle(component?.title, for: .normal)
-            answerTimeLabel.text = component?.answerTime
+            callToActionButton.setTitle(component?.title, for: .normal)
+            subtitleLabel.text = component?.subtitle
         }
     }
 
@@ -57,18 +57,18 @@ public class MessageButtonComponentView: UIView {
     }
 
     private func setup() {
-        addSubview(messageButton)
-        addSubview(answerTimeLabel)
+        addSubview(callToActionButton)
+        addSubview(subtitleLabel)
 
         NSLayoutConstraint.activate([
-            messageButton.topAnchor.constraint(equalTo: topAnchor),
-            messageButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            messageButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            callToActionButton.topAnchor.constraint(equalTo: topAnchor),
+            callToActionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            callToActionButton.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            answerTimeLabel.topAnchor.constraint(equalTo: messageButton.bottomAnchor, constant: .mediumSpacing),
-            answerTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            answerTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            answerTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            subtitleLabel.topAnchor.constraint(equalTo: callToActionButton.bottomAnchor, constant: .mediumSpacing),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
@@ -80,7 +80,7 @@ public class MessageButtonComponentView: UIView {
         guard let component = component else {
             return
         }
-        delegate?.messageButtonComponentView(self, didTapSendMessageFor: component)
+        delegate?.callToActionButtonComponentView(self, didTapSendMessageFor: component)
     }
 
     @objc func buttonHighlighted(sender: UIButton) {

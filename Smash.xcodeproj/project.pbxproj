@@ -33,8 +33,8 @@
 		14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C9202605270039A9A7 /* TableComponent.swift */; };
 		14E5C1F1202605270039A9A7 /* PriceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1CB202605270039A9A7 /* PriceComponent.swift */; };
 		14E5C1F2202605270039A9A7 /* PriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1CC202605270039A9A7 /* PriceComponentView.swift */; };
-		14E5C1F6202605270039A9A7 /* MessageButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D1202605270039A9A7 /* MessageButtonComponentView.swift */; };
-		14E5C1F7202605270039A9A7 /* MessageButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D2202605270039A9A7 /* MessageButtonComponent.swift */; };
+		14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */; };
+		14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D2202605270039A9A7 /* CallToActionButtonComponent.swift */; };
 		14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D5202605270039A9A7 /* IconButtonComponentView.swift */; };
 		14E5C1FA202605270039A9A7 /* IconButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D6202605270039A9A7 /* IconButtonComponent.swift */; };
 		14E5C206202605440039A9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C205202605440039A9A7 /* AppDelegate.swift */; };
@@ -107,8 +107,8 @@
 		14E5C1C9202605270039A9A7 /* TableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
 		14E5C1CB202605270039A9A7 /* PriceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponent.swift; sourceTree = "<group>"; };
 		14E5C1CC202605270039A9A7 /* PriceComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponentView.swift; sourceTree = "<group>"; };
-		14E5C1D1202605270039A9A7 /* MessageButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageButtonComponentView.swift; sourceTree = "<group>"; };
-		14E5C1D2202605270039A9A7 /* MessageButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageButtonComponent.swift; sourceTree = "<group>"; };
+		14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallToActionButtonComponentView.swift; sourceTree = "<group>"; };
+		14E5C1D2202605270039A9A7 /* CallToActionButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallToActionButtonComponent.swift; sourceTree = "<group>"; };
 		14E5C1D5202605270039A9A7 /* IconButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconButtonComponentView.swift; sourceTree = "<group>"; };
 		14E5C1D6202605270039A9A7 /* IconButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconButtonComponent.swift; sourceTree = "<group>"; };
 		14E5C203202605430039A9A7 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +191,7 @@
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
 				14E5C1D4202605270039A9A7 /* IconButton */,
 				14E5C1BB202605270039A9A7 /* PhoneNumber */,
-				14E5C1D0202605270039A9A7 /* MessageButton */,
+				14E5C1D0202605270039A9A7 /* CallToActionButton */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -261,13 +261,13 @@
 			path = Price;
 			sourceTree = "<group>";
 		};
-		14E5C1D0202605270039A9A7 /* MessageButton */ = {
+		14E5C1D0202605270039A9A7 /* CallToActionButton */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C1D1202605270039A9A7 /* MessageButtonComponentView.swift */,
-				14E5C1D2202605270039A9A7 /* MessageButtonComponent.swift */,
+				14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */,
+				14E5C1D2202605270039A9A7 /* CallToActionButtonComponent.swift */,
 			);
-			path = MessageButton;
+			path = CallToActionButton;
 			sourceTree = "<group>";
 		};
 		14E5C1D4202605270039A9A7 /* IconButton */ = {
@@ -479,8 +479,8 @@
 				14E5C1FA202605270039A9A7 /* IconButtonComponent.swift in Sources */,
 				14E5C1E8202605270039A9A7 /* PhoneNumberComponent.swift in Sources */,
 				14E5C1EF202605270039A9A7 /* TableElement.swift in Sources */,
-				14E5C1F7202605270039A9A7 /* MessageButtonComponent.swift in Sources */,
-				14E5C1F6202605270039A9A7 /* MessageButtonComponentView.swift in Sources */,
+				14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */,
+				14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */,
 				14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */,
 				14E5C1EA202605270039A9A7 /* TableComponentView.swift in Sources */,
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
