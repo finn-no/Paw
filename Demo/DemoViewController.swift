@@ -17,7 +17,7 @@ class DemoViewController: UIViewController {
         return attributedString
     }()
 
-    let torgetTableElements: [TableElement] = {
+    let elements: [TableElement] = {
         let locale = Locale(identifier: "nb_NO")
         let timeInterval = TimeInterval(exactly: 450_033_400)!
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
@@ -38,7 +38,7 @@ class DemoViewController: UIViewController {
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
-            [TableComponent(components: torgetTableElements)],
+            [TableComponent(components: elements)],
         ]
     }
 
