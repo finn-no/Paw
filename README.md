@@ -69,7 +69,7 @@ extension MyViewController: SmashViewDataSource {
 
 The current available **Components** are:
 
-- TableComponent
+- Table
 - Price
 - CollapsableDescription
 - IconButton
