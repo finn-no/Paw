@@ -183,12 +183,6 @@ public class ObjectView: UIView {
     }
 }
 
-extension ObjectView: LinkComponentViewDelegate {
-    func linkComponentView(_ linkComponentView: LinkComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
-    }
-}
-
 // MARK: - MessageButtonComponentViewDelegate
 
 extension ObjectView: MessageComponentViewDelegate {
@@ -218,21 +212,6 @@ extension ObjectView: PhoneNumberComponentViewDelegate {
 extension ObjectView: IconButtonComponentViewDelegate {
     func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
         delegate?.objectView(self, didTapButtonFor: component)
-    }
-}
-extension ObjectView: SafePayComponentViewDelegate {
-    func safePayComponentView(_ safePayComponentView: SafePayComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
-    }
-}
-extension ObjectView: LoanPriceComponentViewDelegate {
-    func loanPriceComponentView(_ loanPriceComponentView: LoanPriceComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
-    }
-}
-extension ObjectView: AdReporterComponentViewDelegate {
-    func adReporterComponentView(_ adReporterComponentView: AdReporterComponentView, didSelectComponent component: Component) {
-//        delegate?.objectView(self, didSelectComponent: component)
     }
 }
 

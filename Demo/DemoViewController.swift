@@ -145,12 +145,6 @@ extension DemoViewController: ObjectViewDelegate {
     }
 
     func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
-        let isUserLoggedIn = true
-
-        if isUserLoggedIn {
-            return true
-        } else {
-            return false
-        }
+        return true
     }
 }
