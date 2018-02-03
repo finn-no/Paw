@@ -357,6 +357,7 @@
 				14E5C1862026044B0039A9A7 /* Frameworks */,
 				14E5C1872026044B0039A9A7 /* Headers */,
 				14E5C1882026044B0039A9A7 /* Resources */,
+				1469787820264F5100A3E0D8 /* Run SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -474,6 +475,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1469787820264F5100A3E0D8 /* Run SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftFormat";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh \"${SRCROOT}/Others/format.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14E5C1852026044B0039A9A7 /* Sources */ = {

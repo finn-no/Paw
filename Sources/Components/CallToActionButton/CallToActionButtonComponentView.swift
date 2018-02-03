@@ -1,3 +1,7 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 protocol CallToActionButtonComponentViewDelegate: class {
@@ -5,9 +9,6 @@ protocol CallToActionButtonComponentViewDelegate: class {
 }
 
 public class CallToActionButtonComponentView: UIView {
-
-    // MARK: - Internal properties
-
     weak var delegate: CallToActionButtonComponentViewDelegate?
     private let highlightedColor = UIColor(red: 0 / 255, green: 79 / 255, blue: 201 / 255, alpha: 1.0) // #004fc9
     private let cornerRadius: CGFloat = 4.0
@@ -35,16 +36,12 @@ public class CallToActionButtonComponentView: UIView {
         return label
     }()
 
-    // MARK: - External properties
-
     var component: CallToActionButtonComponent? {
         didSet {
             callToActionButton.setTitle(component?.title, for: .normal)
             subtitleLabel.text = component?.subtitle
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,8 +68,6 @@ public class CallToActionButtonComponentView: UIView {
             subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
-
-    // MARK: - Actions
 
     @objc func messageTapped(sender: UIButton) {
         sender.backgroundColor = .primaryBlue

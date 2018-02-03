@@ -1,9 +1,10 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 public class TableComponentView: UIView {
-
-    // MARK: - Internal properties
-
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -13,8 +14,6 @@ public class TableComponentView: UIView {
         return view
     }()
 
-    // MARK: - External properties
-
     var component: TableComponent? {
         didSet {
             guard let components = component?.components else {
@@ -23,8 +22,6 @@ public class TableComponentView: UIView {
             setupTable(components: components)
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,8 +43,6 @@ public class TableComponentView: UIView {
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
-
-    // MARK: - Methods
 
     private func setupTable(components: [TableElement]) {
         for component in components {

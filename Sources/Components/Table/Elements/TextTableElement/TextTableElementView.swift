@@ -1,9 +1,10 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 public class TextTableElementView: UIView {
-
-    // MARK: - Internal properties
-
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
@@ -30,8 +31,6 @@ public class TextTableElementView: UIView {
         return stackView
     }()
 
-    // MARK: - External properties
-
     var component: TextTableElement? {
         didSet {
             guard let component = component else {
@@ -42,8 +41,6 @@ public class TextTableElementView: UIView {
             accessibilityLabel = component.accessibilityLabel
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,8 +80,6 @@ public class TextTableElementView: UIView {
             menu.setMenuVisible(true, animated: true)
         }
     }
-
-    // MARK: - Superclass overrides
 
     public override var canBecomeFirstResponder: Bool {
         return true

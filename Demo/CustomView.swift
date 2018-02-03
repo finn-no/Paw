@@ -1,9 +1,10 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 class CustomView: UIView {
-
-    // MARK: - Internal properties
-
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -25,8 +26,6 @@ class CustomView: UIView {
         label.accessibilityLabel = label.text
         return label
     }()
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
