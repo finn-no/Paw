@@ -1,3 +1,3 @@
-# [Work in progress] Smash
+# Smash
 
 A library to represent object details.
