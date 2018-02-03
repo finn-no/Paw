@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 FINN.no
+Copyright (c) 2018 FINN.no
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
