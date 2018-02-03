@@ -13,12 +13,9 @@ import Smash
 
 class MyViewController: UIViewController {
     let elements: [TableElement] = {
-        let locale = Locale(identifier: "nb_NO")
-        let timeInterval = TimeInterval(exactly: 450_033_400)!
-        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableElement(title: "Item code", detail: "123456789"),
-            DateTableElement(title: "Last updated", date: date),
+            DateTableElement(title: "Last updated", date: Date()),
         ]
     }()
 
@@ -26,7 +23,7 @@ class MyViewController: UIViewController {
         let locale = Locale(identifier: "nb_NO")
         return [
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
-            [CallToActionButtonComponent(title: "Send message", answerTime: "Usually replies within the hour")],
+            [CallToActionButtonComponent(title: "Send message", subtitle: "Usually replies within the hour")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobile", showNumberText: "See phone number", accessibilityLabelPrefix: "Telefonnummer: ")],
             [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
             [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ See more", titleHide: "- See less")],
@@ -52,12 +49,10 @@ class MyViewController: UIViewController {
     }
 }
 
-//... SmashViewDataSource
-
 extension MyViewController: SmashViewDataSource {
-    func components(in smashView: SmashView) -> [[Component]] {
-        return components
-    }
+    func components(in smashView: SmashView) -> [[Component]] { return components }
+
+    func customComponentView(for component: Component, in smashView: SmashView) -> UIView? { return nil }
 }
 ```
 
