@@ -13,12 +13,9 @@ import Smash
 
 class MyViewController: UIViewController {
     let elements: [TableElement] = {
-        let locale = Locale(identifier: "nb_NO")
-        let timeInterval = TimeInterval(exactly: 450_033_400)!
-        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableElement(title: "Item code", detail: "123456789"),
-            DateTableElement(title: "Last updated", date: date),
+            DateTableElement(title: "Last updated", date: Date()),
         ]
     }()
 
