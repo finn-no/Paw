@@ -7,7 +7,7 @@ A simple and declarative library to display the details of an element. In FINN w
 ```swift
 import Smash
 
-class DemoViewController: UIViewController {
+class MyViewController: UIViewController {
     let elements: [TableElement] = {
         let locale = Locale(identifier: "nb_NO")
         let timeInterval = TimeInterval(exactly: 450_033_400)!
