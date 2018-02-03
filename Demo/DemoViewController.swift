@@ -74,7 +74,6 @@ class DemoViewController: UIViewController {
         navigationItem.setRightBarButtonItems([favoriteBarButtonItem, shareBarButtonItem], animated: false)
 
         view.addSubview(objectView)
-        // lay out to fill constraints
 
         NSLayoutConstraint.activate([
             objectView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -89,10 +88,13 @@ class DemoViewController: UIViewController {
     }
 
     @objc func favorite(sender: UIButton) {
-        print("Favorite added!")
+        let alert = UIAlertController.dismissableAlert(title: "Favorite added!")
+        present(alert, animated: true, completion: nil)
     }
+
     @objc func shareAd(sender: UIButton) {
-        print("Share ad!")
+        let alert = UIAlertController.dismissableAlert(title: "Share ad!")
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -111,37 +113,33 @@ extension DemoViewController: ObjectViewDataSource {
 
 extension DemoViewController: ObjectViewDelegate {
     func objectView(_ objectView: ObjectView, didTapButtonFor component: IconButtonComponent) {
-        print("Button with id: \(component.id)")
+        let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
+        present(alert, animated: true, completion: nil)
     }
 
     func objectView(_ objectView: ObjectView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
-        print("Vis mer!")
+        let alert = UIAlertController.dismissableAlert(title: "Vis mer!")
+        present(alert, animated: true, completion: nil)
     }
     
     func objectView(_ objectView: ObjectView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
-        print("Vis mindre!")
+        let alert = UIAlertController.dismissableAlert(title: "Vis mindre!")
+        present(alert, animated: true, completion: nil)
     }
     
     func objectView(_ objectView: ObjectView, didTapSendMessageFor component: MessageButtonComponent) {
-        print("Send message!")
+        let alert = UIAlertController.dismissableAlert(title: "Send message!")
+        present(alert, animated: true, completion: nil)
     }
 
     func objectView(_ objectView: ObjectView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
-        // Add tracking stuff?
-        print("Show phone number for component: \(component.id)")
+        let alert = UIAlertController.dismissableAlert(title: "Show phone number for component: \(component.id)")
+        present(alert, animated: true, completion: nil)
     }
 
     func objectView(_ objectView: ObjectView, didTapPhoneNumberFor component: PhoneNumberComponent) {
-        if let url = URL(string: "tel://\(component.phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-            print("Calling: \(component.phoneNumber)")
-        } else {
-            print("Not able to call")
-        }
+        let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
+        present(alert, animated: true, completion: nil)
     }
 
     func objectView(_ objectView: ObjectView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
