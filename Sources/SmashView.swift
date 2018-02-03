@@ -190,8 +190,8 @@ public class SmashView: UIView {
 
 // MARK: - MessageButtonComponentViewDelegate
 
-extension SmashView: MessageComponentViewDelegate {
-    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
+extension SmashView: MessageButtonComponentViewDelegate {
+    func messageButtonComponentView(_ messageButtonComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
         messageButtonDelegate?.smashView(self, didTapSendMessageFor: component)
     }
 }

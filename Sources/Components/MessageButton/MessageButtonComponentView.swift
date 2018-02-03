@@ -1,14 +1,14 @@
 import UIKit
 
-protocol MessageComponentViewDelegate: class {
-    func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent)
+protocol MessageButtonComponentViewDelegate: class {
+    func messageButtonComponentView(_ messageButtonComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent)
 }
 
 public class MessageButtonComponentView: UIView {
 
     // MARK: - Internal properties
 
-    weak var delegate: MessageComponentViewDelegate?
+    weak var delegate: MessageButtonComponentViewDelegate?
     private let highlightedColor = UIColor(red: 0 / 255, green: 79 / 255, blue: 201 / 255, alpha: 1.0) // #004fc9
     private let cornerRadius: CGFloat = 4.0
 
@@ -80,7 +80,7 @@ public class MessageButtonComponentView: UIView {
         guard let component = component else {
             return
         }
-        delegate?.messageComponentView(self, didTapSendMessageFor: component)
+        delegate?.messageButtonComponentView(self, didTapSendMessageFor: component)
     }
 
     @objc func buttonHighlighted(sender: UIButton) {
