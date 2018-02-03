@@ -22,12 +22,9 @@ class DemoViewController: UIViewController {
     }()
 
     let elements: [TableElement] = {
-        let locale = Locale(identifier: "nb_NO")
-        let timeInterval = TimeInterval(exactly: 450_033_400)!
-        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         return [
             TextTableElement(title: "FINN-kode", detail: "123456789"),
-            DateTableElement(title: "Sist endret", date: date),
+            DateTableElement(title: "Sist endret", date: Date()),
         ]
     }()
 
