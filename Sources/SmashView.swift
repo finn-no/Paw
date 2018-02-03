@@ -1,30 +1,35 @@
 import UIKit
 
 public protocol SmashViewDataSource: class {
-    func components(in objectView: SmashView) -> [[Component]]
-    func customComponentView(for component: Component, in objectView: SmashView) -> UIView?
+    func components(in smashView: SmashView) -> [[Component]]
+    func customComponentView(for component: Component, in smashView: SmashView) -> UIView?
 }
 
-public protocol SmashViewDelegate: class {
-    // PhoneNumberComponentViewDelegate
-    func objectView(_ objectView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
-    func objectView(_ objectView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
-    func objectView(_ objectView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
+public protocol PhoneNumberSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent)
+    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
+    func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
+}
 
-    // MessageButtonComponentViewDelegate
-    func objectView(_ objectView: SmashView, didTapSendMessageFor component: MessageButtonComponent)
+public protocol MessageButtonSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapSendMessageFor component: MessageButtonComponent)
+}
 
-    // IconButtonComponentViewDelegate
-    func objectView(_ objectView: SmashView, didTapButtonFor component: IconButtonComponent)
+public protocol IconButtonSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent)
+}
 
-    // CollapsableDescriptionComponentViewDelegate
-    func objectView(_ objectView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
-    func objectView(_ objectView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
+public protocol CollapsableDescriptionSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
+    func smashView(_ smashView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
 }
 
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
-    public weak var delegate: SmashViewDelegate?
+    public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
+    public weak var messageButtonDelegate: MessageButtonSmashViewDelegate?
+    public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
+    public weak var collapsableDescriptionDelegate: CollapsableDescriptionSmashViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -130,30 +135,30 @@ public class SmashView: UIView {
         }
     }
 
-    func viewComponent(for component: Component, in objectView: SmashView) -> UIView? {
+    func viewComponent(for component: Component, in smashView: SmashView) -> UIView? {
         switch component.self {
         case is MessageButtonComponent:
             let listComponentView = MessageButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
+            listComponentView.delegate = smashView
             listComponentView.component = component as? MessageButtonComponent
             return listComponentView
         case is PhoneNumberComponent:
             let listComponentView = PhoneNumberComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
+            listComponentView.delegate = smashView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
         case is IconButtonComponent:
             let listComponentView = IconButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
+            listComponentView.delegate = smashView
             listComponentView.component = component as? IconButtonComponent
             return listComponentView
         case is CollapsableDescriptionComponent:
             let listComponentView = CollapsableDescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = objectView
+            listComponentView.delegate = smashView
             listComponentView.component = component as? CollapsableDescriptionComponent
             return listComponentView
         case is PriceComponent:
@@ -187,7 +192,7 @@ public class SmashView: UIView {
 
 extension SmashView: MessageComponentViewDelegate {
     func messageComponentView(_ messageComponentView: MessageButtonComponentView, didTapSendMessageFor component: MessageButtonComponent) {
-        delegate?.objectView(self, didTapSendMessageFor: component)
+        messageButtonDelegate?.smashView(self, didTapSendMessageFor: component)
     }
 }
 
@@ -195,15 +200,15 @@ extension SmashView: MessageComponentViewDelegate {
 
 extension SmashView: PhoneNumberComponentViewDelegate {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
-        delegate?.objectView(self, didTapShowPhoneNumberFor: component)
+        phoneNumberDelegate?.smashView(self, didTapShowPhoneNumberFor: component)
     }
 
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent) {
-        delegate?.objectView(self, didTapPhoneNumberFor: component)
+        phoneNumberDelegate?.smashView(self, didTapPhoneNumberFor: component)
     }
 
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
-        return delegate?.objectView(self, canShowPhoneNumberFor: component) ?? false
+        return phoneNumberDelegate?.smashView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
 
@@ -211,7 +216,7 @@ extension SmashView: PhoneNumberComponentViewDelegate {
 
 extension SmashView: IconButtonComponentViewDelegate {
     func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
-        delegate?.objectView(self, didTapButtonFor: component)
+        iconButtonDelegate?.smashView(self, didTapButtonFor: component)
     }
 }
 
@@ -224,7 +229,7 @@ extension SmashView: CollapsableDescriptionComponentViewDelegate {
             collapsableDescriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            self.delegate?.objectView(self, didTapExpandDescriptionFor: component)
+            self.collapsableDescriptionDelegate?.smashView(self, didTapExpandDescriptionFor: component)
             collapsableDescriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {
@@ -239,7 +244,7 @@ extension SmashView: CollapsableDescriptionComponentViewDelegate {
             collapsableDescriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            self.delegate?.objectView(self, didTapHideDescriptionFor: component)
+            self.collapsableDescriptionDelegate?.smashView(self, didTapHideDescriptionFor: component)
             collapsableDescriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {

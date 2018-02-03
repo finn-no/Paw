@@ -59,7 +59,7 @@ class DemoViewController: UIViewController {
         return item
     }()
 
-    lazy var objectView: SmashView = {
+    lazy var smashView: SmashView = {
         let view = SmashView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -71,18 +71,23 @@ class DemoViewController: UIViewController {
 
         navigationItem.setRightBarButtonItems([favoriteBarButtonItem, shareBarButtonItem], animated: false)
 
-        view.addSubview(objectView)
+        view.addSubview(smashView)
 
         NSLayoutConstraint.activate([
-            objectView.topAnchor.constraint(equalTo: view.topAnchor),
-            objectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            objectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            objectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            smashView.topAnchor.constraint(equalTo: view.topAnchor),
+            smashView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            smashView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            smashView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
 
-        objectView.dataSource = self
-        objectView.delegate = self
-        objectView.reloadData()
+        smashView.dataSource = self
+
+        smashView.phoneNumberDelegate = self
+        smashView.messageButtonDelegate = self
+        smashView.iconButtonDelegate = self
+        smashView.collapsableDescriptionDelegate = self
+
+        smashView.reloadData()
     }
 
     @objc func favorite(sender: UIButton) {
@@ -97,11 +102,11 @@ class DemoViewController: UIViewController {
 }
 
 extension DemoViewController: SmashViewDataSource {
-    func components(in objectView: SmashView) -> [[Component]] {
+    func components(in smashView: SmashView) -> [[Component]] {
         return components
     }
 
-    func customComponentView(for component: Component, in objectView: SmashView) -> UIView? {
+    func customComponentView(for component: Component, in smashView: SmashView) -> UIView? {
         switch component.id {
         case "custom1": return CustomView()
         default: return nil
@@ -109,38 +114,44 @@ extension DemoViewController: SmashViewDataSource {
     }
 }
 
-extension DemoViewController: SmashViewDelegate {
-    func objectView(_ objectView: SmashView, didTapButtonFor component: IconButtonComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
-        present(alert, animated: true, completion: nil)
-    }
-
-    func objectView(_ objectView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Vis mer!")
-        present(alert, animated: true, completion: nil)
-    }
-
-    func objectView(_ objectView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Vis mindre!")
-        present(alert, animated: true, completion: nil)
-    }
-
-    func objectView(_ objectView: SmashView, didTapSendMessageFor component: MessageButtonComponent) {
-        let alert = UIAlertController.dismissableAlert(title: "Send message!")
-        present(alert, animated: true, completion: nil)
-    }
-
-    func objectView(_ objectView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
+extension DemoViewController: PhoneNumberSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapShowPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Show phone number for component: \(component.id)")
         present(alert, animated: true, completion: nil)
     }
 
-    func objectView(_ objectView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
 
-    func objectView(_ objectView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+    func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
         return true
+    }
+}
+
+extension DemoViewController: MessageButtonSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapSendMessageFor component: MessageButtonComponent) {
+        let alert = UIAlertController.dismissableAlert(title: "Send message!")
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DemoViewController: IconButtonSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent) {
+        let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DemoViewController: CollapsableDescriptionSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+        let alert = UIAlertController.dismissableAlert(title: "Vis mer!")
+        present(alert, animated: true, completion: nil)
+    }
+
+    func smashView(_ smashView: SmashView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+        let alert = UIAlertController.dismissableAlert(title: "Vis mindre!")
+        present(alert, animated: true, completion: nil)
     }
 }
