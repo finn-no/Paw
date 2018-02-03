@@ -95,8 +95,8 @@ public class SmashView: UIView {
                 contentView.addSubview(componentStackView)
 
                 NSLayoutConstraint.activate([
-                    componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-                    componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+                    componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                    componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 ])
 
                 if components.count == 1 {
@@ -134,6 +134,11 @@ public class SmashView: UIView {
 
     func viewComponent(for component: Component, in smashView: SmashView) -> UIView? {
         switch component.self {
+        case is GalleryComponent:
+            let galleryComponentView = GalleryComponentView()
+            galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
+            galleryComponentView.component = component as? GalleryComponent
+            return galleryComponentView
         case is CallToActionButtonComponent:
             let listComponentView = CallToActionButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false

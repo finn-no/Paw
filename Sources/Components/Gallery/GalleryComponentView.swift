@@ -1,6 +1,18 @@
+//
+//  Copyright © FINN.no AS, Inc. All rights reserved.
+//
+
 import UIKit
 
 public class GalleryComponentView: UIView {
+    let defaultHeight: CGFloat = 200
+
+    lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     var component: GalleryComponent? {
         didSet {
             guard let component = component else {
@@ -8,8 +20,6 @@ public class GalleryComponentView: UIView {
             }
         }
     }
-
-    // MARK: - Setup
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,14 +32,15 @@ public class GalleryComponentView: UIView {
     }
 
     private func setup() {
-        addSubview(priceLabel)
-
-        isAccessibilityElement = true
+        addSubview(scrollView)
+        scrollView.backgroundColor = .red
 
         NSLayoutConstraint.activate([
-            priceLabel.topAnchor.constraint(equalTo: topAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            ])
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: defaultHeight),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
     }
 }
