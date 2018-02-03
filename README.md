@@ -42,14 +42,7 @@ class DemoViewController: UIViewController {
         super.viewDidLoad()
 
         view.addSubview(smashView)
-
-        NSLayoutConstraint.activate([
-            smashView.topAnchor.constraint(equalTo: view.topAnchor),
-            smashView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            smashView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            smashView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-
+        NSLayoutConstraint.activate([smashView.topAnchor.constraint(equalTo: view.topAnchor), smashView.bottomAnchor.constraint(equalTo: view.bottomAnchor), smashView.leadingAnchor.constraint(equalTo: view.leadingAnchor), smashView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
         smashView.dataSource = self
         smashView.reloadData()
     }
