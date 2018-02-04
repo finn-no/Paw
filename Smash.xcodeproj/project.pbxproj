@@ -44,6 +44,7 @@
 		14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21C202605DC0039A9A7 /* DemoViewController.swift */; };
 		14E5C21F202607660039A9A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21E202607660039A9A7 /* CustomView.swift */; };
+		44E3384020272AFB00105BD3 /* CustomComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3383F20272AFB00105BD3 /* CustomComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		14E5C211202605440039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C21C202605DC0039A9A7 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		14E5C21E202607660039A9A7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		44E3383F20272AFB00105BD3 /* CustomComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				14A69A1520261D24002D9DC1 /* Component.swift */,
+				44E3383E20272AFB00105BD3 /* Custom */,
 				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
@@ -319,6 +322,14 @@
 				14E5C203202605430039A9A7 /* Demo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		44E3383E20272AFB00105BD3 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				44E3383F20272AFB00105BD3 /* CustomComponent.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +501,7 @@
 				14E5C1EB202605270039A9A7 /* TextTableElement.swift in Sources */,
 				14E5C1F2202605270039A9A7 /* PriceComponentView.swift in Sources */,
 				14E5C1E7202605270039A9A7 /* PhoneNumberComponentView.swift in Sources */,
+				44E3384020272AFB00105BD3 /* CustomComponent.swift in Sources */,
 				14E5C1DE202605270039A9A7 /* CGFloat+Components.swift in Sources */,
 				14E5C1E3202605270039A9A7 /* CollapsableDescriptionComponentView.swift in Sources */,
 				14E5C1E1202605270039A9A7 /* UIColor+Components.swift in Sources */,

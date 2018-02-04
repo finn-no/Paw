@@ -31,6 +31,7 @@ class DemoViewController: UIViewController {
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
+            [CustomComponent(id: "custom1")],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
