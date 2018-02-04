@@ -10,7 +10,7 @@ public enum LoadableResult {
 }
 
 public protocol Loadable {
-    var url: URL? { get }
+    var stringURL: String? { get }
     var placeholder: UIImage { get }
 
     func load(_ completion: @escaping (_ result: LoadableResult) -> Void)

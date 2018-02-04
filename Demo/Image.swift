@@ -5,18 +5,17 @@
 import Smash
 
 struct Image: Loadable {
-    var url: URL?
+    var stringURL: String?
     var placeholder: UIImage
 
-    init(url: URL?, placeholder: UIImage) {
-        self.url = url
+    init(stringURL: String?, placeholder: UIImage) {
+        self.stringURL = stringURL
         self.placeholder = placeholder
     }
 
     func load(_ completion: @escaping (_ result: LoadableResult) -> Void) {
-        guard let url = self.url else {
-            return
-        }
+        guard let stringURL = self.stringURL else { return }
+        guard let url = URL(string: stringURL) else { return }
 
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
