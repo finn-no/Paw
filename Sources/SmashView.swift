@@ -167,11 +167,21 @@ public class SmashView: UIView {
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.component = component as? PriceComponent
             return listComponentView
-        case is TableComponent:
-            let listComponentView = TableComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? TableComponent
-            return listComponentView
+        case is SeparatorComponent:
+            let separatorComponentView = SeparatorComponentView()
+            separatorComponentView.translatesAutoresizingMaskIntoConstraints = false
+            separatorComponentView.component = component as? SeparatorComponent
+            return separatorComponentView
+        case is TextListComponent:
+            let textListComponentView = TextListComponentView()
+            textListComponentView.translatesAutoresizingMaskIntoConstraints = false
+            textListComponentView.component = component as? TextListComponent
+            return textListComponentView
+        case is DateListComponent:
+            let dateListComponentView = DateListComponentView()
+            dateListComponentView.translatesAutoresizingMaskIntoConstraints = false
+            dateListComponentView.component = component as? DateListComponent
+            return dateListComponentView
         default: return nil
         }
     }

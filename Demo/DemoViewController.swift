@@ -21,13 +21,6 @@ class DemoViewController: UIViewController {
         return attributedString
     }()
 
-    let elements: [TableElement] = {
-        return [
-            TextTableElement(title: "FINN-kode", detail: "123456789"),
-            DateTableElement(title: "Sist endret", date: Date()),
-        ]
-    }()
-
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
@@ -39,7 +32,9 @@ class DemoViewController: UIViewController {
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
-            [TableComponent(components: elements)],
+            [TextListComponent(title: "FINN-kode", detail: "123456789")],
+            [SeparatorComponent()],
+            [DateListComponent(title: "Sist endret", date: Date())],
         ]
     }
 

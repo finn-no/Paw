@@ -24,13 +24,6 @@
 		14E5C1E4202605270039A9A7 /* CollapsableDescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B8202605270039A9A7 /* CollapsableDescriptionComponent.swift */; };
 		14E5C1E7202605270039A9A7 /* PhoneNumberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1BC202605270039A9A7 /* PhoneNumberComponentView.swift */; };
 		14E5C1E8202605270039A9A7 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1BD202605270039A9A7 /* PhoneNumberComponent.swift */; };
-		14E5C1EA202605270039A9A7 /* TableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C0202605270039A9A7 /* TableComponentView.swift */; };
-		14E5C1EB202605270039A9A7 /* TextTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C3202605270039A9A7 /* TextTableElement.swift */; };
-		14E5C1EC202605270039A9A7 /* TextTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C4202605270039A9A7 /* TextTableElementView.swift */; };
-		14E5C1ED202605270039A9A7 /* DateTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C6202605270039A9A7 /* DateTableElement.swift */; };
-		14E5C1EE202605270039A9A7 /* DateTableElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C7202605270039A9A7 /* DateTableElementView.swift */; };
-		14E5C1EF202605270039A9A7 /* TableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C8202605270039A9A7 /* TableElement.swift */; };
-		14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C9202605270039A9A7 /* TableComponent.swift */; };
 		14E5C1F1202605270039A9A7 /* PriceComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1CB202605270039A9A7 /* PriceComponent.swift */; };
 		14E5C1F2202605270039A9A7 /* PriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1CC202605270039A9A7 /* PriceComponentView.swift */; };
 		14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */; };
@@ -44,6 +37,12 @@
 		14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21C202605DC0039A9A7 /* DemoViewController.swift */; };
 		14E5C21F202607660039A9A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21E202607660039A9A7 /* CustomView.swift */; };
+		440E316320277AA400D75114 /* DateListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E315E20277AA400D75114 /* DateListComponent.swift */; };
+		440E316420277AA400D75114 /* DateListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E315F20277AA400D75114 /* DateListComponentView.swift */; };
+		440E316520277AA400D75114 /* TextListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316120277AA400D75114 /* TextListComponent.swift */; };
+		440E316620277AA400D75114 /* TextListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316220277AA400D75114 /* TextListComponentView.swift */; };
+		440E316A20277C6200D75114 /* SeparatorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316820277C6200D75114 /* SeparatorComponentView.swift */; };
+		440E316B20277C6200D75114 /* SeparatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316920277C6200D75114 /* SeparatorComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,13 +97,6 @@
 		14E5C1B8202605270039A9A7 /* CollapsableDescriptionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponent.swift; sourceTree = "<group>"; };
 		14E5C1BC202605270039A9A7 /* PhoneNumberComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentView.swift; sourceTree = "<group>"; };
 		14E5C1BD202605270039A9A7 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
-		14E5C1C0202605270039A9A7 /* TableComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentView.swift; sourceTree = "<group>"; };
-		14E5C1C3202605270039A9A7 /* TextTableElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableElement.swift; sourceTree = "<group>"; };
-		14E5C1C4202605270039A9A7 /* TextTableElementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableElementView.swift; sourceTree = "<group>"; };
-		14E5C1C6202605270039A9A7 /* DateTableElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableElement.swift; sourceTree = "<group>"; };
-		14E5C1C7202605270039A9A7 /* DateTableElementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableElementView.swift; sourceTree = "<group>"; };
-		14E5C1C8202605270039A9A7 /* TableElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableElement.swift; sourceTree = "<group>"; };
-		14E5C1C9202605270039A9A7 /* TableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
 		14E5C1CB202605270039A9A7 /* PriceComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponent.swift; sourceTree = "<group>"; };
 		14E5C1CC202605270039A9A7 /* PriceComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponentView.swift; sourceTree = "<group>"; };
 		14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallToActionButtonComponentView.swift; sourceTree = "<group>"; };
@@ -118,6 +110,12 @@
 		14E5C211202605440039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C21C202605DC0039A9A7 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		14E5C21E202607660039A9A7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		440E315E20277AA400D75114 /* DateListComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateListComponent.swift; sourceTree = "<group>"; };
+		440E315F20277AA400D75114 /* DateListComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateListComponentView.swift; sourceTree = "<group>"; };
+		440E316120277AA400D75114 /* TextListComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextListComponent.swift; sourceTree = "<group>"; };
+		440E316220277AA400D75114 /* TextListComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextListComponentView.swift; sourceTree = "<group>"; };
+		440E316820277C6200D75114 /* SeparatorComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorComponentView.swift; sourceTree = "<group>"; };
+		440E316920277C6200D75114 /* SeparatorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				14A69A1520261D24002D9DC1 /* Component.swift */,
-				14E5C1BF202605270039A9A7 /* Table */,
+				440E316720277C6200D75114 /* Separator */,
+				440E315C20277AA400D75114 /* List */,
 				14E5C1CA202605270039A9A7 /* Price */,
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
 				14E5C1D4202605270039A9A7 /* IconButton */,
@@ -212,44 +211,6 @@
 				14E5C1BD202605270039A9A7 /* PhoneNumberComponent.swift */,
 			);
 			path = PhoneNumber;
-			sourceTree = "<group>";
-		};
-		14E5C1BF202605270039A9A7 /* Table */ = {
-			isa = PBXGroup;
-			children = (
-				14E5C1C9202605270039A9A7 /* TableComponent.swift */,
-				14E5C1C0202605270039A9A7 /* TableComponentView.swift */,
-				14E5C1C1202605270039A9A7 /* Elements */,
-			);
-			path = Table;
-			sourceTree = "<group>";
-		};
-		14E5C1C1202605270039A9A7 /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-				14E5C1C8202605270039A9A7 /* TableElement.swift */,
-				14E5C1C2202605270039A9A7 /* TextTableElement */,
-				14E5C1C5202605270039A9A7 /* DateTableElement */,
-			);
-			path = Elements;
-			sourceTree = "<group>";
-		};
-		14E5C1C2202605270039A9A7 /* TextTableElement */ = {
-			isa = PBXGroup;
-			children = (
-				14E5C1C3202605270039A9A7 /* TextTableElement.swift */,
-				14E5C1C4202605270039A9A7 /* TextTableElementView.swift */,
-			);
-			path = TextTableElement;
-			sourceTree = "<group>";
-		};
-		14E5C1C5202605270039A9A7 /* DateTableElement */ = {
-			isa = PBXGroup;
-			children = (
-				14E5C1C6202605270039A9A7 /* DateTableElement.swift */,
-				14E5C1C7202605270039A9A7 /* DateTableElementView.swift */,
-			);
-			path = DateTableElement;
 			sourceTree = "<group>";
 		};
 		14E5C1CA202605270039A9A7 /* Price */ = {
@@ -298,6 +259,42 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		440E315C20277AA400D75114 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				440E316020277AA400D75114 /* Text */,
+				440E315D20277AA400D75114 /* Date */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		440E315D20277AA400D75114 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				440E315E20277AA400D75114 /* DateListComponent.swift */,
+				440E315F20277AA400D75114 /* DateListComponentView.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		440E316020277AA400D75114 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				440E316120277AA400D75114 /* TextListComponent.swift */,
+				440E316220277AA400D75114 /* TextListComponentView.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		440E316720277C6200D75114 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				440E316920277C6200D75114 /* SeparatorComponent.swift */,
+				440E316820277C6200D75114 /* SeparatorComponentView.swift */,
+			);
+			path = Separator;
 			sourceTree = "<group>";
 		};
 		44CAE2C91FE26C9F00F8AA9B = {
@@ -484,25 +481,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E5C1EE202605270039A9A7 /* DateTableElementView.swift in Sources */,
-				14E5C1ED202605270039A9A7 /* DateTableElement.swift in Sources */,
 				14E5C1F1202605270039A9A7 /* PriceComponent.swift in Sources */,
-				14E5C1EB202605270039A9A7 /* TextTableElement.swift in Sources */,
 				14E5C1F2202605270039A9A7 /* PriceComponentView.swift in Sources */,
 				14E5C1E7202605270039A9A7 /* PhoneNumberComponentView.swift in Sources */,
+				440E316620277AA400D75114 /* TextListComponentView.swift in Sources */,
 				14E5C1DE202605270039A9A7 /* CGFloat+Components.swift in Sources */,
 				14E5C1E3202605270039A9A7 /* CollapsableDescriptionComponentView.swift in Sources */,
 				14E5C1E1202605270039A9A7 /* UIColor+Components.swift in Sources */,
-				14E5C1EC202605270039A9A7 /* TextTableElementView.swift in Sources */,
+				440E316320277AA400D75114 /* DateListComponent.swift in Sources */,
 				14E5C1FA202605270039A9A7 /* IconButtonComponent.swift in Sources */,
 				14E5C1E8202605270039A9A7 /* PhoneNumberComponent.swift in Sources */,
-				14E5C1EF202605270039A9A7 /* TableElement.swift in Sources */,
+				440E316A20277C6200D75114 /* SeparatorComponentView.swift in Sources */,
 				14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */,
+				440E316420277AA400D75114 /* DateListComponentView.swift in Sources */,
+				440E316B20277C6200D75114 /* SeparatorComponent.swift in Sources */,
+				440E316520277AA400D75114 /* TextListComponent.swift in Sources */,
 				14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */,
 				14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */,
-				14E5C1EA202605270039A9A7 /* TableComponentView.swift in Sources */,
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
-				14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */,
 				14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */,
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
