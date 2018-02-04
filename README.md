@@ -1,6 +1,6 @@
 <p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Smash/master/GitHub/cover-v2.png"></p>
 
-A simple and declarative library to display the details of an element. In FINN we use it to display the detail of our ads, but it can be easily repurposed to display book details, recipe details, etc.
+A simple and declarative library to display the details of an element. Even though we use it at FINN to display the details of our ads, we have create this library so it can be easily repurposed to display book details, recipe details, etc.
 
 ## Getting started
 
