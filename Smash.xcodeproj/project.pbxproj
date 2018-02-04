@@ -46,7 +46,6 @@
 		14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21C202605DC0039A9A7 /* DemoViewController.swift */; };
 		14E5C21F202607660039A9A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21E202607660039A9A7 /* CustomView.swift */; };
-		44B721952026EF5B008FCF0C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B721942026EF5B008FCF0C /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +122,6 @@
 		14E5C211202605440039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C21C202605DC0039A9A7 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		14E5C21E202607660039A9A7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		44B721942026EF5B008FCF0C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,7 +303,6 @@
 				14E5C20E202605440039A9A7 /* LaunchScreen.storyboard */,
 				14E5C211202605440039A9A7 /* Info.plist */,
 				1486CC04202619AF0016E75D /* Helpers.swift */,
-				44B721942026EF5B008FCF0C /* Image.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 				14E5C206202605440039A9A7 /* AppDelegate.swift in Sources */,
 				14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */,
 				1486CC05202619AF0016E75D /* Helpers.swift in Sources */,
-				44B721952026EF5B008FCF0C /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

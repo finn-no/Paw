@@ -116,7 +116,9 @@ public class GalleryComponentView: UIView {
             }
 
             delegate?.galleryComponentView(self, stringURL: stringURL) { image in
-                imageView?.image = image ?? self.component?.placeholder
+                DispatchQueue.main.async {
+                    imageView?.image = image ?? self.component?.placeholder
+                }
             }
         }
     }
