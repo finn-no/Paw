@@ -4,8 +4,13 @@
 
 import UIKit
 
+protocol GalleryComponentViewDelegate: class {
+    func galleryComponentView(_ galleryComponentView: GalleryComponentView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void)
+}
+
 public class GalleryComponentView: UIView {
-    fileprivate let defaultHeight: CGFloat = 250
+    weak var delegate: GalleryComponentViewDelegate?
+    fileprivate let defaultHeight: CGFloat = 300
     fileprivate var shoudEvaluatePageChange = false
     fileprivate var currentPage: Int = 0
 
@@ -50,7 +55,7 @@ public class GalleryComponentView: UIView {
             subview.removeFromSuperview()
         }
 
-        component.loadables.forEach { _ in
+        component.stringURLs.forEach { _ in
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleAspectFit
@@ -98,24 +103,20 @@ public class GalleryComponentView: UIView {
     }
 
     fileprivate func loadPage(_ page: Int) {
-        let numPages = component?.loadables.count ?? 0
+        let numPages = component?.stringURLs.count ?? 0
         if page >= numPages || page < 0 {
-            return
-        }
-
-        guard let loadable = component?.loadables[page] else {
             return
         }
 
         if horizontalStackView.arrangedSubviews.count > page {
             let imageView = horizontalStackView.arrangedSubviews[page] as? UIImageView
-            loadable.load { result in
-                switch result {
-                case let .success(image):
-                    imageView?.image = image
-                case .failure:
-                    imageView?.image = nil
-                }
+            guard let stringURL = component?.stringURLs[page] else {
+                imageView?.image = nil
+                return
+            }
+
+            delegate?.galleryComponentView(self, stringURL: stringURL) { image in
+                imageView?.image = image ?? self.component?.placeholder
             }
         }
     }

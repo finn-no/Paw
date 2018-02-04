@@ -46,7 +46,6 @@
 		14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21C202605DC0039A9A7 /* DemoViewController.swift */; };
 		14E5C21F202607660039A9A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21E202607660039A9A7 /* CustomView.swift */; };
-		44B721932026ECFE008FCF0C /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B721922026ECFE008FCF0C /* Loadable.swift */; };
 		44B721952026EF5B008FCF0C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B721942026EF5B008FCF0C /* Image.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,7 +123,6 @@
 		14E5C211202605440039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C21C202605DC0039A9A7 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		14E5C21E202607660039A9A7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
-		44B721922026ECFE008FCF0C /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		44B721942026EF5B008FCF0C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,7 +158,6 @@
 			children = (
 				144728D520264B4C001D4835 /* GalleryComponent.swift */,
 				144728D720264B61001D4835 /* GalleryComponentView.swift */,
-				44B721922026ECFE008FCF0C /* Loadable.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -521,7 +518,6 @@
 				14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */,
 				14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */,
 				14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */,
-				44B721932026ECFE008FCF0C /* Loadable.swift in Sources */,
 				14E5C1EA202605270039A9A7 /* TableComponentView.swift in Sources */,
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
 				14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */,
