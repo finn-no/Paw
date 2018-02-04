@@ -82,8 +82,8 @@ public class CollapsableDescriptionComponentView: UIView {
 
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: topAnchor),
-            descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            descriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
         ])
     }
 
@@ -139,12 +139,12 @@ public class CollapsableDescriptionComponentView: UIView {
 
             showWholeDescriptionButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor),
             showWholeDescriptionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            showWholeDescriptionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            showWholeDescriptionButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -.mediumLargeSpacing),
 
             gradientView.bottomAnchor.constraint(equalTo: showWholeDescriptionButton.topAnchor),
-            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            gradientView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            gradientView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
             gradientHeightConstraint,
         ])
     }

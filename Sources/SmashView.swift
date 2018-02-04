@@ -83,50 +83,54 @@ public class SmashView: UIView {
         var previousStackView: UIStackView?
 
         for (rowIndex, componentRow) in components.enumerated() {
-            let componentStackView = setupStackView()
+            let rowStackView = UIStackView()
+            rowStackView.translatesAutoresizingMaskIntoConstraints = false
+            rowStackView.axis = .horizontal
+            rowStackView.distribution = .fillProportionally
+            rowStackView.spacing = .mediumSpacing
 
             for component in componentRow {
                 if let componentView = viewComponent(for: component, in: self) {
-                    componentStackView.addArrangedSubview(componentView)
+                    rowStackView.addArrangedSubview(componentView)
                 }
             }
 
-            if componentStackView.arrangedSubviews.count > 0 {
-                contentView.addSubview(componentStackView)
+            if rowStackView.arrangedSubviews.count > 0 {
+                contentView.addSubview(rowStackView)
 
                 NSLayoutConstraint.activate([
-                    componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-                    componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+                    rowStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                    rowStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 ])
 
                 if components.count == 1 {
                     NSLayoutConstraint.activate([
-                        componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                        rowStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                        rowStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                     ])
                 } else {
                     switch rowIndex {
                     case 0:
                         NSLayoutConstraint.activate([
-                            componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                            rowStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
                         ])
                     case components.count - 1:
                         guard let previousStackView = previousStackView else {
                             fatalError()
                         }
                         NSLayoutConstraint.activate([
-                            componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                            componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
+                            rowStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                            rowStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
                         ])
                     default:
                         guard let previousStackView = previousStackView else {
                             fatalError()
                         }
                         NSLayoutConstraint.activate([
-                            componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                            rowStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
                         ])
                     }
-                    previousStackView = componentStackView
+                    previousStackView = rowStackView
                 }
             }
         }
@@ -170,18 +174,6 @@ public class SmashView: UIView {
             return listComponentView
         default: return nil
         }
-    }
-
-    func setupStackView() -> UIStackView {
-        let stackView: UIStackView = {
-            let view = UIStackView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.axis = .horizontal
-            view.distribution = .fillProportionally
-            view.spacing = .mediumSpacing
-            return view
-        }()
-        return stackView
     }
 }
 

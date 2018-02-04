@@ -56,12 +56,12 @@ public class PhoneNumberComponentView: UIView {
 
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: topAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
             descriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: numberButton.leadingAnchor, constant: -.mediumLargeSpacing),
             descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             numberButton.topAnchor.constraint(equalTo: topAnchor),
-            numberButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            numberButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
             numberButton.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }

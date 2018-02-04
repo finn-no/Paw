@@ -59,12 +59,12 @@ public class CallToActionButtonComponentView: UIView {
 
         NSLayoutConstraint.activate([
             callToActionButton.topAnchor.constraint(equalTo: topAnchor),
-            callToActionButton.leadingAnchor.constraint(equalTo: leadingAnchor),
-            callToActionButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+            callToActionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            callToActionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
 
             subtitleLabel.topAnchor.constraint(equalTo: callToActionButton.bottomAnchor, constant: .mediumSpacing),
-            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
             subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
