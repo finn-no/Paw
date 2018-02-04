@@ -4,11 +4,11 @@
 
 import UIKit
 
-protocol IconButtonComponentViewDelegate: class {
-    func iconButtonComponentView(_ iconButtonComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent)
+protocol LinkComponentViewDelegate: class {
+    func linkComponentView(_ linkComponentView: LinkComponentView, didTapButtonFor component: LinkComponent)
 }
 
-public class IconButtonComponentView: UIView {
+public class LinkComponentView: UIView {
     private let imageHeight: CGFloat = 20
     private let imageWidth: CGFloat = 20
 
@@ -31,13 +31,31 @@ public class IconButtonComponentView: UIView {
         return imageView
     }()
 
-    weak var delegate: IconButtonComponentViewDelegate?
+    weak var delegate: LinkComponentViewDelegate?
 
-    var component: IconButtonComponent? {
+    var component: LinkComponent? {
         didSet {
-            button.setTitle(component?.buttonTitle, for: .normal)
-            iconImageView.image = component?.iconImage
-            accessibilityLabel = component?.buttonTitle
+            button.setTitle(component?.title, for: .normal)
+            accessibilityLabel = component?.title
+
+            iconImageView.image = component?.iconImage ?? nil
+            iconImageView.isHidden = (component?.iconImage == nil)
+
+            if let _ = component?.iconImage {
+                NSLayoutConstraint.activate([
+                    iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+                    iconImageView.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -.mediumSpacing),
+
+                    button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -.mediumLargeSpacing),
+                ])
+            } else {
+                iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing).isActive = false
+                iconImageView.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -.mediumSpacing).isActive = false
+
+                NSLayoutConstraint.activate([
+                    button.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor, constant: .mediumLargeSpacing),
+                ])
+            }
         }
     }
 
@@ -61,14 +79,11 @@ public class IconButtonComponentView: UIView {
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor),
             iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
-            iconImageView.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -.mediumSpacing),
             iconImageView.heightAnchor.constraint(equalToConstant: imageHeight),
             iconImageView.widthAnchor.constraint(equalToConstant: imageWidth),
 
             button.topAnchor.constraint(equalTo: topAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
-            button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -.mediumLargeSpacing),
         ])
     }
 
@@ -76,6 +91,6 @@ public class IconButtonComponentView: UIView {
         guard let component = component, let delegate = delegate else {
             return
         }
-        delegate.iconButtonComponentView(self, didTapButtonFor: component)
+        delegate.linkComponentView(self, didTapButtonFor: component)
     }
 }

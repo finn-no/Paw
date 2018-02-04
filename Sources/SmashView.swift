@@ -18,15 +18,15 @@ public protocol CallToActionButtonSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapSendMessageFor component: CallToActionButtonComponent)
 }
 
-public protocol IconButtonSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent)
+public protocol LinkSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent)
 }
 
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
-    public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
+    public weak var linkDelegate: LinkSmashViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -150,11 +150,11 @@ public class SmashView: UIView {
             listComponentView.delegate = smashView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
-        case is IconButtonComponent:
-            let listComponentView = IconButtonComponentView()
+        case is LinkComponent:
+            let listComponentView = LinkComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = smashView
-            listComponentView.component = component as? IconButtonComponent
+            listComponentView.component = component as? LinkComponent
             return listComponentView
         case is CollapsableDescriptionComponent:
             let listComponentView = CollapsableDescriptionComponentView()
@@ -193,9 +193,9 @@ extension SmashView: PhoneNumberComponentViewDelegate {
     }
 }
 
-extension SmashView: IconButtonComponentViewDelegate {
-    func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
-        iconButtonDelegate?.smashView(self, didTapButtonFor: component)
+extension SmashView: LinkComponentViewDelegate {
+    func linkComponentView(_ adressComponentView: LinkComponentView, didTapButtonFor component: LinkComponent) {
+        linkDelegate?.smashView(self, didTapButtonFor: component)
     }
 }
 
