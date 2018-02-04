@@ -6,12 +6,12 @@ import Foundation
 
 public struct GalleryComponent: Component {
     public let id: String
-    public let stringURLs: [String]
     public let placeholder: UIImage
+    public let stringURLs: [String]
 
-    public init(id: String = UUID().uuidString, stringURLs: [String], placeholder: UIImage) {
+    public init(id: String = UUID().uuidString, placeholder: UIImage, stringURLs: [String]) {
         self.id = id
-        self.stringURLs = stringURLs
         self.placeholder = placeholder
+        self.stringURLs = stringURLs
     }
 }
