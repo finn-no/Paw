@@ -44,6 +44,8 @@
 		14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21C202605DC0039A9A7 /* DemoViewController.swift */; };
 		14E5C21F202607660039A9A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21E202607660039A9A7 /* CustomView.swift */; };
+		44902F18202727AC00469DD7 /* TitleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44902F16202727AC00469DD7 /* TitleComponent.swift */; };
+		44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44902F17202727AC00469DD7 /* TitleComponentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,8 @@
 		14E5C211202605440039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C21C202605DC0039A9A7 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		14E5C21E202607660039A9A7 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		44902F16202727AC00469DD7 /* TitleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleComponent.swift; sourceTree = "<group>"; };
+		44902F17202727AC00469DD7 /* TitleComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleComponentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				14A69A1520261D24002D9DC1 /* Component.swift */,
+				44902F15202727AC00469DD7 /* Title */,
 				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
@@ -298,6 +303,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44902F15202727AC00469DD7 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				44902F16202727AC00469DD7 /* TitleComponent.swift */,
+				44902F17202727AC00469DD7 /* TitleComponentView.swift */,
+			);
+			path = Title;
 			sourceTree = "<group>";
 		};
 		44CAE2C91FE26C9F00F8AA9B = {
@@ -504,7 +518,9 @@
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
 				14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */,
 				14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */,
+				44902F18202727AC00469DD7 /* TitleComponent.swift in Sources */,
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
+				44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
 				14E5C1E4202605270039A9A7 /* CollapsableDescriptionComponent.swift in Sources */,
 			);

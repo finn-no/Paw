@@ -12,7 +12,7 @@ public extension UIFont {
     }
 
     public static var title2: UIFont {
-        let font = UIFont(name: "FINNTypeWebStrippet-Light", size: 28) ?? UIFont.systemFont(ofSize: 28, weight: .light)
+        let font = UIFont(name: "FINNTypeWebStrippet-Medium", size: 24) ?? UIFont.systemFont(ofSize: 24, weight: .medium)
 
         return font.scaledFont(forTextStyle: .title2)
     }
