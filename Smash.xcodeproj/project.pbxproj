@@ -12,8 +12,7 @@
 		14A69A18202629B0002D9DC1 /* PhoneNumberComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */; };
 		14E5C195202604BB0039A9A7 /* Smash.h in Headers */ = {isa = PBXBuildFile; fileRef = 14E5C193202604BB0039A9A7 /* Smash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14E5C1A0202604F60039A9A7 /* Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; };
-		14E5C1A92026050B0039A9A7 /* TextTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A62026050B0039A9A7 /* TextTableComponentTests.swift */; };
-		14E5C1AA2026050B0039A9A7 /* DateTableComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A72026050B0039A9A7 /* DateTableComponentTests.swift */; };
+		14E5C1AA2026050B0039A9A7 /* DateListComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A72026050B0039A9A7 /* DateListComponentTests.swift */; };
 		14E5C1AB2026050B0039A9A7 /* PriceComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */; };
 		14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1AD202605260039A9A7 /* SmashView.swift */; };
 		14E5C1DE202605270039A9A7 /* CGFloat+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B0202605270039A9A7 /* CGFloat+Components.swift */; };
@@ -85,8 +84,7 @@
 		14E5C194202604BB0039A9A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C19B202604F60039A9A7 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E5C19F202604F60039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14E5C1A62026050B0039A9A7 /* TextTableComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableComponentTests.swift; sourceTree = "<group>"; };
-		14E5C1A72026050B0039A9A7 /* DateTableComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableComponentTests.swift; sourceTree = "<group>"; };
+		14E5C1A72026050B0039A9A7 /* DateListComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateListComponentTests.swift; sourceTree = "<group>"; };
 		14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponentTests.swift; sourceTree = "<group>"; };
 		14E5C1AD202605260039A9A7 /* SmashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmashView.swift; sourceTree = "<group>"; };
 		14E5C1B0202605270039A9A7 /* CGFloat+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Components.swift"; sourceTree = "<group>"; };
@@ -160,9 +158,8 @@
 		14E5C19C202604F60039A9A7 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C1A72026050B0039A9A7 /* DateTableComponentTests.swift */,
+				14E5C1A72026050B0039A9A7 /* DateListComponentTests.swift */,
 				14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */,
-				14E5C1A62026050B0039A9A7 /* TextTableComponentTests.swift */,
 				14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */,
 				14E5C19F202604F60039A9A7 /* Info.plist */,
 			);
@@ -511,8 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14E5C1AB2026050B0039A9A7 /* PriceComponentTests.swift in Sources */,
-				14E5C1A92026050B0039A9A7 /* TextTableComponentTests.swift in Sources */,
-				14E5C1AA2026050B0039A9A7 /* DateTableComponentTests.swift in Sources */,
+				14E5C1AA2026050B0039A9A7 /* DateListComponentTests.swift in Sources */,
 				14A69A18202629B0002D9DC1 /* PhoneNumberComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
