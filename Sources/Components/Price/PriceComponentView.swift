@@ -35,15 +35,13 @@ public class PriceComponentView: UIView {
 
             let statusIsEmpty = component.status?.isEmpty ?? false
             if statusIsEmpty {
-                priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor).isActive = true
+                priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -.mediumLargeSpacing).isActive = true
             } else {
-                addSubview(statusLabel)
-
                 NSLayoutConstraint.activate([
                     statusLabel.topAnchor.constraint(equalTo: topAnchor),
                     statusLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
                     statusLabel.leadingAnchor.constraint(greaterThanOrEqualTo: priceLabel.trailingAnchor, constant: .mediumLargeSpacing),
-                    statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+                    statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
                 ])
             }
         }
@@ -61,13 +59,14 @@ public class PriceComponentView: UIView {
 
     private func setup() {
         addSubview(priceLabel)
+        addSubview(statusLabel)
 
         isAccessibilityElement = true
 
         NSLayoutConstraint.activate([
             priceLabel.topAnchor.constraint(equalTo: topAnchor),
             priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
         ])
     }
 }

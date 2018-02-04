@@ -61,14 +61,14 @@ public class IconButtonComponentView: UIView {
         NSLayoutConstraint.activate([
             iconImageView.topAnchor.constraint(equalTo: topAnchor),
             iconImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
             iconImageView.trailingAnchor.constraint(equalTo: button.leadingAnchor, constant: -.mediumSpacing),
             iconImageView.heightAnchor.constraint(equalToConstant: imageHeight),
             iconImageView.widthAnchor.constraint(equalToConstant: imageWidth),
 
             button.topAnchor.constraint(equalTo: topAnchor),
             button.bottomAnchor.constraint(equalTo: bottomAnchor),
-            button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+            button.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -.mediumLargeSpacing),
         ])
     }
 

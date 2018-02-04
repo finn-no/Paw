@@ -198,8 +198,8 @@
 		14E5C1B4202605270039A9A7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				144728D420264B4C001D4835 /* Gallery */,
 				14A69A1520261D24002D9DC1 /* Component.swift */,
+				144728D420264B4C001D4835 /* Gallery */,
 				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,

@@ -39,8 +39,8 @@ public class TableComponentView: UIView {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
         ])
     }
 
@@ -51,8 +51,12 @@ public class TableComponentView: UIView {
             if let componentView = viewComponent(for: component, in: self) {
                 stackView.addArrangedSubview(componentView)
                 stackView.addArrangedSubview(separatorView)
-                separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-                separatorView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+
+                NSLayoutConstraint.activate([
+                    separatorView.heightAnchor.constraint(equalToConstant: 1),
+                    separatorView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+                    separatorView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+                ])
             }
         }
         if let lastView = stackView.arrangedSubviews.last {
