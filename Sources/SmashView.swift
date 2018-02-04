@@ -9,10 +9,6 @@ public protocol SmashViewDataSource: class {
     func customComponentView(for component: Component, in smashView: SmashView) -> UIView?
 }
 
-public protocol GallerySmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, imageForURL url: String) -> UIImage?
-}
-
 public protocol PhoneNumberSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
     func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
@@ -28,7 +24,6 @@ public protocol IconButtonSmashViewDelegate: class {
 
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
-    public weak var galleryDelegate: GallerySmashViewDelegate?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
     public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
@@ -146,7 +141,6 @@ public class SmashView: UIView {
         case is GalleryComponent:
             let galleryComponentView = GalleryComponentView()
             galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
-            galleryComponentView.delegate = self
             galleryComponentView.component = component as? GalleryComponent
             return galleryComponentView
         case is CallToActionButtonComponent:
@@ -185,12 +179,6 @@ public class SmashView: UIView {
             return listComponentView
         default: return nil
         }
-    }
-}
-
-extension SmashView: GalleryComponentViewDelegate {
-    func galleryComponentView(_ galleryComponentView: GalleryComponentView, imageForURL url: String) -> UIImage? {
-        return galleryDelegate?.smashView(self, imageForURL: url)
     }
 }
 

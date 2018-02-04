@@ -6,10 +6,10 @@ import Foundation
 
 public struct GalleryComponent: Component {
     public let id: String
-    public let urls: [String]
+    public let loadables: [Loadable]
 
-    public init(id: String = UUID().uuidString, urls: [String]) {
+    public init(id: String = UUID().uuidString, loadables: [Loadable]) {
         self.id = id
-        self.urls = urls
+        self.loadables = loadables
     }
 }

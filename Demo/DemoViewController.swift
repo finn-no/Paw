@@ -28,10 +28,17 @@ class DemoViewController: UIViewController {
         ]
     }()
 
+    let loadables: [Loadable] = {
+        return [
+            Image(url: URL(string: "https://images.finncdn.no/dynamic/480x360c/2017/9/vertical-5/30/5/105/424/_1263219766.jpg")!, placeholder: UIImage()),
+            Image(url: URL(string: "https://images.finncdn.no/dynamic/480x360c/2017/7/vertical-2/19/3/100/464/_1229205040.jpg")!, placeholder: UIImage()),
+        ]
+    }()
+
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
-            [GalleryComponent(urls: ["https://images.finncdn.no/dynamic/480x360c/2017/9/vertical-5/30/5/105/424/_1263219766.jpg", "https://images.finncdn.no/dynamic/480x360c/2017/7/vertical-2/19/3/100/464/_1229205040.jpg"])],
+            [GalleryComponent(loadables: loadables)],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
@@ -84,7 +91,6 @@ class DemoViewController: UIViewController {
 
         smashView.dataSource = self
 
-        smashView.galleryDelegate = self
         smashView.phoneNumberDelegate = self
         smashView.callToActionButtonDelegate = self
         smashView.iconButtonDelegate = self
@@ -113,12 +119,6 @@ extension DemoViewController: SmashViewDataSource {
         case "custom1": return CustomView()
         default: return nil
         }
-    }
-}
-
-extension DemoViewController: GallerySmashViewDelegate {
-    func smashView(_ smashView: SmashView, imageForURL url: String) -> UIImage? {
-        return favoriteImage
     }
 }
 
