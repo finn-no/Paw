@@ -22,11 +22,16 @@ public protocol IconButtonSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent)
 }
 
+public protocol PhoneNumberListSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberListComponent)
+}
+
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
     public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
+    public weak var phoneNumberListDelegate: PhoneNumberListSmashViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -182,6 +187,12 @@ public class SmashView: UIView {
             dateListComponentView.translatesAutoresizingMaskIntoConstraints = false
             dateListComponentView.component = component as? DateListComponent
             return dateListComponentView
+        case is PhoneNumberListComponent:
+            let phoneNumberListComponentView = PhoneNumberListComponentView()
+            phoneNumberListComponentView.translatesAutoresizingMaskIntoConstraints = false
+            phoneNumberListComponentView.delegate = smashView
+            phoneNumberListComponentView.component = component as? PhoneNumberListComponent
+            return phoneNumberListComponentView
         default: return nil
         }
     }
@@ -236,5 +247,11 @@ extension SmashView: CollapsableDescriptionComponentViewDelegate {
                 collapsableDescriptionComponentView.setButtonShowing(showing: true)
             })
         }
+    }
+}
+
+extension SmashView: PhoneNumberListComponentViewDelegate {
+    func phoneNumberListComponentView(_ phoneNumberListComponentView: PhoneNumberListComponentView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
+        phoneNumberListDelegate?.smashView(self, didTapPhoneNumberFor: component)
     }
 }

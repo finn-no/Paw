@@ -42,6 +42,8 @@
 		440E316620277AA400D75114 /* TextListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316220277AA400D75114 /* TextListComponentView.swift */; };
 		440E316A20277C6200D75114 /* SeparatorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316820277C6200D75114 /* SeparatorComponentView.swift */; };
 		440E316B20277C6200D75114 /* SeparatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316920277C6200D75114 /* SeparatorComponent.swift */; };
+		440E316F2027889300D75114 /* PhoneNumberListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316D2027889200D75114 /* PhoneNumberListComponentView.swift */; };
+		440E31702027889300D75114 /* PhoneNumberListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316E2027889200D75114 /* PhoneNumberListComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		440E316220277AA400D75114 /* TextListComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextListComponentView.swift; sourceTree = "<group>"; };
 		440E316820277C6200D75114 /* SeparatorComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorComponentView.swift; sourceTree = "<group>"; };
 		440E316920277C6200D75114 /* SeparatorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorComponent.swift; sourceTree = "<group>"; };
+		440E316D2027889200D75114 /* PhoneNumberListComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberListComponentView.swift; sourceTree = "<group>"; };
+		440E316E2027889200D75114 /* PhoneNumberListComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberListComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +265,7 @@
 		440E315C20277AA400D75114 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				440E316C2027889200D75114 /* PhoneNumber */,
 				440E316020277AA400D75114 /* Text */,
 				440E315D20277AA400D75114 /* Date */,
 			);
@@ -292,6 +297,15 @@
 				440E316820277C6200D75114 /* SeparatorComponentView.swift */,
 			);
 			path = Separator;
+			sourceTree = "<group>";
+		};
+		440E316C2027889200D75114 /* PhoneNumber */ = {
+			isa = PBXGroup;
+			children = (
+				440E316E2027889200D75114 /* PhoneNumberListComponent.swift */,
+				440E316D2027889200D75114 /* PhoneNumberListComponentView.swift */,
+			);
+			path = PhoneNumber;
 			sourceTree = "<group>";
 		};
 		44CAE2C91FE26C9F00F8AA9B = {
@@ -495,7 +509,9 @@
 				440E316520277AA400D75114 /* TextListComponent.swift in Sources */,
 				14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */,
 				14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */,
+				440E316F2027889300D75114 /* PhoneNumberListComponentView.swift in Sources */,
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
+				440E31702027889300D75114 /* PhoneNumberListComponent.swift in Sources */,
 				14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */,
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,

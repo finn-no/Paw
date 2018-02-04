@@ -35,6 +35,8 @@ class DemoViewController: UIViewController {
             [TextListComponent(title: "FINN-kode", detail: "123456789")],
             [SeparatorComponent()],
             [DateListComponent(title: "Sist endret", date: Date())],
+            [SeparatorComponent()],
+            [PhoneNumberListComponent(title: "Mobil", phoneNumber: "12345678")],
         ]
     }
 
@@ -81,6 +83,7 @@ class DemoViewController: UIViewController {
         smashView.phoneNumberDelegate = self
         smashView.callToActionButtonDelegate = self
         smashView.iconButtonDelegate = self
+        smashView.phoneNumberListDelegate = self
 
         smashView.reloadData()
     }
@@ -130,6 +133,13 @@ extension DemoViewController: CallToActionButtonSmashViewDelegate {
 extension DemoViewController: IconButtonSmashViewDelegate {
     func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DemoViewController: PhoneNumberListSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
+        let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
 }
