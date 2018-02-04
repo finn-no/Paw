@@ -199,8 +199,8 @@
 		14E5C1B6202605270039A9A7 /* Description */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C1B7202605270039A9A7 /* DescriptionComponentView.swift */,
 				14E5C1B8202605270039A9A7 /* DescriptionComponent.swift */,
+				14E5C1B7202605270039A9A7 /* DescriptionComponentView.swift */,
 			);
 			path = Description;
 			sourceTree = "<group>";

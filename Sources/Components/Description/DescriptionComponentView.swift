@@ -10,6 +10,8 @@ protocol DescriptionComponentViewDelegate: class {
 }
 
 public class DescriptionComponentView: UIView {
+    weak var delegate: DescriptionComponentViewDelegate?
+
     private var textHeightConstraint = NSLayoutConstraint()
     private var gradientHeightConstraint = NSLayoutConstraint()
     private var gradientLayer: CAGradientLayer?
@@ -52,17 +54,24 @@ public class DescriptionComponentView: UIView {
         return button
     }()
 
-    weak var delegate: DescriptionComponentViewDelegate?
     var component: DescriptionComponent? {
         didSet {
-            descriptionTextView.attributedText = component?.text
-            showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
-            descriptionTextView.accessibilityAttributedLabel = component?.text
+            guard let component = component else {
+                return
+            }
 
-            if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
-                descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            descriptionTextView.attributedText = component.text
+            showWholeDescriptionButton.setTitle(component.titleShow, for: .normal)
+            descriptionTextView.accessibilityAttributedLabel = component.text
+
+            if component.isCollapsable {
+                if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
+                    descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+                } else {
+                    setupButton()
+                }
             } else {
-                setupButton()
+                descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
             }
         }
     }
