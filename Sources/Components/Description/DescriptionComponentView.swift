@@ -4,12 +4,12 @@
 
 import UIKit
 
-protocol CollapsableDescriptionComponentViewDelegate: class {
-    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent)
-    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent)
+protocol DescriptionComponentViewDelegate: class {
+    func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapExpandDescriptionFor component: DescriptionComponent)
+    func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapHideDescriptionFor component: DescriptionComponent)
 }
 
-public class CollapsableDescriptionComponentView: UIView {
+public class DescriptionComponentView: UIView {
     private var textHeightConstraint = NSLayoutConstraint()
     private var gradientHeightConstraint = NSLayoutConstraint()
     private var gradientLayer: CAGradientLayer?
@@ -52,8 +52,8 @@ public class CollapsableDescriptionComponentView: UIView {
         return button
     }()
 
-    weak var delegate: CollapsableDescriptionComponentViewDelegate?
-    var component: CollapsableDescriptionComponent? {
+    weak var delegate: DescriptionComponentViewDelegate?
+    var component: DescriptionComponent? {
         didSet {
             descriptionTextView.attributedText = component?.text
             showWholeDescriptionButton.setTitle(component?.titleShow, for: .normal)
@@ -96,14 +96,14 @@ public class CollapsableDescriptionComponentView: UIView {
             textHeightConstraint.isActive = true
             gradientHeightConstraint.isActive = true
 
-            delegate.collapsableDescriptionComponentView(self, didTapHideDescriptionFor: component)
+            delegate.descriptionComponentView(self, didTapHideDescriptionFor: component)
             isWholeTextShowing = false
         } else {
             textHeightConstraint.isActive = false
             gradientHeightConstraint.isActive = false
             showWholeDescriptionButton.heightAnchor.constraint(equalToConstant: 0).isActive = isHidingCollapseButton
 
-            delegate.collapsableDescriptionComponentView(self, didTapExpandDescriptionFor: component)
+            delegate.descriptionComponentView(self, didTapExpandDescriptionFor: component)
             isWholeTextShowing = true
         }
     }

@@ -20,8 +20,8 @@
 		14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B1202605270039A9A7 /* UIFont+Components.swift */; };
 		14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B2202605270039A9A7 /* UITextView+Components.swift */; };
 		14E5C1E1202605270039A9A7 /* UIColor+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B3202605270039A9A7 /* UIColor+Components.swift */; };
-		14E5C1E3202605270039A9A7 /* CollapsableDescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B7202605270039A9A7 /* CollapsableDescriptionComponentView.swift */; };
-		14E5C1E4202605270039A9A7 /* CollapsableDescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B8202605270039A9A7 /* CollapsableDescriptionComponent.swift */; };
+		14E5C1E3202605270039A9A7 /* DescriptionComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B7202605270039A9A7 /* DescriptionComponentView.swift */; };
+		14E5C1E4202605270039A9A7 /* DescriptionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B8202605270039A9A7 /* DescriptionComponent.swift */; };
 		14E5C1E7202605270039A9A7 /* PhoneNumberComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1BC202605270039A9A7 /* PhoneNumberComponentView.swift */; };
 		14E5C1E8202605270039A9A7 /* PhoneNumberComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1BD202605270039A9A7 /* PhoneNumberComponent.swift */; };
 		14E5C1EA202605270039A9A7 /* TableComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1C0202605270039A9A7 /* TableComponentView.swift */; };
@@ -94,8 +94,8 @@
 		14E5C1B1202605270039A9A7 /* UIFont+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Components.swift"; sourceTree = "<group>"; };
 		14E5C1B2202605270039A9A7 /* UITextView+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Components.swift"; sourceTree = "<group>"; };
 		14E5C1B3202605270039A9A7 /* UIColor+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Components.swift"; sourceTree = "<group>"; };
-		14E5C1B7202605270039A9A7 /* CollapsableDescriptionComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponentView.swift; sourceTree = "<group>"; };
-		14E5C1B8202605270039A9A7 /* CollapsableDescriptionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsableDescriptionComponent.swift; sourceTree = "<group>"; };
+		14E5C1B7202605270039A9A7 /* DescriptionComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionComponentView.swift; sourceTree = "<group>"; };
+		14E5C1B8202605270039A9A7 /* DescriptionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionComponent.swift; sourceTree = "<group>"; };
 		14E5C1BC202605270039A9A7 /* PhoneNumberComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentView.swift; sourceTree = "<group>"; };
 		14E5C1BD202605270039A9A7 /* PhoneNumberComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponent.swift; sourceTree = "<group>"; };
 		14E5C1C0202605270039A9A7 /* TableComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentView.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 				14A69A1520261D24002D9DC1 /* Component.swift */,
 				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
-				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
+				14E5C1B6202605270039A9A7 /* Description */,
 				14E5C1D4202605270039A9A7 /* IconButton */,
 				14E5C1BB202605270039A9A7 /* PhoneNumber */,
 				14E5C1D0202605270039A9A7 /* CallToActionButton */,
@@ -196,13 +196,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		14E5C1B6202605270039A9A7 /* CollapsableDescription */ = {
+		14E5C1B6202605270039A9A7 /* Description */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C1B7202605270039A9A7 /* CollapsableDescriptionComponentView.swift */,
-				14E5C1B8202605270039A9A7 /* CollapsableDescriptionComponent.swift */,
+				14E5C1B7202605270039A9A7 /* DescriptionComponentView.swift */,
+				14E5C1B8202605270039A9A7 /* DescriptionComponent.swift */,
 			);
-			path = CollapsableDescription;
+			path = Description;
 			sourceTree = "<group>";
 		};
 		14E5C1BB202605270039A9A7 /* PhoneNumber */ = {
@@ -491,7 +491,7 @@
 				14E5C1F2202605270039A9A7 /* PriceComponentView.swift in Sources */,
 				14E5C1E7202605270039A9A7 /* PhoneNumberComponentView.swift in Sources */,
 				14E5C1DE202605270039A9A7 /* CGFloat+Components.swift in Sources */,
-				14E5C1E3202605270039A9A7 /* CollapsableDescriptionComponentView.swift in Sources */,
+				14E5C1E3202605270039A9A7 /* DescriptionComponentView.swift in Sources */,
 				14E5C1E1202605270039A9A7 /* UIColor+Components.swift in Sources */,
 				14E5C1EC202605270039A9A7 /* TextTableElementView.swift in Sources */,
 				14E5C1FA202605270039A9A7 /* IconButtonComponent.swift in Sources */,
@@ -506,7 +506,7 @@
 				14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */,
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
-				14E5C1E4202605270039A9A7 /* CollapsableDescriptionComponent.swift in Sources */,
+				14E5C1E4202605270039A9A7 /* DescriptionComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
