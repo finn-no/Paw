@@ -9,6 +9,10 @@ public protocol SmashViewDataSource: class {
     func customComponentView(for component: Component, in smashView: SmashView) -> UIView?
 }
 
+public protocol GallerySmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, imageForURL url: String) -> UIImage?
+}
+
 public protocol PhoneNumberSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
     func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
@@ -24,6 +28,7 @@ public protocol IconButtonSmashViewDelegate: class {
 
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
+    public weak var galleryDelegate: GallerySmashViewDelegate?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
     public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
@@ -83,50 +88,54 @@ public class SmashView: UIView {
         var previousStackView: UIStackView?
 
         for (rowIndex, componentRow) in components.enumerated() {
-            let componentStackView = setupStackView()
+            let rowStackView = UIStackView()
+            rowStackView.translatesAutoresizingMaskIntoConstraints = false
+            rowStackView.axis = .horizontal
+            rowStackView.distribution = .fillProportionally
+            rowStackView.spacing = .mediumSpacing
 
             for component in componentRow {
                 if let componentView = viewComponent(for: component, in: self) {
-                    componentStackView.addArrangedSubview(componentView)
+                    rowStackView.addArrangedSubview(componentView)
                 }
             }
 
-            if componentStackView.arrangedSubviews.count > 0 {
-                contentView.addSubview(componentStackView)
+            if rowStackView.arrangedSubviews.count > 0 {
+                contentView.addSubview(rowStackView)
 
                 NSLayoutConstraint.activate([
-                    componentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                    componentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                    rowStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                    rowStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 ])
 
                 if components.count == 1 {
                     NSLayoutConstraint.activate([
-                        componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-                        componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                        rowStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                        rowStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                     ])
                 } else {
                     switch rowIndex {
                     case 0:
                         NSLayoutConstraint.activate([
-                            componentStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+                            rowStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
                         ])
                     case components.count - 1:
                         guard let previousStackView = previousStackView else {
                             fatalError()
                         }
                         NSLayoutConstraint.activate([
-                            componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
-                            componentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
+                            rowStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                            rowStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumSpacing),
                         ])
                     default:
                         guard let previousStackView = previousStackView else {
                             fatalError()
                         }
                         NSLayoutConstraint.activate([
-                            componentStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
+                            rowStackView.topAnchor.constraint(equalTo: previousStackView.bottomAnchor, constant: .mediumLargeSpacing),
                         ])
                     }
-                    previousStackView = componentStackView
+                    previousStackView = rowStackView
                 }
             }
         }
@@ -137,6 +146,7 @@ public class SmashView: UIView {
         case is GalleryComponent:
             let galleryComponentView = GalleryComponentView()
             galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
+            galleryComponentView.delegate = self
             galleryComponentView.component = component as? GalleryComponent
             return galleryComponentView
         case is CallToActionButtonComponent:
@@ -176,17 +186,11 @@ public class SmashView: UIView {
         default: return nil
         }
     }
+}
 
-    func setupStackView() -> UIStackView {
-        let stackView: UIStackView = {
-            let view = UIStackView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.axis = .horizontal
-            view.distribution = .fillProportionally
-            view.spacing = .mediumSpacing
-            return view
-        }()
-        return stackView
+extension SmashView: GalleryComponentViewDelegate {
+    func galleryComponentView(_ galleryComponentView: GalleryComponentView, imageForURL url: String) -> UIImage? {
+        return galleryDelegate?.smashView(self, imageForURL: url)
     }
 }
 

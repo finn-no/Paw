@@ -84,6 +84,7 @@ class DemoViewController: UIViewController {
 
         smashView.dataSource = self
 
+        smashView.galleryDelegate = self
         smashView.phoneNumberDelegate = self
         smashView.callToActionButtonDelegate = self
         smashView.iconButtonDelegate = self
@@ -112,6 +113,12 @@ extension DemoViewController: SmashViewDataSource {
         case "custom1": return CustomView()
         default: return nil
         }
+    }
+}
+
+extension DemoViewController: GallerySmashViewDelegate {
+    func smashView(_ smashView: SmashView, imageForURL url: String) -> UIImage? {
+        return favoriteImage
     }
 }
 
