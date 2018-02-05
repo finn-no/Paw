@@ -46,6 +46,8 @@
 		440E316B20277C6200D75114 /* SeparatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316920277C6200D75114 /* SeparatorComponent.swift */; };
 		440E316F2027889300D75114 /* PhoneNumberListComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316D2027889200D75114 /* PhoneNumberListComponentView.swift */; };
 		440E31702027889300D75114 /* PhoneNumberListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E316E2027889200D75114 /* PhoneNumberListComponent.swift */; };
+		44902F18202727AC00469DD7 /* TitleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44902F16202727AC00469DD7 /* TitleComponent.swift */; };
+		44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44902F17202727AC00469DD7 /* TitleComponentView.swift */; };
 		44E3384020272AFB00105BD3 /* CustomComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3383F20272AFB00105BD3 /* CustomComponent.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,8 @@
 		440E316920277C6200D75114 /* SeparatorComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorComponent.swift; sourceTree = "<group>"; };
 		440E316D2027889200D75114 /* PhoneNumberListComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberListComponentView.swift; sourceTree = "<group>"; };
 		440E316E2027889200D75114 /* PhoneNumberListComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberListComponent.swift; sourceTree = "<group>"; };
+		44902F16202727AC00469DD7 /* TitleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleComponent.swift; sourceTree = "<group>"; };
+		44902F17202727AC00469DD7 /* TitleComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleComponentView.swift; sourceTree = "<group>"; };
 		44E3383F20272AFB00105BD3 /* CustomComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +206,7 @@
 				14A69A1520261D24002D9DC1 /* Component.swift */,
 				440E316720277C6200D75114 /* Separator */,
 				440E315C20277AA400D75114 /* List */,
+				44902F15202727AC00469DD7 /* Title */,
 				144728D420264B4C001D4835 /* Gallery */,
 				44E3383E20272AFB00105BD3 /* Custom */,
 				14E5C1BF202605270039A9A7 /* Table */,
@@ -324,6 +329,13 @@
 				440E316D2027889200D75114 /* PhoneNumberListComponentView.swift */,
 			);
 			path = PhoneNumber;
+		44902F15202727AC00469DD7 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				44902F16202727AC00469DD7 /* TitleComponent.swift */,
+				44902F17202727AC00469DD7 /* TitleComponentView.swift */,
+			);
+			path = Title;
 			sourceTree = "<group>";
 		};
 		44CAE2C91FE26C9F00F8AA9B = {
@@ -541,7 +553,9 @@
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
 				440E31702027889300D75114 /* PhoneNumberListComponent.swift in Sources */,
 				14E5C1F9202605270039A9A7 /* LinkComponentView.swift in Sources */,
+				44902F18202727AC00469DD7 /* TitleComponent.swift in Sources */,
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
+				44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
 				144728D820264B61001D4835 /* GalleryComponentView.swift in Sources */,
 				14E5C1E4202605270039A9A7 /* DescriptionComponent.swift in Sources */,

@@ -150,6 +150,11 @@ public class SmashView: UIView {
 
     func viewComponent(for component: Component, in smashView: SmashView) -> UIView? {
         switch component.self {
+        case is TitleComponent:
+            let listComponentView = TitleComponentView()
+            listComponentView.translatesAutoresizingMaskIntoConstraints = false
+            listComponentView.component = component as? TitleComponent
+            return listComponentView
         case is GalleryComponent:
             let galleryComponentView = GalleryComponentView()
             galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
