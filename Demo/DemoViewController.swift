@@ -26,9 +26,9 @@ class DemoViewController: UIViewController {
         return [
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
-            [IconButtonComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
-            [IconButtonComponent(buttonTitle: "Få hjelp til frakt", iconImage: vanImage!)],
-            [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
+            [LinkComponent(title: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
+            [LinkComponent(title: "Få hjelp til frakt")],
+            [DescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre", isCollapsable: true)],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
@@ -82,7 +82,7 @@ class DemoViewController: UIViewController {
 
         smashView.phoneNumberDelegate = self
         smashView.callToActionButtonDelegate = self
-        smashView.iconButtonDelegate = self
+        smashView.linkDelegate = self
         smashView.phoneNumberListDelegate = self
 
         smashView.reloadData()
@@ -130,8 +130,8 @@ extension DemoViewController: CallToActionButtonSmashViewDelegate {
     }
 }
 
-extension DemoViewController: IconButtonSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent) {
+extension DemoViewController: LinkSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
         present(alert, animated: true, completion: nil)
     }

@@ -18,8 +18,8 @@ public protocol CallToActionButtonSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapSendMessageFor component: CallToActionButtonComponent)
 }
 
-public protocol IconButtonSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapButtonFor component: IconButtonComponent)
+public protocol LinkSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent)
 }
 
 public protocol PhoneNumberListSmashViewDelegate: class {
@@ -30,7 +30,7 @@ public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
-    public weak var iconButtonDelegate: IconButtonSmashViewDelegate?
+    public weak var linkDelegate: LinkSmashViewDelegate?
     public weak var phoneNumberListDelegate: PhoneNumberListSmashViewDelegate?
 
     private let animationDuration = 0.4
@@ -155,17 +155,17 @@ public class SmashView: UIView {
             listComponentView.delegate = smashView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
-        case is IconButtonComponent:
-            let listComponentView = IconButtonComponentView()
+        case is LinkComponent:
+            let listComponentView = LinkComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = smashView
-            listComponentView.component = component as? IconButtonComponent
+            listComponentView.component = component as? LinkComponent
             return listComponentView
-        case is CollapsableDescriptionComponent:
-            let listComponentView = CollapsableDescriptionComponentView()
+        case is DescriptionComponent:
+            let listComponentView = DescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = smashView
-            listComponentView.component = component as? CollapsableDescriptionComponent
+            listComponentView.component = component as? DescriptionComponent
             return listComponentView
         case is PriceComponent:
             let listComponentView = PriceComponentView()
@@ -214,37 +214,37 @@ extension SmashView: PhoneNumberComponentViewDelegate {
     }
 }
 
-extension SmashView: IconButtonComponentViewDelegate {
-    func iconButtonComponentView(_ adressComponentView: IconButtonComponentView, didTapButtonFor component: IconButtonComponent) {
-        iconButtonDelegate?.smashView(self, didTapButtonFor: component)
+extension SmashView: LinkComponentViewDelegate {
+    func linkComponentView(_ adressComponentView: LinkComponentView, didTapButtonFor component: LinkComponent) {
+        linkDelegate?.smashView(self, didTapButtonFor: component)
     }
 }
 
-extension SmashView: CollapsableDescriptionComponentViewDelegate {
-    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+extension SmashView: DescriptionComponentViewDelegate {
+    func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapExpandDescriptionFor component: DescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
-            collapsableDescriptionComponentView.layoutIfNeeded()
-            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            descriptionComponentView.layoutIfNeeded()
+            descriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            collapsableDescriptionComponentView.updateButtonTitle()
+            descriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {
-                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+                descriptionComponentView.setButtonShowing(showing: true)
             })
         }
     }
 
-    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+    func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapHideDescriptionFor component: DescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
-            collapsableDescriptionComponentView.layoutIfNeeded()
-            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            descriptionComponentView.layoutIfNeeded()
+            descriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            collapsableDescriptionComponentView.updateButtonTitle()
+            descriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {
-                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+                descriptionComponentView.setButtonShowing(showing: true)
             })
         }
     }
