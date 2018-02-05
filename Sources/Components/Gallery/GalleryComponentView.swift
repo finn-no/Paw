@@ -33,7 +33,6 @@ public class GalleryComponentView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
         view.distribution = .fillProportionally
-
         return view
     }()
 
