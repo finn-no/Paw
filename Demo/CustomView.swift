@@ -5,26 +5,11 @@
 import UIKit
 
 class CustomView: UIView {
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.font = .title3
-        label.textColor = .licorice
-        label.text = "Custom view"
-        label.accessibilityLabel = label.text
-        return label
-    }()
-
-    private lazy var detailLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isAccessibilityElement = true
-        label.font = .body
-        label.textColor = .licorice
-        label.text = "This is a custom view"
-        label.accessibilityLabel = label.text
-        return label
+    private lazy var imageView: UIImageView = {
+        let view = UIImageView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleAspectFit
+        return view
     }()
 
     public override init(frame: CGRect) {
@@ -38,18 +23,16 @@ class CustomView: UIView {
     }
 
     private func setup() {
-        addSubview(titleLabel)
-        addSubview(detailLabel)
+        addSubview(imageView)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-
-            detailLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .mediumLargeSpacing),
-            detailLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            detailLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            detailLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 90),
         ])
+
+        imageView.image = UIImage(named: "profile")
     }
 }

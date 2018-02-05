@@ -8,6 +8,7 @@ import UIKit
 class DemoViewController: UIViewController {
     let pinImage = UIImage(named: "pin")?.withRenderingMode(.alwaysTemplate)
     let vanImage = UIImage(named: "SmallJobs")
+    let imagePlaceholder = UIImage(named: "imagePlaceholder")!
 
     let attributedDescriptionText: NSAttributedString = {
         let descriptionText = "Selger min bestemors gamle sykkel. 🚲 Den er godt brukt, fungerer godt. Jeg har byttet slange, men latt være å gjøre noe mer på den. Du som kjøper den kan fikse den opp akkurat som du vil ha den :) Jeg ville aldri kjøpt den, men jeg satser på at du er dum nok til å bare gå for det. God jul og lykke til! 🌐 www.finn.no. 📌 Grensen 5, 0134 Oslo. 🗓 12.1.2018. ✈️ DY1234. 📞 12345678. \nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. \nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt."
@@ -24,6 +25,8 @@ class DemoViewController: UIViewController {
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
+            [GalleryComponent(placeholder: imagePlaceholder, stringURLs: ["https://images.finncdn.no/dynamic/480x360c/2017/9/vertical-5/30/5/105/424/_1263219766.jpg", "https://images.finncdn.no/dynamic/480x360c/2017/7/vertical-2/19/3/100/464/_1229205040.jpg"])],
+            [CustomComponent(id: "custom1")],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [LinkComponent(title: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
@@ -80,6 +83,7 @@ class DemoViewController: UIViewController {
 
         smashView.dataSource = self
 
+        smashView.galleryDelegate = self
         smashView.phoneNumberDelegate = self
         smashView.callToActionButtonDelegate = self
         smashView.linkDelegate = self
@@ -109,6 +113,26 @@ extension DemoViewController: SmashViewDataSource {
         case "custom1": return CustomView()
         default: return nil
         }
+    }
+}
+
+extension DemoViewController: GallerySmashViewDelegate {
+    func smashView(_ smashView: SmashView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
+        guard let url = URL(string: stringURL) else { return }
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let _ = error {
+                imageCallBack(nil)
+            } else {
+                DispatchQueue.main.async {
+                    if let data = data, let image = UIImage(data: data) {
+                        imageCallBack(image)
+                    } else {
+                        imageCallBack(nil)
+                    }
+                }
+            }
+        }.resume()
     }
 }
 

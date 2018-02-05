@@ -9,6 +9,10 @@ public protocol SmashViewDataSource: class {
     func customComponentView(for component: Component, in smashView: SmashView) -> UIView?
 }
 
+public protocol GallerySmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void)
+}
+
 public protocol PhoneNumberSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
     func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
@@ -28,6 +32,7 @@ public protocol PhoneNumberListSmashViewDelegate: class {
 
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
+    public weak var galleryDelegate: GallerySmashViewDelegate?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
     public weak var linkDelegate: LinkSmashViewDelegate?
@@ -95,7 +100,9 @@ public class SmashView: UIView {
             rowStackView.spacing = .mediumSpacing
 
             for component in componentRow {
-                if let componentView = viewComponent(for: component, in: self) {
+                if let componentView = self.dataSource?.customComponentView(for: component, in: self) {
+                    rowStackView.addArrangedSubview(componentView)
+                } else if let componentView = viewComponent(for: component, in: self) {
                     rowStackView.addArrangedSubview(componentView)
                 }
             }
@@ -143,6 +150,12 @@ public class SmashView: UIView {
 
     func viewComponent(for component: Component, in smashView: SmashView) -> UIView? {
         switch component.self {
+        case is GalleryComponent:
+            let galleryComponentView = GalleryComponentView()
+            galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
+            galleryComponentView.delegate = smashView
+            galleryComponentView.component = component as? GalleryComponent
+            return galleryComponentView
         case is CallToActionButtonComponent:
             let listComponentView = CallToActionButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
@@ -195,6 +208,12 @@ public class SmashView: UIView {
             return phoneNumberListComponentView
         default: return nil
         }
+    }
+}
+
+extension SmashView: GalleryComponentViewDelegate {
+    func galleryComponentView(_ galleryComponentView: GalleryComponentView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
+        galleryDelegate?.smashView(self, stringURL: stringURL, imageCallBack: imageCallBack)
     }
 }
 
