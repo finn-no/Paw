@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144728D620264B4D001D4835 /* GalleryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144728D520264B4C001D4835 /* GalleryComponent.swift */; };
+		144728D820264B61001D4835 /* GalleryComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144728D720264B61001D4835 /* GalleryComponentView.swift */; };
 		1486CC05202619AF0016E75D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486CC04202619AF0016E75D /* Helpers.swift */; };
 		14A69A1620261D25002D9DC1 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A1520261D24002D9DC1 /* Component.swift */; };
 		14A69A18202629B0002D9DC1 /* PhoneNumberComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */; };
@@ -81,6 +83,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		144728D520264B4C001D4835 /* GalleryComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryComponent.swift; sourceTree = "<group>"; };
+		144728D720264B61001D4835 /* GalleryComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryComponentView.swift; sourceTree = "<group>"; };
 		1486CC04202619AF0016E75D /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		14A69A1520261D24002D9DC1 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentTests.swift; sourceTree = "<group>"; };
@@ -153,6 +157,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		144728D420264B4C001D4835 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				144728D520264B4C001D4835 /* GalleryComponent.swift */,
+				144728D720264B61001D4835 /* GalleryComponentView.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
 		14E5C192202604BB0039A9A7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +206,7 @@
 			children = (
 				14A69A1520261D24002D9DC1 /* Component.swift */,
 				44902F15202727AC00469DD7 /* Title */,
+				144728D420264B4C001D4835 /* Gallery */,
 				44E3383E20272AFB00105BD3 /* Custom */,
 				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
@@ -523,6 +537,7 @@
 				14E5C1FA202605270039A9A7 /* LinkComponent.swift in Sources */,
 				14E5C1E8202605270039A9A7 /* PhoneNumberComponent.swift in Sources */,
 				14E5C1EF202605270039A9A7 /* TableElement.swift in Sources */,
+				144728D620264B4D001D4835 /* GalleryComponent.swift in Sources */,
 				14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */,
 				14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */,
 				14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */,
@@ -534,6 +549,7 @@
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
 				44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
+				144728D820264B61001D4835 /* GalleryComponentView.swift in Sources */,
 				14E5C1E4202605270039A9A7 /* DescriptionComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
