@@ -35,8 +35,8 @@
 		14E5C1F2202605270039A9A7 /* PriceComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1CC202605270039A9A7 /* PriceComponentView.swift */; };
 		14E5C1F6202605270039A9A7 /* CallToActionButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */; };
 		14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D2202605270039A9A7 /* CallToActionButtonComponent.swift */; };
-		14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D5202605270039A9A7 /* IconButtonComponentView.swift */; };
-		14E5C1FA202605270039A9A7 /* IconButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D6202605270039A9A7 /* IconButtonComponent.swift */; };
+		14E5C1F9202605270039A9A7 /* LinkComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D5202605270039A9A7 /* LinkComponentView.swift */; };
+		14E5C1FA202605270039A9A7 /* LinkComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1D6202605270039A9A7 /* LinkComponent.swift */; };
 		14E5C206202605440039A9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C205202605440039A9A7 /* AppDelegate.swift */; };
 		14E5C20D202605440039A9A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E5C20C202605440039A9A7 /* Assets.xcassets */; };
 		14E5C210202605440039A9A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E5C20E202605440039A9A7 /* LaunchScreen.storyboard */; };
@@ -111,8 +111,8 @@
 		14E5C1CC202605270039A9A7 /* PriceComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponentView.swift; sourceTree = "<group>"; };
 		14E5C1D1202605270039A9A7 /* CallToActionButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallToActionButtonComponentView.swift; sourceTree = "<group>"; };
 		14E5C1D2202605270039A9A7 /* CallToActionButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallToActionButtonComponent.swift; sourceTree = "<group>"; };
-		14E5C1D5202605270039A9A7 /* IconButtonComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconButtonComponentView.swift; sourceTree = "<group>"; };
-		14E5C1D6202605270039A9A7 /* IconButtonComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconButtonComponent.swift; sourceTree = "<group>"; };
+		14E5C1D5202605270039A9A7 /* LinkComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkComponentView.swift; sourceTree = "<group>"; };
+		14E5C1D6202605270039A9A7 /* LinkComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkComponent.swift; sourceTree = "<group>"; };
 		14E5C203202605430039A9A7 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E5C205202605440039A9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14E5C20C202605440039A9A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 				14E5C1BF202605270039A9A7 /* Table */,
 				14E5C1CA202605270039A9A7 /* Price */,
 				14E5C1B6202605270039A9A7 /* CollapsableDescription */,
-				14E5C1D4202605270039A9A7 /* IconButton */,
+				14E5C1D4202605270039A9A7 /* Link */,
 				14E5C1BB202605270039A9A7 /* PhoneNumber */,
 				14E5C1D0202605270039A9A7 /* CallToActionButton */,
 			);
@@ -275,13 +275,13 @@
 			path = CallToActionButton;
 			sourceTree = "<group>";
 		};
-		14E5C1D4202605270039A9A7 /* IconButton */ = {
+		14E5C1D4202605270039A9A7 /* Link */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C1D5202605270039A9A7 /* IconButtonComponentView.swift */,
-				14E5C1D6202605270039A9A7 /* IconButtonComponent.swift */,
+				14E5C1D6202605270039A9A7 /* LinkComponent.swift */,
+				14E5C1D5202605270039A9A7 /* LinkComponentView.swift */,
 			);
-			path = IconButton;
+			path = Link;
 			sourceTree = "<group>";
 		};
 		14E5C204202605430039A9A7 /* Demo */ = {
@@ -508,7 +508,7 @@
 				14E5C1E3202605270039A9A7 /* CollapsableDescriptionComponentView.swift in Sources */,
 				14E5C1E1202605270039A9A7 /* UIColor+Components.swift in Sources */,
 				14E5C1EC202605270039A9A7 /* TextTableElementView.swift in Sources */,
-				14E5C1FA202605270039A9A7 /* IconButtonComponent.swift in Sources */,
+				14E5C1FA202605270039A9A7 /* LinkComponent.swift in Sources */,
 				14E5C1E8202605270039A9A7 /* PhoneNumberComponent.swift in Sources */,
 				14E5C1EF202605270039A9A7 /* TableElement.swift in Sources */,
 				14E5C1F7202605270039A9A7 /* CallToActionButtonComponent.swift in Sources */,
@@ -517,7 +517,7 @@
 				14E5C1EA202605270039A9A7 /* TableComponentView.swift in Sources */,
 				14A69A1620261D25002D9DC1 /* Component.swift in Sources */,
 				14E5C1F0202605270039A9A7 /* TableComponent.swift in Sources */,
-				14E5C1F9202605270039A9A7 /* IconButtonComponentView.swift in Sources */,
+				14E5C1F9202605270039A9A7 /* LinkComponentView.swift in Sources */,
 				44902F18202727AC00469DD7 /* TitleComponent.swift in Sources */,
 				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
 				44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */,
