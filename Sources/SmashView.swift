@@ -90,7 +90,9 @@ public class SmashView: UIView {
             rowStackView.spacing = .mediumSpacing
 
             for component in componentRow {
-                if let componentView = viewComponent(for: component, in: self) {
+                if let componentView = self.dataSource?.customComponentView(for: component, in: self) {
+                    rowStackView.addArrangedSubview(componentView)
+                } else if let componentView = viewComponent(for: component, in: self) {
                     rowStackView.addArrangedSubview(componentView)
                 }
             }
@@ -161,11 +163,11 @@ public class SmashView: UIView {
             listComponentView.delegate = smashView
             listComponentView.component = component as? LinkComponent
             return listComponentView
-        case is CollapsableDescriptionComponent:
-            let listComponentView = CollapsableDescriptionComponentView()
+        case is DescriptionComponent:
+            let listComponentView = DescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = smashView
-            listComponentView.component = component as? CollapsableDescriptionComponent
+            listComponentView.component = component as? DescriptionComponent
             return listComponentView
         case is PriceComponent:
             let listComponentView = PriceComponentView()
@@ -204,31 +206,31 @@ extension SmashView: LinkComponentViewDelegate {
     }
 }
 
-extension SmashView: CollapsableDescriptionComponentViewDelegate {
-    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapExpandDescriptionFor component: CollapsableDescriptionComponent) {
+extension SmashView: DescriptionComponentViewDelegate {
+    func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapExpandDescriptionFor component: DescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
-            collapsableDescriptionComponentView.layoutIfNeeded()
-            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            descriptionComponentView.layoutIfNeeded()
+            descriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            collapsableDescriptionComponentView.updateButtonTitle()
+            descriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {
-                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+                descriptionComponentView.setButtonShowing(showing: true)
             })
         }
     }
 
-    func collapsableDescriptionComponentView(_ collapsableDescriptionComponentView: CollapsableDescriptionComponentView, didTapHideDescriptionFor component: CollapsableDescriptionComponent) {
+    func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapHideDescriptionFor component: DescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
-            collapsableDescriptionComponentView.layoutIfNeeded()
-            collapsableDescriptionComponentView.setButtonShowing(showing: false)
+            descriptionComponentView.layoutIfNeeded()
+            descriptionComponentView.setButtonShowing(showing: false)
             self.layoutIfNeeded()
         }) { _ in
-            collapsableDescriptionComponentView.updateButtonTitle()
+            descriptionComponentView.updateButtonTitle()
 
             UIView.animate(withDuration: self.animationDuration, animations: {
-                collapsableDescriptionComponentView.setButtonShowing(showing: true)
+                descriptionComponentView.setButtonShowing(showing: true)
             })
         }
     }

@@ -32,11 +32,12 @@ class DemoViewController: UIViewController {
         let locale = Locale(identifier: "nb_NO")
         return [
             [TitleComponent(text: "Lekker 1 roms i originale Waldemars Hage, inkl varmtvann/fyring, internett og tv")],
+            [CustomComponent(id: "custom1")],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
             [LinkComponent(title: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
             [LinkComponent(title: "Få hjelp til frakt")],
-            [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre")],
+            [DescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre", isCollapsable: true)],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],

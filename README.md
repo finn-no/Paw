@@ -28,7 +28,7 @@ class MyViewController: UIViewController {
             [CallToActionButtonComponent(title: "Send message", subtitle: "Usually replies within the hour")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobile", showNumberText: "See phone number", accessibilityLabelPrefix: "Telefonnummer: ")],
             [LinkComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
-            [CollapsableDescriptionComponent(text: attributedDescriptionText, titleShow: "+ See more", titleHide: "- See less")],
+            [DescriptionComponent(text: attributedDescriptionText, titleShow: "+ See more", titleHide: "- See less")],
             [LinkComponent(buttonTitle: "Need help with the delivery?", iconImage: vanImage!)],
             [TableComponent(components: elements)],
         ]
@@ -72,7 +72,7 @@ This **Component** consists in a collection of elements.
 ### Price
 Needs description.
 
-### CollapsableDescription
+### Description
 Needs description.
 
 ### Link
