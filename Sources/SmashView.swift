@@ -90,7 +90,9 @@ public class SmashView: UIView {
             rowStackView.spacing = .mediumSpacing
 
             for component in componentRow {
-                if let componentView = viewComponent(for: component, in: self) {
+                if let componentView = self.dataSource?.customComponentView(for: component, in: self) {
+                    rowStackView.addArrangedSubview(componentView)
+                } else if let componentView = viewComponent(for: component, in: self) {
                     rowStackView.addArrangedSubview(componentView)
                 }
             }
