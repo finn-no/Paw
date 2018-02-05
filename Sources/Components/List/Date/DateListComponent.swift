@@ -4,10 +4,11 @@
 
 import Foundation
 
-public struct DateTableElement: TableElement {
+public struct DateListComponent: Component {
     var dateFormatter = DateFormatter()
 
-    public let title: String
+    public let id: String
+    let title: String
     let locale: Locale
     let timeZone: TimeZone
     let date: Date
@@ -46,7 +47,8 @@ public struct DateTableElement: TableElement {
         }
     }
 
-    public init(title: String, date: Date, locale: Locale = .autoupdatingCurrent, timeZone: TimeZone = .autoupdatingCurrent, dateFormat: DateFormat? = .dateAndTime) {
+    public init(id: String = UUID().uuidString, title: String, date: Date, locale: Locale = .autoupdatingCurrent, timeZone: TimeZone = .autoupdatingCurrent, dateFormat: DateFormat? = .dateAndTime) {
+        self.id = id
         self.title = title
         self.date = date
         self.locale = locale

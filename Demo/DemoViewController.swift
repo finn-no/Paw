@@ -22,13 +22,6 @@ class DemoViewController: UIViewController {
         return attributedString
     }()
 
-    let elements: [TableElement] = {
-        return [
-            TextTableElement(title: "FINN-kode", detail: "123456789"),
-            DateTableElement(title: "Sist endret", date: Date()),
-        ]
-    }()
-
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
@@ -43,7 +36,11 @@ class DemoViewController: UIViewController {
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
             [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
             [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
-            [TableComponent(components: elements)],
+            [TextListComponent(title: "FINN-kode", detail: "123456789")],
+            [SeparatorComponent()],
+            [DateListComponent(title: "Sist endret", date: Date())],
+            [SeparatorComponent()],
+            [PhoneNumberListComponent(title: "Mobil", phoneNumber: "12345678")],
         ]
     }
 
@@ -91,6 +88,7 @@ class DemoViewController: UIViewController {
         smashView.phoneNumberDelegate = self
         smashView.callToActionButtonDelegate = self
         smashView.linkDelegate = self
+        smashView.phoneNumberListDelegate = self
 
         smashView.reloadData()
     }
@@ -160,6 +158,13 @@ extension DemoViewController: CallToActionButtonSmashViewDelegate {
 extension DemoViewController: LinkSmashViewDelegate {
     func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension DemoViewController: PhoneNumberListSmashViewDelegate {
+    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
+        let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
 }
