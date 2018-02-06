@@ -4,39 +4,39 @@
 
 import UIKit
 
-public protocol SmashViewDataSource: class {
-    func components(in smashView: SmashView) -> [[Component]]
-    func customComponentView(for component: Component, in smashView: SmashView) -> UIView?
+public protocol AstrupViewDataSource: class {
+    func components(in astrupView: AstrupView) -> [[Component]]
+    func customComponentView(for component: Component, in astrupView: AstrupView) -> UIView?
 }
 
-public protocol GallerySmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void)
+public protocol GalleryAstrupViewDelegate: class {
+    func astrupView(_ astrupView: AstrupView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void)
 }
 
-public protocol PhoneNumberSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent)
-    func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
+public protocol PhoneNumberAstrupViewDelegate: class {
+    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberComponent)
+    func astrupView(_ astrupView: AstrupView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 }
 
-public protocol CallToActionButtonSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapSendMessageFor component: CallToActionButtonComponent)
+public protocol CallToActionButtonAstrupViewDelegate: class {
+    func astrupView(_ astrupView: AstrupView, didTapSendMessageFor component: CallToActionButtonComponent)
 }
 
-public protocol LinkSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent)
+public protocol LinkAstrupViewDelegate: class {
+    func astrupView(_ astrupView: AstrupView, didTapButtonFor component: LinkComponent)
 }
 
-public protocol PhoneNumberListSmashViewDelegate: class {
-    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberListComponent)
+public protocol PhoneNumberListAstrupViewDelegate: class {
+    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberListComponent)
 }
 
-public class SmashView: UIView {
-    public weak var dataSource: SmashViewDataSource?
-    public weak var galleryDelegate: GallerySmashViewDelegate?
-    public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
-    public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
-    public weak var linkDelegate: LinkSmashViewDelegate?
-    public weak var phoneNumberListDelegate: PhoneNumberListSmashViewDelegate?
+public class AstrupView: UIView {
+    public weak var dataSource: AstrupViewDataSource?
+    public weak var galleryDelegate: GalleryAstrupViewDelegate?
+    public weak var phoneNumberDelegate: PhoneNumberAstrupViewDelegate?
+    public weak var callToActionButtonDelegate: CallToActionButtonAstrupViewDelegate?
+    public weak var linkDelegate: LinkAstrupViewDelegate?
+    public weak var phoneNumberListDelegate: PhoneNumberListAstrupViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -148,7 +148,7 @@ public class SmashView: UIView {
         }
     }
 
-    func viewComponent(for component: Component, in smashView: SmashView) -> UIView? {
+    func viewComponent(for component: Component, in astrupView: AstrupView) -> UIView? {
         switch component.self {
         case is TitleComponent:
             let listComponentView = TitleComponentView()
@@ -158,31 +158,31 @@ public class SmashView: UIView {
         case is GalleryComponent:
             let galleryComponentView = GalleryComponentView()
             galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
-            galleryComponentView.delegate = smashView
+            galleryComponentView.delegate = astrupView
             galleryComponentView.component = component as? GalleryComponent
             return galleryComponentView
         case is CallToActionButtonComponent:
             let listComponentView = CallToActionButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = smashView
+            listComponentView.delegate = astrupView
             listComponentView.component = component as? CallToActionButtonComponent
             return listComponentView
         case is PhoneNumberComponent:
             let listComponentView = PhoneNumberComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = smashView
+            listComponentView.delegate = astrupView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
         case is LinkComponent:
             let listComponentView = LinkComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = smashView
+            listComponentView.delegate = astrupView
             listComponentView.component = component as? LinkComponent
             return listComponentView
         case is DescriptionComponent:
             let listComponentView = DescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = smashView
+            listComponentView.delegate = astrupView
             listComponentView.component = component as? DescriptionComponent
             return listComponentView
         case is PriceComponent:
@@ -208,7 +208,7 @@ public class SmashView: UIView {
         case is PhoneNumberListComponent:
             let phoneNumberListComponentView = PhoneNumberListComponentView()
             phoneNumberListComponentView.translatesAutoresizingMaskIntoConstraints = false
-            phoneNumberListComponentView.delegate = smashView
+            phoneNumberListComponentView.delegate = astrupView
             phoneNumberListComponentView.component = component as? PhoneNumberListComponent
             return phoneNumberListComponentView
         default: return nil
@@ -216,35 +216,35 @@ public class SmashView: UIView {
     }
 }
 
-extension SmashView: GalleryComponentViewDelegate {
+extension AstrupView: GalleryComponentViewDelegate {
     func galleryComponentView(_ galleryComponentView: GalleryComponentView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
-        galleryDelegate?.smashView(self, stringURL: stringURL, imageCallBack: imageCallBack)
+        galleryDelegate?.astrupView(self, stringURL: stringURL, imageCallBack: imageCallBack)
     }
 }
 
-extension SmashView: CallToActionButtonComponentViewDelegate {
+extension AstrupView: CallToActionButtonComponentViewDelegate {
     func callToActionButtonComponentView(_ callToActionButtonComponentView: CallToActionButtonComponentView, didTapSendMessageFor component: CallToActionButtonComponent) {
-        callToActionButtonDelegate?.smashView(self, didTapSendMessageFor: component)
+        callToActionButtonDelegate?.astrupView(self, didTapSendMessageFor: component)
     }
 }
 
-extension SmashView: PhoneNumberComponentViewDelegate {
+extension AstrupView: PhoneNumberComponentViewDelegate {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent) {
-        phoneNumberDelegate?.smashView(self, didTapPhoneNumberFor: component)
+        phoneNumberDelegate?.astrupView(self, didTapPhoneNumberFor: component)
     }
 
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
-        return phoneNumberDelegate?.smashView(self, canShowPhoneNumberFor: component) ?? false
+        return phoneNumberDelegate?.astrupView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
 
-extension SmashView: LinkComponentViewDelegate {
+extension AstrupView: LinkComponentViewDelegate {
     func linkComponentView(_ adressComponentView: LinkComponentView, didTapButtonFor component: LinkComponent) {
-        linkDelegate?.smashView(self, didTapButtonFor: component)
+        linkDelegate?.astrupView(self, didTapButtonFor: component)
     }
 }
 
-extension SmashView: DescriptionComponentViewDelegate {
+extension AstrupView: DescriptionComponentViewDelegate {
     func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapExpandDescriptionFor component: DescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
             descriptionComponentView.layoutIfNeeded()
@@ -274,8 +274,8 @@ extension SmashView: DescriptionComponentViewDelegate {
     }
 }
 
-extension SmashView: PhoneNumberListComponentViewDelegate {
+extension AstrupView: PhoneNumberListComponentViewDelegate {
     func phoneNumberListComponentView(_ phoneNumberListComponentView: PhoneNumberListComponentView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
-        phoneNumberListDelegate?.smashView(self, didTapPhoneNumberFor: component)
+        phoneNumberListDelegate?.astrupView(self, didTapPhoneNumberFor: component)
     }
 }

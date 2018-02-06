@@ -2,8 +2,8 @@
 //  Copyright © FINN.no AS, Inc. All rights reserved.
 //
 
+@testable import Astrup
 import Foundation
-@testable import Smash
 import XCTest
 
 class PriceComponentTests: XCTestCase {
