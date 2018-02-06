@@ -17,7 +17,7 @@
                BlueprintIdentifier = "14E5C202202605430039A9A7"
                BuildableName = "Demo.app"
                BlueprintName = "Demo"
-               ReferencedContainer = "container:Smash.xcodeproj">
+               ReferencedContainer = "container:Astrup.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "14E5C19A202604F60039A9A7"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
-               ReferencedContainer = "container:Smash.xcodeproj">
+               ReferencedContainer = "container:Astrup.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -46,7 +46,7 @@
             BlueprintIdentifier = "14E5C202202605430039A9A7"
             BuildableName = "Demo.app"
             BlueprintName = "Demo"
-            ReferencedContainer = "container:Smash.xcodeproj">
+            ReferencedContainer = "container:Astrup.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -70,7 +70,7 @@
             BlueprintIdentifier = "14E5C202202605430039A9A7"
             BuildableName = "Demo.app"
             BlueprintName = "Demo"
-            ReferencedContainer = "container:Smash.xcodeproj">
+            ReferencedContainer = "container:Astrup.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -89,7 +89,7 @@
             BlueprintIdentifier = "14E5C202202605430039A9A7"
             BuildableName = "Demo.app"
             BlueprintName = "Demo"
-            ReferencedContainer = "container:Smash.xcodeproj">
+            ReferencedContainer = "container:Astrup.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

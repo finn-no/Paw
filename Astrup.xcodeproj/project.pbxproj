@@ -12,10 +12,10 @@
 		1486CC05202619AF0016E75D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1486CC04202619AF0016E75D /* Helpers.swift */; };
 		14A69A1620261D25002D9DC1 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A1520261D24002D9DC1 /* Component.swift */; };
 		14A69A18202629B0002D9DC1 /* PhoneNumberComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */; };
-		14E5C195202604BB0039A9A7 /* Smash.h in Headers */ = {isa = PBXBuildFile; fileRef = 14E5C193202604BB0039A9A7 /* Smash.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		14E5C1A0202604F60039A9A7 /* Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; };
+		14E5C195202604BB0039A9A7 /* Astrup.h in Headers */ = {isa = PBXBuildFile; fileRef = 14E5C193202604BB0039A9A7 /* Astrup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14E5C1A0202604F60039A9A7 /* Astrup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Astrup.framework */; };
 		14E5C1AB2026050B0039A9A7 /* PriceComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */; };
-		14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1AD202605260039A9A7 /* SmashView.swift */; };
+		14E5C1DC202605270039A9A7 /* AstrupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1AD202605260039A9A7 /* AstrupView.swift */; };
 		14E5C1DE202605270039A9A7 /* CGFloat+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B0202605270039A9A7 /* CGFloat+Components.swift */; };
 		14E5C1DF202605270039A9A7 /* UIFont+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B1202605270039A9A7 /* UIFont+Components.swift */; };
 		14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C1B2202605270039A9A7 /* UITextView+Components.swift */; };
@@ -33,8 +33,8 @@
 		14E5C206202605440039A9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C205202605440039A9A7 /* AppDelegate.swift */; };
 		14E5C20D202605440039A9A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E5C20C202605440039A9A7 /* Assets.xcassets */; };
 		14E5C210202605440039A9A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E5C20E202605440039A9A7 /* LaunchScreen.storyboard */; };
-		14E5C217202605650039A9A7 /* Smash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; };
-		14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Smash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14E5C217202605650039A9A7 /* Astrup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Astrup.framework */; };
+		14E5C218202605650039A9A7 /* Astrup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14E5C18A2026044B0039A9A7 /* Astrup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14E5C21D202605DC0039A9A7 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21C202605DC0039A9A7 /* DemoViewController.swift */; };
 		14E5C21F202607660039A9A7 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E5C21E202607660039A9A7 /* CustomView.swift */; };
 		4440546A20299FF800B930FE /* DateListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4440546220299FF800B930FE /* DateListComponent.swift */; };
@@ -57,14 +57,14 @@
 			containerPortal = 44CAE2CA1FE26C9F00F8AA9B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 14E5C1892026044B0039A9A7;
-			remoteInfo = Smash;
+			remoteInfo = Astrup;
 		};
 		14E5C219202605650039A9A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 44CAE2CA1FE26C9F00F8AA9B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 14E5C1892026044B0039A9A7;
-			remoteInfo = Smash;
+			remoteInfo = Astrup;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -75,7 +75,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14E5C218202605650039A9A7 /* Smash.framework in Embed Frameworks */,
+				14E5C218202605650039A9A7 /* Astrup.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,13 +88,13 @@
 		1486CC04202619AF0016E75D /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		14A69A1520261D24002D9DC1 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		14A69A17202629B0002D9DC1 /* PhoneNumberComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberComponentTests.swift; sourceTree = "<group>"; };
-		14E5C18A2026044B0039A9A7 /* Smash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Smash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		14E5C193202604BB0039A9A7 /* Smash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smash.h; sourceTree = "<group>"; };
+		14E5C18A2026044B0039A9A7 /* Astrup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Astrup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14E5C193202604BB0039A9A7 /* Astrup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Astrup.h; sourceTree = "<group>"; };
 		14E5C194202604BB0039A9A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C19B202604F60039A9A7 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E5C19F202604F60039A9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E5C1A82026050B0039A9A7 /* PriceComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceComponentTests.swift; sourceTree = "<group>"; };
-		14E5C1AD202605260039A9A7 /* SmashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmashView.swift; sourceTree = "<group>"; };
+		14E5C1AD202605260039A9A7 /* AstrupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AstrupView.swift; sourceTree = "<group>"; };
 		14E5C1B0202605270039A9A7 /* CGFloat+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Components.swift"; sourceTree = "<group>"; };
 		14E5C1B1202605270039A9A7 /* UIFont+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Components.swift"; sourceTree = "<group>"; };
 		14E5C1B2202605270039A9A7 /* UITextView+Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Components.swift"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E5C1A0202604F60039A9A7 /* Smash.framework in Frameworks */,
+				14E5C1A0202604F60039A9A7 /* Astrup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E5C217202605650039A9A7 /* Smash.framework in Frameworks */,
+				14E5C217202605650039A9A7 /* Astrup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +171,8 @@
 			children = (
 				14E5C1B4202605270039A9A7 /* Components */,
 				14E5C1AF202605270039A9A7 /* Extensions */,
-				14E5C1AD202605260039A9A7 /* SmashView.swift */,
-				14E5C193202604BB0039A9A7 /* Smash.h */,
+				14E5C1AD202605260039A9A7 /* AstrupView.swift */,
+				14E5C193202604BB0039A9A7 /* Astrup.h */,
 				14E5C194202604BB0039A9A7 /* Info.plist */,
 			);
 			path = Sources;
@@ -353,7 +353,7 @@
 		44CAE2D31FE26C9F00F8AA9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14E5C18A2026044B0039A9A7 /* Smash.framework */,
+				14E5C18A2026044B0039A9A7 /* Astrup.framework */,
 				14E5C19B202604F60039A9A7 /* UnitTests.xctest */,
 				14E5C203202605430039A9A7 /* Demo.app */,
 			);
@@ -375,16 +375,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14E5C195202604BB0039A9A7 /* Smash.h in Headers */,
+				14E5C195202604BB0039A9A7 /* Astrup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		14E5C1892026044B0039A9A7 /* Smash */ = {
+		14E5C1892026044B0039A9A7 /* Astrup */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14E5C18F2026044B0039A9A7 /* Build configuration list for PBXNativeTarget "Smash" */;
+			buildConfigurationList = 14E5C18F2026044B0039A9A7 /* Build configuration list for PBXNativeTarget "Astrup" */;
 			buildPhases = (
 				14E5C1852026044B0039A9A7 /* Sources */,
 				14E5C1862026044B0039A9A7 /* Frameworks */,
@@ -396,9 +396,9 @@
 			);
 			dependencies = (
 			);
-			name = Smash;
-			productName = Smash;
-			productReference = 14E5C18A2026044B0039A9A7 /* Smash.framework */;
+			name = Astrup;
+			productName = Astrup;
+			productReference = 14E5C18A2026044B0039A9A7 /* Astrup.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		14E5C19A202604F60039A9A7 /* UnitTests */ = {
@@ -463,7 +463,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 44CAE2CD1FE26C9F00F8AA9B /* Build configuration list for PBXProject "Smash" */;
+			buildConfigurationList = 44CAE2CD1FE26C9F00F8AA9B /* Build configuration list for PBXProject "Astrup" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -476,7 +476,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14E5C1892026044B0039A9A7 /* Smash */,
+				14E5C1892026044B0039A9A7 /* Astrup */,
 				14E5C19A202604F60039A9A7 /* UnitTests */,
 				14E5C202202605430039A9A7 /* Demo */,
 			);
@@ -554,7 +554,7 @@
 				14E5C1F9202605270039A9A7 /* LinkComponentView.swift in Sources */,
 				44902F18202727AC00469DD7 /* TitleComponent.swift in Sources */,
 				4440546C20299FF800B930FE /* PhoneNumberListComponentView.swift in Sources */,
-				14E5C1DC202605270039A9A7 /* SmashView.swift in Sources */,
+				14E5C1DC202605270039A9A7 /* AstrupView.swift in Sources */,
 				44902F19202727AC00469DD7 /* TitleComponentView.swift in Sources */,
 				14E5C1E0202605270039A9A7 /* UITextView+Components.swift in Sources */,
 				144728D820264B61001D4835 /* GalleryComponentView.swift in Sources */,
@@ -589,12 +589,12 @@
 /* Begin PBXTargetDependency section */
 		14E5C1A2202604F60039A9A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14E5C1892026044B0039A9A7 /* Smash */;
+			target = 14E5C1892026044B0039A9A7 /* Astrup */;
 			targetProxy = 14E5C1A1202604F60039A9A7 /* PBXContainerItemProxy */;
 		};
 		14E5C21A202605650039A9A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14E5C1892026044B0039A9A7 /* Smash */;
+			target = 14E5C1892026044B0039A9A7 /* Astrup */;
 			targetProxy = 14E5C219202605650039A9A7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -626,7 +626,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = no.finn.Smash;
+				PRODUCT_BUNDLE_IDENTIFIER = no.finn.Astrup;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -652,7 +652,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = no.finn.Smash;
+				PRODUCT_BUNDLE_IDENTIFIER = no.finn.Astrup;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -834,7 +834,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14E5C18F2026044B0039A9A7 /* Build configuration list for PBXNativeTarget "Smash" */ = {
+		14E5C18F2026044B0039A9A7 /* Build configuration list for PBXNativeTarget "Astrup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14E5C1902026044B0039A9A7 /* Debug */,
@@ -861,7 +861,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44CAE2CD1FE26C9F00F8AA9B /* Build configuration list for PBXProject "Smash" */ = {
+		44CAE2CD1FE26C9F00F8AA9B /* Build configuration list for PBXProject "Astrup" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44CAE2E21FE26C9F00F8AA9B /* Debug */,

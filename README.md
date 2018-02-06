@@ -1,4 +1,4 @@
-<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Smash/master/GitHub/cover-v2.png"></p>
+<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Astrup/master/GitHub/cover-v2.png"></p>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) ![](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)
 
@@ -6,12 +6,12 @@ A simple and declarative library to display the details of an element. Even thou
 
 ## Getting started
 
-The entry point for the **Smash** library is the `SmashView`. After adding a `SmashView` to your `UIViewController` you'll just need to implement the `dataSource`. **Smash** uses **Components** to represent the strongly typed views that will be rendered, for a complete list of what's possible check the **Components** section bellow. After receiving the **Components**, the `SmashView` will create **ComponentViews** for each **Component**. `SmashView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `SmashView` will make sure to reload its data in the smartest possible way so the user interaction isn't affected.
+The entry point for the **Astrup** library is the `AstrupView`. After adding a `AstrupView` to your `UIViewController` you'll just need to implement the `dataSource`. **Astrup** uses **Components** to represent the strongly typed views that will be rendered, for a complete list of what's possible check the **Components** section bellow. After receiving the **Components**, the `AstrupView` will create **ComponentViews** for each **Component**. `AstrupView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `AstrupView` will make sure to reload its data in the smartest possible way so the user interaction isn't affected.
 
 ### Simple Demo
 
 ```swift
-import Smash
+import Astrup
 
 class MyViewController: UIViewController {
     let elements: [TableElement] = {
@@ -34,8 +34,8 @@ class MyViewController: UIViewController {
         ]
     }
 
-    lazy var smashView: SmashView = {
-        let view = SmashView()
+    lazy var astrupView: AstrupView = {
+        let view = AstrupView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
@@ -44,23 +44,23 @@ class MyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(smashView)
-        NSLayoutConstraint.activate([smashView.topAnchor.constraint(equalTo: view.topAnchor), smashView.bottomAnchor.constraint(equalTo: view.bottomAnchor), smashView.leadingAnchor.constraint(equalTo: view.leadingAnchor), smashView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
-        smashView.dataSource = self
-        smashView.reloadData()
+        view.addSubview(astrupView)
+        NSLayoutConstraint.activate([astrupView.topAnchor.constraint(equalTo: view.topAnchor), astrupView.bottomAnchor.constraint(equalTo: view.bottomAnchor), astrupView.leadingAnchor.constraint(equalTo: view.leadingAnchor), astrupView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
+        astrupView.dataSource = self
+        astrupView.reloadData()
     }
 }
 
-extension MyViewController: SmashViewDataSource {
-    func components(in smashView: SmashView) -> [[Component]] { return components }
+extension MyViewController: AstrupViewDataSource {
+    func components(in astrupView: AstrupView) -> [[Component]] { return components }
 
-    func customComponentView(for component: Component, in smashView: SmashView) -> UIView? { return nil }
+    func customComponentView(for component: Component, in astrupView: AstrupView) -> UIView? { return nil }
 }
 ```
 
 ### Result
 
-<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Smash/master/GitHub/demo.png"></p>
+<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Astrup/master/GitHub/demo.png"></p>
 
 ## Components
 
@@ -89,7 +89,7 @@ Needs description.
 ### Carthage
 
 ```ruby
-github "finn-no/Smash" "master"
+github "finn-no/Astrup" "master"
 ```
 
 ### Supported iOS, OS X, watchOS and tvOS Versions
@@ -98,4 +98,4 @@ github "finn-no/Smash" "master"
 
 ## License
 
-**Smash** is available under the MIT license. See the [LICENSE](/LICENSE.md) file for more info.
+**Astrup** is available under the MIT license. See the [LICENSE](/LICENSE.md) file for more info.

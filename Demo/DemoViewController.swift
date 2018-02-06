@@ -2,7 +2,7 @@
 //  Copyright © FINN.no AS, Inc. All rights reserved.
 //
 
-import Smash
+import Astrup
 import UIKit
 
 class DemoViewController: UIViewController {
@@ -61,8 +61,8 @@ class DemoViewController: UIViewController {
         return item
     }()
 
-    lazy var smashView: SmashView = {
-        let view = SmashView()
+    lazy var astrupView: AstrupView = {
+        let view = AstrupView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
@@ -73,24 +73,24 @@ class DemoViewController: UIViewController {
 
         navigationItem.setRightBarButtonItems([favoriteBarButtonItem, shareBarButtonItem], animated: false)
 
-        view.addSubview(smashView)
+        view.addSubview(astrupView)
 
         NSLayoutConstraint.activate([
-            smashView.topAnchor.constraint(equalTo: view.topAnchor),
-            smashView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            smashView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            smashView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            astrupView.topAnchor.constraint(equalTo: view.topAnchor),
+            astrupView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            astrupView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            astrupView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
 
-        smashView.dataSource = self
+        astrupView.dataSource = self
 
-        smashView.galleryDelegate = self
-        smashView.phoneNumberDelegate = self
-        smashView.callToActionButtonDelegate = self
-        smashView.linkDelegate = self
-        smashView.phoneNumberListDelegate = self
+        astrupView.galleryDelegate = self
+        astrupView.phoneNumberDelegate = self
+        astrupView.callToActionButtonDelegate = self
+        astrupView.linkDelegate = self
+        astrupView.phoneNumberListDelegate = self
 
-        smashView.reloadData()
+        astrupView.reloadData()
     }
 
     @objc func favorite(sender: UIButton) {
@@ -104,12 +104,12 @@ class DemoViewController: UIViewController {
     }
 }
 
-extension DemoViewController: SmashViewDataSource {
-    func components(in smashView: SmashView) -> [[Component]] {
+extension DemoViewController: AstrupViewDataSource {
+    func components(in astrupView: AstrupView) -> [[Component]] {
         return components
     }
 
-    func customComponentView(for component: Component, in smashView: SmashView) -> UIView? {
+    func customComponentView(for component: Component, in astrupView: AstrupView) -> UIView? {
         switch component.id {
         case "custom1": return CustomView()
         default: return nil
@@ -117,8 +117,8 @@ extension DemoViewController: SmashViewDataSource {
     }
 }
 
-extension DemoViewController: GallerySmashViewDelegate {
-    func smashView(_ smashView: SmashView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
+extension DemoViewController: GalleryAstrupViewDelegate {
+    func astrupView(_ astrupView: AstrupView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
         guard let url = URL(string: stringURL) else { return }
 
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -137,33 +137,33 @@ extension DemoViewController: GallerySmashViewDelegate {
     }
 }
 
-extension DemoViewController: PhoneNumberSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+extension DemoViewController: PhoneNumberAstrupViewDelegate {
+    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
 
-    func smashView(_ smashView: SmashView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+    func astrupView(_ astrupView: AstrupView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
         return true
     }
 }
 
-extension DemoViewController: CallToActionButtonSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapSendMessageFor component: CallToActionButtonComponent) {
+extension DemoViewController: CallToActionButtonAstrupViewDelegate {
+    func astrupView(_ astrupView: AstrupView, didTapSendMessageFor component: CallToActionButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Send message!")
         present(alert, animated: true, completion: nil)
     }
 }
 
-extension DemoViewController: LinkSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent) {
+extension DemoViewController: LinkAstrupViewDelegate {
+    func astrupView(_ astrupView: AstrupView, didTapButtonFor component: LinkComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
         present(alert, animated: true, completion: nil)
     }
 }
 
-extension DemoViewController: PhoneNumberListSmashViewDelegate {
-    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
+extension DemoViewController: PhoneNumberListAstrupViewDelegate {
+    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
