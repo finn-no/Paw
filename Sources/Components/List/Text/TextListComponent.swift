@@ -4,11 +4,13 @@
 
 import Foundation
 
-public struct TextTableElement: TableElement {
-    public let title: String
+public struct TextListComponent: Component {
+    public let id: String
+    let title: String
     let detail: String
 
-    public init(title: String, detail: String) {
+    public init(id: String = UUID().uuidString, title: String, detail: String) {
+        self.id = id
         self.title = title
         self.detail = detail
     }

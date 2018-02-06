@@ -6,7 +6,7 @@ import Foundation
 @testable import Smash
 import XCTest
 
-class DateTableComponentTests: XCTestCase {
+class DateListComponentTests: XCTestCase {
     let norwegianTitleString = "Sist endret"
     let americanTitleString = "Last changed"
 
@@ -27,24 +27,24 @@ class DateTableComponentTests: XCTestCase {
     let date = Date.dateWithHourAndTimeZoneString("2014-03-30T09:13:00.000Z")
 
     func testTitleLabel() {
-        let norwegianDateAndTimeTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale)
-        let americanDateAndTimeTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale)
+        let norwegianDateAndTimeTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale)
+        let americanDateAndTimeTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale)
 
         XCTAssertEqual(norwegianDateAndTimeTableComponent.title, norwegianTitleString)
         XCTAssertEqual(americanDateAndTimeTableComponent.title, americanTitleString)
     }
 
     func testDateLabel() {
-        let norwegianDateAndTimeTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
-        let americanDateAndTimeTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
+        let norwegianDateAndTimeTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
+        let americanDateAndTimeTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
 
-        let norwegianDateTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .date)
-        let americanDateTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .date)
+        let norwegianDateTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .date)
+        let americanDateTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .date)
 
-        let norwegianTimeTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .time)
-        let americanTimeTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .time)
+        let norwegianTimeTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .time)
+        let americanTimeTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .time)
 
-        let yearTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .year)
+        let yearTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .year)
 
         XCTAssertEqual(norwegianDateAndTimeTableComponent.dateLabel, norwegianDateAndTimeString)
         XCTAssertEqual(americanDateAndTimeTableComponent.dateLabel, americanDateAndTimeString)
@@ -59,16 +59,16 @@ class DateTableComponentTests: XCTestCase {
     }
 
     func testAccessibilityLabel() {
-        let norwegianDateAndTimeTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
-        let americanDateAndTimeTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
+        let norwegianDateAndTimeTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
+        let americanDateAndTimeTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .dateAndTime)
 
-        let norwegianDateTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .date)
-        let americanDateTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .date)
+        let norwegianDateTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .date)
+        let americanDateTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .date)
 
-        let norwegianTimeTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .time)
-        let americanTimeTableComponent = DateTableElement(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .time)
+        let norwegianTimeTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .time)
+        let americanTimeTableComponent = DateListComponent(title: americanTitleString, date: date, locale: americanLocale, timeZone: utcTimeZone, dateFormat: .time)
 
-        let yearTableComponent = DateTableElement(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .year)
+        let yearTableComponent = DateListComponent(title: norwegianTitleString, date: date, locale: norwegianLocale, timeZone: utcTimeZone, dateFormat: .year)
 
         XCTAssertEqual(norwegianDateAndTimeTableComponent.accessibilityLabel, norwegianTitleString + ": " + norwegianDateAndTimeString)
         XCTAssertEqual(americanDateAndTimeTableComponent.accessibilityLabel, americanTitleString + ": " + americanDateAndTimeString)

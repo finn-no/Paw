@@ -26,12 +26,17 @@ public protocol LinkSmashViewDelegate: class {
     func smashView(_ smashView: SmashView, didTapButtonFor component: LinkComponent)
 }
 
+public protocol PhoneNumberListSmashViewDelegate: class {
+    func smashView(_ smashView: SmashView, didTapPhoneNumberFor component: PhoneNumberListComponent)
+}
+
 public class SmashView: UIView {
     public weak var dataSource: SmashViewDataSource?
     public weak var galleryDelegate: GallerySmashViewDelegate?
     public weak var phoneNumberDelegate: PhoneNumberSmashViewDelegate?
     public weak var callToActionButtonDelegate: CallToActionButtonSmashViewDelegate?
     public weak var linkDelegate: LinkSmashViewDelegate?
+    public weak var phoneNumberListDelegate: PhoneNumberListSmashViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -185,11 +190,27 @@ public class SmashView: UIView {
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.component = component as? PriceComponent
             return listComponentView
-        case is TableComponent:
-            let listComponentView = TableComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? TableComponent
-            return listComponentView
+        case is SeparatorComponent:
+            let separatorComponentView = SeparatorComponentView()
+            separatorComponentView.translatesAutoresizingMaskIntoConstraints = false
+            separatorComponentView.component = component as? SeparatorComponent
+            return separatorComponentView
+        case is TextListComponent:
+            let textListComponentView = TextListComponentView()
+            textListComponentView.translatesAutoresizingMaskIntoConstraints = false
+            textListComponentView.component = component as? TextListComponent
+            return textListComponentView
+        case is DateListComponent:
+            let dateListComponentView = DateListComponentView()
+            dateListComponentView.translatesAutoresizingMaskIntoConstraints = false
+            dateListComponentView.component = component as? DateListComponent
+            return dateListComponentView
+        case is PhoneNumberListComponent:
+            let phoneNumberListComponentView = PhoneNumberListComponentView()
+            phoneNumberListComponentView.translatesAutoresizingMaskIntoConstraints = false
+            phoneNumberListComponentView.delegate = smashView
+            phoneNumberListComponentView.component = component as? PhoneNumberListComponent
+            return phoneNumberListComponentView
         default: return nil
         }
     }
@@ -250,5 +271,11 @@ extension SmashView: DescriptionComponentViewDelegate {
                 descriptionComponentView.setButtonShowing(showing: true)
             })
         }
+    }
+}
+
+extension SmashView: PhoneNumberListComponentViewDelegate {
+    func phoneNumberListComponentView(_ phoneNumberListComponentView: PhoneNumberListComponentView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
+        phoneNumberListDelegate?.smashView(self, didTapPhoneNumberFor: component)
     }
 }
