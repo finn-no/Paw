@@ -4,7 +4,7 @@
 
 import UIKit
 
-public class TextTableElementView: UIView {
+public class DateListComponentView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.isAccessibilityElement = true
@@ -26,18 +26,19 @@ public class TextTableElementView: UIView {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, detailLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
         stackView.spacing = .smallSpacing
         return stackView
     }()
 
-    var component: TextTableElement? {
+    var component: DateListComponent? {
         didSet {
             guard let component = component else {
                 return
             }
+
             titleLabel.text = component.title
-            detailLabel.text = component.detail
+            detailLabel.text = component.dateLabel
             accessibilityLabel = component.accessibilityLabel
         }
     }
@@ -55,44 +56,13 @@ public class TextTableElementView: UIView {
     private func setup() {
         addSubview(stackView)
 
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
-        addGestureRecognizer(longPressGesture)
-
         isAccessibilityElement = true
 
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
-    }
-
-    @objc func longPressed(gesture: UILongPressGestureRecognizer) {
-        becomeFirstResponder()
-        let menu = UIMenuController.shared
-        if !menu.isMenuVisible {
-            let titleLabelWidth = titleLabel.bounds.width
-            let detailLabelWidth = detailLabel.bounds.width
-            let labelRect = CGRect(x: titleLabelWidth + detailLabelWidth / 2, y: 0, width: detailLabelWidth / 2, height: bounds.height)
-            menu.setTargetRect(labelRect, in: self)
-            print(labelRect)
-            menu.setMenuVisible(true, animated: true)
-        }
-    }
-
-    public override var canBecomeFirstResponder: Bool {
-        return true
-    }
-
-    public override func copy(_ sender: Any?) {
-        guard let detailString = detailLabel.text else {
-            return
-        }
-
-        let board = UIPasteboard.general
-        board.string = detailString
-        let menu = UIMenuController.shared
-        menu.setMenuVisible(false, animated: true)
     }
 }
