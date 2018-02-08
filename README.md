@@ -14,13 +14,6 @@ The entry point for the **Astrup** library is the `AstrupView`. After adding a `
 import Astrup
 
 class MyViewController: UIViewController {
-    let elements: [TableElement] = {
-        return [
-            TextTableElement(title: "Item code", detail: "123456789"),
-            DateTableElement(title: "Last updated", date: Date()),
-        ]
-    }()
-
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
@@ -30,7 +23,9 @@ class MyViewController: UIViewController {
             [LinkComponent(buttonTitle: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
             [DescriptionComponent(text: attributedDescriptionText, titleShow: "+ See more", titleHide: "- See less")],
             [LinkComponent(buttonTitle: "Need help with the delivery?", iconImage: vanImage!)],
-            [TableComponent(components: elements)],
+            [TextListComponent(title: "Item code", detail: "123456789")],
+            [SeparatorComponent()],
+            [DateListComponent(title: "Last updated", date: Date())]
         ]
     }
 
