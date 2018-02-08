@@ -25,17 +25,15 @@ class DemoViewController: UIViewController {
     var components: [[Component]] {
         let locale = Locale(identifier: "nb_NO")
         return [
-            [TitleComponent(text: "Lekker 1 roms i originale Waldemars Hage, inkl varmtvann/fyring, internett og tv")],
             [GalleryComponent(placeholder: imagePlaceholder, stringURLs: ["https://images.finncdn.no/dynamic/480x360c/2017/9/vertical-5/30/5/105/424/_1263219766.jpg", "https://images.finncdn.no/dynamic/480x360c/2017/7/vertical-2/19/3/100/464/_1229205040.jpg"])],
-            [CustomComponent(id: "custom1")],
+            [TitleComponent(text: "Lekker 1 roms i originale Waldemars Hage, inkl varmtvann/fyring, internett og tv")],
+            [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
             [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer")],
             [PhoneNumberComponent(phoneNumber: "12345678", descriptionText: "Mobil", showNumberText: "Vis telefonnummer", accessibilityLabelPrefix: "Telefonnummer: ")],
+            [CustomComponent(id: "custom1")],
             [LinkComponent(title: "Hans Nordahls gate 64, 0841 Oslo", iconImage: pinImage!)],
-            [LinkComponent(title: "Få hjelp til frakt")],
             [DescriptionComponent(text: attributedDescriptionText, titleShow: "+ Vis hele beskrivelsen", titleHide: "- Vis mindre", isCollapsable: true)],
-            [CallToActionButtonComponent(title: "Send melding", subtitle: "Svarer vanligvis innen 4 timer"), CallToActionButtonComponent(title: "Ring")],
-            [PriceComponent(price: 1_500_000, locale: locale, accessibilityPrefix: "Pris: ")],
-            [PriceComponent(price: 1200, locale: locale, accessibilityPrefix: "Pris: ", status: "Solgt")],
+            [LinkComponent(title: "Pris på lån")],
             [TextListComponent(title: "FINN-kode", detail: "123456789")],
             [SeparatorComponent()],
             [DateListComponent(title: "Sist endret", date: Date())],
