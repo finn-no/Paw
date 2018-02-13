@@ -9,15 +9,15 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "14E5C1892026044B0039A9A7"
-               BuildableName = "Astrup.framework"
-               BlueprintName = "Astrup"
-               ReferencedContainer = "container:Astrup.xcodeproj">
+               BlueprintIdentifier = "14E5C19A202604F60039A9A7"
+               BuildableName = "UnitTests.xctest"
+               BlueprintName = "UnitTests"
+               ReferencedContainer = "container:Paw.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "14E5C19A202604F60039A9A7"
+               BuildableName = "UnitTests.xctest"
+               BlueprintName = "UnitTests"
+               ReferencedContainer = "container:Paw.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
@@ -47,10 +57,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14E5C1892026044B0039A9A7"
-            BuildableName = "Astrup.framework"
-            BlueprintName = "Astrup"
-            ReferencedContainer = "container:Astrup.xcodeproj">
+            BlueprintIdentifier = "14E5C19A202604F60039A9A7"
+            BuildableName = "UnitTests.xctest"
+            BlueprintName = "UnitTests"
+            ReferencedContainer = "container:Paw.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,10 +75,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "14E5C1892026044B0039A9A7"
-            BuildableName = "Astrup.framework"
-            BlueprintName = "Astrup"
-            ReferencedContainer = "container:Astrup.xcodeproj">
+            BlueprintIdentifier = "14E5C19A202604F60039A9A7"
+            BuildableName = "UnitTests.xctest"
+            BlueprintName = "UnitTests"
+            ReferencedContainer = "container:Paw.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

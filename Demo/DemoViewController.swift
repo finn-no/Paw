@@ -2,7 +2,7 @@
 //  Copyright © FINN.no AS, Inc. All rights reserved.
 //
 
-import Astrup
+import Paw
 import UIKit
 
 class DemoViewController: UIViewController {
@@ -59,8 +59,8 @@ class DemoViewController: UIViewController {
         return item
     }()
 
-    lazy var astrupView: AstrupView = {
-        let view = AstrupView()
+    lazy var pawView: PawView = {
+        let view = PawView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
@@ -71,24 +71,24 @@ class DemoViewController: UIViewController {
 
         navigationItem.setRightBarButtonItems([favoriteBarButtonItem, shareBarButtonItem], animated: false)
 
-        view.addSubview(astrupView)
+        view.addSubview(pawView)
 
         NSLayoutConstraint.activate([
-            astrupView.topAnchor.constraint(equalTo: view.topAnchor),
-            astrupView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            astrupView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            astrupView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pawView.topAnchor.constraint(equalTo: view.topAnchor),
+            pawView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pawView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pawView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
 
-        astrupView.dataSource = self
+        pawView.dataSource = self
 
-        astrupView.galleryDelegate = self
-        astrupView.phoneNumberDelegate = self
-        astrupView.callToActionButtonDelegate = self
-        astrupView.linkDelegate = self
-        astrupView.phoneNumberListDelegate = self
+        pawView.galleryDelegate = self
+        pawView.phoneNumberDelegate = self
+        pawView.callToActionButtonDelegate = self
+        pawView.linkDelegate = self
+        pawView.phoneNumberListDelegate = self
 
-        astrupView.reloadData()
+        pawView.reloadData()
     }
 
     @objc func favorite(sender: UIButton) {
@@ -102,12 +102,12 @@ class DemoViewController: UIViewController {
     }
 }
 
-extension DemoViewController: AstrupViewDataSource {
-    func components(in astrupView: AstrupView) -> [[Component]] {
+extension DemoViewController: PawViewDataSource {
+    func components(in pawView: PawView) -> [[Component]] {
         return components
     }
 
-    func customComponentView(for component: Component, in astrupView: AstrupView) -> UIView? {
+    func customComponentView(for component: Component, in pawView: PawView) -> UIView? {
         switch component.id {
         case "custom1": return CustomView()
         default: return nil
@@ -115,8 +115,8 @@ extension DemoViewController: AstrupViewDataSource {
     }
 }
 
-extension DemoViewController: GalleryAstrupViewDelegate {
-    func astrupView(_ astrupView: AstrupView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
+extension DemoViewController: GalleryPawViewDelegate {
+    func pawView(_ pawView: PawView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
         guard let url = URL(string: stringURL) else { return }
 
         URLSession.shared.dataTask(with: url) { data, _, error in
@@ -135,33 +135,33 @@ extension DemoViewController: GalleryAstrupViewDelegate {
     }
 }
 
-extension DemoViewController: PhoneNumberAstrupViewDelegate {
-    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberComponent) {
+extension DemoViewController: PhoneNumberPawViewDelegate {
+    func pawView(_ pawView: PawView, didTapPhoneNumberFor component: PhoneNumberComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }
 
-    func astrupView(_ astrupView: AstrupView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
+    func pawView(_ pawView: PawView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
         return true
     }
 }
 
-extension DemoViewController: CallToActionButtonAstrupViewDelegate {
-    func astrupView(_ astrupView: AstrupView, didTapSendMessageFor component: CallToActionButtonComponent) {
+extension DemoViewController: CallToActionButtonPawViewDelegate {
+    func pawView(_ pawView: PawView, didTapSendMessageFor component: CallToActionButtonComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Send message!")
         present(alert, animated: true, completion: nil)
     }
 }
 
-extension DemoViewController: LinkAstrupViewDelegate {
-    func astrupView(_ astrupView: AstrupView, didTapButtonFor component: LinkComponent) {
+extension DemoViewController: LinkPawViewDelegate {
+    func pawView(_ pawView: PawView, didTapButtonFor component: LinkComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Button with id: \(component.id)")
         present(alert, animated: true, completion: nil)
     }
 }
 
-extension DemoViewController: PhoneNumberListAstrupViewDelegate {
-    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
+extension DemoViewController: PhoneNumberListPawViewDelegate {
+    func pawView(_ pawView: PawView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
         let alert = UIAlertController.dismissableAlert(title: "Calling: \(component.phoneNumber)")
         present(alert, animated: true, completion: nil)
     }

@@ -2,7 +2,7 @@
 //  Copyright © FINN.no AS, Inc. All rights reserved.
 //
 
-import Astrup
+import Paw
 import UIKit
 
 @UIApplicationMain
@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = DemoViewController()
 
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.tabBarItem = UITabBarItem(title: "Astrup", image: nil, tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "Paw", image: nil, tag: 0)
 
         let navigationBarApperance = UINavigationBar.appearance()
         navigationBarApperance.tintColor = .primaryBlue

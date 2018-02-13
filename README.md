@@ -1,4 +1,4 @@
-<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Astrup/master/GitHub/cover-v3.png"></p>
+<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Paw/master/GitHub/cover-v3.png"></p>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) ![](https://img.shields.io/badge/platform-iOS-lightgrey.svg) ![](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)
 
@@ -6,12 +6,12 @@ A simple and declarative library to display the details of an element. Even thou
 
 ## Getting started
 
-The entry point for the **Astrup** library is the `AstrupView`. After adding a `AstrupView` to your `UIViewController` you'll just need to implement the `dataSource`. **Astrup** uses **Components** to represent the strongly typed views that will be rendered, for a complete list of what's possible check the **Components** section bellow. After receiving the **Components**, the `AstrupView` will create **ComponentViews** for each **Component**. `AstrupView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `AstrupView` will make sure to reload its data in the smartest possible way so the user interaction isn't affected.
+The entry point for the **Paw** library is the `PawView`. After adding a `PawView` to your `UIViewController` you'll just need to implement the `dataSource`. **Paw** uses **Components** to represent the strongly typed views that will be rendered, for a complete list of what's possible check the **Components** section bellow. After receiving the **Components**, the `PawView` will create **ComponentViews** for each **Component**. `PawView` communicates interaction using the `delegate` pattern. You can change your **Components** at any time and just call `reloadData`, `PawView` will make sure to reload its data in the smartest possible way so the user interaction isn't affected.
 
 ### Simple Demo
 
 ```swift
-import Astrup
+import Paw
 
 class MyViewController: UIViewController {
     var components: [[Component]] {
@@ -29,8 +29,8 @@ class MyViewController: UIViewController {
         ]
     }
 
-    lazy var astrupView: AstrupView = {
-        let view = AstrupView()
+    lazy var pawView: PawView = {
+        let view = PawView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
@@ -39,23 +39,23 @@ class MyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(astrupView)
-        NSLayoutConstraint.activate([astrupView.topAnchor.constraint(equalTo: view.topAnchor), astrupView.bottomAnchor.constraint(equalTo: view.bottomAnchor), astrupView.leadingAnchor.constraint(equalTo: view.leadingAnchor), astrupView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
-        astrupView.dataSource = self
-        astrupView.reloadData()
+        view.addSubview(pawView)
+        NSLayoutConstraint.activate([pawView.topAnchor.constraint(equalTo: view.topAnchor), pawView.bottomAnchor.constraint(equalTo: view.bottomAnchor), pawView.leadingAnchor.constraint(equalTo: view.leadingAnchor), pawView.trailingAnchor.constraint(equalTo: view.trailingAnchor)])
+        pawView.dataSource = self
+        pawView.reloadData()
     }
 }
 
-extension MyViewController: AstrupViewDataSource {
-    func components(in astrupView: AstrupView) -> [[Component]] { return components }
+extension MyViewController: PawViewDataSource {
+    func components(in pawView: PawView) -> [[Component]] { return components }
 
-    func customComponentView(for component: Component, in astrupView: AstrupView) -> UIView? { return nil }
+    func customComponentView(for component: Component, in pawView: PawView) -> UIView? { return nil }
 }
 ```
 
 ### Result
 
-<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Astrup/master/GitHub/demo.png"></p>
+<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Paw/master/GitHub/demo.png"></p>
 
 ## Components
 
@@ -84,7 +84,7 @@ Needs description.
 ### Carthage
 
 ```ruby
-github "finn-no/Astrup" "master"
+github "finn-no/Paw" "master"
 ```
 
 ### Supported iOS, OS X, watchOS and tvOS Versions
@@ -93,4 +93,4 @@ github "finn-no/Astrup" "master"
 
 ## License
 
-**Astrup** is available under the MIT license. See the [LICENSE](/LICENSE.md) file for more info.
+**Paw** is available under the MIT license. See the [LICENSE](/LICENSE.md) file for more info.

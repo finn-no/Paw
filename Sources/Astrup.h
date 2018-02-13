@@ -1,4 +1,4 @@
 @import UIKit;
 
-FOUNDATION_EXPORT double AstrupVersionNumber;
-FOUNDATION_EXPORT const unsigned char AstrupVersionString[];
+FOUNDATION_EXPORT double PawVersionNumber;
+FOUNDATION_EXPORT const unsigned char PawVersionString[];

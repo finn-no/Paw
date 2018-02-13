@@ -4,39 +4,39 @@
 
 import UIKit
 
-public protocol AstrupViewDataSource: class {
-    func components(in astrupView: AstrupView) -> [[Component]]
-    func customComponentView(for component: Component, in astrupView: AstrupView) -> UIView?
+public protocol PawViewDataSource: class {
+    func components(in pawView: PawView) -> [[Component]]
+    func customComponentView(for component: Component, in pawView: PawView) -> UIView?
 }
 
-public protocol GalleryAstrupViewDelegate: class {
-    func astrupView(_ astrupView: AstrupView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void)
+public protocol GalleryPawViewDelegate: class {
+    func pawView(_ pawView: PawView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void)
 }
 
-public protocol PhoneNumberAstrupViewDelegate: class {
-    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberComponent)
-    func astrupView(_ astrupView: AstrupView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
+public protocol PhoneNumberPawViewDelegate: class {
+    func pawView(_ pawView: PawView, didTapPhoneNumberFor component: PhoneNumberComponent)
+    func pawView(_ pawView: PawView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool
 }
 
-public protocol CallToActionButtonAstrupViewDelegate: class {
-    func astrupView(_ astrupView: AstrupView, didTapSendMessageFor component: CallToActionButtonComponent)
+public protocol CallToActionButtonPawViewDelegate: class {
+    func pawView(_ pawView: PawView, didTapSendMessageFor component: CallToActionButtonComponent)
 }
 
-public protocol LinkAstrupViewDelegate: class {
-    func astrupView(_ astrupView: AstrupView, didTapButtonFor component: LinkComponent)
+public protocol LinkPawViewDelegate: class {
+    func pawView(_ pawView: PawView, didTapButtonFor component: LinkComponent)
 }
 
-public protocol PhoneNumberListAstrupViewDelegate: class {
-    func astrupView(_ astrupView: AstrupView, didTapPhoneNumberFor component: PhoneNumberListComponent)
+public protocol PhoneNumberListPawViewDelegate: class {
+    func pawView(_ pawView: PawView, didTapPhoneNumberFor component: PhoneNumberListComponent)
 }
 
-public class AstrupView: UIView {
-    public weak var dataSource: AstrupViewDataSource?
-    public weak var galleryDelegate: GalleryAstrupViewDelegate?
-    public weak var phoneNumberDelegate: PhoneNumberAstrupViewDelegate?
-    public weak var callToActionButtonDelegate: CallToActionButtonAstrupViewDelegate?
-    public weak var linkDelegate: LinkAstrupViewDelegate?
-    public weak var phoneNumberListDelegate: PhoneNumberListAstrupViewDelegate?
+public class PawView: UIView {
+    public weak var dataSource: PawViewDataSource?
+    public weak var galleryDelegate: GalleryPawViewDelegate?
+    public weak var phoneNumberDelegate: PhoneNumberPawViewDelegate?
+    public weak var callToActionButtonDelegate: CallToActionButtonPawViewDelegate?
+    public weak var linkDelegate: LinkPawViewDelegate?
+    public weak var phoneNumberListDelegate: PhoneNumberListPawViewDelegate?
 
     private let animationDuration = 0.4
 
@@ -148,7 +148,7 @@ public class AstrupView: UIView {
         }
     }
 
-    func viewComponent(for component: Component, in astrupView: AstrupView) -> UIView? {
+    func viewComponent(for component: Component, in pawView: PawView) -> UIView? {
         switch component.self {
         case is TitleComponent:
             let listComponentView = TitleComponentView()
@@ -158,31 +158,31 @@ public class AstrupView: UIView {
         case is GalleryComponent:
             let galleryComponentView = GalleryComponentView()
             galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
-            galleryComponentView.delegate = astrupView
+            galleryComponentView.delegate = pawView
             galleryComponentView.component = component as? GalleryComponent
             return galleryComponentView
         case is CallToActionButtonComponent:
             let listComponentView = CallToActionButtonComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = astrupView
+            listComponentView.delegate = pawView
             listComponentView.component = component as? CallToActionButtonComponent
             return listComponentView
         case is PhoneNumberComponent:
             let listComponentView = PhoneNumberComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = astrupView
+            listComponentView.delegate = pawView
             listComponentView.component = component as? PhoneNumberComponent
             return listComponentView
         case is LinkComponent:
             let listComponentView = LinkComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = astrupView
+            listComponentView.delegate = pawView
             listComponentView.component = component as? LinkComponent
             return listComponentView
         case is DescriptionComponent:
             let listComponentView = DescriptionComponentView()
             listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.delegate = astrupView
+            listComponentView.delegate = pawView
             listComponentView.component = component as? DescriptionComponent
             return listComponentView
         case is PriceComponent:
@@ -208,7 +208,7 @@ public class AstrupView: UIView {
         case is PhoneNumberListComponent:
             let phoneNumberListComponentView = PhoneNumberListComponentView()
             phoneNumberListComponentView.translatesAutoresizingMaskIntoConstraints = false
-            phoneNumberListComponentView.delegate = astrupView
+            phoneNumberListComponentView.delegate = pawView
             phoneNumberListComponentView.component = component as? PhoneNumberListComponent
             return phoneNumberListComponentView
         default: return nil
@@ -216,35 +216,35 @@ public class AstrupView: UIView {
     }
 }
 
-extension AstrupView: GalleryComponentViewDelegate {
+extension PawView: GalleryComponentViewDelegate {
     func galleryComponentView(_ galleryComponentView: GalleryComponentView, stringURL: String, imageCallBack: @escaping (_ image: UIImage?) -> Void) {
-        galleryDelegate?.astrupView(self, stringURL: stringURL, imageCallBack: imageCallBack)
+        galleryDelegate?.pawView(self, stringURL: stringURL, imageCallBack: imageCallBack)
     }
 }
 
-extension AstrupView: CallToActionButtonComponentViewDelegate {
+extension PawView: CallToActionButtonComponentViewDelegate {
     func callToActionButtonComponentView(_ callToActionButtonComponentView: CallToActionButtonComponentView, didTapSendMessageFor component: CallToActionButtonComponent) {
-        callToActionButtonDelegate?.astrupView(self, didTapSendMessageFor: component)
+        callToActionButtonDelegate?.pawView(self, didTapSendMessageFor: component)
     }
 }
 
-extension AstrupView: PhoneNumberComponentViewDelegate {
+extension PawView: PhoneNumberComponentViewDelegate {
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, didTapPhoneNumberFor component: PhoneNumberComponent) {
-        phoneNumberDelegate?.astrupView(self, didTapPhoneNumberFor: component)
+        phoneNumberDelegate?.pawView(self, didTapPhoneNumberFor: component)
     }
 
     func phoneNumberComponentView(_ phoneNumberComponentView: PhoneNumberComponentView, canShowPhoneNumberFor component: PhoneNumberComponent) -> Bool {
-        return phoneNumberDelegate?.astrupView(self, canShowPhoneNumberFor: component) ?? false
+        return phoneNumberDelegate?.pawView(self, canShowPhoneNumberFor: component) ?? false
     }
 }
 
-extension AstrupView: LinkComponentViewDelegate {
+extension PawView: LinkComponentViewDelegate {
     func linkComponentView(_ adressComponentView: LinkComponentView, didTapButtonFor component: LinkComponent) {
-        linkDelegate?.astrupView(self, didTapButtonFor: component)
+        linkDelegate?.pawView(self, didTapButtonFor: component)
     }
 }
 
-extension AstrupView: DescriptionComponentViewDelegate {
+extension PawView: DescriptionComponentViewDelegate {
     func descriptionComponentView(_ descriptionComponentView: DescriptionComponentView, didTapExpandDescriptionFor component: DescriptionComponent) {
         UIView.animate(withDuration: animationDuration, animations: {
             descriptionComponentView.layoutIfNeeded()
@@ -274,8 +274,8 @@ extension AstrupView: DescriptionComponentViewDelegate {
     }
 }
 
-extension AstrupView: PhoneNumberListComponentViewDelegate {
+extension PawView: PhoneNumberListComponentViewDelegate {
     func phoneNumberListComponentView(_ phoneNumberListComponentView: PhoneNumberListComponentView, didTapPhoneNumberFor component: PhoneNumberListComponent) {
-        phoneNumberListDelegate?.astrupView(self, didTapPhoneNumberFor: component)
+        phoneNumberListDelegate?.pawView(self, didTapPhoneNumberFor: component)
     }
 }

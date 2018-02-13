@@ -2,7 +2,7 @@
 //  Copyright © FINN.no AS, Inc. All rights reserved.
 //
 
-@testable import Astrup
+@testable import Paw
 import Foundation
 import XCTest
 
