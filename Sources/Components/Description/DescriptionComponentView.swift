@@ -65,7 +65,7 @@ public class DescriptionComponentView: UIView {
             descriptionTextView.accessibilityAttributedLabel = component.text
 
             if component.isCollapsable {
-                if descriptionTextView.sizeOfSringFor(width: widthOfComponent).height <= showButtonHeightLimit {
+                if descriptionTextView.sizeOfStringFor(width: widthOfComponent).height <= showButtonHeightLimit {
                     descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
                 } else {
                     setupButton()
