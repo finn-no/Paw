@@ -2,8 +2,8 @@
 //  Copyright © FINN.no AS, Inc. All rights reserved.
 //
 
-@testable import Paw
 import Foundation
+@testable import Paw
 import XCTest
 
 class PhoneNumberComponentTests: XCTestCase {

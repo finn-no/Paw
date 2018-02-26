@@ -55,7 +55,7 @@ extension MyViewController: PawViewDataSource {
 
 ### Result
 
-<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Paw/master/GitHub/demo.png"></p>
+<p align="center"><img width=100% src="https://raw.githubusercontent.com/finn-no/Paw/master/GitHub/demo-v2.jpg"></p>
 
 ## Components
 
