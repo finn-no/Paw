@@ -348,7 +348,9 @@
 				44CAE2D31FE26C9F00F8AA9B /* Products */,
 				14E5C2152026055F0039A9A7 /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		44CAE2D31FE26C9F00F8AA9B /* Products */ = {
 			isa = PBXGroup;
