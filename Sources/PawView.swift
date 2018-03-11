@@ -149,70 +149,65 @@ public class PawView: UIView {
     }
 
     func viewComponent(for component: Component, in pawView: PawView) -> UIView? {
-        switch component.self {
-        case is TitleComponent:
+        var view: UIView?
+
+        switch component {
+        case let component as TitleComponent:
             let listComponentView = TitleComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? TitleComponent
-            return listComponentView
-        case is GalleryComponent:
+            listComponentView.component = component
+            view = listComponentView
+        case let component as GalleryComponent:
             let galleryComponentView = GalleryComponentView()
-            galleryComponentView.translatesAutoresizingMaskIntoConstraints = false
             galleryComponentView.delegate = pawView
-            galleryComponentView.component = component as? GalleryComponent
-            return galleryComponentView
-        case is CallToActionButtonComponent:
+            galleryComponentView.component = component
+            view = galleryComponentView
+        case let component as CallToActionButtonComponent:
             let listComponentView = CallToActionButtonComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = pawView
-            listComponentView.component = component as? CallToActionButtonComponent
-            return listComponentView
-        case is PhoneNumberComponent:
+            listComponentView.component = component
+            view = listComponentView
+        case let component as PhoneNumberComponent:
             let listComponentView = PhoneNumberComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = pawView
-            listComponentView.component = component as? PhoneNumberComponent
-            return listComponentView
-        case is LinkComponent:
+            listComponentView.component = component
+            view = listComponentView
+        case let component as LinkComponent:
             let listComponentView = LinkComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = pawView
-            listComponentView.component = component as? LinkComponent
-            return listComponentView
-        case is DescriptionComponent:
+            listComponentView.component = component
+            view = listComponentView
+        case let component as DescriptionComponent:
             let listComponentView = DescriptionComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
             listComponentView.delegate = pawView
-            listComponentView.component = component as? DescriptionComponent
-            return listComponentView
-        case is PriceComponent:
+            listComponentView.component = component
+            view = listComponentView
+        case let component as PriceComponent:
             let listComponentView = PriceComponentView()
-            listComponentView.translatesAutoresizingMaskIntoConstraints = false
-            listComponentView.component = component as? PriceComponent
-            return listComponentView
-        case is SeparatorComponent:
+            listComponentView.component = component
+            view = listComponentView
+        case let component as SeparatorComponent:
             let separatorComponentView = SeparatorComponentView()
-            separatorComponentView.translatesAutoresizingMaskIntoConstraints = false
-            separatorComponentView.component = component as? SeparatorComponent
-            return separatorComponentView
-        case is TextListComponent:
+            separatorComponentView.component = component
+            view = separatorComponentView
+        case let component as TextListComponent:
             let textListComponentView = TextListComponentView()
-            textListComponentView.translatesAutoresizingMaskIntoConstraints = false
-            textListComponentView.component = component as? TextListComponent
-            return textListComponentView
-        case is DateListComponent:
+            textListComponentView.component = component
+            view = textListComponentView
+        case let component as DateListComponent:
             let dateListComponentView = DateListComponentView()
-            dateListComponentView.translatesAutoresizingMaskIntoConstraints = false
-            dateListComponentView.component = component as? DateListComponent
-            return dateListComponentView
-        case is PhoneNumberListComponent:
+            dateListComponentView.component = component
+            view = dateListComponentView
+        case let component as PhoneNumberListComponent:
             let phoneNumberListComponentView = PhoneNumberListComponentView()
-            phoneNumberListComponentView.translatesAutoresizingMaskIntoConstraints = false
             phoneNumberListComponentView.delegate = pawView
-            phoneNumberListComponentView.component = component as? PhoneNumberListComponent
-            return phoneNumberListComponentView
-        default: return nil
+            phoneNumberListComponentView.component = component
+            view = phoneNumberListComponentView
+        default: break
         }
+
+        view?.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
     }
 }
 
